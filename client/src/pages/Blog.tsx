@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { blogPosts } from "@/data/content";
+import { Link } from "wouter";
 import { Mail } from "lucide-react";
 
 export default function Blog() {
@@ -58,9 +59,11 @@ export default function Blog() {
                       <span>•</span>
                       <span>{featuredPost.readTime}</span>
                     </div>
-                    <Button className="bg-white text-gray-900 hover:bg-gray-100">
-                      Read Article
-                    </Button>
+                    <Link href="/blog/ai-transform-business">
+                      <Button className="bg-white text-gray-900 hover:bg-gray-100">
+                        Read Article
+                      </Button>
+                    </Link>
                   </div>
                   <div>
                     <img 
@@ -89,26 +92,36 @@ export default function Blog() {
 
           {/* Blog Grid */}
           <div className="grid lg:grid-cols-3 gap-8">
-            {regularPosts.map((post) => (
-              <Card key={post.id} className="hover-lift cursor-pointer overflow-hidden">
-                <div className="h-48 bg-muted">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover" 
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <Badge variant="outline" className="mb-3">{post.category}</Badge>
-                  <h3 className="text-xl font-bold text-space text-foreground mb-3">{post.title}</h3>
-                  <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <span>{post.readTime}</span>
-                    <span>{post.date}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {regularPosts.map((post) => {
+              const blogRoutes: { [key: number]: string } = {
+                2: "/blog/practical-ai-smes",
+                3: "/blog/cybersecurity-trends-2024", 
+                4: "/blog/brand-identity-digital-age"
+              };
+              
+              return (
+                <Link key={post.id} href={blogRoutes[post.id] || "/blog"}>
+                  <Card className="hover-lift cursor-pointer overflow-hidden">
+                    <div className="h-48 bg-muted">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover" 
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <Badge variant="outline" className="mb-3">{post.category}</Badge>
+                      <h3 className="text-xl font-bold text-space text-foreground mb-3">{post.title}</h3>
+                      <p className="text-muted-foreground mb-4">{post.excerpt}</p>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        <span>{post.readTime}</span>
+                        <span>{post.date}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Load More */}

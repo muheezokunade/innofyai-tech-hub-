@@ -165,7 +165,7 @@ export const testimonials = [
 export const blogPosts = [
   {
     id: 1,
-    title: "The Future of AI in Business Automation",
+    title: "5 Ways AI Can Transform Your Business Operations",
     category: "AI & Automation",
     excerpt: "Exploring how artificial intelligence is reshaping business processes and what leaders need to know to stay ahead of the curve.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
@@ -176,9 +176,9 @@ export const blogPosts = [
   },
   {
     id: 2,
-    title: "5 Ways AI Can Transform Your Business Operations",
+    title: "Beyond the Hype: Practical AI Applications for SMEs",
     category: "AI & Automation",
-    excerpt: "Discover practical applications of AI that can streamline your workflows and boost productivity.",
+    excerpt: "Discover how small and medium enterprises can leverage affordable AI tools to operate smarter and more efficiently.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     author: "Alex Johnson",
     date: "December 12, 2024",

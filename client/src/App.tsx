@@ -22,6 +22,9 @@ import Cybersecurity from "@/pages/services/Cybersecurity";
 import DataAnalytics from "@/pages/services/DataAnalytics";
 import UIUXDesign from "@/pages/services/UIUXDesign";
 import BrandingMerch from "@/pages/services/BrandingMerch";
+import Careers from "@/pages/Careers";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function Router() {
   return (
@@ -41,6 +44,9 @@ function Router() {
         <Route path="/services/data-analytics" component={DataAnalytics} />
         <Route path="/services/ui-ux-design" component={UIUXDesign} />
         <Route path="/services/branding-merch" component={BrandingMerch} />
+        <Route path="/careers" component={Careers} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/terms" component={Terms} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>

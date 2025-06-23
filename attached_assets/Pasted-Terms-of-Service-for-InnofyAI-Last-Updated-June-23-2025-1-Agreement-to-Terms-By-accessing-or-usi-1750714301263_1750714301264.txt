@@ -1,0 +1,60 @@
+Terms of Service for InnofyAI
+Last Updated: June 23, 2025
+
+1. Agreement to Terms
+By accessing or using our website and Services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use our website or Services. These Terms constitute a legally binding agreement between you and InnofyAI.
+
+2. Our Services
+InnofyAI provides a range of technology consulting and creative services, including but not limited to, Automation & AI, Data Collection & Analytics, Cybersecurity, Internet of Things (IoT), UI/UX Design, Social Media Management, Software Development, and Branding & Merchandise services ("Services"). The specific scope, fees, and timeline for any project will be detailed in a separate Statement of Work (SOW) or client agreement.
+
+3. User Responsibilities
+By using our Services, you agree to:
+
+Provide accurate, current, and complete information as may be required for any registration or communication.
+
+Use our website and Services for lawful purposes only and not to engage in any activity that is fraudulent, harmful, or infringes on the rights of others.
+
+Maintain the confidentiality of any account information and be fully responsible for all activities that occur under your account.
+
+Cooperate with us in all matters relating to the Services and provide timely access to any materials or information we may reasonably require.
+
+4. Intellectual Property
+Our Content: All content on our website, including text, graphics, logos, icons, images, and the compilation thereof, and any software used on the site, is the property of InnofyAI or its suppliers and is protected by copyright and other intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to access and use the website for personal, non-commercial purposes.
+
+Client Content: You (or your licensors) will retain all intellectual property rights in any materials you provide to us for the purpose of receiving Services ("Client Content"). You grant InnofyAI a non-exclusive, worldwide, royalty-free license to use, reproduce, and modify the Client Content solely for the purpose of providing the Services.
+
+Deliverables: Intellectual property rights in the final work products ("Deliverables") created by us for you will be transferred to you upon full and final payment of all fees, as outlined in the applicable SOW. We retain the right to use the Deliverables and a description of the Services in our portfolio and for marketing purposes.
+
+5. Fees and Payment
+The fees for our Services will be set forth in the applicable SOW or client agreement. Unless otherwise stated, all fees are due as specified in the agreement. Late payments may be subject to interest charges.
+
+6. Confidentiality
+Both parties agree to keep confidential all non-public information received from the other party that is marked as confidential or would reasonably be considered confidential. This obligation will survive the termination of our engagement.
+
+7. Termination
+Termination for Convenience: Either party may terminate a project or service agreement by providing written notice as specified in the SOW.
+
+Termination for Cause: We may terminate our agreement with you immediately if you breach these Terms or fail to make payments when due.
+
+Effect of Termination: Upon termination, you agree to pay for all Services performed up to the termination date. Sections concerning Intellectual Property, Confidentiality, Disclaimers, and Limitation of Liability shall survive termination.
+
+8. Disclaimers
+Our website and Services are provided "as is" and "as available" without any warranties of any kind, express or implied. We do not warrant that the website will be uninterrupted, error-free, or free of viruses or other harmful components. While we strive to provide high-quality Services, we do not guarantee any specific results or outcomes.
+
+9. Limitation of Liability
+To the fullest extent permitted by law, in no event shall InnofyAI, its directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Services; (ii) any conduct or content of any third party on the Services; (iii) any content obtained from the Services; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage.
+
+Our total liability to you for any and all claims arising out of or relating to these Terms or the Services shall not exceed the amount of fees paid by you to us for the Services in the six (6) months preceding the claim.
+
+10. Governing Law
+These Terms shall be governed and construed in accordance with the laws of the Federal Republic of Nigeria, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located in Lagos, Nigeria to resolve any legal matter arising from the Terms.
+
+11. Changes to Terms
+We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Services after any revisions become effective, you agree to be bound by the revised terms.
+
+12. Contact Us
+If you have any questions about these Terms, please contact us at:
+
+InnofyAI Lagos, Nigeria
+
+Email: legal@innofyai.com

@@ -2,14 +2,43 @@ import { Hero } from "@/components/Hero";
 import { ServiceTabs } from "@/components/ServiceTabs";
 import { CaseStudyGrid } from "@/components/CaseStudyGrid";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import { Zap, CheckCircle, Rocket, ArrowRight } from "lucide-react";
+import { generateOrganizationStructuredData } from "@/lib/structuredData";
 
 export default function Home() {
+  const structuredData = generateOrganizationStructuredData({
+    name: "InnofyAI",
+    url: "https://innofyai.com",
+    logo: "https://innofyai.com/logo.png",
+    description: "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
+    address: {
+      addressLocality: "Lagos",
+      addressCountry: "Nigeria"
+    },
+    contactPoint: {
+      contactType: "customer service",
+      email: "hello@innofyai.com"
+    },
+    sameAs: [
+      "https://twitter.com/innofyai",
+      "https://linkedin.com/company/innofyai"
+    ]
+  });
+
   return (
     <div>
+      <SEO 
+        title="InnofyAI - Tech Excellence & Creative Innovation"
+        description="Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lagos, Nigeria."
+        keywords="AI automation, cybersecurity, branding, UI/UX design, data analytics, tech consulting, Nigeria, Lagos, business transformation"
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630"
+        structuredData={structuredData}
+      />
+      
       <Hero />
       
       {/* Stats Section */}

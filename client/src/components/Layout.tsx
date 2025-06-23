@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Navigation } from "./Navigation";
 import { FloatingCTA } from "./FloatingCTA";
+import { Breadcrumbs } from "./Breadcrumbs";
 import { Link } from "wouter";
 
 interface LayoutProps {
@@ -11,6 +12,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <Breadcrumbs />
       <main className="pt-16">
         {children}
       </main>

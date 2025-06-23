@@ -1,11 +1,31 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { 
+  helmetConfig, 
+  corsOptions, 
+  rateLimiter, 
+  sanitizeInput, 
+  securityHeaders,
+  errorHandler,
+  notFoundHandler
+} from "./middleware/security";
+import cors from "cors";
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
+// Security middleware (order matters!)
+app.use(helmetConfig);
+app.use(cors(corsOptions));
+app.use(securityHeaders);
+app.use(rateLimiter);
+app.use(sanitizeInput);
+
+// Body parsing middleware with limits
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: false, limit: "10mb" }));
+
+// Request logging middleware
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -39,32 +59,69 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
-  });
-
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
+  // Setup Vite in development or serve static in production
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
+  // 404 handler - must be after all routes
+  app.use(notFoundHandler);
+
+  // Error handling middleware - must be last
+  app.use(errorHandler);
+
+  // Server configuration
+  const port = parseInt(process.env.PORT || "5000", 10);
+  const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost";
+  
   server.listen({
     port,
-    host: "0.0.0.0",
-    reusePort: true,
+    host,
   }, () => {
-    log(`serving on port ${port}`);
+    log(`🚀 Server running in ${process.env.NODE_ENV || "development"} mode`);
+    log(`📡 Serving on ${host}:${port}`);
+    log(`🌐 Environment: ${process.env.NODE_ENV || "development"}`);
+    
+    if (process.env.NODE_ENV === "production") {
+      log(`🔒 Security features enabled: Helmet, CORS, Rate Limiting`);
+    }
+  });
+
+  // Graceful shutdown
+  process.on("SIGTERM", () => {
+    log("SIGTERM received, shutting down gracefully");
+    server.close(() => {
+      log("Process terminated");
+      process.exit(0);
+    });
+  });
+
+  process.on("SIGINT", () => {
+    log("SIGINT received, shutting down gracefully");
+    server.close(() => {
+      log("Process terminated");
+      process.exit(0);
+    });
+  });
+
+  // Unhandled promise rejection handler
+  process.on("unhandledRejection", (reason, promise) => {
+    log(`Unhandled Rejection at: ${promise}, reason: ${reason}`);
+    server.close(() => {
+      process.exit(1);
+    });
+  });
+
+  // Uncaught exception handler
+  process.on("uncaughtException", (error) => {
+    log(`Uncaught Exception: ${error.message}`);
+    if (error.stack) {
+      log(error.stack);
+    }
+    server.close(() => {
+      process.exit(1);
+    });
   });
 })();

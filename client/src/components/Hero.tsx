@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { OptimizedImage, getOptimizedImageSrc } from "@/components/OptimizedImage";
 import { Link } from "wouter";
 import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
+  const heroImage = getOptimizedImageSrc(
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+  );
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"></div>
@@ -32,10 +37,12 @@ export function Hero() {
           </div>
           
           <div className="relative slide-up">
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+            <OptimizedImage 
+              src={heroImage}
               alt="Modern tech consulting office with collaborative workspace and innovation" 
               className="rounded-2xl shadow-2xl w-full h-auto" 
+              priority={true}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute -top-4 -right-4 bg-card p-4 rounded-xl shadow-lg border">
               <div className="text-sm text-muted-foreground">Success Rate</div>

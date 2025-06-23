@@ -94,7 +94,7 @@ export default function AITransformBusiness() {
                 Predictive analytics, a key application of AI, uses historical data and machine learning algorithms to forecast future outcomes. This can be applied to various aspects of business operations, from predicting equipment maintenance needs to forecasting sales trends and managing inventory levels.
               </p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">4. Optimized Supply Chain and Logistics Management</h2>
+              <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fafafa]">4. Optimized Supply Chain and Logistics Management</h2>
               
               <p>
                 For businesses involved in manufacturing, retail, or distribution, an efficient supply chain is the backbone of their operations. AI is a game-changer in this domain, offering powerful tools to optimize every stage of the supply chain, from procurement to delivery.

@@ -45,7 +45,6 @@ export default function AITransformBusiness() {
           </div>
         </div>
       </section>
-
       {/* Article Content */}
       <section className="py-12 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +64,7 @@ export default function AITransformBusiness() {
                 From automating mundane tasks to providing deep, actionable insights, AI is transforming every facet of business operations. This article explores five key ways AI can revolutionize your business, offering practical applications that can be implemented today to drive efficiency and innovation.
               </p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">1. Hyper-Personalized Customer Experiences and Automated Support</h2>
+              <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fafafa]">1. Hyper-Personalized Customer Experiences and Automated Support</h2>
               
               <p>
                 In today's market, a one-size-fits-all approach to customer service is a recipe for failure. AI empowers businesses to deliver hyper-personalized experiences at scale, fostering customer loyalty and driving sales. By analyzing vast amounts of customer data—including purchase history, browse behavior, and demographic information—AI algorithms can predict individual needs and preferences.
@@ -124,7 +123,6 @@ export default function AITransformBusiness() {
           </div>
         </div>
       </section>
-
       {/* Related Articles */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

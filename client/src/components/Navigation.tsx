@@ -27,15 +27,15 @@ export function Navigation() {
   ];
 
   const techServices = [
-    { icon: Zap, title: "Automation & AI", description: "Intelligent workflow automation", href: "/services#automation" },
-    { icon: Shield, title: "Cybersecurity", description: "Advanced threat protection", href: "/services#cybersecurity" },
-    { icon: BarChart3, title: "Data Analytics", description: "Data-driven insights", href: "/services#data" },
+    { icon: Zap, title: "Automation & AI", description: "Intelligent workflow automation", href: "/services/automation-ai" },
+    { icon: Shield, title: "Cybersecurity", description: "Advanced threat protection", href: "/services/cybersecurity" },
+    { icon: BarChart3, title: "Data Analytics", description: "Data-driven insights", href: "/services/data-analytics" },
     { icon: Code, title: "Software Development", description: "Custom applications", href: "/services#development" },
   ];
 
   const creativeServices = [
-    { icon: Palette, title: "UI/UX Design", description: "User-centered design", href: "/services#design" },
-    { icon: Megaphone, title: "Branding & Merch", description: "Brand identity systems", href: "/services#branding" },
+    { icon: Palette, title: "UI/UX Design", description: "User-centered design", href: "/services/ui-ux-design" },
+    { icon: Megaphone, title: "Branding & Merch", description: "Brand identity systems", href: "/services/branding-merch" },
     { icon: BarChart3, title: "Social Media", description: "Strategic social growth", href: "/services#social" },
   ];
 

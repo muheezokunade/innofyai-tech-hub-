@@ -17,6 +17,11 @@ import AITransformBusiness from "@/pages/blog/AITransformBusiness";
 import CybersecurityTrends2024 from "@/pages/blog/CybersecurityTrends2024";
 import BrandIdentityDigitalAge from "@/pages/blog/BrandIdentityDigitalAge";
 import PracticalAISMEs from "@/pages/blog/PracticalAISMEs";
+import AutomationAI from "@/pages/services/AutomationAI";
+import Cybersecurity from "@/pages/services/Cybersecurity";
+import DataAnalytics from "@/pages/services/DataAnalytics";
+import UIUXDesign from "@/pages/services/UIUXDesign";
+import BrandingMerch from "@/pages/services/BrandingMerch";
 
 function Router() {
   return (
@@ -31,6 +36,11 @@ function Router() {
         <Route path="/blog/cybersecurity-trends-2024" component={CybersecurityTrends2024} />
         <Route path="/blog/brand-identity-digital-age" component={BrandIdentityDigitalAge} />
         <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
+        <Route path="/services/automation-ai" component={AutomationAI} />
+        <Route path="/services/cybersecurity" component={Cybersecurity} />
+        <Route path="/services/data-analytics" component={DataAnalytics} />
+        <Route path="/services/ui-ux-design" component={UIUXDesign} />
+        <Route path="/services/branding-merch" component={BrandingMerch} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>

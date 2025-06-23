@@ -48,11 +48,11 @@ function Footer() {
           <div>
             <h3 className="font-semibold text-space mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/services#automation" className="hover:text-white transition-colors">Automation & AI</a></li>
-              <li><a href="/services#data" className="hover:text-white transition-colors">Data Analytics</a></li>
-              <li><a href="/services#branding" className="hover:text-white transition-colors">Branding</a></li>
-              <li><a href="/services#design" className="hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="/services#cybersecurity" className="hover:text-white transition-colors">Cybersecurity</a></li>
+              <li><Link href="/services/automation-ai" className="hover:text-white transition-colors">Automation & AI</Link></li>
+              <li><Link href="/services/data-analytics" className="hover:text-white transition-colors">Data Analytics</Link></li>
+              <li><Link href="/services/branding-merch" className="hover:text-white transition-colors">Branding & Merch</Link></li>
+              <li><Link href="/services/ui-ux-design" className="hover:text-white transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/services/cybersecurity" className="hover:text-white transition-colors">Cybersecurity</Link></li>
             </ul>
           </div>
           <div>
@@ -62,7 +62,7 @@ function Footer() {
               <li><Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
             </ul>
           </div>
         </div>
@@ -71,8 +71,8 @@ function Footer() {
             © 2024 InnofyAI. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -104,7 +104,7 @@ export default function AITransformBusiness() {
                 AI algorithms can analyze real-time data on factors such as weather patterns, traffic conditions, and demand fluctuations to optimize delivery routes and minimize transportation costs. In the warehouse, AI-powered robots can automate the picking, packing, and sorting of goods, significantly increasing speed and accuracy.
               </p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">5. Enhanced Marketing and Sales Effectiveness</h2>
+              <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fafafa]">5. Enhanced Marketing and Sales Effectiveness</h2>
               
               <p>
                 AI is transforming the way businesses market and sell their products and services. By leveraging AI, marketing and sales teams can gain a deeper understanding of their target audience and deliver more effective campaigns.

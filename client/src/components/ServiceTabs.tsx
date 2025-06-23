@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/content";
+import { Link } from "wouter";
 import { Check } from "lucide-react";
 
 export function ServiceTabs() {
@@ -69,6 +70,11 @@ export function ServiceTabs() {
                     </li>
                   ))}
                 </ul>
+                <Link href={`/services/${activeService.id === 'automation' ? 'automation-ai' : activeService.id === 'data' ? 'data-analytics' : activeService.id === 'design' ? 'ui-ux-design' : activeService.id === 'branding' ? 'branding-merch' : activeService.id}`}>
+                  <Button className="gradient-bg border-0 text-white mt-6">
+                    Learn More
+                  </Button>
+                </Link>
               </div>
               <div>
                 <img 

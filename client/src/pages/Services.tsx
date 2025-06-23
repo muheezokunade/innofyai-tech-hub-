@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/content";
+import { Link } from "wouter";
 import { Check } from "lucide-react";
 
 export default function Services() {
@@ -56,9 +57,11 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="gradient-bg border-0 text-white">
-                    Learn More
-                  </Button>
+                  <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
+                    <Button className="gradient-bg border-0 text-white">
+                      Learn More
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -98,9 +101,11 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="bg-secondary border-0 text-secondary-foreground hover:bg-secondary/90">
-                    Learn More
-                  </Button>
+                  <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
+                    <Button className="bg-secondary border-0 text-secondary-foreground hover:bg-secondary/90">
+                      Learn More
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}

@@ -84,7 +84,7 @@ export default function AITransformBusiness() {
                 Consider the realms of data entry, invoice processing, and report generation. AI can automate these tasks with incredible speed and accuracy. Optical Character Recognition (OCR) technology, powered by AI, can extract information from documents and input it into relevant systems, eliminating the need for manual data entry.
               </p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">3. Data-Driven Decision Making with Predictive Analytics</h2>
+              <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fafafa]">3. Data-Driven Decision Making with Predictive Analytics</h2>
               
               <p>
                 In the age of big data, the ability to extract meaningful insights is paramount. AI-powered analytics tools can sift through massive datasets to identify trends, patterns, and anomalies that would be impossible for humans to detect. This provides business leaders with the critical information they need to make smarter, data-driven decisions.

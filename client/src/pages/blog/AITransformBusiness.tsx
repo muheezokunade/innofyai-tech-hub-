@@ -74,7 +74,7 @@ export default function AITransformBusiness() {
                 Furthermore, AI-powered chatbots and virtual assistants are revolutionizing customer support. These intelligent agents can handle a wide range of customer inquiries 24/7, from answering frequently asked questions to processing returns and tracking orders. This not only provides immediate assistance to customers but also frees up human agents to focus on more complex and high-value interactions.
               </p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">2. Intelligent Automation of Repetitive Tasks and Workflows</h2>
+              <h2 className="text-3xl font-bold mt-12 mb-6 text-[#fafafa]">2. Intelligent Automation of Repetitive Tasks and Workflows</h2>
               
               <p>
                 Every business is burdened with repetitive, time-consuming tasks that drain valuable employee time and are prone to human error. AI-driven automation can take over these manual processes, liberating your workforce to focus on more strategic and creative endeavors.

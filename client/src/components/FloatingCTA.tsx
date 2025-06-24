@@ -78,7 +78,9 @@ export const FloatingCTA: React.FC = () => {
                 className="flex-shrink-0"
                 whileHover={{ rotate: 5 }}
               >
-                {ctaContent.icon}
+                <span className="flex items-center justify-center w-full h-full">
+                  {ctaContent.icon}
+                </span>
               </motion.div>
               
               <AnimatePresence>

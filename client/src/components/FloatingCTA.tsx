@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, MessageCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 export const FloatingCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,11 +42,11 @@ export const FloatingCTA: React.FC = () => {
   const getCTAContent = () => {
     switch (currentSection) {
       case 'services':
-        return { text: 'Book Consultation', icon: <MessageCircle className="w-4 h-4" /> };
+        return { text: 'Book Consultation', icon: <MessageCircle className="w-4 h-4" />, href: '/contact' };
       case 'case-studies':
-        return { text: 'See More Results', icon: <ArrowRight className="w-4 h-4" /> };
+        return { text: 'See More Results', icon: <ArrowRight className="w-4 h-4" />, href: '/portfolio' };
       default:
-        return { text: 'Start Your Project', icon: <MessageCircle className="w-4 h-4" /> };
+        return { text: 'Start Your Project', icon: <MessageCircle className="w-4 h-4" />, href: '/contact' };
     }
   };
 
@@ -61,51 +62,53 @@ export const FloatingCTA: React.FC = () => {
           exit={{ opacity: 0, y: 100, scale: 0.8 }}
           transition={{ duration: 0.3 }}
         >
-          <motion.button
-            className={`
-              group relative overflow-hidden rounded-full shadow-lg
-              ${isCollapsed ? 'w-14 h-14' : 'px-6 py-3 pr-4'}
-              bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700
-              text-white font-medium transition-all duration-300
-              flex items-center gap-2
-            `}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.div
-              className="flex-shrink-0"
-              whileHover={{ rotate: 5 }}
+          <Link href={ctaContent.href}>
+            <motion.button
+              className={`
+                group relative overflow-hidden rounded-full shadow-lg
+                ${isCollapsed ? 'w-14 h-14' : 'px-6 py-3 pr-4'}
+                bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700
+                text-white font-medium transition-all duration-300
+                flex items-center gap-2
+              `}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {ctaContent.icon}
-            </motion.div>
-            
-            <AnimatePresence>
-              {!isCollapsed && (
-                <motion.span
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: "auto" }}
-                  exit={{ opacity: 0, width: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="whitespace-nowrap"
-                >
-                  {ctaContent.text}
-                </motion.span>
-              )}
-            </AnimatePresence>
-            
-            <AnimatePresence>
-              {!isCollapsed && (
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+              <motion.div
+                className="flex-shrink-0"
+                whileHover={{ rotate: 5 }}
+              >
+                {ctaContent.icon}
+              </motion.div>
+              
+              <AnimatePresence>
+                {!isCollapsed && (
+                  <motion.span
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "auto" }}
+                    exit={{ opacity: 0, width: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="whitespace-nowrap"
+                  >
+                    {ctaContent.text}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+              
+              <AnimatePresence>
+                {!isCollapsed && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </Link>
         </motion.div>
       )}
     </AnimatePresence>

@@ -158,9 +158,8 @@ export function Navigation() {
                                 <motion.div
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: index * 0.1 }}
+                                  transition={{ delay: index * 0.1, duration: 0.2 }}
                                   whileHover={{ x: 10 }}
-                                  transition={{ duration: 0.2 }}
                                 >
                                   <Link
                                     href={service.href}
@@ -193,9 +192,8 @@ export function Navigation() {
                                 <motion.div
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: index * 0.1 }}
+                                  transition={{ delay: index * 0.1, duration: 0.2 }}
                                   whileHover={{ x: 10 }}
-                                  transition={{ duration: 0.2 }}
                                 >
                                   <Link
                                     href={service.href}
@@ -232,7 +230,7 @@ export function Navigation() {
                         whileHover="hover"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                        transition={{ delay: index * 0.1, duration: 0.2 }}
                       >
                         <Link 
                           href={item.href} 
@@ -300,7 +298,7 @@ export function Navigation() {
                       key={item.href}
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.1, duration: 0.2 }}
                       whileHover={{ x: 10 }}
                     >
                       <Link
@@ -319,7 +317,7 @@ export function Navigation() {
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navItems.length * 0.1 }}
+                    transition={{ delay: navItems.length * 0.1, duration: 0.2 }}
                     whileHover={{ scale: 1.02 }}
                   >
                     <Link href="/services" onClick={() => setIsOpen(false)}>

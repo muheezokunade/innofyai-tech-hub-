@@ -26,9 +26,15 @@ export function ThemeProvider({
   storageKey = "innofyai-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'light' || stored === 'system') return stored as Theme;
+      // Default to dark mode
+      return 'dark';
+    }
+    return 'dark';
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;

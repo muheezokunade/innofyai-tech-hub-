@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { heroTextVariants, heroButtonVariants, parallaxVariants } from '../lib/animations';
+import { Link } from 'wouter';
 
 export const AnimatedHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,18 @@ export const AnimatedHero: React.FC = () => {
   
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
   const springOpacity = useSpring(opacity, { stiffness: 100, damping: 30 });
+
+  const handleWatchDemo = () => {
+    // You can replace this with actual demo video URL
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+  };
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section 
@@ -173,34 +186,37 @@ export const AnimatedHero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <motion.button
-            className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg overflow-hidden transition-all duration-300"
-            variants={heroButtonVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* Shimmer effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            />
-            
-            <span className="relative flex items-center gap-2">
-              Start Your Project
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </motion.button>
+          <Link href="/contact">
+            <motion.button
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg overflow-hidden transition-all duration-300"
+              variants={heroButtonVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+              
+              <span className="relative flex items-center gap-2">
+                Start Your Project
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </motion.button>
+          </Link>
 
           <motion.button
             className="group px-8 py-4 border-2 border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleWatchDemo}
           >
             <Play className="w-5 h-5" />
             Watch Demo

@@ -25,6 +25,7 @@ import {
 } from '../lib/animations';
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
+import { Link } from 'wouter';
 
 const services = [
   {
@@ -153,6 +154,18 @@ const Home: React.FC = () => {
     ]
   });
 
+  const handleGetStarted = () => {
+    // Navigate to contact page
+    window.location.href = '/contact';
+  };
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <SEO 
@@ -165,11 +178,6 @@ const Home: React.FC = () => {
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
       
-      {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-
       {/* Floating CTA */}
       <FloatingCTA />
 
@@ -344,6 +352,7 @@ const Home: React.FC = () => {
               variants={buttonHoverVariants}
               whileHover="hover"
               whileTap="tap"
+              onClick={handleGetStarted}
             >
               <span>Get Started Today</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

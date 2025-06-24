@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
 import { cardHoverVariants, flipCardVariants, floatingVariants } from '../lib/animations';
+import { Link } from 'wouter';
 
 interface ServiceCardProps {
   title: string;
@@ -22,6 +23,11 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card flip
+    window.location.href = '/contact';
+  };
 
   return (
     <motion.div
@@ -184,6 +190,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               style={{ background: color }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={handleGetStarted}
             >
               <span>Get Started</span>
               <ExternalLink className="w-4 h-4" />
@@ -191,15 +198,6 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Glow effect */}
-      <motion.div
-        className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-        style={{ 
-          background: `radial-gradient(circle at 50% 50%, ${color}, transparent)`,
-          filter: "blur(20px)"
-        }}
-      />
     </motion.div>
   );
 }; 

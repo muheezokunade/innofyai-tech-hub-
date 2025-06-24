@@ -1,6 +1,11 @@
 import { Route, Switch } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
+import { Toaster } from "./components/ui/toaster";
+import { TooltipProvider } from "./components/ui/tooltip";
 import { Layout } from "./components/Layout";
-import { Home } from "./pages/Home";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
@@ -28,37 +33,44 @@ import UIUXDesign from "./pages/services/UIUXDesign";
 
 function App() {
   return (
-    <ThemeProvider>
-      <Analytics />
-      <Layout>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/services" component={Services} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/careers" component={Careers} />
-          <Route path="/privacy" component={Privacy} />
-          <Route path="/terms" component={Terms} />
-          
-          {/* Blog post routes */}
-          <Route path="/blog/ai-transform-business" component={AITransformBusiness} />
-          <Route path="/blog/brand-identity-digital-age" component={BrandIdentityDigitalAge} />
-          <Route path="/blog/cybersecurity-trends-2024" component={CybersecurityTrends2024} />
-          <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
-          
-          {/* Service routes */}
-          <Route path="/services/automation-ai" component={AutomationAI} />
-          <Route path="/services/branding-merch" component={BrandingMerch} />
-          <Route path="/services/cybersecurity" component={Cybersecurity} />
-          <Route path="/services/data-analytics" component={DataAnalytics} />
-          <Route path="/services/ui-ux-design" component={UIUXDesign} />
-          
-          <Route component={NotFound} />
-        </Switch>
-      </Layout>
-    </ThemeProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider defaultTheme="light" storageKey="innofyai-theme">
+          <TooltipProvider>
+            <Toaster />
+            <Analytics />
+            <Layout>
+              <Switch>
+                <Route path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/services" component={Services} />
+                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/blog" component={Blog} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/careers" component={Careers} />
+                <Route path="/privacy" component={Privacy} />
+                <Route path="/terms" component={Terms} />
+                
+                {/* Blog post routes */}
+                <Route path="/blog/ai-transform-business" component={AITransformBusiness} />
+                <Route path="/blog/brand-identity-digital-age" component={BrandIdentityDigitalAge} />
+                <Route path="/blog/cybersecurity-trends-2024" component={CybersecurityTrends2024} />
+                <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
+                
+                {/* Service routes */}
+                <Route path="/services/automation-ai" component={AutomationAI} />
+                <Route path="/services/branding-merch" component={BrandingMerch} />
+                <Route path="/services/cybersecurity" component={Cybersecurity} />
+                <Route path="/services/data-analytics" component={DataAnalytics} />
+                <Route path="/services/ui-ux-design" component={UIUXDesign} />
+                
+                <Route component={NotFound} />
+              </Switch>
+            </Layout>
+          </TooltipProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 

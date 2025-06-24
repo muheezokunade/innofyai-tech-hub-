@@ -1,162 +1,418 @@
+import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/content";
 import { Link } from "wouter";
-import { Check } from "lucide-react";
+import { Check, ArrowRight, Zap, Shield, Palette, BarChart3, Code, Megaphone, Users, Clock, Award, Star } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { generateOrganizationStructuredData } from "@/lib/structuredData";
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants,
+  cardHoverVariants
+} from '../lib/animations';
 
 export default function Services() {
   const techServices = services.filter(service => service.category === "tech");
   const creativeServices = services.filter(service => service.category === "creative");
 
+  const structuredData = generateOrganizationStructuredData({
+    name: "InnofyAI",
+    description: "Comprehensive tech and creative services - AI, cybersecurity, design, branding",
+    url: "https://innofyai.com/services",
+    logo: "https://innofyai.com/logo.png",
+    address: {
+      addressLocality: "Lagos",
+      addressCountry: "Nigeria"
+    },
+    contactPoint: {
+      contactType: "customer service",
+      email: "hello@innofyai.com"
+    },
+    sameAs: [
+      "https://twitter.com/innofyai",
+      "https://linkedin.com/company/innofyai",
+      "https://facebook.com/innofyai"
+    ]
+  });
+
+  const processSteps = [
+    {
+      step: "1",
+      title: "Discovery",
+      description: "We analyze your requirements, goals, and challenges to create a comprehensive project roadmap.",
+      icon: <Users className="h-6 w-6" />
+    },
+    {
+      step: "2",
+      title: "Design",
+      description: "Our team creates detailed designs and prototypes, ensuring alignment with your vision and goals.",
+      icon: <Palette className="h-6 w-6" />
+    },
+    {
+      step: "3",
+      title: "Deploy",
+      description: "We implement the solution with rigorous testing and quality assurance for optimal performance.",
+      icon: <Zap className="h-6 w-6" />
+    },
+    {
+      step: "4",
+      title: "Support",
+      description: "Ongoing support and optimization ensure your solution continues to deliver exceptional results.",
+      icon: <Shield className="h-6 w-6" />
+    }
+  ];
+
+  const stats = [
+    { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
+    { number: "500+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+    { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> },
+    { number: "50+", label: "Team Experts", icon: <Users className="w-6 h-6" /> }
+  ];
+
   return (
-    <div className="py-20">
-      {/* Hero */}
-      <section className="pb-12 bg-gradient-to-br from-muted/50 to-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-space text-foreground mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <SEO 
+        title="Our Services - AI, Cybersecurity, Design & Branding Solutions"
+        description="Comprehensive tech and creative services from InnofyAI. AI automation, cybersecurity, UI/UX design, data analytics, and branding solutions that transform businesses."
+        keywords="AI services, cybersecurity, UI/UX design, data analytics, branding, tech consulting, automation, digital transformation"
+        structuredData={structuredData}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              className="text-5xl lg:text-7xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
               Our <span className="gradient-text">Services</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              variants={fadeUpVariants}
+            >
               From cutting-edge AI solutions to compelling brand experiences, we deliver comprehensive services that transform businesses.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center"
+                variants={fadeUpVariants}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {stat.icon}
+                </motion.div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 text-sm md:text-base">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Tech Solutions */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-4">Tech Solutions</h2>
-            <p className="text-lg text-muted-foreground">Advanced technology services that power modern businesses</p>
-          </div>
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-5xl font-bold text-white mb-6"
+              variants={fadeUpVariants}
+            >
+              Tech Solutions
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300"
+              variants={fadeUpVariants}
+            >
+              Advanced technology services that power modern businesses
+            </motion.p>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {techServices.map((service) => (
-              <Card key={service.id} className="hover-lift overflow-hidden">
-                <div className="h-48 bg-muted">
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {techServices.map((service, index) => (
+              <motion.div
+                key={service.id}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
+                variants={cardHoverVariants}
+                whileHover="hover"
+              >
+                <motion.div
+                  className="h-48 relative overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <img 
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover" 
                   />
-                </div>
-                <CardContent className="p-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </motion.div>
+                <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <Badge variant="secondary" className="mr-4">{service.category}</Badge>
-                    <h3 className="text-2xl font-bold text-space text-foreground">{service.title}</h3>
+                    <Badge variant="secondary" className="mr-4 bg-blue-600/20 text-blue-300 border-blue-500/30">
+                      {service.category}
+                    </Badge>
+                    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-6">
+                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center space-x-3">
-                        <Check className="h-5 w-5 text-primary" />
-                        <span className="text-foreground">{feature}</span>
-                      </li>
+                      <motion.li
+                        key={index}
+                        className="flex items-center space-x-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Check className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-300">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
-                    <Button className="gradient-bg border-0 text-white">
-                      Learn More
-                    </Button>
+                    <motion.button
+                      className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
+                      variants={buttonHoverVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
                   </Link>
-                </CardContent>
-              </Card>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Creative & Growth */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-4">Creative & Growth</h2>
-            <p className="text-lg text-muted-foreground">Design and branding services that captivate and convert</p>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-5xl font-bold text-white mb-6"
+              variants={fadeUpVariants}
+            >
+              Creative & Growth
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300"
+              variants={fadeUpVariants}
+            >
+              Design and branding services that captivate and convert
+            </motion.p>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {creativeServices.map((service) => (
-              <Card key={service.id} className="hover-lift overflow-hidden">
-                <div className="h-48 bg-muted">
+          <motion.div
+            className="grid lg:grid-cols-2 gap-12"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {creativeServices.map((service, index) => (
+              <motion.div
+                key={service.id}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
+                variants={cardHoverVariants}
+                whileHover="hover"
+              >
+                <motion.div
+                  className="h-48 relative overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <img 
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover" 
                   />
-                </div>
-                <CardContent className="p-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </motion.div>
+                <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <Badge variant="secondary" className="mr-4">{service.category}</Badge>
-                    <h3 className="text-2xl font-bold text-space text-foreground">{service.title}</h3>
+                    <Badge variant="secondary" className="mr-4 bg-purple-600/20 text-purple-300 border-purple-500/30">
+                      {service.category}
+                    </Badge>
+                    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-6">
+                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center space-x-3">
-                        <Check className="h-5 w-5 text-secondary" />
-                        <span className="text-foreground">{feature}</span>
-                      </li>
+                      <motion.li
+                        key={index}
+                        className="flex items-center space-x-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <Check className="h-5 w-5 text-purple-400" />
+                        <span className="text-gray-300">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
-                    <Button className="bg-secondary border-0 text-secondary-foreground hover:bg-secondary/90">
-                      Learn More
-                    </Button>
+                    <motion.button
+                      className="group px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
+                      variants={buttonHoverVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
                   </Link>
-                </CardContent>
-              </Card>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process Timeline */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-6">
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-6xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
               Our <span className="gradient-text">Process</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300"
+              variants={fadeUpVariants}
+            >
               A proven methodology that ensures successful project delivery
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Discovery",
-                description: "We analyze your requirements, goals, and challenges to create a comprehensive project roadmap."
-              },
-              {
-                step: "2",
-                title: "Design",
-                description: "Our team creates detailed designs and prototypes, ensuring alignment with your vision and goals."
-              },
-              {
-                step: "3",
-                title: "Deploy",
-                description: "We implement the solution with rigorous testing and quality assurance for optimal performance."
-              },
-              {
-                step: "4",
-                title: "Support",
-                description: "Ongoing support and optimization ensure your solution continues to deliver exceptional results."
-              }
-            ].map((phase) => (
-              <div key={phase.step} className="text-center">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">{phase.step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">{phase.title}</h3>
-                <p className="text-muted-foreground">{phase.description}</p>
-              </div>
+          <motion.div
+            className="grid lg:grid-cols-4 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {processSteps.map((phase, index) => (
+              <motion.div
+                key={phase.step}
+                className="text-center group"
+                variants={fadeUpVariants}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  className="w-20 h-20 mx-auto mb-8 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-2xl relative"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {phase.icon}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+                <h3 className="text-2xl font-bold text-white mb-4">{phase.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{phase.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Ready to Transform Your Business?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Let's discuss how our innovative solutions can help you achieve your business goals and stay ahead of the competition.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Get Started Today</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>

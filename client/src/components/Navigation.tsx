@@ -56,11 +56,11 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="/">
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                  <NavigationMenuLink asChild>
+                    <Link href="/" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                       Home
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
@@ -72,17 +72,18 @@ export function Navigation() {
                           <h3 className="text-lg font-semibold text-tech-blue dark:text-primary mb-4">Tech Solutions</h3>
                           <div className="space-y-3">
                             {techServices.map((service) => (
-                              <Link
-                                key={service.title}
-                                href={service.href}
-                                className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted transition-colors"
-                              >
-                                <service.icon className="h-5 w-5 text-primary" />
-                                <div>
-                                  <div className="font-medium text-foreground">{service.title}</div>
-                                  <div className="text-sm text-muted-foreground">{service.description}</div>
-                                </div>
-                              </Link>
+                              <NavigationMenuLink asChild key={service.title}>
+                                <Link
+                                  href={service.href}
+                                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted transition-colors"
+                                >
+                                  <service.icon className="h-5 w-5 text-primary" />
+                                  <div>
+                                    <div className="font-medium text-foreground">{service.title}</div>
+                                    <div className="text-sm text-muted-foreground">{service.description}</div>
+                                  </div>
+                                </Link>
+                              </NavigationMenuLink>
                             ))}
                           </div>
                         </div>
@@ -91,17 +92,18 @@ export function Navigation() {
                           <h3 className="text-lg font-semibold text-secondary mb-4">Creative & Growth</h3>
                           <div className="space-y-3">
                             {creativeServices.map((service) => (
-                              <Link
-                                key={service.title}
-                                href={service.href}
-                                className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted transition-colors"
-                              >
-                                <service.icon className="h-5 w-5 text-secondary" />
-                                <div>
-                                  <div className="font-medium text-foreground">{service.title}</div>
-                                  <div className="text-sm text-muted-foreground">{service.description}</div>
-                                </div>
-                              </Link>
+                              <NavigationMenuLink asChild key={service.title}>
+                                <Link
+                                  href={service.href}
+                                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted transition-colors"
+                                >
+                                  <service.icon className="h-5 w-5 text-secondary" />
+                                  <div>
+                                    <div className="font-medium text-foreground">{service.title}</div>
+                                    <div className="text-sm text-muted-foreground">{service.description}</div>
+                                  </div>
+                                </Link>
+                              </NavigationMenuLink>
                             ))}
                           </div>
                         </div>
@@ -112,11 +114,11 @@ export function Navigation() {
 
                 {navItems.slice(1).map((item) => (
                   <NavigationMenuItem key={item.href}>
-                    <Link href={item.href}>
-                      <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    <NavigationMenuLink asChild>
+                      <Link href={item.href} className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
                         {item.label}
-                      </NavigationMenuLink>
-                    </Link>
+                      </Link>
+                    </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>

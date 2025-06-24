@@ -1,285 +1,456 @@
+import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowLeft, Check, Shield, Eye, AlertTriangle, Lock, ArrowRight } from "lucide-react";
+import { ArrowLeft, Check, Shield, Eye, AlertTriangle, Lock, ArrowRight, Brain, Zap, Users, Target, Rocket } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { generateServiceStructuredData } from "@/lib/structuredData";
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants,
+  cardHoverVariants
+} from '../../lib/animations';
 
 export default function Cybersecurity() {
+  const structuredData = generateServiceStructuredData({
+    name: "Advanced Cybersecurity",
+    description: "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
+    provider: {
+      name: "InnofyAI",
+      url: "https://innofyai.com"
+    },
+    areaServed: "Nigeria",
+    serviceType: "Cybersecurity Services"
+  });
+
+  const securityServices = [
+    {
+      icon: <AlertTriangle className="h-8 w-8" />,
+      title: "Advanced Threat Detection",
+      description: "AI-powered threat intelligence to identify and neutralize sophisticated attacks.",
+      color: "from-red-600 to-orange-600"
+    },
+    {
+      icon: <Eye className="h-8 w-8" />,
+      title: "24/7 Security Monitoring",
+      description: "Round-the-clock surveillance of your digital assets and infrastructure.",
+      color: "from-orange-600 to-yellow-600"
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: "Incident Response Planning",
+      description: "Comprehensive response strategies to minimize damage and recovery time.",
+      color: "from-yellow-600 to-green-600"
+    },
+    {
+      icon: <Lock className="h-8 w-8" />,
+      title: "Compliance Management",
+      description: "Ensure adherence to industry standards and regulatory requirements.",
+      color: "from-green-600 to-blue-600"
+    }
+  ];
+
+  const threatLandscape = [
+    {
+      title: "Ransomware Attacks",
+      description: "Average cost of $4.35 million per breach, with attacks increasing 41% year-over-year.",
+      color: "from-red-500 to-red-600",
+      bgColor: "bg-red-500/10",
+      borderColor: "border-red-500/20"
+    },
+    {
+      title: "AI-Powered Attacks",
+      description: "Sophisticated phishing and social engineering using deepfakes and machine learning.",
+      color: "from-orange-500 to-orange-600",
+      bgColor: "bg-orange-500/10",
+      borderColor: "border-orange-500/20"
+    },
+    {
+      title: "Supply Chain Vulnerabilities",
+      description: "62% of companies experienced a supply chain attack in the past year.",
+      color: "from-yellow-500 to-yellow-600",
+      bgColor: "bg-yellow-500/10",
+      borderColor: "border-yellow-500/20"
+    }
+  ];
+
+  const defenseStrategies = [
+    {
+      title: "Zero Trust Architecture",
+      description: "Never trust, always verify - comprehensive access controls for all users and devices.",
+      icon: <Shield className="h-5 w-5" />
+    },
+    {
+      title: "AI-Driven Threat Detection",
+      description: "Machine learning algorithms that adapt to emerging threats in real-time.",
+      icon: <Brain className="h-5 w-5" />
+    },
+    {
+      title: "Multi-Factor Authentication",
+      description: "Layered authentication systems to prevent unauthorized access.",
+      icon: <Lock className="h-5 w-5" />
+    },
+    {
+      title: "Regular Security Audits",
+      description: "Continuous assessment and improvement of security posture.",
+      icon: <Eye className="h-5 w-5" />
+    }
+  ];
+
+  const securityProcess = [
+    {
+      step: "1",
+      title: "Security Assessment",
+      description: "Comprehensive evaluation of your current security posture and vulnerability identification.",
+      icon: <Target className="h-6 w-6" />
+    },
+    {
+      step: "2", 
+      title: "Strategy Development",
+      description: "Custom security framework designed to address your specific threats and compliance needs.",
+      icon: <Brain className="h-6 w-6" />
+    },
+    {
+      step: "3",
+      title: "Implementation",
+      description: "Deployment of security solutions with minimal disruption to your operations.",
+      icon: <Rocket className="h-6 w-6" />
+    },
+    {
+      step: "4",
+      title: "Ongoing Protection",
+      description: "Continuous monitoring, updates, and incident response to maintain security posture.",
+      icon: <Users className="h-6 w-6" />
+    }
+  ];
+
   return (
-    <div className="py-20">
-      {/* Hero */}
-      <section className="pb-12 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/20 dark:to-orange-950/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <Link href="/services">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Services
-            </Button>
-          </Link>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge variant="secondary">Tech Solutions</Badge>
-              <h1 className="text-5xl lg:text-6xl font-bold text-space text-foreground leading-tight">
-                Advanced <span className="gradient-text">Cybersecurity</span>
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button className="gradient-bg border-0 text-white px-8 py-4 text-lg">
-                    Security Assessment
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Button variant="outline" className="px-8 py-4 text-lg">
-                  View Security Report
-                </Button>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
+      <SEO 
+        title="Advanced Cybersecurity - InnofyAI"
+        description="Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats."
+        keywords="cybersecurity, digital security, threat detection, incident response, security monitoring, compliance management"
+        structuredData={structuredData}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeUpVariants}>
+              <Link href="/services">
+                <motion.button
+                  className="group mb-8 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2"
+                  whileHover={{ x: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  Back to Services
+                </motion.button>
+              </Link>
+            </motion.div>
             
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="Cybersecurity monitoring dashboard" 
-                className="rounded-xl shadow-lg w-full h-auto" 
-              />
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                className="space-y-8"
+                variants={staggerContainerVariants}
+              >
+                <motion.div variants={fadeUpVariants}>
+                  <Badge className="bg-gradient-to-r from-red-600 to-orange-600 text-white border-0 mb-6">
+                    Tech Solutions
+                  </Badge>
+                </motion.div>
+                
+                <motion.h1
+                  className="text-5xl lg:text-6xl font-bold text-white leading-tight"
+                  variants={fadeUpVariants}
+                >
+                  Advanced <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Cybersecurity</span>
+                </motion.h1>
+                
+                <motion.p
+                  className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
+                  variants={fadeUpVariants}
+                >
+                  Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.
+                </motion.p>
+                
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4"
+                  variants={fadeUpVariants}
+                >
+                  <Link href="/contact">
+                    <motion.button
+                      className="group px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 text-lg"
+                      variants={buttonHoverVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <span>Security Assessment</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </Link>
+                  <motion.button
+                    className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Security Report
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+              
+              <motion.div
+                variants={fadeUpVariants}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <motion.img 
+                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                  alt="Cybersecurity monitoring dashboard" 
+                  className="rounded-2xl shadow-2xl w-full h-auto"
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                />
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Security Services */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-6">
-              Comprehensive Security Solutions
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Multi-layered protection for your digital infrastructure
-            </p>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="text-center mb-16"
+              variants={staggerContainerVariants}
+            >
+              <motion.h2
+                className="text-4xl lg:text-5xl font-bold text-white mb-6"
+                variants={fadeUpVariants}
+              >
+                Comprehensive Security Solutions
+              </motion.h2>
+              <motion.p
+                className="text-xl lg:text-2xl text-gray-300"
+                variants={fadeUpVariants}
+              >
+                Multi-layered protection for your digital infrastructure
+              </motion.p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <AlertTriangle className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Advanced Threat Detection</h3>
-                <p className="text-muted-foreground">AI-powered threat intelligence to identify and neutralize sophisticated attacks.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Eye className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">24/7 Security Monitoring</h3>
-                <p className="text-muted-foreground">Round-the-clock surveillance of your digital assets and infrastructure.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Incident Response Planning</h3>
-                <p className="text-muted-foreground">Comprehensive response strategies to minimize damage and recovery time.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Lock className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Compliance Management</h3>
-                <p className="text-muted-foreground">Ensure adherence to industry standards and regulatory requirements.</p>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+              variants={staggerContainerVariants}
+            >
+              {securityServices.map((service, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <CardContent className="pt-6">
+                      <motion.div
+                        className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center mx-auto mb-6 text-white`}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
+                      <p className="text-gray-300">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Threat Landscape */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold text-space text-foreground mb-6">Current Threat Landscape</h2>
-              <div className="space-y-6">
-                <Card className="p-6 bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <h3 className="font-bold text-foreground">Ransomware Attacks</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">Average cost of $4.35 million per breach, with attacks increasing 41% year-over-year.</p>
-                </Card>
-                
-                <Card className="p-6 bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                    <h3 className="font-bold text-foreground">AI-Powered Attacks</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">Sophisticated phishing and social engineering using deepfakes and machine learning.</p>
-                </Card>
-                
-                <Card className="p-6 bg-yellow-50 dark:bg-yellow-950/20 border-yellow-200 dark:border-yellow-800">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <h3 className="font-bold text-foreground">Supply Chain Vulnerabilities</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">62% of companies experienced a supply chain attack in the past year.</p>
-                </Card>
-              </div>
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <div className="grid lg:grid-cols-2 gap-16">
+              <motion.div variants={staggerContainerVariants}>
+                <motion.h2
+                  className="text-3xl lg:text-4xl font-bold text-white mb-8"
+                  variants={fadeUpVariants}
+                >
+                  Current Threat Landscape
+                </motion.h2>
+                <motion.div
+                  className="space-y-6"
+                  variants={staggerContainerVariants}
+                >
+                  {threatLandscape.map((threat, index) => (
+                    <motion.div
+                      key={index}
+                      className={`p-6 ${threat.bgColor} border ${threat.borderColor} rounded-xl backdrop-blur-sm`}
+                      variants={fadeUpVariants}
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className={`w-3 h-3 bg-gradient-to-r ${threat.color} rounded-full`}></div>
+                        <h3 className="font-bold text-white">{threat.title}</h3>
+                      </div>
+                      <p className="text-gray-300 text-sm">{threat.description}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              
+              <motion.div variants={staggerContainerVariants}>
+                <motion.h2
+                  className="text-3xl lg:text-4xl font-bold text-white mb-8"
+                  variants={fadeUpVariants}
+                >
+                  Our Defense Strategy
+                </motion.h2>
+                <motion.div
+                  className="space-y-6"
+                  variants={staggerContainerVariants}
+                >
+                  {defenseStrategies.map((strategy, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start space-x-4 p-4 bg-green-500/10 border border-green-500/20 rounded-xl backdrop-blur-sm"
+                      variants={fadeUpVariants}
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="text-green-400 mt-1 flex-shrink-0">
+                        {strategy.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-white">{strategy.title}</h4>
+                        <p className="text-gray-300 text-sm">{strategy.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
             </div>
-            
-            <div>
-              <h2 className="text-3xl font-bold text-space text-foreground mb-6">Our Defense Strategy</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Zero Trust Architecture</h4>
-                    <p className="text-muted-foreground text-sm">Never trust, always verify - comprehensive access controls for all users and devices.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">AI-Driven Threat Detection</h4>
-                    <p className="text-muted-foreground text-sm">Machine learning algorithms that adapt to emerging threats in real-time.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Multi-Factor Authentication</h4>
-                    <p className="text-muted-foreground text-sm">Layered authentication systems to prevent unauthorized access.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">Regular Security Audits</h4>
-                    <p className="text-muted-foreground text-sm">Continuous assessment and improvement of security posture.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Security Process */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-6">
-              Our Security <span className="gradient-text">Implementation</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              A systematic approach to securing your digital infrastructure
-            </p>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="text-center mb-16"
+              variants={staggerContainerVariants}
+            >
+              <motion.h2
+                className="text-4xl lg:text-5xl font-bold text-white mb-6"
+                variants={fadeUpVariants}
+              >
+                Our Security <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Implementation</span>
+              </motion.h2>
+              <motion.p
+                className="text-xl lg:text-2xl text-gray-300"
+                variants={fadeUpVariants}
+              >
+                A systematic approach to securing your digital infrastructure
+              </motion.p>
+            </motion.div>
 
-          <div className="grid lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Security Assessment",
-                description: "Comprehensive evaluation of your current security posture and vulnerability identification."
-              },
-              {
-                step: "2", 
-                title: "Risk Analysis",
-                description: "Detailed analysis of potential threats and their impact on your business operations."
-              },
-              {
-                step: "3",
-                title: "Solution Deployment",
-                description: "Implementation of multi-layered security solutions tailored to your specific needs."
-              },
-              {
-                step: "4",
-                title: "Continuous Monitoring",
-                description: "24/7 monitoring and regular updates to maintain optimal security protection."
-              }
-            ].map((phase) => (
-              <div key={phase.step} className="text-center">
-                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">{phase.step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">{phase.title}</h3>
-                <p className="text-muted-foreground">{phase.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden">
-            <CardContent className="p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <Badge variant="secondary" className="mb-4">Case Study</Badge>
-                  <h3 className="text-3xl font-bold text-space text-foreground mb-4">
-                    MedSecure Protection
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Advanced cybersecurity infrastructure protecting sensitive patient data with zero security breaches and HIPAA compliance.
-                  </p>
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <div className="text-3xl font-bold text-space gradient-text mb-2">100%</div>
-                      <div className="text-muted-foreground">Security Compliance</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-space gradient-text mb-2">4 months</div>
-                      <div className="text-muted-foreground">Implementation Time</div>
-                    </div>
-                  </div>
-                  <Button className="gradient-bg border-0 text-white">
-                    Read Security Case Study
-                  </Button>
-                </div>
-                <div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
-                    alt="MedSecure security dashboard" 
-                    className="rounded-xl shadow-lg w-full h-auto" 
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+            <motion.div
+              className="grid lg:grid-cols-4 gap-8"
+              variants={staggerContainerVariants}
+            >
+              {securityProcess.map((step, index) => (
+                <motion.div
+                  key={step.step}
+                  className="text-center"
+                  variants={fadeUpVariants}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {step.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-red-600 dark:bg-red-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-space text-white mb-6">
-            Secure Your Business Today
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Don't wait for a breach. Protect your digital assets with our comprehensive cybersecurity solutions.
-          </p>
-          <Link href="/contact">
-            <Button className="bg-white text-red-600 px-8 py-4 text-lg hover:bg-gray-100 transition-colors">
-              Get Security Assessment
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Secure Your Digital Assets Today
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Don't wait for a breach to happen. Let's assess your current security posture and implement a comprehensive cybersecurity strategy.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Get Security Assessment</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>

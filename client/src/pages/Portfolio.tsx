@@ -1,133 +1,285 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/content";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Filter, Award, Star, TrendingUp, Clock, Users, Zap } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { generateOrganizationStructuredData } from "@/lib/structuredData";
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants,
+  cardHoverVariants
+} from '../lib/animations';
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
 
+  const structuredData = generateOrganizationStructuredData({
+    name: "InnofyAI",
+    description: "Portfolio of successful projects and case studies",
+    url: "https://innofyai.com/portfolio",
+    logo: "https://innofyai.com/logo.png",
+    address: {
+      addressLocality: "Lagos",
+      addressCountry: "Nigeria"
+    },
+    contactPoint: {
+      contactType: "customer service",
+      email: "hello@innofyai.com"
+    },
+    sameAs: [
+      "https://twitter.com/innofyai",
+      "https://linkedin.com/company/innofyai",
+      "https://facebook.com/innofyai"
+    ]
+  });
+
   const filters = [
-    { id: "all", label: "All Projects" },
-    { id: "automation", label: "Automation" },
-    { id: "branding", label: "Branding" },
-    { id: "security", label: "Security" },
-    { id: "design", label: "Design" }
+    { id: "all", label: "All Projects", icon: <Filter className="w-4 h-4" /> },
+    { id: "automation", label: "Automation", icon: <Zap className="w-4 h-4" /> },
+    { id: "branding", label: "Branding", icon: <Award className="w-4 h-4" /> },
+    { id: "security", label: "Security", icon: <Star className="w-4 h-4" /> },
+    { id: "design", label: "Design", icon: <TrendingUp className="w-4 h-4" /> }
   ];
 
   const filteredStudies = activeFilter === "all" 
     ? caseStudies 
     : caseStudies.filter(study => study.category === activeFilter);
 
+  const stats = [
+    { number: "150+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+    { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
+    { number: "2.5x", label: "Average ROI", icon: <TrendingUp className="w-6 h-6" /> },
+    { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> }
+  ];
+
   return (
-    <div className="py-20">
-      {/* Hero */}
-      <section className="pb-12 bg-gradient-to-br from-muted/50 to-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-space text-foreground mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <SEO 
+        title="Portfolio - Our Success Stories & Case Studies"
+        description="Explore InnofyAI's portfolio of successful projects. See how we've transformed businesses with AI automation, cybersecurity, design, and branding solutions."
+        keywords="portfolio, case studies, success stories, AI projects, cybersecurity projects, design projects, branding projects, client results"
+        structuredData={structuredData}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              className="text-5xl lg:text-7xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
               Our <span className="gradient-text">Portfolio</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              variants={fadeUpVariants}
+            >
               Explore our successful projects and see how we've transformed businesses across various industries.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Portfolio Filters & Grid */}
-      <section className="py-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {filters.map((filter) => (
-              <Button
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 mb-16"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {filters.map((filter, index) => (
+              <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                variant={activeFilter === filter.id ? "default" : "outline"}
-                className={`px-6 py-3 ${
+                className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
                   activeFilter === filter.id 
-                    ? "gradient-bg border-0 text-white" 
-                    : ""
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg" 
+                    : "bg-white/5 backdrop-blur-sm border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
                 }`}
+                variants={fadeUpVariants}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
+                {filter.icon}
                 {filter.label}
-              </Button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
 
           {/* Case Studies Grid */}
-          <div className="grid lg:grid-cols-3 gap-8">
-            {filteredStudies.map((study) => (
-              <Card key={study.id} className="hover-lift cursor-pointer overflow-hidden">
-                <div className="relative h-48 bg-muted">
-                  <img 
-                    src={study.image} 
-                    alt={study.title}
-                    className="w-full h-full object-cover" 
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-primary text-primary-foreground">
-                      {study.metric}
-                    </Badge>
+          <motion.div
+            className="grid lg:grid-cols-3 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <AnimatePresence mode="wait">
+              {filteredStudies.map((study, index) => (
+                <motion.div
+                  key={study.id}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden cursor-pointer group"
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <motion.div
+                    className="relative h-48 overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img 
+                      src={study.image} 
+                      alt={study.title}
+                      className="w-full h-full object-cover" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0">
+                        {study.metric}
+                      </Badge>
+                    </div>
+                  </motion.div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <Badge variant="outline" className="bg-white/5 text-gray-300 border-white/20">
+                        {study.industry}
+                      </Badge>
+                      <span className="text-sm text-gray-400">{study.duration}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 leading-relaxed">
+                      {study.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-400">{study.metricLabel}</span>
+                      <motion.button
+                        className="group/btn flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        View Details
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </motion.button>
+                    </div>
                   </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge variant="outline">{study.industry}</Badge>
-                    <span className="text-sm text-muted-foreground">{study.duration}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-space text-foreground mb-3">
-                    {study.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {study.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">{study.metricLabel}</span>
-                    <Button variant="ghost" size="sm">
-                      View Details
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
       {/* Success Metrics */}
-      <section className="py-20 gradient-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-space text-white mb-6">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-6xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
               Proven Results
-            </h2>
-            <p className="text-xl text-white/90">
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300"
+              variants={fadeUpVariants}
+            >
               Our portfolio speaks for itself with measurable success metrics
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-space text-white mb-2">150+</div>
-              <div className="text-white/80 font-medium">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-space text-white mb-2">98%</div>
-              <div className="text-white/80 font-medium">Client Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-space text-white mb-2">2.5x</div>
-              <div className="text-white/80 font-medium">Average ROI</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-space text-white mb-2">24/7</div>
-              <div className="text-white/80 font-medium">Support Available</div>
-            </div>
-          </div>
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center group"
+                variants={fadeUpVariants}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {stat.icon}
+                </motion.div>
+                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 font-medium">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Ready to Join Our Success Stories?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Let's create the next success story together. Your project could be the next one in our portfolio.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Start Your Project</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>

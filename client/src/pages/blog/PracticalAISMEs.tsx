@@ -1,266 +1,526 @@
+import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowLeft, Share2, Clock, User, Zap, CheckCircle } from "lucide-react";
+import { ArrowLeft, Share2, Clock, User, Calendar, Zap, CheckCircle, ArrowRight, Brain, TrendingUp, Target, BarChart3, MessageSquare, Package, Users } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { generateArticleStructuredData } from "@/lib/structuredData";
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants,
+  cardHoverVariants
+} from '../../lib/animations';
 
 export default function PracticalAISMEs() {
+  const structuredData = generateArticleStructuredData({
+    headline: "Beyond the Hype: Practical AI Applications for Small and Medium-Sized Enterprises (SMEs)",
+    description: "Discover how SMEs can leverage affordable AI tools to operate smarter, faster, and more efficiently without massive budgets.",
+    author: {
+      name: "Alex Johnson"
+    },
+    datePublished: "2024-12-12",
+    dateModified: "2024-12-12",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
+    publisher: {
+      name: "InnofyAI",
+      logo: {
+        url: "https://innofyai.com/logo.png"
+      }
+    },
+    url: "https://innofyai.com/blog/practical-ai-smes"
+  });
+
+  const relatedArticles = [
+    {
+      title: "5 Ways AI Can Transform Your Business Operations",
+      category: "AI & Automation",
+      readTime: "8 min read",
+      href: "/blog/ai-transform-business",
+      icon: <Zap className="w-4 h-4" />
+    },
+    {
+      title: "2024 Cybersecurity Trends Every CEO Should Know",
+      category: "Security",
+      readTime: "7 min read",
+      href: "/blog/cybersecurity-trends-2024",
+      icon: <Brain className="w-4 h-4" />
+    },
+    {
+      title: "Building Brand Identity in the Digital Age",
+      category: "Design",
+      readTime: "6 min read",
+      href: "/blog/brand-identity-digital-age",
+      icon: <TrendingUp className="w-4 h-4" />
+    }
+  ];
+
+  const aiApplications = [
+    {
+      title: "Marketing Automation",
+      icon: <Target className="w-6 h-6" />,
+      color: "from-blue-600 to-purple-600",
+      description: "Content creation, scheduling, and targeted advertising"
+    },
+    {
+      title: "Customer Service",
+      icon: <MessageSquare className="w-6 h-6" />,
+      color: "from-green-600 to-blue-600",
+      description: "24/7 chatbots and automated support"
+    },
+    {
+      title: "Inventory Management",
+      icon: <Package className="w-6 h-6" />,
+      color: "from-purple-600 to-pink-600",
+      description: "Smart forecasting and automated reordering"
+    },
+    {
+      title: "Data Analytics",
+      icon: <BarChart3 className="w-6 h-6" />,
+      color: "from-orange-600 to-red-600",
+      description: "Automated reporting and insight discovery"
+    }
+  ];
+
   return (
-    <div className="py-20">
-      {/* Hero */}
-      <section className="pb-12 bg-gradient-to-br from-muted/50 to-muted/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <Link href="/blog">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Button>
-          </Link>
-          
-          <div className="space-y-6">
-            <Badge variant="secondary">AI & Automation</Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-space text-foreground leading-tight">
-              Beyond the Hype: Practical AI Applications for Small and Medium-Sized Enterprises (SMEs)
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Discover how SMEs can leverage affordable AI tools to operate smarter, faster, and more efficiently without massive budgets.
-            </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <SEO 
+        title="Beyond the Hype: Practical AI Applications for SMEs - InnofyAI Blog"
+        description="Discover how SMEs can leverage affordable AI tools to operate smarter, faster, and more efficiently without massive budgets."
+        keywords="AI for SMEs, small business AI, practical AI applications, business automation, AI tools for business, digital transformation"
+        structuredData={structuredData}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeUpVariants}>
+              <Link href="/blog">
+                <motion.button
+                  className="group mb-8 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2"
+                  whileHover={{ x: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  Back to Blog
+                </motion.button>
+              </Link>
+            </motion.div>
             
-            <div className="flex items-center space-x-6 text-muted-foreground">
-              <div className="flex items-center space-x-2">
-                <User className="h-4 w-4" />
-                <span>Alex Johnson</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4" />
-                <span>5 min read</span>
-              </div>
-              <span>December 12, 2024</span>
-            </div>
-            
-            <Button className="gradient-bg border-0 text-white">
-              <Share2 className="mr-2 h-4 w-4" />
-              Share Article
-            </Button>
-          </div>
+            <motion.div
+              className="space-y-8"
+              variants={staggerContainerVariants}
+            >
+              <motion.div variants={fadeUpVariants}>
+                <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 mb-6">
+                  AI & Automation
+                </Badge>
+              </motion.div>
+              
+              <motion.h1
+                className="text-4xl lg:text-6xl font-bold text-white leading-tight"
+                variants={fadeUpVariants}
+              >
+                Beyond the Hype: Practical AI Applications for Small and Medium-Sized Enterprises (SMEs)
+              </motion.h1>
+              
+              <motion.p
+                className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
+                variants={fadeUpVariants}
+              >
+                Discover how SMEs can leverage affordable AI tools to operate smarter, faster, and more efficiently without massive budgets.
+              </motion.p>
+              
+              <motion.div
+                className="flex flex-wrap items-center gap-6 text-gray-400"
+                variants={fadeUpVariants}
+              >
+                <div className="flex items-center space-x-2">
+                  <User className="h-5 w-5" />
+                  <span>Alex Johnson</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="h-5 w-5" />
+                  <span>5 min read</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Calendar className="h-5 w-5" />
+                  <span>December 12, 2024</span>
+                </div>
+              </motion.div>
+              
+              <motion.button
+                className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
+                variants={buttonHoverVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <Share2 className="w-4 h-4" />
+                Share Article
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* AI Applications Overview */}
+      <section className="py-12 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-2xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Key AI Applications for SMEs
+            </motion.h2>
+            <motion.div
+              className="grid md:grid-cols-2 gap-6"
+              variants={staggerContainerVariants}
+            >
+              {aiApplications.map((app, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start space-x-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group"
+                  variants={fadeUpVariants}
+                  whileHover={{ x: 10, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className={`w-12 h-12 bg-gradient-to-r ${app.color} rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform flex-shrink-0`}>
+                    {app.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-gray-300 font-bold mb-2">{app.title}</h3>
+                    <p className="text-gray-400 text-sm">{app.description}</p>
+                    <div className={`w-full h-1 bg-gradient-to-r ${app.color} rounded-full mt-3`}></div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Article Content */}
-      <section className="py-12 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600" 
-              alt="Small business team using AI tools" 
-              className="w-full h-64 object-cover rounded-xl mb-8"
-            />
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="prose prose-lg max-w-none"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeUpVariants}>
+              <motion.img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600" 
+                alt="Small business team using AI tools" 
+                className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
+                variants={cardHoverVariants}
+                whileHover="hover"
+              />
+            </motion.div>
             
-            <div className="text-foreground space-y-6">
-              <p className="text-lg">
+            <motion.div
+              className="text-gray-300 space-y-8 leading-relaxed"
+              variants={staggerContainerVariants}
+            >
+              <motion.p className="text-xl" variants={fadeUpVariants}>
                 For small and medium-sized enterprises in Nigeria and across the globe, the term "Artificial Intelligence" can often feel like a futuristic buzzword reserved for tech giants with bottomless budgets. However, the reality in 2025 is that AI has become an accessible and powerful tool that can level the playing field, enabling SMEs to operate smarter, faster, and more efficiently.
-              </p>
+              </motion.p>
               
-              <p>
+              <motion.p variants={fadeUpVariants}>
                 The key to leveraging AI as an SME is not about building complex algorithms from scratch; it's about integrating smart, off-the-shelf tools that automate processes, provide valuable insights, and free up your most valuable resource: your team's time. Here are four key areas where AI can make an immediate and significant impact.
-              </p>
+              </motion.p>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">1. Supercharge Your Marketing with Intelligent Automation</h2>
+              <motion.h2
+                className="text-3xl font-bold mt-16 mb-8 text-white border-l-4 border-blue-500 pl-6"
+                variants={fadeUpVariants}
+              >
+                1. Supercharge Your Marketing with Intelligent Automation
+              </motion.h2>
               
-              <p>
+              <motion.p variants={fadeUpVariants}>
                 Marketing is a critical function for any growing business, but it can be incredibly time-consuming. AI-powered marketing tools can automate repetitive tasks and provide deep insights into customer behavior, allowing you to create more effective campaigns with less effort.
-              </p>
+              </motion.p>
               
-              <div className="grid md:grid-cols-2 gap-6 my-8">
-                <Card className="p-6 bg-primary/10 border-primary/20">
-                  <CardContent className="p-0">
-                    <div className="flex items-center mb-3">
-                      <Zap className="h-5 w-5 text-primary mr-2" />
-                      <h3 className="font-bold text-foreground">Content Creation & Scheduling</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      Platforms like Copy.ai and Jasper use generative AI to help you draft social media posts, blog articles, and email newsletters in minutes.
+              <motion.div variants={fadeUpVariants}>
+                <div className="grid md:grid-cols-2 gap-6 my-8">
+                  <Card className="p-6 bg-blue-500/10 border-blue-500/20 backdrop-blur-sm">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-3">
+                        <Zap className="h-5 w-5 text-blue-400 mr-2" />
+                        <h3 className="font-bold text-white">Content Creation & Scheduling</h3>
+                      </div>
+                      <p className="text-gray-300 text-sm">
+                        Platforms like Copy.ai and Jasper use generative AI to help you draft social media posts, blog articles, and email newsletters in minutes.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="p-6 bg-purple-500/10 border-purple-500/20 backdrop-blur-sm">
+                    <CardContent className="p-0">
+                      <div className="flex items-center mb-3">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2" />
+                        <h3 className="font-bold text-white">Targeted Advertising</h3>
+                      </div>
+                      <p className="text-gray-300 text-sm">
+                        AI algorithms on platforms like Facebook Ads and Google Ads can analyze user data to identify your ideal customers and serve them highly relevant ads.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </motion.div>
+              
+              <motion.div variants={fadeUpVariants}>
+                <Card className="my-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-l-4 border-blue-500 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                      <Users className="w-5 h-5 text-blue-400" />
+                      Mini Case Study:
+                    </h3>
+                    <p className="text-gray-300">
+                      A boutique fashion retailer in Abuja began using an AI-powered social media tool to generate and schedule its posts. Within three months, they saw a 40% increase in customer engagement and were able to reallocate the five hours per week their manager spent on social media to focus on inventory and customer relations.
                     </p>
                   </CardContent>
                 </Card>
-                
-                <Card className="p-6 bg-secondary/10 border-secondary/20">
-                  <CardContent className="p-0">
-                    <div className="flex items-center mb-3">
-                      <CheckCircle className="h-5 w-5 text-secondary mr-2" />
-                      <h3 className="font-bold text-foreground">Targeted Advertising</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      AI algorithms on platforms like Facebook Ads and Google Ads can analyze user data to identify your ideal customers and serve them highly relevant ads.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              <Card className="my-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-l-4 border-primary">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-foreground mb-2">Mini Case Study:</h3>
-                  <p className="text-muted-foreground">
-                    A boutique fashion retailer in Abuja began using an AI-powered social media tool to generate and schedule its posts. Within three months, they saw a 40% increase in customer engagement and were able to reallocate the five hours per week their manager spent on social media to focus on inventory and customer relations.
-                  </p>
-                </CardContent>
-              </Card>
+              </motion.div>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">2. Deliver Exceptional 24/7 Customer Service with AI Chatbots</h2>
+              <motion.h2
+                className="text-3xl font-bold mt-16 mb-8 text-white border-l-4 border-green-500 pl-6"
+                variants={fadeUpVariants}
+              >
+                2. Deliver Exceptional 24/7 Customer Service with AI Chatbots
+              </motion.h2>
               
-              <p>
+              <motion.p variants={fadeUpVariants}>
                 In today's fast-paced world, customers expect instant responses. AI-powered chatbots provide a cost-effective way to offer round-the-clock support, answer frequently asked questions, and even qualify leads without human intervention.
-              </p>
+              </motion.p>
               
-              <div className="space-y-4 my-8">
-                <div className="border-l-4 border-primary pl-6">
-                  <h4 className="font-bold text-foreground mb-2">Website and Social Media Integration</h4>
-                  <p className="text-muted-foreground">
-                    Modern chatbot platforms like Tidio and Intercom are incredibly user-friendly and can be easily integrated into your website or social media pages.
-                  </p>
+              <motion.div variants={fadeUpVariants}>
+                <div className="space-y-4 my-8">
+                  <div className="border-l-4 border-green-500 pl-6 bg-green-500/5 p-4 rounded-r-lg">
+                    <h4 className="font-bold text-white mb-2">Website and Social Media Integration</h4>
+                    <p className="text-gray-300">
+                      Modern chatbot platforms like Tidio and Intercom are incredibly user-friendly and can be easily integrated into your website or social media pages.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-500 pl-6 bg-blue-500/5 p-4 rounded-r-lg">
+                    <h4 className="font-bold text-white mb-2">Automated Query Resolution</h4>
+                    <p className="text-gray-300">
+                      You can "train" these chatbots with information about your products, services, pricing, and policies to instantly resolve common customer queries.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-purple-500 pl-6 bg-purple-500/5 p-4 rounded-r-lg">
+                    <h4 className="font-bold text-white mb-2">Lead Generation</h4>
+                    <p className="text-gray-300">
+                      Chatbots can be programmed to ask qualifying questions and collect contact information from potential customers.
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="border-l-4 border-secondary pl-6">
-                  <h4 className="font-bold text-foreground mb-2">Automated Query Resolution</h4>
-                  <p className="text-muted-foreground">
-                    You can "train" these chatbots with information about your products, services, pricing, and policies to instantly resolve common customer queries.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-accent pl-6">
-                  <h4 className="font-bold text-foreground mb-2">Lead Generation</h4>
-                  <p className="text-muted-foreground">
-                    Chatbots can be programmed to ask qualifying questions and collect contact information from potential customers.
-                  </p>
-                </div>
-              </div>
+              </motion.div>
               
-              <Card className="my-8 bg-gradient-to-r from-secondary/5 to-accent/5 border-l-4 border-secondary">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-foreground mb-2">Mini Case Study:</h3>
-                  <p className="text-muted-foreground">
-                    A Nigerian logistics startup implemented an AI chatbot on its website to handle tracking inquiries and provide shipping quotes. This reduced customer service calls by 60% and allowed their small team to focus on resolving complex delivery issues, significantly improving customer satisfaction.
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div variants={fadeUpVariants}>
+                <Card className="my-8 bg-gradient-to-r from-green-500/10 to-blue-500/10 border-l-4 border-green-500 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                      <MessageSquare className="w-5 h-5 text-green-400" />
+                      Mini Case Study:
+                    </h3>
+                    <p className="text-gray-300">
+                      A Nigerian logistics startup implemented an AI chatbot on its website to handle tracking inquiries and provide shipping quotes. This reduced customer service calls by 60% and allowed their small team to focus on resolving complex delivery issues, significantly improving customer satisfaction.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">3. Optimize Your Operations with Smart Inventory Management</h2>
+              <motion.h2
+                className="text-3xl font-bold mt-16 mb-8 text-white border-l-4 border-purple-500 pl-6"
+                variants={fadeUpVariants}
+              >
+                3. Optimize Your Operations with Smart Inventory Management
+              </motion.h2>
               
-              <p>
+              <motion.p variants={fadeUpVariants}>
                 For businesses that deal with physical products, managing inventory is a constant balancing act. Too much stock ties up capital, while too little leads to lost sales. AI can bring a new level of precision to this critical task.
-              </p>
+              </motion.p>
               
-              <div className="grid md:grid-cols-3 gap-6 my-8">
-                <Card className="p-6 bg-primary/10 border-primary/20 text-center">
-                  <CardContent className="p-0">
-                    <h3 className="font-bold text-foreground mb-2">Demand Forecasting</h3>
-                    <p className="text-muted-foreground text-sm">
-                      AI systems analyze historical sales data, seasonality, and market trends to predict future demand with remarkable accuracy.
-                    </p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="p-6 bg-secondary/10 border-secondary/20 text-center">
-                  <CardContent className="p-0">
-                    <h3 className="font-bold text-foreground mb-2">Automated Reordering</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Systems can automatically generate purchase orders when stock levels fall below certain thresholds.
-                    </p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="p-6 bg-accent/10 border-accent/20 text-center">
-                  <CardContent className="p-0">
-                    <h3 className="font-bold text-foreground mb-2">Supplier Management</h3>
-                    <p className="text-muted-foreground text-sm">
-                      AI tools help track supplier performance, manage lead times, and identify reliable partners.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+              <motion.div variants={fadeUpVariants}>
+                <div className="grid md:grid-cols-3 gap-6 my-8">
+                  <Card className="p-6 bg-blue-500/10 border-blue-500/20 text-center backdrop-blur-sm">
+                    <CardContent className="p-0">
+                      <h3 className="font-bold text-white mb-2">Demand Forecasting</h3>
+                      <p className="text-gray-300 text-sm">
+                        AI systems analyze historical sales data, seasonality, and market trends to predict future demand with remarkable accuracy.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="p-6 bg-purple-500/10 border-purple-500/20 text-center backdrop-blur-sm">
+                    <CardContent className="p-0">
+                      <h3 className="font-bold text-white mb-2">Automated Reordering</h3>
+                      <p className="text-gray-300 text-sm">
+                        Systems can automatically generate purchase orders when stock levels fall below certain thresholds.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="p-6 bg-pink-500/10 border-pink-500/20 text-center backdrop-blur-sm">
+                    <CardContent className="p-0">
+                      <h3 className="font-bold text-white mb-2">Supplier Management</h3>
+                      <p className="text-gray-300 text-sm">
+                        AI tools help track supplier performance, manage lead times, and identify reliable partners.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </motion.div>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">4. Make Data-Driven Decisions with Simplified Analytics</h2>
+              <motion.h2
+                className="text-3xl font-bold mt-16 mb-8 text-white border-l-4 border-orange-500 pl-6"
+                variants={fadeUpVariants}
+              >
+                4. Make Data-Driven Decisions with Simplified Analytics
+              </motion.h2>
               
-              <p>
+              <motion.p variants={fadeUpVariants}>
                 Many SMEs collect vast amounts of data but lack the time or expertise to analyze it effectively. AI-powered business intelligence (BI) tools can democratize data analysis, turning complex spreadsheets into clear, actionable insights.
-              </p>
+              </motion.p>
               
-              <div className="space-y-4 my-8">
-                <div className="border-l-4 border-primary pl-6">
-                  <h4 className="font-bold text-foreground mb-2">Automated Reporting</h4>
-                  <p className="text-muted-foreground">
-                    Platforms like Microsoft Power BI and Google Looker Studio offer user-friendly interfaces that allow you to connect various data sources and create interactive dashboards.
-                  </p>
+              <motion.div variants={fadeUpVariants}>
+                <div className="space-y-4 my-8">
+                  <div className="border-l-4 border-orange-500 pl-6 bg-orange-500/5 p-4 rounded-r-lg">
+                    <h4 className="font-bold text-white mb-2">Automated Reporting</h4>
+                    <p className="text-gray-300">
+                      Platforms like Microsoft Power BI and Google Looker Studio offer user-friendly interfaces that allow you to connect various data sources and create interactive dashboards.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-red-500 pl-6 bg-red-500/5 p-4 rounded-r-lg">
+                    <h4 className="font-bold text-white mb-2">Insight Discovery</h4>
+                    <p className="text-gray-300">
+                      These tools use AI to automatically identify trends, patterns, and anomalies in your data that you might otherwise miss.
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="border-l-4 border-secondary pl-6">
-                  <h4 className="font-bold text-foreground mb-2">Insight Discovery</h4>
-                  <p className="text-muted-foreground">
-                    These tools use AI to automatically identify trends, patterns, and anomalies in your data that you might otherwise miss.
-                  </p>
-                </div>
-              </div>
-              
-              <Card className="my-8 bg-gradient-to-r from-accent/5 to-primary/5 border-l-4 border-accent">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-foreground mb-2">Mini Case Study:</h3>
-                  <p className="text-muted-foreground">
-                    An online grocery delivery service in Lagos started using a BI tool to analyze its sales data. The AI-driven insights revealed a high demand for specific local food items on weekends. By adjusting their inventory and marketing to capitalize on this trend, they increased their weekend sales by 35%.
-                  </p>
-                </CardContent>
-              </Card>
+              </motion.div>
 
-              <h2 className="text-3xl font-bold text-space mt-12 mb-6">Getting Started with AI: A Practical Approach</h2>
+              <motion.h2
+                className="text-3xl font-bold mt-16 mb-8 text-white border-l-4 border-gradient-to-b from-blue-500 to-purple-500 pl-6"
+                variants={fadeUpVariants}
+              >
+                Getting Started: A Practical Roadmap
+              </motion.h2>
               
-              <p>
-                Adopting AI doesn't have to be an overwhelming or expensive endeavor. Start small by identifying the most significant bottleneck or time-consuming task in your business. Research affordable, user-friendly tools in that area and take advantage of free trials to see what works best for you.
-              </p>
-              
-              <p>
-                The future of business is intelligent and automated. By embracing these practical AI applications, SMEs can not only survive but thrive, competing effectively in an increasingly digital world. The time to move beyond the hype and into action is now.
-              </p>
-            </div>
-          </div>
+              <motion.p variants={fadeUpVariants}>
+                The journey to AI adoption doesn't have to be overwhelming. Start small, focus on one area where you're experiencing pain points, and gradually expand. The key is to choose tools that integrate well with your existing systems and provide immediate value to your team and customers.
+              </motion.p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Related Articles */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-space text-foreground mb-12 text-center">
-            Related Articles
-          </h2>
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="hover-lift cursor-pointer">
-              <CardContent className="p-6">
-                <Badge variant="outline" className="mb-3">AI & Automation</Badge>
-                <h3 className="text-xl font-bold text-space text-foreground mb-3">
-                  5 Ways AI Can Transform Your Business Operations
-                </h3>
-                <p className="text-muted-foreground text-sm">8 min read</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover-lift cursor-pointer">
-              <CardContent className="p-6">
-                <Badge variant="outline" className="mb-3">Security</Badge>
-                <h3 className="text-xl font-bold text-space text-foreground mb-3">
-                  2024 Cybersecurity Trends Every CEO Should Know
-                </h3>
-                <p className="text-muted-foreground text-sm">7 min read</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover-lift cursor-pointer">
-              <CardContent className="p-6">
-                <Badge variant="outline" className="mb-3">Design</Badge>
-                <h3 className="text-xl font-bold text-space text-foreground mb-3">
-                  Building Brand Identity in the Digital Age
-                </h3>
-                <p className="text-muted-foreground text-sm">6 min read</p>
-              </CardContent>
-            </Card>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl lg:text-5xl font-bold text-white mb-12 text-center"
+              variants={fadeUpVariants}
+            >
+              Related Articles
+            </motion.h2>
+            <motion.div
+              className="grid lg:grid-cols-3 gap-8"
+              variants={staggerContainerVariants}
+            >
+              {relatedArticles.map((article, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link href={article.href}>
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer group hover:bg-white/10 transition-all duration-300">
+                      <div className="flex items-center gap-2 mb-4">
+                        {article.icon}
+                        <Badge variant="outline" className="bg-white/5 text-gray-300 border-white/20">
+                          {article.category}
+                        </Badge>
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                        {article.title}
+                      </h3>
+                      <div className="flex items-center justify-between text-sm text-gray-400">
+                        <div className="flex items-center space-x-2">
+                          <Clock className="h-4 w-4" />
+                          <span>{article.readTime}</span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Ready to Transform Your SME with AI?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Let's identify the right AI tools for your business and create a customized implementation strategy that fits your budget and goals.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Start Your AI Journey</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>

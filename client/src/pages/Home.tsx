@@ -24,9 +24,6 @@ import {
   buttonHoverVariants 
 } from '../lib/animations';
 import { SEO } from "@/components/SEO";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "wouter";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 
 const services = [
@@ -135,12 +132,12 @@ const stats = [
   { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> }
 ];
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
+    description: "Tech Innovation Hub - Transforming ideas into digital excellence",
     url: "https://innofyai.com",
     logo: "https://innofyai.com/logo.png",
-    description: "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
     address: {
       addressLocality: "Lagos",
       addressCountry: "Nigeria"
@@ -151,7 +148,8 @@ export const Home: React.FC = () => {
     },
     sameAs: [
       "https://twitter.com/innofyai",
-      "https://linkedin.com/company/innofyai"
+      "https://linkedin.com/company/innofyai",
+      "https://facebook.com/innofyai"
     ]
   });
 
@@ -159,9 +157,8 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <SEO 
         title="InnofyAI - Tech Excellence & Creative Innovation"
-        description="Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lagos, Nigeria."
-        keywords="AI automation, cybersecurity, branding, UI/UX design, data analytics, tech consulting, Nigeria, Lagos, business transformation"
-        image="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630"
+        description="Transform your business with cutting-edge AI solutions, innovative design, and strategic technology consulting. InnofyAI delivers excellence in every project."
+        keywords="AI solutions, technology consulting, web development, mobile apps, cybersecurity, data analytics, UI/UX design, digital transformation"
         structuredData={structuredData}
       />
       
@@ -357,3 +354,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export default Home;

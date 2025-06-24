@@ -1,266 +1,411 @@
+import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowLeft, Check, Zap, TrendingUp, Clock, ArrowRight } from "lucide-react";
+import { ArrowLeft, Check, Zap, TrendingUp, Clock, ArrowRight, Brain, Cpu, BarChart3, Shield, Users, Target, Rocket } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { generateServiceStructuredData } from "@/lib/structuredData";
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants,
+  cardHoverVariants
+} from '../../lib/animations';
 
 export default function AutomationAI() {
+  const structuredData = generateServiceStructuredData({
+    name: "Automation & AI Solutions",
+    description: "Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.",
+    provider: {
+      name: "InnofyAI",
+      url: "https://innofyai.com"
+    },
+    areaServed: "Nigeria",
+    serviceType: "Business Process Automation"
+  });
+
+  const features = [
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: "Custom Workflow Automation",
+      description: "Automate repetitive tasks and complex business processes with intelligent workflows.",
+      color: "from-blue-600 to-purple-600"
+    },
+    {
+      icon: <Brain className="h-8 w-8" />,
+      title: "AI-Powered Decision Making",
+      description: "Leverage machine learning algorithms for intelligent business decisions.",
+      color: "from-purple-600 to-pink-600"
+    },
+    {
+      icon: <Cpu className="h-8 w-8" />,
+      title: "Process Optimization",
+      description: "Identify bottlenecks and optimize workflows for maximum efficiency.",
+      color: "from-green-600 to-blue-600"
+    },
+    {
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "Real-time Monitoring",
+      description: "24/7 monitoring with intelligent alerts and performance analytics.",
+      color: "from-orange-600 to-red-600"
+    }
+  ];
+
+  const processSteps = [
+    {
+      step: "1",
+      title: "Analysis & Assessment",
+      description: "We analyze your current processes, identify automation opportunities, and assess potential ROI.",
+      icon: <Target className="h-6 w-6" />
+    },
+    {
+      step: "2", 
+      title: "Solution Design",
+      description: "Our team designs custom automation workflows tailored to your specific business requirements.",
+      icon: <Brain className="h-6 w-6" />
+    },
+    {
+      step: "3",
+      title: "Implementation & Testing",
+      description: "We implement the solution with rigorous testing to ensure optimal performance and reliability.",
+      icon: <Rocket className="h-6 w-6" />
+    },
+    {
+      step: "4",
+      title: "Training & Support",
+      description: "Comprehensive training and ongoing support to maximize the value of your automation investment.",
+      icon: <Users className="h-6 w-6" />
+    }
+  ];
+
   return (
-    <div className="py-20">
-      {/* Hero */}
-      <section className="pb-12 bg-gradient-to-br from-primary/10 to-accent/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <Link href="/services">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Services
-            </Button>
-          </Link>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge variant="secondary">Tech Solutions</Badge>
-              <h1 className="text-5xl lg:text-6xl font-bold text-space text-foreground leading-tight">
-                Automation & <span className="gradient-text">AI Solutions</span>
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact">
-                  <Button className="gradient-bg border-0 text-white px-8 py-4 text-lg">
-                    Get Custom Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Button variant="outline" className="px-8 py-4 text-lg">
-                  View Case Studies
-                </Button>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <SEO 
+        title="Automation & AI Solutions - InnofyAI"
+        description="Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error."
+        keywords="AI automation, business process automation, workflow automation, AI solutions, machine learning, process optimization"
+        structuredData={structuredData}
+      />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeUpVariants}>
+              <Link href="/services">
+                <motion.button
+                  className="group mb-8 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2"
+                  whileHover={{ x: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  Back to Services
+                </motion.button>
+              </Link>
+            </motion.div>
             
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                alt="AI automation workflow visualization" 
-                className="rounded-xl shadow-lg w-full h-auto" 
-              />
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                className="space-y-8"
+                variants={staggerContainerVariants}
+              >
+                <motion.div variants={fadeUpVariants}>
+                  <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 mb-6">
+                    Tech Solutions
+                  </Badge>
+                </motion.div>
+                
+                <motion.h1
+                  className="text-5xl lg:text-6xl font-bold text-white leading-tight"
+                  variants={fadeUpVariants}
+                >
+                  Automation & <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">AI Solutions</span>
+                </motion.h1>
+                
+                <motion.p
+                  className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
+                  variants={fadeUpVariants}
+                >
+                  Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.
+                </motion.p>
+                
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4"
+                  variants={fadeUpVariants}
+                >
+                  <Link href="/contact">
+                    <motion.button
+                      className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 text-lg"
+                      variants={buttonHoverVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <span>Get Custom Quote</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </Link>
+                  <motion.button
+                    className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Case Studies
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+              
+              <motion.div
+                variants={fadeUpVariants}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <motion.img 
+                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                  alt="AI automation workflow visualization" 
+                  className="rounded-2xl shadow-2xl w-full h-auto"
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                />
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Key Features */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-6">
-              What We Deliver
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Comprehensive automation solutions tailored to your business needs
-            </p>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="text-center mb-16"
+              variants={staggerContainerVariants}
+            >
+              <motion.h2
+                className="text-4xl lg:text-5xl font-bold text-white mb-6"
+                variants={fadeUpVariants}
+              >
+                What We Deliver
+              </motion.h2>
+              <motion.p
+                className="text-xl lg:text-2xl text-gray-300"
+                variants={fadeUpVariants}
+              >
+                Comprehensive automation solutions tailored to your business needs
+              </motion.p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Custom Workflow Automation</h3>
-                <p className="text-muted-foreground">Automate repetitive tasks and complex business processes with intelligent workflows.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <TrendingUp className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">AI-Powered Decision Making</h3>
-                <p className="text-muted-foreground">Leverage machine learning algorithms for intelligent business decisions.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Check className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Process Optimization</h3>
-                <p className="text-muted-foreground">Identify bottlenecks and optimize workflows for maximum efficiency.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-6 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Clock className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Real-time Monitoring</h3>
-                <p className="text-muted-foreground">24/7 monitoring with intelligent alerts and performance analytics.</p>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+              variants={staggerContainerVariants}
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardHoverVariants}
+                  whileHover="hover"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <CardContent className="pt-6">
+                      <motion.div
+                        className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-full flex items-center justify-center mx-auto mb-6 text-white`}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {feature.icon}
+                      </motion.div>
+                      <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                      <p className="text-gray-300">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Problem/Solution */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold text-space text-foreground mb-6">The Challenge</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
-                  <p className="text-muted-foreground">Manual processes consume 40-60% of employee time on repetitive tasks</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
-                  <p className="text-muted-foreground">Human error costs businesses an average of $62 billion annually</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
-                  <p className="text-muted-foreground">Lack of real-time insights leads to delayed decision-making</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-3"></div>
-                  <p className="text-muted-foreground">Disconnected systems create data silos and inefficiencies</p>
-                </div>
-              </div>
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <div className="grid lg:grid-cols-2 gap-16">
+              <motion.div variants={staggerContainerVariants}>
+                <motion.h2
+                  className="text-3xl lg:text-4xl font-bold text-white mb-8"
+                  variants={fadeUpVariants}
+                >
+                  The Challenge
+                </motion.h2>
+                <motion.div
+                  className="space-y-6"
+                  variants={staggerContainerVariants}
+                >
+                  {[
+                    "Manual processes consume 40-60% of employee time on repetitive tasks",
+                    "Human error costs businesses an average of $62 billion annually",
+                    "Lack of real-time insights leads to delayed decision-making",
+                    "Disconnected systems create data silos and inefficiencies"
+                  ].map((challenge, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start space-x-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl backdrop-blur-sm"
+                      variants={fadeUpVariants}
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-3 h-3 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">{challenge}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              
+              <motion.div variants={staggerContainerVariants}>
+                <motion.h2
+                  className="text-3xl lg:text-4xl font-bold text-white mb-8"
+                  variants={fadeUpVariants}
+                >
+                  Our Solution
+                </motion.h2>
+                <motion.div
+                  className="space-y-6"
+                  variants={staggerContainerVariants}
+                >
+                  {[
+                    "Intelligent automation reduces manual work by up to 80%",
+                    "AI-driven processes eliminate human error and improve accuracy",
+                    "Real-time analytics provide instant insights for faster decisions",
+                    "Seamless integration connects all your business systems"
+                  ].map((solution, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start space-x-4 p-4 bg-green-500/10 border border-green-500/20 rounded-xl backdrop-blur-sm"
+                      variants={fadeUpVariants}
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Check className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                      <p className="text-gray-300">{solution}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
             </div>
-            
-            <div>
-              <h2 className="text-3xl font-bold text-space text-foreground mb-6">Our Solution</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <p className="text-muted-foreground">Intelligent automation reduces manual work by up to 80%</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <p className="text-muted-foreground">AI-driven processes eliminate human error and improve accuracy</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <p className="text-muted-foreground">Real-time analytics provide instant insights for faster decisions</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Check className="w-5 h-5 text-primary mt-1" />
-                  <p className="text-muted-foreground">Seamless integration connects all your business systems</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-6">
-              Our <span className="gradient-text">Process</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              A proven methodology that ensures successful automation implementation
-            </p>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="text-center mb-16"
+              variants={staggerContainerVariants}
+            >
+              <motion.h2
+                className="text-4xl lg:text-5xl font-bold text-white mb-6"
+                variants={fadeUpVariants}
+              >
+                Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Process</span>
+              </motion.h2>
+              <motion.p
+                className="text-xl lg:text-2xl text-gray-300"
+                variants={fadeUpVariants}
+              >
+                A proven methodology that ensures successful automation implementation
+              </motion.p>
+            </motion.div>
 
-          <div className="grid lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Analysis & Assessment",
-                description: "We analyze your current processes, identify automation opportunities, and assess potential ROI."
-              },
-              {
-                step: "2", 
-                title: "Solution Design",
-                description: "Our team designs custom automation workflows tailored to your specific business requirements."
-              },
-              {
-                step: "3",
-                title: "Implementation & Testing",
-                description: "We implement the solution with rigorous testing to ensure optimal performance and reliability."
-              },
-              {
-                step: "4",
-                title: "Training & Support",
-                description: "Comprehensive training and ongoing support to maximize the value of your automation investment."
-              }
-            ].map((phase) => (
-              <div key={phase.step} className="text-center">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-xl">{phase.step}</span>
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">{phase.title}</h3>
-                <p className="text-muted-foreground">{phase.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden">
-            <CardContent className="p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <Badge variant="secondary" className="mb-4">Case Study</Badge>
-                  <h3 className="text-3xl font-bold text-space text-foreground mb-4">
-                    TechMart Automation Success
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Complete automation solution for inventory management, order processing, and customer service, resulting in 45% cost reduction and improved efficiency.
-                  </p>
-                  <div className="grid grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <div className="text-3xl font-bold text-space gradient-text mb-2">65%</div>
-                      <div className="text-muted-foreground">Efficiency Increase</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-space gradient-text mb-2">6 months</div>
-                      <div className="text-muted-foreground">Implementation Time</div>
-                    </div>
-                  </div>
-                  <Button className="gradient-bg border-0 text-white">
-                    Read Full Case Study
-                  </Button>
-                </div>
-                <div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
-                    alt="TechMart automation dashboard" 
-                    className="rounded-xl shadow-lg w-full h-auto" 
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+            <motion.div
+              className="grid lg:grid-cols-4 gap-8"
+              variants={staggerContainerVariants}
+            >
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={step.step}
+                  className="text-center"
+                  variants={fadeUpVariants}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {step.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-bg">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-space text-white mb-6">
-            Ready to Automate Your Business?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's discuss how our AI automation solutions can transform your operations.
-          </p>
-          <Link href="/contact">
-            <Button className="bg-white text-gray-900 px-8 py-4 text-lg hover:bg-gray-100 transition-colors">
-              Get Custom Automation Quote
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-8"
+              variants={fadeUpVariants}
+            >
+              Ready to Automate Your Business?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Let's discuss how our AI automation solutions can transform your operations and drive unprecedented efficiency.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Start Your Automation Journey</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>

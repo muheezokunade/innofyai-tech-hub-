@@ -1,15 +1,141 @@
-import { Hero } from "@/components/Hero";
-import { ServiceTabs } from "@/components/ServiceTabs";
-import { CaseStudyGrid } from "@/components/CaseStudyGrid";
-import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Code, 
+  Palette, 
+  Shield, 
+  BarChart3, 
+  Smartphone, 
+  Zap,
+  ArrowRight,
+  Star,
+  Users,
+  Award
+} from 'lucide-react';
+import { AnimatedHero } from '../components/AnimatedHero';
+import { ServiceCard } from '../components/ServiceCard';
+import { ScrollProgress } from '../components/ScrollProgress';
+import { FloatingCTA } from '../components/FloatingCTA';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { 
+  scrollRevealVariants, 
+  staggerContainerVariants, 
+  fadeUpVariants,
+  buttonHoverVariants 
+} from '../lib/animations';
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Zap, CheckCircle, Rocket, ArrowRight } from "lucide-react";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 
-export default function Home() {
+const services = [
+  {
+    title: "AI & Automation",
+    description: "Intelligent automation solutions that streamline operations and boost productivity.",
+    icon: <Zap className="w-8 h-8 text-blue-400" />,
+    benefits: [
+      "Process automation",
+      "AI-powered insights",
+      "Cost reduction",
+      "24/7 operation"
+    ],
+    color: "#3b82f6"
+  },
+  {
+    title: "UI/UX Design",
+    description: "User-centered design that creates intuitive and engaging digital experiences.",
+    icon: <Palette className="w-8 h-8 text-purple-400" />,
+    benefits: [
+      "User research",
+      "Wireframing & prototyping",
+      "Visual design",
+      "Usability testing"
+    ],
+    color: "#8b5cf6"
+  },
+  {
+    title: "Cybersecurity",
+    description: "Comprehensive security solutions to protect your digital assets and data.",
+    icon: <Shield className="w-8 h-8 text-green-400" />,
+    benefits: [
+      "Threat detection",
+      "Data encryption",
+      "Security audits",
+      "Compliance support"
+    ],
+    color: "#10b981"
+  },
+  {
+    title: "Data Analytics",
+    description: "Transform raw data into actionable insights for informed decision-making.",
+    icon: <BarChart3 className="w-8 h-8 text-orange-400" />,
+    benefits: [
+      "Data visualization",
+      "Predictive analytics",
+      "Performance tracking",
+      "Custom dashboards"
+    ],
+    color: "#f59e0b"
+  },
+  {
+    title: "Mobile Development",
+    description: "Native and cross-platform mobile apps that deliver exceptional user experiences.",
+    icon: <Smartphone className="w-8 h-8 text-pink-400" />,
+    benefits: [
+      "iOS & Android apps",
+      "Cross-platform solutions",
+      "App store optimization",
+      "Performance optimization"
+    ],
+    color: "#ec4899"
+  },
+  {
+    title: "Web Development",
+    description: "Modern web applications built with cutting-edge technologies and best practices.",
+    icon: <Code className="w-8 h-8 text-indigo-400" />,
+    benefits: [
+      "Responsive design",
+      "SEO optimization",
+      "Performance focused",
+      "Scalable architecture"
+    ],
+    color: "#6366f1"
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO, TechStart Inc.",
+    content: "InnofyAI transformed our business with their innovative AI solutions. Our productivity increased by 300%!",
+    rating: 5,
+    avatar: "👩‍💼"
+  },
+  {
+    name: "Michael Chen",
+    role: "CTO, DigitalFlow",
+    content: "The team's expertise in cybersecurity gave us peace of mind. Highly recommended for any business.",
+    rating: 5,
+    avatar: "👨‍💻"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Marketing Director, GrowthCo",
+    content: "Their data analytics insights helped us make better decisions and increase our ROI significantly.",
+    rating: 5,
+    avatar: "👩‍🎨"
+  }
+];
+
+const stats = [
+  { number: "500+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+  { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
+  { number: "50+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
+  { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> }
+];
+
+export const Home: React.FC = () => {
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
     url: "https://innofyai.com",
@@ -30,7 +156,7 @@ export default function Home() {
   });
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <SEO 
         title="InnofyAI - Tech Excellence & Creative Innovation"
         description="Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lagos, Nigeria."
@@ -39,98 +165,195 @@ export default function Home() {
         structuredData={structuredData}
       />
       
-      <Hero />
+      {/* Scroll Progress Indicator */}
+      <ScrollProgress />
       
+      {/* Theme Toggle */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
+      {/* Floating CTA */}
+      <FloatingCTA />
+
+      {/* Hero Section */}
+      <AnimatedHero />
+
+      {/* Services Section */}
+      <section id="services" className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              variants={fadeUpVariants}
+            >
+              Our Services
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              We offer comprehensive technology solutions designed to drive innovation 
+              and accelerate your business growth.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                {...service}
+                delay={index * 0.1}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Stats Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center slide-up">
-              <div className="text-4xl lg:text-5xl font-bold text-space gradient-text mb-2">150+</div>
-              <div className="text-muted-foreground font-medium">Projects Completed</div>
-            </div>
-            <div className="text-center slide-up">
-              <div className="text-4xl lg:text-5xl font-bold text-space gradient-text mb-2">98%</div>
-              <div className="text-muted-foreground font-medium">Client Satisfaction</div>
-            </div>
-            <div className="text-center slide-up">
-              <div className="text-4xl lg:text-5xl font-bold text-space gradient-text mb-2">5+</div>
-              <div className="text-muted-foreground font-medium">Years Experience</div>
-            </div>
-            <div className="text-center slide-up">
-              <div className="text-4xl lg:text-5xl font-bold text-space gradient-text mb-2">24/7</div>
-              <div className="text-muted-foreground font-medium">Support Available</div>
-            </div>
-          </div>
+      <section className="py-20 px-4 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center"
+                variants={fadeUpVariants}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {stat.icon}
+                </motion.div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 text-sm md:text-base">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-space text-foreground mb-4">
-              Why Choose InnofyAI?
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              We bridge the gap between technology and creativity
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="h-8 w-8 text-white" />
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              variants={fadeUpVariants}
+            >
+              What Our Clients Say
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Don't just take our word for it. Here's what our clients have to say 
+              about working with InnofyAI.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={staggerContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
+                variants={fadeUpVariants}
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Lightning Fast</h3>
-                <p className="text-muted-foreground">Accelerate your business with our automation solutions and rapid deployment strategies.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-8 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="h-8 w-8 text-white" />
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="text-2xl">{testimonial.avatar}</div>
+                  <div>
+                    <div className="font-semibold text-white">{testimonial.name}</div>
+                    <div className="text-sm text-gray-400">{testimonial.role}</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Proven Results</h3>
-                <p className="text-muted-foreground">98% success rate with measurable ROI improvements for our clients across all industries.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center p-8 hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Rocket className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-space text-foreground mb-4">Expert Team</h3>
-                <p className="text-muted-foreground">Industry-leading experts in AI, automation, design, and brand strategy working for your success.</p>
-              </CardContent>
-            </Card>
-          </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
-
-      <ServiceTabs />
-      <CaseStudyGrid />
-      <TestimonialCarousel />
 
       {/* CTA Section */}
-      <section className="py-20 gradient-bg">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-space text-white mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's discuss how our innovative solutions can drive your success.
-          </p>
-          <Link href="/contact">
-            <Button className="bg-white text-gray-900 px-8 py-4 text-lg hover:bg-gray-100 transition-colors">
-              Schedule Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={scrollRevealVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              variants={fadeUpVariants}
+            >
+              Ready to Transform Your Business?
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              Let's discuss how our innovative solutions can help you achieve 
+              your business goals and stay ahead of the competition.
+            </motion.p>
+            <motion.button
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
+              variants={buttonHoverVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <span>Get Started Today</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
         </div>
       </section>
     </div>
   );
-}
+};

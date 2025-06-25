@@ -63,6 +63,32 @@ export const services = [
       "Brand strategy consulting"
     ],
     category: "creative"
+  },
+  {
+    id: "software-engineering",
+    title: "Software Engineering",
+    description: "Custom software solutions for web, mobile, and cloud. Scalable, secure, and high-performance applications tailored to your business goals.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    features: [
+      "Full-stack web & mobile development",
+      "Cloud-native architecture",
+      "Agile & DevOps practices",
+      "Ongoing support & optimization"
+    ],
+    category: "tech"
+  },
+  {
+    id: "social-media",
+    title: "Social Media",
+    description: "Grow your brand and engage your audience with expert social media marketing, content creation, and analytics across all major platforms.",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+    features: [
+      "Strategic campaigns & content",
+      "Community management",
+      "Analytics & reporting",
+      "Influencer partnerships"
+    ],
+    category: "creative"
   }
 ];
 

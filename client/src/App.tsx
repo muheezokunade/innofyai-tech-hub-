@@ -30,12 +30,14 @@ import BrandingMerch from "./pages/services/BrandingMerch";
 import Cybersecurity from "./pages/services/Cybersecurity";
 import DataAnalytics from "./pages/services/DataAnalytics";
 import UIUXDesign from "./pages/services/UIUXDesign";
+import SoftwareEngineering from "./pages/services/SoftwareEngineering";
+import SocialMedia from "./pages/services/SocialMedia";
 
 function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme="light" storageKey="innofyai-theme">
+        <ThemeProvider defaultTheme="dark" storageKey="innofyai-theme">
           <TooltipProvider>
             <Toaster />
             <Analytics />
@@ -63,6 +65,8 @@ function App() {
                 <Route path="/services/cybersecurity" component={Cybersecurity} />
                 <Route path="/services/data-analytics" component={DataAnalytics} />
                 <Route path="/services/ui-ux-design" component={UIUXDesign} />
+                <Route path="/services/software-engineering" component={SoftwareEngineering} />
+                <Route path="/services/social-media" component={SocialMedia} />
                 
                 <Route component={NotFound} />
               </Switch>

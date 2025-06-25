@@ -183,53 +183,36 @@ export default function Services() {
                 variants={cardHoverVariants}
                 whileHover="hover"
               >
-                <motion.div
-                  className="h-48 relative overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </motion.div>
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <Badge variant="secondary" className="mr-4 bg-blue-600/20 text-blue-300 border-blue-500/30">
-                      {service.category}
-                    </Badge>
-                    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+                <Link to={
+                  service.id === "software-engineering"
+                    ? "/services/software-engineering"
+                    : `/services/${service.id}`
+                }>
+                  <motion.div
+                    className="h-48 relative overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </motion.div>
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      <Badge variant="secondary" className="mr-4 bg-blue-600/20 text-blue-300 border-blue-500/30">
+                        {service.title}
+                      </Badge>
+                    </div>
+                    <div className="text-white text-2xl font-bold mb-2">{service.title}</div>
+                    <div className="text-gray-300 mb-4">{service.description}</div>
+                    <Button variant="outline" className="border-blue-500 text-blue-300 hover:bg-blue-600/20 transition-all">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, index) => (
-                      <motion.li
-                        key={index}
-                        className="flex items-center space-x-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <Check className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-300">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                  <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
-                    <motion.button
-                      className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
-                      variants={buttonHoverVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  </Link>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -274,53 +257,36 @@ export default function Services() {
                 variants={cardHoverVariants}
                 whileHover="hover"
               >
-                <motion.div
-                  className="h-48 relative overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </motion.div>
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <Badge variant="secondary" className="mr-4 bg-purple-600/20 text-purple-300 border-purple-500/30">
-                      {service.category}
-                    </Badge>
-                    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+                <Link to={
+                  service.id === "social-media"
+                    ? "/services/social-media"
+                    : `/services/${service.id}`
+                }>
+                  <motion.div
+                    className="h-48 relative overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </motion.div>
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      <Badge variant="secondary" className="mr-4 bg-pink-600/20 text-pink-300 border-pink-500/30">
+                        {service.title}
+                      </Badge>
+                    </div>
+                    <div className="text-white text-2xl font-bold mb-2">{service.title}</div>
+                    <div className="text-gray-300 mb-4">{service.description}</div>
+                    <Button variant="outline" className="border-pink-500 text-pink-300 hover:bg-pink-600/20 transition-all">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature, index) => (
-                      <motion.li
-                        key={index}
-                        className="flex items-center space-x-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <Check className="h-5 w-5 text-purple-400" />
-                        <span className="text-gray-300">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                  <Link href={`/services/${service.id === 'automation' ? 'automation-ai' : service.id === 'data' ? 'data-analytics' : service.id === 'design' ? 'ui-ux-design' : service.id === 'branding' ? 'branding-merch' : service.id}`}>
-                    <motion.button
-                      className="group px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
-                      variants={buttonHoverVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  </Link>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

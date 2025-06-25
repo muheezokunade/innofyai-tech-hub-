@@ -42,13 +42,13 @@ export function Navigation() {
     { icon: Zap, title: "Automation & AI", description: "Intelligent workflow automation", href: "/services/automation-ai", color: "from-blue-600 to-purple-600" },
     { icon: Shield, title: "Cybersecurity", description: "Advanced threat protection", href: "/services/cybersecurity", color: "from-red-600 to-orange-600" },
     { icon: BarChart3, title: "Data Analytics", description: "Data-driven insights", href: "/services/data-analytics", color: "from-green-600 to-blue-600" },
-    { icon: Code, title: "Software Development", description: "Custom applications", href: "/services#development", color: "from-purple-600 to-pink-600" },
+    { icon: Code, title: "Software Development", description: "Custom applications", href: "/services/software-engineering", color: "from-purple-600 to-pink-600" },
   ];
 
   const creativeServices = [
     { icon: Palette, title: "UI/UX Design", description: "User-centered design", href: "/services/ui-ux-design", color: "from-pink-600 to-red-600" },
     { icon: Megaphone, title: "Branding & Merch", description: "Brand identity systems", href: "/services/branding-merch", color: "from-yellow-600 to-orange-600" },
-    { icon: BarChart3, title: "Social Media", description: "Strategic social growth", href: "/services#social", color: "from-indigo-600 to-purple-600" },
+    { icon: BarChart3, title: "Social Media", description: "Strategic social growth", href: "/services/social-media", color: "from-indigo-600 to-purple-600" },
   ];
 
   const navVariants = {

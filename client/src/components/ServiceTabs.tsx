@@ -15,32 +15,29 @@ export function ServiceTabs() {
     { id: "cybersecurity", label: "AI Solutions" },
     { id: "branding", label: "Branding" },
     { id: "data", label: "Data Analytics" },
-    { id: "design", label: "Design" }
+    { id: "design", label: "Design" },
   ];
 
   return (
     <section className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-space text-foreground mb-4">
-            What We Create
-          </h2>
+          <h2 className="text-4xl font-bold text-space text-foreground mb-4">What We Create</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From intelligent automation to stunning brand experiences, we deliver comprehensive solutions that transform businesses.
+            From intelligent automation to stunning brand experiences, we deliver comprehensive
+            solutions that transform businesses.
           </p>
         </div>
 
         {/* Service Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {tabButtons.map((tab) => (
+          {tabButtons.map(tab => (
             <Button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               variant={activeTab === tab.id ? "default" : "outline"}
               className={`px-6 py-3 ${
-                activeTab === tab.id 
-                  ? "gradient-bg border-0 text-white" 
-                  : ""
+                activeTab === tab.id ? "gradient-bg border-0 text-white" : ""
               }`}
             >
               {tab.label}
@@ -59,9 +56,7 @@ export function ServiceTabs() {
                 <h3 className="text-2xl font-bold text-space text-foreground mb-4">
                   {activeService.title}
                 </h3>
-                <p className="text-muted-foreground mb-6">
-                  {activeService.description}
-                </p>
+                <p className="text-muted-foreground mb-6">{activeService.description}</p>
                 <ul className="space-y-3">
                   {activeService.features.map((feature, index) => (
                     <li key={index} className="flex items-center space-x-3">
@@ -70,17 +65,17 @@ export function ServiceTabs() {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/services/${activeService.id === 'automation' ? 'automation-ai' : activeService.id === 'data' ? 'data-analytics' : activeService.id === 'design' ? 'ui-ux-design' : activeService.id === 'branding' ? 'branding-merch' : activeService.id}`}>
-                  <Button className="gradient-bg border-0 text-white mt-6">
-                    Learn More
-                  </Button>
+                <Link
+                  href={`/services/${activeService.id === "automation" ? "automation-ai" : activeService.id === "data" ? "data-analytics" : activeService.id === "design" ? "ui-ux-design" : activeService.id === "branding" ? "branding-merch" : activeService.id}`}
+                >
+                  <Button className="gradient-bg border-0 text-white mt-6">Learn More</Button>
                 </Link>
               </div>
               <div>
-                <img 
-                  src={activeService.image} 
+                <img
+                  src={activeService.image}
                   alt={activeService.title}
-                  className="rounded-xl shadow-lg w-full h-auto" 
+                  className="rounded-xl shadow-lg w-full h-auto"
                 />
               </div>
             </div>

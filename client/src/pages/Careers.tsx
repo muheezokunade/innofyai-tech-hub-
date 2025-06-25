@@ -1,37 +1,48 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { MapPin, Users, Heart, Zap, Code, Palette, Shield, BarChart3, ArrowRight, Target, Rocket, Brain } from "lucide-react";
+import {
+  MapPin,
+  Users,
+  Heart,
+  Zap,
+  Code,
+  Palette,
+  Shield,
+  BarChart3,
+  ArrowRight,
+  Target,
+  Rocket,
+  Brain,
+} from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../lib/animations';
+  cardHoverVariants,
+} from "../lib/animations";
 
 export default function Careers() {
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
     url: "https://innofyai.com",
     logo: "https://innofyai.com/logo.png",
-    description: "Join a team of innovators, creators, and problem-solvers who are transforming businesses across Nigeria and beyond through technology and creativity.",
+    description:
+      "Join a team of innovators, creators, and problem-solvers who are transforming businesses across Nigeria and beyond through technology and creativity.",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "Customer Service",
-      email: "careers@innofyai.com"
+      email: "careers@innofyai.com",
     },
-    sameAs: [
-      "https://linkedin.com/company/innofyai",
-      "https://twitter.com/innofyai"
-    ]
+    sameAs: ["https://linkedin.com/company/innofyai", "https://twitter.com/innofyai"],
   });
 
   const openPositions = [
@@ -40,41 +51,61 @@ export default function Careers() {
       department: "Technology",
       location: "Lagos, Nigeria",
       type: "Full-time",
-      description: "Lead development of cutting-edge web applications and automation solutions for our clients.",
-      requirements: ["5+ years experience with React/Node.js", "Experience with cloud platforms", "Strong problem-solving skills"],
+      description:
+        "Lead development of cutting-edge web applications and automation solutions for our clients.",
+      requirements: [
+        "5+ years experience with React/Node.js",
+        "Experience with cloud platforms",
+        "Strong problem-solving skills",
+      ],
       icon: <Code className="h-6 w-6" />,
-      color: "from-blue-600 to-purple-600"
+      color: "from-blue-600 to-purple-600",
     },
     {
       title: "UI/UX Designer",
       department: "Creative",
       location: "Lagos, Nigeria / Remote",
       type: "Full-time",
-      description: "Create beautiful, user-centered designs that solve real business problems for our clients.",
-      requirements: ["3+ years UI/UX design experience", "Proficiency in Figma/Adobe Creative Suite", "Portfolio showcasing design thinking"],
+      description:
+        "Create beautiful, user-centered designs that solve real business problems for our clients.",
+      requirements: [
+        "3+ years UI/UX design experience",
+        "Proficiency in Figma/Adobe Creative Suite",
+        "Portfolio showcasing design thinking",
+      ],
       icon: <Palette className="h-6 w-6" />,
-      color: "from-purple-600 to-pink-600"
+      color: "from-purple-600 to-pink-600",
     },
     {
       title: "Cybersecurity Specialist",
       department: "Technology",
       location: "Lagos, Nigeria",
       type: "Full-time",
-      description: "Protect our clients' digital assets with advanced security solutions and threat monitoring.",
-      requirements: ["Security certifications (CISSP, CEH, etc.)", "Experience with security frameworks", "Incident response experience"],
+      description:
+        "Protect our clients' digital assets with advanced security solutions and threat monitoring.",
+      requirements: [
+        "Security certifications (CISSP, CEH, etc.)",
+        "Experience with security frameworks",
+        "Incident response experience",
+      ],
       icon: <Shield className="h-6 w-6" />,
-      color: "from-red-600 to-orange-600"
+      color: "from-red-600 to-orange-600",
     },
     {
       title: "Data Analytics Consultant",
       department: "Technology",
       location: "Lagos, Nigeria / Hybrid",
       type: "Contract",
-      description: "Help clients unlock insights from their data with advanced analytics and visualization.",
-      requirements: ["Experience with Python/R and SQL", "Data visualization tools expertise", "Business intelligence background"],
+      description:
+        "Help clients unlock insights from their data with advanced analytics and visualization.",
+      requirements: [
+        "Experience with Python/R and SQL",
+        "Data visualization tools expertise",
+        "Business intelligence background",
+      ],
       icon: <BarChart3 className="h-6 w-6" />,
-      color: "from-green-600 to-blue-600"
-    }
+      color: "from-green-600 to-blue-600",
+    },
   ];
 
   const benefits = [
@@ -82,49 +113,52 @@ export default function Careers() {
       icon: <Heart className="h-8 w-8" />,
       title: "Health & Wellness",
       description: "Comprehensive health insurance and wellness programs for you and your family.",
-      color: "from-red-600 to-pink-600"
+      color: "from-red-600 to-pink-600",
     },
     {
       icon: <Zap className="h-8 w-8" />,
       title: "Professional Growth",
-      description: "Continuous learning opportunities, conferences, and skill development programs.",
-      color: "from-yellow-600 to-orange-600"
+      description:
+        "Continuous learning opportunities, conferences, and skill development programs.",
+      color: "from-yellow-600 to-orange-600",
     },
     {
       icon: <Users className="h-8 w-8" />,
       title: "Collaborative Culture",
       description: "Work with talented, passionate people who care about making an impact.",
-      color: "from-blue-600 to-purple-600"
+      color: "from-blue-600 to-purple-600",
     },
     {
       icon: <MapPin className="h-8 w-8" />,
       title: "Flexible Work",
       description: "Hybrid and remote work options to support your work-life balance.",
-      color: "from-green-600 to-blue-600"
-    }
+      color: "from-green-600 to-blue-600",
+    },
   ];
 
   const companyValues = [
     {
       title: "Innovation",
       description: "We push boundaries and embrace new technologies to solve complex challenges.",
-      icon: <Brain className="h-6 w-6" />
+      icon: <Brain className="h-6 w-6" />,
     },
     {
       title: "Excellence",
-      description: "We strive for excellence in everything we do, from code quality to client relationships.",
-      icon: <Target className="h-6 w-6" />
+      description:
+        "We strive for excellence in everything we do, from code quality to client relationships.",
+      icon: <Target className="h-6 w-6" />,
     },
     {
       title: "Growth",
-      description: "We invest in our people's growth and development, both personally and professionally.",
-      icon: <Rocket className="h-6 w-6" />
-    }
+      description:
+        "We invest in our people's growth and development, both personally and professionally.",
+      icon: <Rocket className="h-6 w-6" />,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <SEO 
+      <SEO
         title="Careers at InnofyAI - Join Our Team"
         description="Join a team of innovators, creators, and problem-solvers who are transforming businesses across Nigeria and beyond through technology and creativity."
         keywords="careers, jobs, employment, tech jobs, software development, UI/UX design, cybersecurity, data analytics, Nigeria"
@@ -149,21 +183,25 @@ export default function Careers() {
                   Join Our Team
                 </Badge>
               </motion.div>
-              
+
               <motion.h1
                 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
                 variants={fadeUpVariants}
               >
-                Build the Future with <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">InnofyAI</span>
+                Build the Future with{" "}
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  InnofyAI
+                </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-8"
                 variants={fadeUpVariants}
               >
-                Join a team of innovators, creators, and problem-solvers who are transforming businesses across Nigeria and beyond through technology and creativity.
+                Join a team of innovators, creators, and problem-solvers who are transforming
+                businesses across Nigeria and beyond through technology and creativity.
               </motion.p>
-              
+
               <motion.div variants={fadeUpVariants}>
                 <Link href="#positions">
                   <motion.button
@@ -191,20 +229,14 @@ export default function Careers() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center mb-16"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="text-center mb-16" variants={staggerContainerVariants}>
               <motion.h2
                 className="text-4xl lg:text-5xl font-bold text-white mb-6"
                 variants={fadeUpVariants}
               >
                 Why Work at InnofyAI?
               </motion.h2>
-              <motion.p
-                className="text-xl lg:text-2xl text-gray-300"
-                variants={fadeUpVariants}
-              >
+              <motion.p className="text-xl lg:text-2xl text-gray-300" variants={fadeUpVariants}>
                 We're building more than just solutions—we're building careers and a community
               </motion.p>
             </motion.div>
@@ -216,13 +248,14 @@ export default function Careers() {
               <motion.div variants={fadeUpVariants}>
                 <h3 className="text-3xl font-bold text-white mb-6">Our Mission</h3>
                 <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                  At InnofyAI, we believe technology should empower businesses to reach their full potential. 
-                  We're on a mission to democratize access to cutting-edge technology solutions across Africa, 
-                  starting with Nigeria.
+                  At InnofyAI, we believe technology should empower businesses to reach their full
+                  potential. We're on a mission to democratize access to cutting-edge technology
+                  solutions across Africa, starting with Nigeria.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Our team combines deep technical expertise with creative problem-solving to deliver 
-                  solutions that don't just meet requirements—they exceed expectations and drive real business impact.
+                  Our team combines deep technical expertise with creative problem-solving to
+                  deliver solutions that don't just meet requirements—they exceed expectations and
+                  drive real business impact.
                 </p>
               </motion.div>
               <motion.div
@@ -232,9 +265,9 @@ export default function Careers() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <motion.img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Team collaboration at InnofyAI" 
+                <motion.img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Team collaboration at InnofyAI"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}
                   whileHover="hover"
@@ -289,12 +322,12 @@ export default function Careers() {
               className="text-4xl lg:text-5xl font-bold text-white mb-12 text-center"
               variants={fadeUpVariants}
             >
-              Our <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Values</span>
+              Our{" "}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Values
+              </span>
             </motion.h2>
-            <motion.div
-              className="grid md:grid-cols-3 gap-8"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerContainerVariants}>
               {companyValues.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -328,28 +361,22 @@ export default function Careers() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center mb-16"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="text-center mb-16" variants={staggerContainerVariants}>
               <motion.h2
                 className="text-4xl lg:text-5xl font-bold text-white mb-6"
                 variants={fadeUpVariants}
               >
-                Open <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Positions</span>
+                Open{" "}
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Positions
+                </span>
               </motion.h2>
-              <motion.p
-                className="text-xl lg:text-2xl text-gray-300"
-                variants={fadeUpVariants}
-              >
+              <motion.p className="text-xl lg:text-2xl text-gray-300" variants={fadeUpVariants}>
                 Find your next opportunity to make an impact
               </motion.p>
             </motion.div>
 
-            <motion.div
-              className="space-y-6"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="space-y-6" variants={staggerContainerVariants}>
               {openPositions.map((position, index) => (
                 <motion.div
                   key={position.title}
@@ -375,7 +402,10 @@ export default function Careers() {
                             <div>
                               <h3 className="text-xl font-bold text-white">{position.title}</h3>
                               <div className="flex items-center space-x-4 text-gray-400 mt-2">
-                                <Badge variant="outline" className="bg-white/5 text-gray-300 border-white/20">
+                                <Badge
+                                  variant="outline"
+                                  className="bg-white/5 text-gray-300 border-white/20"
+                                >
                                   {position.department}
                                 </Badge>
                                 <span className="flex items-center">
@@ -441,7 +471,8 @@ export default function Careers() {
               className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
               variants={fadeUpVariants}
             >
-              Don't see a position that fits? We're always looking for talented individuals to join our growing team.
+              Don't see a position that fits? We're always looking for talented individuals to join
+              our growing team.
             </motion.p>
             <motion.button
               className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"

@@ -8,45 +8,43 @@ interface BreadcrumbItem {
 
 export function Breadcrumbs() {
   const [location] = useLocation();
-  
+
   const getBreadcrumbs = (): BreadcrumbItem[] => {
-    const pathSegments = location.split('/').filter(Boolean);
-    const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
-    
-    let currentPath = '';
-    
+    const pathSegments = location.split("/").filter(Boolean);
+    const breadcrumbs: BreadcrumbItem[] = [{ label: "Home", href: "/" }];
+
+    let currentPath = "";
+
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
-      
+
       // Convert URL-friendly names to readable labels
       const label = segment
-        .split('-')
+        .split("-")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-      
+        .join(" ");
+
       // Don't add href for the last item (current page)
       const href = index === pathSegments.length - 1 ? undefined : currentPath;
-      
+
       breadcrumbs.push({ label, href });
     });
-    
+
     return breadcrumbs;
   };
-  
+
   const breadcrumbs = getBreadcrumbs();
-  
+
   // Don't show breadcrumbs on home page
   if (breadcrumbs.length <= 1) return null;
-  
+
   return (
     <nav className="py-4 px-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
         {breadcrumbs.map((item, index) => (
           <li key={item.href || index} className="flex items-center">
-            {index > 0 && (
-              <ChevronRight className="h-4 w-4 mx-2 text-muted-foreground" />
-            )}
-            
+            {index > 0 && <ChevronRight className="h-4 w-4 mx-2 text-muted-foreground" />}
+
             {item.href ? (
               <Link
                 href={item.href}
@@ -66,4 +64,4 @@ export function Breadcrumbs() {
       </ol>
     </nav>
   );
-} 
+}

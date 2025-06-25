@@ -7,13 +7,13 @@ import { caseStudies } from "@/data/content";
 import { ArrowRight, Filter, Award, Star, TrendingUp, Clock, Users, Zap } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../lib/animations';
+  cardHoverVariants,
+} from "../lib/animations";
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -25,17 +25,17 @@ export default function Portfolio() {
     logo: "https://innofyai.com/logo.png",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com"
+      email: "hello@innofyai.com",
     },
     sameAs: [
       "https://twitter.com/innofyai",
       "https://linkedin.com/company/innofyai",
-      "https://facebook.com/innofyai"
-    ]
+      "https://facebook.com/innofyai",
+    ],
   });
 
   const filters = [
@@ -43,23 +43,24 @@ export default function Portfolio() {
     { id: "automation", label: "Automation", icon: <Zap className="w-4 h-4" /> },
     { id: "branding", label: "Branding", icon: <Award className="w-4 h-4" /> },
     { id: "security", label: "Security", icon: <Star className="w-4 h-4" /> },
-    { id: "design", label: "Design", icon: <TrendingUp className="w-4 h-4" /> }
+    { id: "design", label: "Design", icon: <TrendingUp className="w-4 h-4" /> },
   ];
 
-  const filteredStudies = activeFilter === "all" 
-    ? caseStudies 
-    : caseStudies.filter(study => study.category === activeFilter);
+  const filteredStudies =
+    activeFilter === "all"
+      ? caseStudies
+      : caseStudies.filter(study => study.category === activeFilter);
 
   const stats = [
     { number: "150+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
     { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
     { number: "2.5x", label: "Average ROI", icon: <TrendingUp className="w-6 h-6" /> },
-    { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> }
+    { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <SEO 
+      <SEO
         title="Portfolio - Our Success Stories & Case Studies"
         description="Explore InnofyAI's portfolio of successful projects. See how we've transformed businesses with AI automation, cybersecurity, design, and branding solutions."
         keywords="portfolio, case studies, success stories, AI projects, cybersecurity projects, design projects, branding projects, client results"
@@ -86,7 +87,8 @@ export default function Portfolio() {
               className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
               variants={fadeUpVariants}
             >
-              Explore our successful projects and see how we've transformed businesses across various industries.
+              Explore our successful projects and see how we've transformed businesses across
+              various industries.
             </motion.p>
           </motion.div>
         </div>
@@ -108,8 +110,8 @@ export default function Portfolio() {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  activeFilter === filter.id 
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg" 
+                  activeFilter === filter.id
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-white/5 backdrop-blur-sm border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
                 }`}
                 variants={fadeUpVariants}
@@ -147,10 +149,10 @@ export default function Portfolio() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img 
-                      src={study.image} 
+                    <img
+                      src={study.image}
                       alt={study.title}
-                      className="w-full h-full object-cover" 
+                      className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute top-4 right-4">
@@ -169,9 +171,7 @@ export default function Portfolio() {
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-gray-300 mb-4 leading-relaxed">
-                      {study.description}
-                    </p>
+                    <p className="text-gray-300 mb-4 leading-relaxed">{study.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-400">{study.metricLabel}</span>
                       <motion.button
@@ -207,10 +207,7 @@ export default function Portfolio() {
             >
               Proven Results
             </motion.h2>
-            <motion.p
-              className="text-xl text-gray-300"
-              variants={fadeUpVariants}
-            >
+            <motion.p className="text-xl text-gray-300" variants={fadeUpVariants}>
               Our portfolio speaks for itself with measurable success metrics
             </motion.p>
           </motion.div>
@@ -237,12 +234,8 @@ export default function Portfolio() {
                 >
                   {stat.icon}
                 </motion.div>
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 font-medium">
-                  {stat.label}
-                </div>
+                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-gray-300 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -268,7 +261,8 @@ export default function Portfolio() {
               className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
               variants={fadeUpVariants}
             >
-              Let's create the next success story together. Your project could be the next one in our portfolio.
+              Let's create the next success story together. Your project could be the next one in
+              our portfolio.
             </motion.p>
             <motion.button
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"

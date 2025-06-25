@@ -18,7 +18,8 @@ export function Hero() {
               Where <span className="gradient-text">Innovation</span> Begins
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Transforming businesses through cutting-edge AI automation, data analytics, and creative branding solutions. From code to culture, we build the future.
+              Transforming businesses through cutting-edge AI automation, data analytics, and
+              creative branding solutions. From code to culture, we build the future.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -35,12 +36,12 @@ export function Hero() {
               </Link>
             </div>
           </div>
-          
+
           <div className="relative slide-up">
-            <OptimizedImage 
+            <OptimizedImage
               src={heroImage}
-              alt="Modern tech consulting office with collaborative workspace and innovation" 
-              className="rounded-2xl shadow-2xl w-full h-auto" 
+              alt="Modern tech consulting office with collaborative workspace and innovation"
+              className="rounded-2xl shadow-2xl w-full h-auto"
               priority={true}
               sizes="(max-width: 768px) 100vw, 50vw"
             />

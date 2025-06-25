@@ -20,7 +20,7 @@ export function Analytics() {
 
     // Initialize gtag
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function() {
+    window.gtag = function () {
       window.dataLayer.push(arguments);
     };
     window.gtag("js", new Date());
@@ -68,4 +68,4 @@ export const trackEvents = {
   blogView: (article: string) => trackEvent("page_view", "blog", article),
   ctaClick: (cta: string) => trackEvent("click", "cta", cta),
   download: (file: string) => trackEvent("download", "resource", file),
-}; 
+};

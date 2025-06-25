@@ -1,47 +1,40 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
-import { heroTextVariants, heroButtonVariants, parallaxVariants } from '../lib/animations';
-import { Link } from 'wouter';
+import React, { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { heroTextVariants, heroButtonVariants, parallaxVariants } from "../lib/animations";
+import { Link } from "wouter";
 
 export const AnimatedHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  
+
   const y = useTransform(scrollY, [0, 1000], [0, -200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
-  
+
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
   const springOpacity = useSpring(opacity, { stiffness: 100, damping: 30 });
 
   const handleWatchDemo = () => {
     // You can replace this with actual demo video URL
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
   };
 
   const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
+    const servicesSection = document.getElementById("services");
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      servicesSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
     >
       {/* Animated SVG Background */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        style={{ y: springY }}
-      >
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 1200 800"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+      <motion.div className="absolute inset-0 opacity-20" style={{ y: springY }}>
+        <svg className="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
@@ -49,14 +42,14 @@ export const AnimatedHero: React.FC = () => {
               <stop offset="100%" stopColor="#ec4899" stopOpacity="0.3" />
             </linearGradient>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge> 
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
-          
+
           {/* Animated grid pattern */}
           <motion.g
             animate={{
@@ -65,7 +58,7 @@ export const AnimatedHero: React.FC = () => {
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             {Array.from({ length: 20 }).map((_, i) => (
@@ -84,7 +77,7 @@ export const AnimatedHero: React.FC = () => {
                   duration: 3,
                   delay: i * 0.1,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               />
             ))}
@@ -104,12 +97,12 @@ export const AnimatedHero: React.FC = () => {
                   duration: 3,
                   delay: i * 0.1,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               />
             ))}
           </motion.g>
-          
+
           {/* Floating particles */}
           {Array.from({ length: 15 }).map((_, i) => (
             <motion.circle
@@ -128,7 +121,7 @@ export const AnimatedHero: React.FC = () => {
                 duration: 4 + Math.random() * 2,
                 delay: Math.random() * 2,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
             />
           ))}
@@ -162,9 +155,7 @@ export const AnimatedHero: React.FC = () => {
             InnofyAI
           </span>
           <br />
-          <span className="text-4xl md:text-5xl font-light text-gray-300">
-            Tech Innovation Hub
-          </span>
+          <span className="text-4xl md:text-5xl font-light text-gray-300">Tech Innovation Hub</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -174,9 +165,8 @@ export const AnimatedHero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          We craft cutting-edge digital solutions that drive innovation, 
-          enhance user experiences, and accelerate business growth through 
-          AI-powered technology and creative excellence.
+          We craft cutting-edge digital solutions that drive innovation, enhance user experiences,
+          and accelerate business growth through AI-powered technology and creative excellence.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -201,10 +191,10 @@ export const AnimatedHero: React.FC = () => {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
                 }}
               />
-              
+
               <span className="relative flex items-center gap-2">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -233,7 +223,7 @@ export const AnimatedHero: React.FC = () => {
           {[
             { number: "500+", label: "Projects Delivered" },
             { number: "98%", label: "Client Satisfaction" },
-            { number: "24/7", label: "Support Available" }
+            { number: "24/7", label: "Support Available" },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -241,12 +231,8 @@ export const AnimatedHero: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-400 text-sm md:text-base">
-                {stat.label}
-              </div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+              <div className="text-gray-400 text-sm md:text-base">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -268,4 +254,4 @@ export const AnimatedHero: React.FC = () => {
       </motion.div>
     </section>
   );
-}; 
+};

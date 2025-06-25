@@ -1,52 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, MessageCircle, ArrowRight } from 'lucide-react';
-import { Link } from 'wouter';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, MessageCircle, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 export const FloatingCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentSection, setCurrentSection] = useState('default');
+  const [currentSection, setCurrentSection] = useState("default");
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      
+
       setIsVisible(scrollY > windowHeight * 0.2);
       setIsCollapsed(window.innerWidth < 768);
-      
+
       // Determine current section
-      const sections = document.querySelectorAll('section[id]');
-      let current = 'default';
-      
-      sections.forEach((section) => {
+      const sections = document.querySelectorAll("section[id]");
+      let current = "default";
+
+      sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 100 && rect.bottom >= 100) {
           current = section.id;
         }
       });
-      
+
       setCurrentSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
   const getCTAContent = () => {
     switch (currentSection) {
-      case 'services':
-        return { text: 'Book Consultation', icon: <MessageCircle className="w-4 h-4" />, href: '/contact' };
-      case 'case-studies':
-        return { text: 'See More Results', icon: <ArrowRight className="w-4 h-4" />, href: '/portfolio' };
+      case "services":
+        return {
+          text: "Book Consultation",
+          icon: <MessageCircle className="w-4 h-4" />,
+          href: "/contact",
+        };
+      case "case-studies":
+        return {
+          text: "See More Results",
+          icon: <ArrowRight className="w-4 h-4" />,
+          href: "/portfolio",
+        };
       default:
-        return { text: 'Start Your Project', icon: <MessageCircle className="w-4 h-4" />, href: '/contact' };
+        return {
+          text: "Start Your Project",
+          icon: <MessageCircle className="w-4 h-4" />,
+          href: "/contact",
+        };
     }
   };
 
@@ -66,7 +78,7 @@ export const FloatingCTA: React.FC = () => {
             <motion.button
               className={`
                 group relative overflow-hidden rounded-full shadow-lg
-                ${isCollapsed ? 'w-14 h-14' : 'px-6 py-3 pr-4'}
+                ${isCollapsed ? "w-14 h-14" : "px-6 py-3 pr-4"}
                 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700
                 text-white font-medium transition-all duration-300
                 flex items-center gap-2
@@ -74,15 +86,12 @@ export const FloatingCTA: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                className="flex-shrink-0"
-                whileHover={{ rotate: 5 }}
-              >
+              <motion.div className="flex-shrink-0" whileHover={{ rotate: 5 }}>
                 <span className="flex items-center justify-center w-full h-full">
                   {ctaContent.icon}
                 </span>
               </motion.div>
-              
+
               <AnimatePresence>
                 {!isCollapsed && (
                   <motion.span
@@ -96,7 +105,7 @@ export const FloatingCTA: React.FC = () => {
                   </motion.span>
                 )}
               </AnimatePresence>
-              
+
               <AnimatePresence>
                 {!isCollapsed && (
                   <motion.div

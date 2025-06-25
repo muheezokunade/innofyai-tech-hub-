@@ -1,35 +1,42 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Eye, Lock, FileText, Users, AlertCircle, ArrowRight, CheckCircle } from "lucide-react";
+import {
+  Shield,
+  Eye,
+  Lock,
+  FileText,
+  Users,
+  AlertCircle,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../lib/animations';
+  cardHoverVariants,
+} from "../lib/animations";
 
 export default function Privacy() {
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
     url: "https://innofyai.com",
     logo: "https://innofyai.com/logo.png",
-    description: "We are committed to protecting your privacy and handling your personal data with transparency and care.",
+    description:
+      "We are committed to protecting your privacy and handling your personal data with transparency and care.",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "Customer Service",
-      email: "privacy@innofyai.com"
+      email: "privacy@innofyai.com",
     },
-    sameAs: [
-      "https://linkedin.com/company/innofyai",
-      "https://twitter.com/innofyai"
-    ]
+    sameAs: ["https://linkedin.com/company/innofyai", "https://twitter.com/innofyai"],
   });
 
   const sections = [
@@ -39,9 +46,9 @@ export default function Privacy() {
       items: [
         "Personal information you provide (name, email, phone, company)",
         "Device and usage information",
-        "Cookies and similar technologies"
+        "Cookies and similar technologies",
       ],
-      color: "from-blue-600 to-indigo-600"
+      color: "from-blue-600 to-indigo-600",
     },
     {
       icon: <Eye className="h-8 w-8" />,
@@ -50,9 +57,9 @@ export default function Privacy() {
         "Provide and manage our services",
         "Communicate with you",
         "Improve our website and services",
-        "Security and fraud prevention"
+        "Security and fraud prevention",
       ],
-      color: "from-indigo-600 to-purple-600"
+      color: "from-indigo-600 to-purple-600",
     },
     {
       icon: <Shield className="h-8 w-8" />,
@@ -60,9 +67,9 @@ export default function Privacy() {
       items: [
         "Technical and organizational security measures",
         "Protection from unauthorized access",
-        "Regular security assessments"
+        "Regular security assessments",
       ],
-      color: "from-purple-600 to-pink-600"
+      color: "from-purple-600 to-pink-600",
     },
     {
       icon: <Users className="h-8 w-8" />,
@@ -71,33 +78,33 @@ export default function Privacy() {
         "Right to access your data",
         "Right to rectification",
         "Right to erasure",
-        "Right to data portability"
+        "Right to data portability",
       ],
-      color: "from-pink-600 to-red-600"
-    }
+      color: "from-pink-600 to-red-600",
+    },
   ];
 
   const privacyPrinciples = [
     {
       title: "Transparency",
       description: "We are open about how we collect, use, and protect your data.",
-      icon: <Eye className="h-6 w-6" />
+      icon: <Eye className="h-6 w-6" />,
     },
     {
       title: "Security",
       description: "We implement robust security measures to protect your information.",
-      icon: <Shield className="h-6 w-6" />
+      icon: <Shield className="h-6 w-6" />,
     },
     {
       title: "Control",
       description: "You have control over your data and can exercise your rights.",
-      icon: <Lock className="h-6 w-6" />
-    }
+      icon: <Lock className="h-6 w-6" />,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      <SEO 
+      <SEO
         title="Privacy Policy - InnofyAI"
         description="We are committed to protecting your privacy and handling your personal data with transparency and care."
         keywords="privacy policy, data protection, personal data, GDPR, NDPA, data security, privacy rights"
@@ -113,34 +120,32 @@ export default function Privacy() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="text-center" variants={staggerContainerVariants}>
               <motion.div variants={fadeUpVariants}>
                 <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 mb-6">
                   Privacy Policy
                 </Badge>
               </motion.div>
-              
+
               <motion.h1
                 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
                 variants={fadeUpVariants}
               >
-                Your Privacy <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Matters</span>
+                Your Privacy{" "}
+                <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                  Matters
+                </span>
               </motion.h1>
-              
+
               <motion.p
                 className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-6"
                 variants={fadeUpVariants}
               >
-                We are committed to protecting your privacy and handling your personal data with transparency and care.
+                We are committed to protecting your privacy and handling your personal data with
+                transparency and care.
               </motion.p>
-              
-              <motion.p
-                className="text-gray-400"
-                variants={fadeUpVariants}
-              >
+
+              <motion.p className="text-gray-400" variants={fadeUpVariants}>
                 <strong>Last Updated:</strong> June 23, 2025
               </motion.p>
             </motion.div>
@@ -161,12 +166,12 @@ export default function Privacy() {
               className="text-3xl lg:text-4xl font-bold text-white mb-8 text-center"
               variants={fadeUpVariants}
             >
-              Our Privacy <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Principles</span>
+              Our Privacy{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                Principles
+              </span>
             </motion.h2>
-            <motion.div
-              className="grid md:grid-cols-3 gap-8"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerContainerVariants}>
               {privacyPrinciples.map((principle, index) => (
                 <motion.div
                   key={principle.title}
@@ -250,34 +255,43 @@ export default function Privacy() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="prose prose-lg max-w-none"
-              variants={staggerContainerVariants}
-            >
-              <motion.div
-                className="space-y-12"
-                variants={staggerContainerVariants}
-              >
-                
+            <motion.div className="prose prose-lg max-w-none" variants={staggerContainerVariants}>
+              <motion.div className="space-y-12" variants={staggerContainerVariants}>
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-6">1. Introduction</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-6">
+                    1. Introduction
+                  </h2>
                   <p className="text-gray-300 leading-relaxed">
-                    Welcome to InnofyAI ("we," "our," "us"). We are committed to protecting your privacy and handling your personal data in an open and transparent manner. This Privacy Policy explains how we collect, use, process, and disclose your information when you access or use our website and services. Our services include tech consulting (Automation, Data Collection, Cybersecurity, IoT, UI/UX, Social Media Management, Software Development) and branding services ("Services").
+                    Welcome to InnofyAI ("we," "our," "us"). We are committed to protecting your
+                    privacy and handling your personal data in an open and transparent manner. This
+                    Privacy Policy explains how we collect, use, process, and disclose your
+                    information when you access or use our website and services. Our services
+                    include tech consulting (Automation, Data Collection, Cybersecurity, IoT, UI/UX,
+                    Social Media Management, Software Development) and branding services
+                    ("Services").
                   </p>
                   <p className="text-gray-300 leading-relaxed mt-4">
-                    This policy is designed to comply with applicable data protection laws, including the Nigerian Data Protection Act (NDPA).
+                    This policy is designed to comply with applicable data protection laws,
+                    including the Nigerian Data Protection Act (NDPA).
                   </p>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-indigo-500 pl-6">2. Information We Collect</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-indigo-500 pl-6">
+                    2. Information We Collect
+                  </h2>
                   <p className="text-gray-300 leading-relaxed mb-4">
-                    We collect information to provide and improve our Services. The types of information we collect are:
+                    We collect information to provide and improve our Services. The types of
+                    information we collect are:
                   </p>
-                  
-                  <h3 className="text-xl font-semibold text-white mb-3">Personal Information You Provide to Us:</h3>
+
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Personal Information You Provide to Us:
+                  </h3>
                   <p className="text-gray-300 leading-relaxed mb-4">
-                    This includes information you voluntarily provide when you fill out our contact form, subscribe to our newsletter, or otherwise communicate with us. This may include:
+                    This includes information you voluntarily provide when you fill out our contact
+                    form, subscribe to our newsletter, or otherwise communicate with us. This may
+                    include:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-gray-300 mb-6">
                     <li>Full Name</li>
@@ -287,75 +301,156 @@ export default function Privacy() {
                     <li>Any other information you choose to provide in your messages</li>
                   </ul>
 
-                  <h3 className="text-xl font-semibold text-white mb-3">Information We Collect Automatically:</h3>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Information We Collect Automatically:
+                  </h3>
                   <p className="text-gray-300 leading-relaxed mb-4">
-                    When you visit our website, we may automatically collect certain information about your device and usage. This includes:
+                    When you visit our website, we may automatically collect certain information
+                    about your device and usage. This includes:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-gray-300">
-                    <li><strong>Log Data:</strong> Your IP address, browser type and settings, the date and time of your request, and how you interacted with our website.</li>
-                    <li><strong>Device Information:</strong> Information about the device you are using, such as the hardware model, operating system, and unique device identifiers.</li>
-                    <li><strong>Cookies and Similar Technologies:</strong> We use cookies to operate and administer our site and to improve your experience.</li>
+                    <li>
+                      <strong>Log Data:</strong> Your IP address, browser type and settings, the
+                      date and time of your request, and how you interacted with our website.
+                    </li>
+                    <li>
+                      <strong>Device Information:</strong> Information about the device you are
+                      using, such as the hardware model, operating system, and unique device
+                      identifiers.
+                    </li>
+                    <li>
+                      <strong>Cookies and Similar Technologies:</strong> We use cookies to operate
+                      and administer our site and to improve your experience.
+                    </li>
                   </ul>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-purple-500 pl-6">3. How We Use Your Information</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-purple-500 pl-6">
+                    3. How We Use Your Information
+                  </h2>
                   <p className="text-gray-300 leading-relaxed mb-4">
                     We use the information we collect for various purposes, including:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-gray-300">
-                    <li><strong>To Provide and Manage Our Services:</strong> To fulfill our contracts with you, including responding to your inquiries and providing you with our tech and branding solutions.</li>
-                    <li><strong>To Communicate With You:</strong> To send you administrative information, marketing communications, updates, and information about our services.</li>
-                    <li><strong>To Improve Our Website and Services:</strong> To analyze how users interact with our website, which helps us improve its functionality, design, and content.</li>
-                    <li><strong>For Security and Fraud Prevention:</strong> To protect our website, our users, and our business from fraudulent or illegal activity.</li>
-                    <li><strong>To Comply with Legal Obligations:</strong> To comply with applicable laws, legal processes, or government regulations.</li>
+                    <li>
+                      <strong>To Provide and Manage Our Services:</strong> To fulfill our contracts
+                      with you, including responding to your inquiries and providing you with our
+                      tech and branding solutions.
+                    </li>
+                    <li>
+                      <strong>To Communicate With You:</strong> To send you administrative
+                      information, marketing communications, updates, and information about our
+                      services.
+                    </li>
+                    <li>
+                      <strong>To Improve Our Website and Services:</strong> To analyze how users
+                      interact with our website, which helps us improve its functionality, design,
+                      and content.
+                    </li>
+                    <li>
+                      <strong>For Security and Fraud Prevention:</strong> To protect our website,
+                      our users, and our business from fraudulent or illegal activity.
+                    </li>
+                    <li>
+                      <strong>To Comply with Legal Obligations:</strong> To comply with applicable
+                      laws, legal processes, or government regulations.
+                    </li>
                   </ul>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-pink-500 pl-6">4. Data Sharing and Disclosure</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-pink-500 pl-6">
+                    4. Data Sharing and Disclosure
+                  </h2>
                   <p className="text-gray-300 leading-relaxed mb-4">
-                    We do not sell your personal information. We may share your information in the following circumstances:
+                    We do not sell your personal information. We may share your information in the
+                    following circumstances:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-gray-300">
-                    <li><strong>Service Providers:</strong> We may share your information with third-party vendors and service providers who perform services on our behalf.</li>
-                    <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in good faith belief that such action is necessary.</li>
-                    <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+                    <li>
+                      <strong>Service Providers:</strong> We may share your information with
+                      third-party vendors and service providers who perform services on our behalf.
+                    </li>
+                    <li>
+                      <strong>Legal Requirements:</strong> We may disclose your information if
+                      required to do so by law or in good faith belief that such action is
+                      necessary.
+                    </li>
+                    <li>
+                      <strong>Business Transfers:</strong> In the event of a merger, acquisition, or
+                      sale of assets, your information may be transferred as part of that
+                      transaction.
+                    </li>
                   </ul>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-red-500 pl-6">5. Data Security</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-red-500 pl-6">
+                    5. Data Security
+                  </h2>
                   <p className="text-gray-300 leading-relaxed">
-                    We implement appropriate technical and organizational measures to protect your personal data from unauthorized access, use, disclosure, alteration, or destruction. However, no internet or email transmission is ever fully secure or error-free. While we strive to protect your personal data, we cannot guarantee its absolute security.
+                    We implement appropriate technical and organizational measures to protect your
+                    personal data from unauthorized access, use, disclosure, alteration, or
+                    destruction. However, no internet or email transmission is ever fully secure or
+                    error-free. While we strive to protect your personal data, we cannot guarantee
+                    its absolute security.
                   </p>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-green-500 pl-6">6. Your Rights</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-green-500 pl-6">
+                    6. Your Rights
+                  </h2>
                   <p className="text-gray-300 leading-relaxed mb-4">
-                    Under applicable data protection laws, you have certain rights with respect to your personal data. These may include:
+                    Under applicable data protection laws, you have certain rights with respect to
+                    your personal data. These may include:
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-gray-300">
-                    <li><strong>The right to access:</strong> You have the right to request copies of your personal data.</li>
-                    <li><strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate.</li>
-                    <li><strong>The right to erasure:</strong> You have the right to request that we erase your personal data, under certain conditions.</li>
-                    <li><strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal data.</li>
-                    <li><strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization.</li>
+                    <li>
+                      <strong>The right to access:</strong> You have the right to request copies of
+                      your personal data.
+                    </li>
+                    <li>
+                      <strong>The right to rectification:</strong> You have the right to request
+                      that we correct any information you believe is inaccurate.
+                    </li>
+                    <li>
+                      <strong>The right to erasure:</strong> You have the right to request that we
+                      erase your personal data, under certain conditions.
+                    </li>
+                    <li>
+                      <strong>The right to restrict processing:</strong> You have the right to
+                      request that we restrict the processing of your personal data.
+                    </li>
+                    <li>
+                      <strong>The right to data portability:</strong> You have the right to request
+                      that we transfer the data that we have collected to another organization.
+                    </li>
                   </ul>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-yellow-500 pl-6">7. Children's Privacy</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-yellow-500 pl-6">
+                    7. Children's Privacy
+                  </h2>
                   <p className="text-gray-300 leading-relaxed">
-                    Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that a child under 18 has provided us with personal information, we will take steps to delete such information.
+                    Our Services are not directed to individuals under the age of 18. We do not
+                    knowingly collect personal information from children under 18. If we become
+                    aware that a child under 18 has provided us with personal information, we will
+                    take steps to delete such information.
                   </p>
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants}>
-                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-orange-500 pl-6">8. Changes to This Privacy Policy</h2>
+                  <h2 className="text-3xl font-bold text-white mb-6 border-l-4 border-orange-500 pl-6">
+                    8. Changes to This Privacy Policy
+                  </h2>
                   <p className="text-gray-300 leading-relaxed">
-                    We may update this Privacy Policy from time to time. The "Last Updated" date at the top of this page indicates when this Privacy Policy was last revised. We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.
+                    We may update this Privacy Policy from time to time. The "Last Updated" date at
+                    the top of this page indicates when this Privacy Policy was last revised. We
+                    encourage you to review this Privacy Policy periodically to stay informed about
+                    how we are protecting your information.
                   </p>
                 </motion.div>
 
@@ -367,11 +462,16 @@ export default function Privacy() {
                         <div>
                           <h3 className="text-xl font-bold text-white mb-2">Contact Us</h3>
                           <p className="text-gray-300 mb-4">
-                            If you have any questions about this Privacy Policy or our data practices, please contact us at:
+                            If you have any questions about this Privacy Policy or our data
+                            practices, please contact us at:
                           </p>
                           <div className="space-y-2 text-gray-300">
-                            <p><strong>Email:</strong> privacy@innofyai.com</p>
-                            <p><strong>Address:</strong> Lagos, Nigeria</p>
+                            <p>
+                              <strong>Email:</strong> privacy@innofyai.com
+                            </p>
+                            <p>
+                              <strong>Address:</strong> Lagos, Nigeria
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -403,7 +503,8 @@ export default function Privacy() {
               className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
               variants={fadeUpVariants}
             >
-              We're here to help. Contact our privacy team for any questions about how we handle your data.
+              We're here to help. Contact our privacy team for any questions about how we handle
+              your data.
             </motion.p>
             <motion.button
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"

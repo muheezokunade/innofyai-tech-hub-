@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 interface ScrollProgressProps {
   color?: string;
@@ -10,13 +10,13 @@ interface ScrollProgressProps {
 export const ScrollProgress: React.FC<ScrollProgressProps> = ({
   color = "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)",
   height = 3,
-  className = ""
+  className = "",
 }) => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   return (
@@ -26,7 +26,7 @@ export const ScrollProgress: React.FC<ScrollProgressProps> = ({
         scaleX,
         background: color,
         height: `${height}px`,
-        transformOrigin: "0%"
+        transformOrigin: "0%",
       }}
     />
   );
@@ -38,17 +38,12 @@ export const CircularScrollProgress: React.FC<{
   strokeWidth?: number;
   color?: string;
   className?: string;
-}> = ({
-  size = 40,
-  strokeWidth = 3,
-  color = "#3b82f6",
-  className = ""
-}) => {
+}> = ({ size = 40, strokeWidth = 3, color = "#3b82f6", className = "" }) => {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const radius = (size - strokeWidth) / 2;
@@ -59,11 +54,7 @@ export const CircularScrollProgress: React.FC<{
       className={`fixed top-4 right-4 z-50 ${className}`}
       style={{ width: size, height: size }}
     >
-      <svg
-        width={size}
-        height={size}
-        className="transform -rotate-90"
-      >
+      <svg width={size} height={size} className="transform -rotate-90">
         {/* Background circle */}
         <circle
           cx={size / 2}
@@ -84,7 +75,7 @@ export const CircularScrollProgress: React.FC<{
           strokeDasharray={circumference}
           strokeDashoffset={progress.get() * circumference}
           style={{
-            strokeDashoffset: progress.get() * circumference
+            strokeDashoffset: progress.get() * circumference,
           }}
         />
       </svg>
@@ -96,4 +87,4 @@ export const CircularScrollProgress: React.FC<{
       </motion.div>
     </motion.div>
   );
-}; 
+};

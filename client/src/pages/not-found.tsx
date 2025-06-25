@@ -1,17 +1,17 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Home, ArrowLeft, Search, MapPin } from "lucide-react";
 import { Link } from "wouter";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../lib/animations';
+  cardHoverVariants,
+} from "../lib/animations";
 
 export default function NotFound() {
   const structuredData = generateOrganizationStructuredData({
@@ -21,16 +21,13 @@ export default function NotFound() {
     description: "Page not found - The page you're looking for doesn't exist.",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "Customer Service",
-      email: "support@innofyai.com"
+      email: "support@innofyai.com",
     },
-    sameAs: [
-      "https://linkedin.com/company/innofyai",
-      "https://twitter.com/innofyai"
-    ]
+    sameAs: ["https://linkedin.com/company/innofyai", "https://twitter.com/innofyai"],
   });
 
   const quickLinks = [
@@ -39,27 +36,27 @@ export default function NotFound() {
       description: "Return to our homepage",
       icon: <Home className="h-6 w-6" />,
       href: "/",
-      color: "from-blue-600 to-purple-600"
+      color: "from-blue-600 to-purple-600",
     },
     {
       title: "Services",
       description: "Explore our services",
       icon: <Search className="h-6 w-6" />,
       href: "/services",
-      color: "from-purple-600 to-pink-600"
+      color: "from-purple-600 to-pink-600",
     },
     {
       title: "Contact",
       description: "Get in touch with us",
       icon: <MapPin className="h-6 w-6" />,
       href: "/contact",
-      color: "from-pink-600 to-red-600"
-    }
+      color: "from-pink-600 to-red-600",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
-      <SEO 
+      <SEO
         title="404 - Page Not Found - InnofyAI"
         description="The page you're looking for doesn't exist. Let us help you find what you need."
         keywords="404, page not found, error page"
@@ -75,14 +72,8 @@ export default function NotFound() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center"
-              variants={staggerContainerVariants}
-            >
-              <motion.div
-                className="mb-8"
-                variants={fadeUpVariants}
-              >
+            <motion.div className="text-center" variants={staggerContainerVariants}>
+              <motion.div className="mb-8" variants={fadeUpVariants}>
                 <motion.div
                   className="w-32 h-32 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -91,28 +82,31 @@ export default function NotFound() {
                   <AlertCircle className="h-16 w-16 text-white" />
                 </motion.div>
               </motion.div>
-              
+
               <motion.h1
                 className="text-6xl lg:text-8xl font-bold text-white leading-tight mb-6"
                 variants={fadeUpVariants}
               >
-                <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">404</span>
+                <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                  404
+                </span>
               </motion.h1>
-              
+
               <motion.h2
                 className="text-3xl lg:text-4xl font-bold text-white mb-6"
                 variants={fadeUpVariants}
               >
                 Page Not Found
               </motion.h2>
-              
+
               <motion.p
                 className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto"
                 variants={fadeUpVariants}
               >
-                Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+                Oops! The page you're looking for doesn't exist. It might have been moved, deleted,
+                or you entered the wrong URL.
               </motion.p>
-              
+
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
                 variants={fadeUpVariants}
@@ -156,12 +150,12 @@ export default function NotFound() {
               className="text-3xl lg:text-4xl font-bold text-white mb-8 text-center"
               variants={fadeUpVariants}
             >
-              Where Would You Like to <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Go?</span>
+              Where Would You Like to{" "}
+              <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                Go?
+              </span>
             </motion.h2>
-            <motion.div
-              className="grid md:grid-cols-3 gap-8"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerContainerVariants}>
               {quickLinks.map((link, index) => (
                 <motion.div
                   key={link.title}

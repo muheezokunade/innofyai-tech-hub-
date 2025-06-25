@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
-import { themeToggleVariants } from '../lib/animations';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { themeToggleVariants } from "../lib/animations";
 
 export const ThemeToggle: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    setIsDark(savedTheme === 'dark' || (!savedTheme && prefersDark));
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    setIsDark(savedTheme === "dark" || (!savedTheme && prefersDark));
   }, []);
 
   useEffect(() => {
     // Apply theme to document
     if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [isDark]);
 
@@ -42,9 +42,9 @@ export const ThemeToggle: React.FC = () => {
       <motion.div
         className="absolute inset-0 rounded-full"
         animate={{
-          background: isDark 
-            ? "linear-gradient(135deg, #1e293b, #334155)" 
-            : "linear-gradient(135deg, #fbbf24, #f59e0b)"
+          background: isDark
+            ? "linear-gradient(135deg, #1e293b, #334155)"
+            : "linear-gradient(135deg, #fbbf24, #f59e0b)",
         }}
         transition={{ duration: 0.3 }}
       />
@@ -57,7 +57,7 @@ export const ThemeToggle: React.FC = () => {
         transition={{
           duration: 2,
           repeat: Infinity,
-          ease: "linear"
+          ease: "linear",
         }}
       />
 
@@ -97,4 +97,4 @@ export const ThemeToggle: React.FC = () => {
       />
     </motion.button>
   );
-}; 
+};

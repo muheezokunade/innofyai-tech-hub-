@@ -1,68 +1,54 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Code, 
-  Palette, 
-  Shield, 
-  BarChart3, 
-  Smartphone, 
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Code,
+  Palette,
+  Shield,
+  BarChart3,
+  Smartphone,
   Zap,
   ArrowRight,
   Star,
   Users,
-  Award
-} from 'lucide-react';
-import { AnimatedHero } from '../components/AnimatedHero';
-import { ServiceCard } from '../components/ServiceCard';
-import { ScrollProgress } from '../components/ScrollProgress';
-import { FloatingCTA } from '../components/FloatingCTA';
-import { ThemeToggle } from '../components/ThemeToggle';
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+  Award,
+} from "lucide-react";
+import { AnimatedHero } from "../components/AnimatedHero";
+import { ServiceCard } from "../components/ServiceCard";
+import { ScrollProgress } from "../components/ScrollProgress";
+import { FloatingCTA } from "../components/FloatingCTA";
+import { ThemeToggle } from "../components/ThemeToggle";
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
-  buttonHoverVariants 
-} from '../lib/animations';
+  buttonHoverVariants,
+} from "../lib/animations";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { Link } from 'wouter';
+import { Link } from "wouter";
 
 const services = [
   {
     title: "AI & Automation",
-    description: "Intelligent automation solutions that streamline operations and boost productivity.",
+    description:
+      "Intelligent automation solutions that streamline operations and boost productivity.",
     icon: <Zap className="w-8 h-8 text-blue-400" />,
-    benefits: [
-      "Process automation",
-      "AI-powered insights",
-      "Cost reduction",
-      "24/7 operation"
-    ],
-    color: "#3b82f6"
+    benefits: ["Process automation", "AI-powered insights", "Cost reduction", "24/7 operation"],
+    color: "#3b82f6",
   },
   {
     title: "UI/UX Design",
     description: "User-centered design that creates intuitive and engaging digital experiences.",
     icon: <Palette className="w-8 h-8 text-purple-400" />,
-    benefits: [
-      "User research",
-      "Wireframing & prototyping",
-      "Visual design",
-      "Usability testing"
-    ],
-    color: "#8b5cf6"
+    benefits: ["User research", "Wireframing & prototyping", "Visual design", "Usability testing"],
+    color: "#8b5cf6",
   },
   {
     title: "Cybersecurity",
     description: "Comprehensive security solutions to protect your digital assets and data.",
     icon: <Shield className="w-8 h-8 text-green-400" />,
-    benefits: [
-      "Threat detection",
-      "Data encryption",
-      "Security audits",
-      "Compliance support"
-    ],
-    color: "#10b981"
+    benefits: ["Threat detection", "Data encryption", "Security audits", "Compliance support"],
+    color: "#10b981",
   },
   {
     title: "Data Analytics",
@@ -72,9 +58,9 @@ const services = [
       "Data visualization",
       "Predictive analytics",
       "Performance tracking",
-      "Custom dashboards"
+      "Custom dashboards",
     ],
-    color: "#f59e0b"
+    color: "#f59e0b",
   },
   {
     title: "Mobile Development",
@@ -84,9 +70,9 @@ const services = [
       "iOS & Android apps",
       "Cross-platform solutions",
       "App store optimization",
-      "Performance optimization"
+      "Performance optimization",
     ],
-    color: "#ec4899"
+    color: "#ec4899",
   },
   {
     title: "Web Development",
@@ -96,41 +82,44 @@ const services = [
       "Responsive design",
       "SEO optimization",
       "Performance focused",
-      "Scalable architecture"
+      "Scalable architecture",
     ],
-    color: "#6366f1"
-  }
+    color: "#6366f1",
+  },
 ];
 
 const testimonials = [
   {
     name: "Sarah Johnson",
     role: "CEO, TechStart Inc.",
-    content: "InnofyAI transformed our business with their innovative AI solutions. Our productivity increased by 300%!",
+    content:
+      "InnofyAI transformed our business with their innovative AI solutions. Our productivity increased by 300%!",
     rating: 5,
-    avatar: "👩‍💼"
+    avatar: "👩‍💼",
   },
   {
     name: "Michael Chen",
     role: "CTO, DigitalFlow",
-    content: "The team's expertise in cybersecurity gave us peace of mind. Highly recommended for any business.",
+    content:
+      "The team's expertise in cybersecurity gave us peace of mind. Highly recommended for any business.",
     rating: 5,
-    avatar: "👨‍💻"
+    avatar: "👨‍💻",
   },
   {
     name: "Emily Rodriguez",
     role: "Marketing Director, GrowthCo",
-    content: "Their data analytics insights helped us make better decisions and increase our ROI significantly.",
+    content:
+      "Their data analytics insights helped us make better decisions and increase our ROI significantly.",
     rating: 5,
-    avatar: "👩‍🎨"
-  }
+    avatar: "👩‍🎨",
+  },
 ];
 
 const stats = [
   { number: "500+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
   { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
   { number: "50+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
-  { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> }
+  { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> },
 ];
 
 const Home: React.FC = () => {
@@ -141,43 +130,43 @@ const Home: React.FC = () => {
     logo: "https://innofyai.com/logo.png",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com"
+      email: "hello@innofyai.com",
     },
     sameAs: [
       "https://twitter.com/innofyai",
       "https://linkedin.com/company/innofyai",
-      "https://facebook.com/innofyai"
-    ]
+      "https://facebook.com/innofyai",
+    ],
   });
 
   const handleGetStarted = () => {
     // Navigate to contact page
-    window.location.href = '/contact';
+    window.location.href = "/contact";
   };
 
   const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
+    const servicesSection = document.getElementById("services");
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      servicesSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <SEO 
+      <SEO
         title="InnofyAI - Tech Excellence & Creative Innovation"
         description="Transform your business with cutting-edge AI solutions, innovative design, and strategic technology consulting. InnofyAI delivers excellence in every project."
         keywords="AI solutions, technology consulting, web development, mobile apps, cybersecurity, data analytics, UI/UX design, digital transformation"
         structuredData={structuredData}
       />
-      
+
       {/* Scroll Progress Indicator */}
       <ScrollProgress />
-      
+
       {/* Floating CTA */}
       <FloatingCTA />
 
@@ -200,12 +189,9 @@ const Home: React.FC = () => {
             >
               Our Services
             </motion.h2>
-            <motion.p
-              className="text-xl text-gray-300 max-w-3xl mx-auto"
-              variants={fadeUpVariants}
-            >
-              We offer comprehensive technology solutions designed to drive innovation 
-              and accelerate your business growth.
+            <motion.p className="text-xl text-gray-300 max-w-3xl mx-auto" variants={fadeUpVariants}>
+              We offer comprehensive technology solutions designed to drive innovation and
+              accelerate your business growth.
             </motion.p>
           </motion.div>
 
@@ -217,11 +203,7 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
           >
             {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                delay={index * 0.1}
-              />
+              <ServiceCard key={index} {...service} delay={index * 0.1} />
             ))}
           </motion.div>
         </div>
@@ -252,12 +234,8 @@ const Home: React.FC = () => {
                 >
                   {stat.icon}
                 </motion.div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 text-sm md:text-base">
-                  {stat.label}
-                </div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -280,12 +258,9 @@ const Home: React.FC = () => {
             >
               What Our Clients Say
             </motion.h2>
-            <motion.p
-              className="text-xl text-gray-300 max-w-3xl mx-auto"
-              variants={fadeUpVariants}
-            >
-              Don't just take our word for it. Here's what our clients have to say 
-              about working with InnofyAI.
+            <motion.p className="text-xl text-gray-300 max-w-3xl mx-auto" variants={fadeUpVariants}>
+              Don't just take our word for it. Here's what our clients have to say about working
+              with InnofyAI.
             </motion.p>
           </motion.div>
 
@@ -309,9 +284,7 @@ const Home: React.FC = () => {
                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  "{testimonial.content}"
-                </p>
+                <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
                 <div className="flex items-center gap-3">
                   <div className="text-2xl">{testimonial.avatar}</div>
                   <div>
@@ -344,8 +317,8 @@ const Home: React.FC = () => {
               className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
               variants={fadeUpVariants}
             >
-              Let's discuss how our innovative solutions can help you achieve 
-              your business goals and stay ahead of the competition.
+              Let's discuss how our innovative solutions can help you achieve your business goals
+              and stay ahead of the competition.
             </motion.p>
             <motion.button
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"

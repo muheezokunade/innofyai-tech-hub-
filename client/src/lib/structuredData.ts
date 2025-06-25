@@ -50,18 +50,18 @@ export function generateServiceStructuredData(data: ServiceStructuredData) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": data.name,
-    "description": data.description,
-    "provider": {
+    name: data.name,
+    description: data.description,
+    provider: {
       "@type": "Organization",
-      "name": data.provider.name,
-      "url": data.provider.url
+      name: data.provider.name,
+      url: data.provider.url,
     },
-    "areaServed": {
+    areaServed: {
       "@type": "Country",
-      "name": data.areaServed
+      name: data.areaServed,
     },
-    "serviceType": data.serviceType
+    serviceType: data.serviceType,
   };
 }
 
@@ -69,25 +69,25 @@ export function generateArticleStructuredData(data: ArticleStructuredData) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": data.headline,
-    "description": data.description,
-    "author": {
+    headline: data.headline,
+    description: data.description,
+    author: {
       "@type": "Person",
-      "name": data.author.name,
-      ...(data.author.url && { "url": data.author.url })
+      name: data.author.name,
+      ...(data.author.url && { url: data.author.url }),
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": data.publisher.name,
-      "logo": {
+      name: data.publisher.name,
+      logo: {
         "@type": "ImageObject",
-        "url": data.publisher.logo.url
-      }
+        url: data.publisher.logo.url,
+      },
     },
-    "datePublished": data.datePublished,
-    ...(data.dateModified && { "dateModified": data.dateModified }),
-    ...(data.image && { "image": data.image }),
-    "url": data.url
+    datePublished: data.datePublished,
+    ...(data.dateModified && { dateModified: data.dateModified }),
+    ...(data.image && { image: data.image }),
+    url: data.url,
   };
 }
 
@@ -95,34 +95,36 @@ export function generateOrganizationStructuredData(data: OrganizationStructuredD
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": data.name,
-    "url": data.url,
-    "logo": data.logo,
-    "description": data.description,
-    "address": {
+    name: data.name,
+    url: data.url,
+    logo: data.logo,
+    description: data.description,
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": data.address.addressLocality,
-      "addressCountry": data.address.addressCountry
+      addressLocality: data.address.addressLocality,
+      addressCountry: data.address.addressCountry,
     },
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "contactType": data.contactPoint.contactType,
-      "email": data.contactPoint.email
+      contactType: data.contactPoint.contactType,
+      email: data.contactPoint.email,
     },
-    "sameAs": data.sameAs
+    sameAs: data.sameAs,
   };
 }
 
-export function generateBreadcrumbStructuredData(breadcrumbs: Array<{ name: string; url: string }>) {
+export function generateBreadcrumbStructuredData(
+  breadcrumbs: Array<{ name: string; url: string }>
+) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((crumb, index) => ({
+    itemListElement: breadcrumbs.map((crumb, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": crumb.name,
-      "item": crumb.url
-    }))
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
   };
 }
 
@@ -130,13 +132,13 @@ export function generateFAQStructuredData(faqs: Array<{ question: string; answer
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
-} 
+}

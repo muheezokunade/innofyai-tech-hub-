@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
-import { cardHoverVariants, flipCardVariants, floatingVariants } from '../lib/animations';
-import { Link } from 'wouter';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
+import { cardHoverVariants, flipCardVariants, floatingVariants } from "../lib/animations";
+import { Link } from "wouter";
 
 interface ServiceCardProps {
   title: string;
@@ -19,14 +19,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   benefits,
   color,
-  delay = 0
+  delay = 0,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleGetStarted = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card flip
-    window.location.href = '/contact';
+    window.location.href = "/contact";
   };
 
   return (
@@ -45,7 +45,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         animate={isHovered ? "float" : "initial"}
         variants={floatingVariants}
       >
-        <div 
+        <div
           className="w-full h-full rounded-2xl"
           style={{ background: `radial-gradient(circle at 50% 50%, ${color}20, transparent)` }}
         />
@@ -62,9 +62,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         {/* Front of card */}
         <motion.div
           className={`absolute inset-0 rounded-2xl p-6 flex flex-col justify-between bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden`}
-          style={{ 
+          style={{
             transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-            backfaceVisibility: "hidden"
+            backfaceVisibility: "hidden",
           }}
           onClick={() => setIsFlipped(!isFlipped)}
         >
@@ -76,7 +76,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
           />
 
@@ -126,22 +126,22 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
                   <motion.div
                     key={i}
                     className="absolute w-2 h-2 rounded-full"
-                    style={{ 
+                    style={{
                       background: color,
                       left: `${20 + i * 20}%`,
-                      top: `${30 + i * 15}%`
+                      top: `${30 + i * 15}%`,
                     }}
                     initial={{ opacity: 0, scale: 0 }}
-                    animate={{ 
+                    animate={{
                       opacity: [0, 1, 0],
                       scale: [0, 1, 0],
-                      y: [0, -20, 0]
+                      y: [0, -20, 0],
                     }}
                     transition={{
                       duration: 2,
                       delay: i * 0.2,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   />
                 ))}
@@ -153,9 +153,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         {/* Back of card */}
         <motion.div
           className={`absolute inset-0 rounded-2xl p-6 flex flex-col justify-between bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden`}
-          style={{ 
+          style={{
             transform: isFlipped ? "rotateY(0deg)" : "rotateY(-180deg)",
-            backfaceVisibility: "hidden"
+            backfaceVisibility: "hidden",
           }}
           onClick={() => setIsFlipped(!isFlipped)}
         >
@@ -164,7 +164,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <h4 className="text-lg font-semibold text-white">Key Benefits</h4>
             </div>
-            
+
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <motion.li
@@ -174,7 +174,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <div 
+                  <div
                     className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                     style={{ background: color }}
                   />
@@ -200,4 +200,4 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
       </motion.div>
     </motion.div>
   );
-}; 
+};

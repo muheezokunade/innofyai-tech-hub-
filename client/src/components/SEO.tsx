@@ -32,29 +32,27 @@ export function SEO({
   canonical,
 }: SEOProps) {
   const fullUrl = canonical || `${url}${window.location.pathname}`;
-  
+
   // Default structured data for organization
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "InnofyAI",
-    "url": "https://innofyai.com",
-    "logo": "https://innofyai.com/logo.png",
-    "description": "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
-    "address": {
+    name: "InnofyAI",
+    url: "https://innofyai.com",
+    logo: "https://innofyai.com/logo.png",
+    description:
+      "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": "Lagos",
-      "addressCountry": "Nigeria"
+      addressLocality: "Lagos",
+      addressCountry: "Nigeria",
     },
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "hello@innofyai.com"
+      contactType: "customer service",
+      email: "hello@innofyai.com",
     },
-    "sameAs": [
-      "https://twitter.com/innofyai",
-      "https://linkedin.com/company/innofyai"
-    ]
+    sameAs: ["https://twitter.com/innofyai", "https://linkedin.com/company/innofyai"],
   };
 
   return (
@@ -74,7 +72,7 @@ export function SEO({
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="InnofyAI" />
       <meta property="og:locale" content="en_US" />
-      
+
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       {author && <meta property="article:author" content={author} />}
@@ -95,7 +93,7 @@ export function SEO({
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#54B435" />
-      
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData || defaultStructuredData)}
@@ -107,4 +105,4 @@ export function SEO({
       <link rel="preconnect" href="https://images.unsplash.com" />
     </Helmet>
   );
-} 
+}

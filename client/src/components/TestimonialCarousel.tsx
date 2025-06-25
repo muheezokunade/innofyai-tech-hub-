@@ -8,11 +8,11 @@ export function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex(prev => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const currentTestimonial = testimonials[currentIndex];
@@ -24,9 +24,7 @@ export function TestimonialCarousel() {
           <h2 className="text-4xl font-bold text-space text-foreground mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Trusted by leading companies worldwide
-          </p>
+          <p className="text-xl text-muted-foreground">Trusted by leading companies worldwide</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -37,14 +35,14 @@ export function TestimonialCarousel() {
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              
+
               <blockquote className="text-xl lg:text-2xl text-foreground mb-8 italic leading-relaxed">
                 "{currentTestimonial.content}"
               </blockquote>
-              
+
               <div className="flex items-center justify-center space-x-4">
-                <img 
-                  src={currentTestimonial.image} 
+                <img
+                  src={currentTestimonial.image}
                   alt={currentTestimonial.name}
                   className="w-12 h-12 rounded-full object-cover"
                 />
@@ -58,15 +56,10 @@ export function TestimonialCarousel() {
 
           {/* Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prevTestimonial}
-              className="h-10 w-10"
-            >
+            <Button variant="ghost" size="icon" onClick={prevTestimonial} className="h-10 w-10">
               <ChevronLeft className="h-5 w-5" />
             </Button>
-            
+
             <div className="flex space-x-2">
               {testimonials.map((_, index) => (
                 <button
@@ -78,13 +71,8 @@ export function TestimonialCarousel() {
                 />
               ))}
             </div>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={nextTestimonial}
-              className="h-10 w-10"
-            >
+
+            <Button variant="ghost" size="icon" onClick={nextTestimonial} className="h-10 w-10">
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>

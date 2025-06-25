@@ -6,20 +6,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { blogPosts } from "@/data/content";
 import { Link } from "wouter";
-import { Mail, ArrowRight, Clock, User, Calendar, BookOpen, TrendingUp } from "lucide-react";
+import {
+  Mail,
+  ArrowRight,
+  Clock,
+  User,
+  Calendar,
+  BookOpen,
+  TrendingUp,
+  Loader2,
+} from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../lib/animations';
+  cardHoverVariants,
+} from "../lib/animations";
 
 export default function Blog() {
   const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
+  const { toast } = useToast();
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
@@ -30,17 +42,17 @@ export default function Blog() {
     logo: "https://innofyai.com/logo.png",
     address: {
       addressLocality: "Lagos",
-      addressCountry: "Nigeria"
+      addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com"
+      email: "hello@innofyai.com",
     },
     sameAs: [
       "https://twitter.com/innofyai",
       "https://linkedin.com/company/innofyai",
-      "https://facebook.com/innofyai"
-    ]
+      "https://facebook.com/innofyai",
+    ],
   });
 
   const categories = [
@@ -48,26 +60,47 @@ export default function Blog() {
     { id: "ai", label: "AI & Automation", icon: <TrendingUp className="w-4 h-4" /> },
     { id: "security", label: "Cybersecurity", icon: <TrendingUp className="w-4 h-4" /> },
     { id: "design", label: "Design & Branding", icon: <TrendingUp className="w-4 h-4" /> },
-    { id: "trends", label: "Industry Trends", icon: <TrendingUp className="w-4 h-4" /> }
+    { id: "trends", label: "Industry Trends", icon: <TrendingUp className="w-4 h-4" /> },
   ];
 
   const stats = [
     { number: "50+", label: "Articles Published", icon: <BookOpen className="w-6 h-6" /> },
     { number: "10K+", label: "Monthly Readers", icon: <User className="w-6 h-6" /> },
     { number: "5+", label: "Expert Authors", icon: <User className="w-6 h-6" /> },
-    { number: "24h", label: "Response Time", icon: <Clock className="w-6 h-6" /> }
+    { number: "24h", label: "Response Time", icon: <Clock className="w-6 h-6" /> },
   ];
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Newsletter subscription:", email);
-    setEmail("");
+    setIsSubscribing(true);
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      toast({
+        title: "Successfully subscribed!",
+        description:
+          "Thank you for subscribing to our newsletter. You'll receive the latest tech insights.",
+        duration: 5000,
+      });
+
+      setEmail("");
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <SEO 
+      <SEO
         title="Blog - Tech Insights & Industry Trends"
         description="Stay ahead with the latest trends, insights, and innovations in technology, AI, and digital transformation from InnofyAI experts."
         keywords="tech blog, AI insights, cybersecurity trends, design tips, digital transformation, technology news, industry insights"
@@ -94,7 +127,8 @@ export default function Blog() {
               className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
               variants={fadeUpVariants}
             >
-              Stay ahead with the latest trends, insights, and innovations in technology, AI, and digital transformation.
+              Stay ahead with the latest trends, insights, and innovations in technology, AI, and
+              digital transformation.
             </motion.p>
           </motion.div>
         </div>
@@ -125,12 +159,8 @@ export default function Blog() {
                 >
                   {stat.icon}
                 </motion.div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 text-sm md:text-base">
-                  {stat.label}
-                </div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -208,8 +238,8 @@ export default function Blog() {
                     whileInView="visible"
                     viewport={{ once: true }}
                   >
-                    <motion.img 
-                      src={featuredPost.image} 
+                    <motion.img
+                      src={featuredPost.image}
                       alt={featuredPost.title}
                       className="rounded-2xl shadow-2xl w-full h-auto"
                       variants={cardHoverVariants}
@@ -239,8 +269,8 @@ export default function Blog() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  activeCategory === category.id 
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg" 
+                  activeCategory === category.id
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-white/5 backdrop-blur-sm border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
                 }`}
                 variants={fadeUpVariants}
@@ -264,10 +294,10 @@ export default function Blog() {
             {regularPosts.map((post, index) => {
               const blogRoutes: { [key: number]: string } = {
                 2: "/blog/practical-ai-smes",
-                3: "/blog/cybersecurity-trends-2024", 
-                4: "/blog/brand-identity-digital-age"
+                3: "/blog/cybersecurity-trends-2024",
+                4: "/blog/brand-identity-digital-age",
               };
-              
+
               return (
                 <motion.div
                   key={post.id}
@@ -285,15 +315,18 @@ export default function Blog() {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img 
-                          src={post.image} 
+                        <img
+                          src={post.image}
                           alt={post.title}
-                          className="w-full h-full object-cover" 
+                          className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       </motion.div>
                       <div className="p-6">
-                        <Badge variant="outline" className="mb-4 bg-white/5 text-gray-300 border-white/20">
+                        <Badge
+                          variant="outline"
+                          className="mb-4 bg-white/5 text-gray-300 border-white/20"
+                        >
                           {post.category}
                         </Badge>
                         <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
@@ -365,23 +398,34 @@ export default function Blog() {
               className="flex flex-col sm:flex-row max-w-md mx-auto gap-4"
               variants={fadeUpVariants}
             >
-              <Input 
-                type="email" 
+              <Input
+                type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 className="flex-1 bg-white/5 backdrop-blur-sm border-white/10 text-white placeholder-gray-400 focus:border-blue-500"
+                disabled={isSubscribing}
                 required
               />
               <motion.button
                 type="submit"
-                className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2"
+                disabled={isSubscribing}
+                className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 disabled:opacity-50"
                 variants={buttonHoverVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
-                <Mail className="w-4 h-4" />
-                Subscribe
+                {isSubscribing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Subscribing...
+                  </>
+                ) : (
+                  <>
+                    <Mail className="w-4 h-4" />
+                    Subscribe
+                  </>
+                )}
               </motion.button>
             </motion.form>
           </motion.div>

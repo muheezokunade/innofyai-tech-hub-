@@ -1,135 +1,156 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowLeft, Check, Shield, Eye, AlertTriangle, Lock, ArrowRight, Brain, Zap, Users, Target, Rocket } from "lucide-react";
+import {
+  ArrowLeft,
+  Check,
+  Shield,
+  Eye,
+  AlertTriangle,
+  Lock,
+  ArrowRight,
+  Brain,
+  Zap,
+  Users,
+  Target,
+  Rocket,
+} from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateServiceStructuredData } from "@/lib/structuredData";
-import { 
-  scrollRevealVariants, 
-  staggerContainerVariants, 
+import {
+  scrollRevealVariants,
+  staggerContainerVariants,
   fadeUpVariants,
   buttonHoverVariants,
-  cardHoverVariants
-} from '../../lib/animations';
+  cardHoverVariants,
+} from "../../lib/animations";
 
 export default function Cybersecurity() {
   const structuredData = generateServiceStructuredData({
     name: "Advanced Cybersecurity",
-    description: "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
+    description:
+      "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
     provider: {
       name: "InnofyAI",
-      url: "https://innofyai.com"
+      url: "https://innofyai.com",
     },
     areaServed: "Nigeria",
-    serviceType: "Cybersecurity Services"
+    serviceType: "Cybersecurity Services",
   });
 
   const securityServices = [
     {
       icon: <AlertTriangle className="h-8 w-8" />,
       title: "Advanced Threat Detection",
-      description: "AI-powered threat intelligence to identify and neutralize sophisticated attacks.",
-      color: "from-red-600 to-orange-600"
+      description:
+        "AI-powered threat intelligence to identify and neutralize sophisticated attacks.",
+      color: "from-red-600 to-orange-600",
     },
     {
       icon: <Eye className="h-8 w-8" />,
       title: "24/7 Security Monitoring",
       description: "Round-the-clock surveillance of your digital assets and infrastructure.",
-      color: "from-orange-600 to-yellow-600"
+      color: "from-orange-600 to-yellow-600",
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: "Incident Response Planning",
       description: "Comprehensive response strategies to minimize damage and recovery time.",
-      color: "from-yellow-600 to-green-600"
+      color: "from-yellow-600 to-green-600",
     },
     {
       icon: <Lock className="h-8 w-8" />,
       title: "Compliance Management",
       description: "Ensure adherence to industry standards and regulatory requirements.",
-      color: "from-green-600 to-blue-600"
-    }
+      color: "from-green-600 to-blue-600",
+    },
   ];
 
   const threatLandscape = [
     {
       title: "Ransomware Attacks",
-      description: "Average cost of $4.35 million per breach, with attacks increasing 41% year-over-year.",
+      description:
+        "Average cost of $4.35 million per breach, with attacks increasing 41% year-over-year.",
       color: "from-red-500 to-red-600",
       bgColor: "bg-red-500/10",
-      borderColor: "border-red-500/20"
+      borderColor: "border-red-500/20",
     },
     {
       title: "AI-Powered Attacks",
-      description: "Sophisticated phishing and social engineering using deepfakes and machine learning.",
+      description:
+        "Sophisticated phishing and social engineering using deepfakes and machine learning.",
       color: "from-orange-500 to-orange-600",
       bgColor: "bg-orange-500/10",
-      borderColor: "border-orange-500/20"
+      borderColor: "border-orange-500/20",
     },
     {
       title: "Supply Chain Vulnerabilities",
       description: "62% of companies experienced a supply chain attack in the past year.",
       color: "from-yellow-500 to-yellow-600",
       bgColor: "bg-yellow-500/10",
-      borderColor: "border-yellow-500/20"
-    }
+      borderColor: "border-yellow-500/20",
+    },
   ];
 
   const defenseStrategies = [
     {
       title: "Zero Trust Architecture",
-      description: "Never trust, always verify - comprehensive access controls for all users and devices.",
-      icon: <Shield className="h-5 w-5" />
+      description:
+        "Never trust, always verify - comprehensive access controls for all users and devices.",
+      icon: <Shield className="h-5 w-5" />,
     },
     {
       title: "AI-Driven Threat Detection",
       description: "Machine learning algorithms that adapt to emerging threats in real-time.",
-      icon: <Brain className="h-5 w-5" />
+      icon: <Brain className="h-5 w-5" />,
     },
     {
       title: "Multi-Factor Authentication",
       description: "Layered authentication systems to prevent unauthorized access.",
-      icon: <Lock className="h-5 w-5" />
+      icon: <Lock className="h-5 w-5" />,
     },
     {
       title: "Regular Security Audits",
       description: "Continuous assessment and improvement of security posture.",
-      icon: <Eye className="h-5 w-5" />
-    }
+      icon: <Eye className="h-5 w-5" />,
+    },
   ];
 
   const securityProcess = [
     {
       step: "1",
       title: "Security Assessment",
-      description: "Comprehensive evaluation of your current security posture and vulnerability identification.",
-      icon: <Target className="h-6 w-6" />
+      description:
+        "Comprehensive evaluation of your current security posture and vulnerability identification.",
+      icon: <Target className="h-6 w-6" />,
     },
     {
-      step: "2", 
+      step: "2",
       title: "Strategy Development",
-      description: "Custom security framework designed to address your specific threats and compliance needs.",
-      icon: <Brain className="h-6 w-6" />
+      description:
+        "Custom security framework designed to address your specific threats and compliance needs.",
+      icon: <Brain className="h-6 w-6" />,
     },
     {
       step: "3",
       title: "Implementation",
       description: "Deployment of security solutions with minimal disruption to your operations.",
-      icon: <Rocket className="h-6 w-6" />
+      icon: <Rocket className="h-6 w-6" />,
     },
     {
       step: "4",
       title: "Ongoing Protection",
-      description: "Continuous monitoring, updates, and incident response to maintain security posture.",
-      icon: <Users className="h-6 w-6" />
-    }
+      description:
+        "Continuous monitoring, updates, and incident response to maintain security posture.",
+      icon: <Users className="h-6 w-6" />,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
-      <SEO 
+      <SEO
         title="Advanced Cybersecurity - InnofyAI"
         description="Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats."
         keywords="cybersecurity, digital security, threat detection, incident response, security monitoring, compliance management"
@@ -157,36 +178,34 @@ export default function Cybersecurity() {
                 </motion.button>
               </Link>
             </motion.div>
-            
+
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                className="space-y-8"
-                variants={staggerContainerVariants}
-              >
+              <motion.div className="space-y-8" variants={staggerContainerVariants}>
                 <motion.div variants={fadeUpVariants}>
                   <Badge className="bg-gradient-to-r from-red-600 to-orange-600 text-white border-0 mb-6">
                     Tech Solutions
                   </Badge>
                 </motion.div>
-                
+
                 <motion.h1
                   className="text-5xl lg:text-6xl font-bold text-white leading-tight"
                   variants={fadeUpVariants}
                 >
-                  Advanced <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Cybersecurity</span>
+                  Advanced{" "}
+                  <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                    Cybersecurity
+                  </span>
                 </motion.h1>
-                
+
                 <motion.p
                   className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
                   variants={fadeUpVariants}
                 >
-                  Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.
+                  Protect your digital assets with comprehensive security solutions designed to
+                  prevent, detect, and respond to cyber threats.
                 </motion.p>
-                
-                <motion.div
-                  className="flex flex-col sm:flex-row gap-4"
-                  variants={fadeUpVariants}
-                >
+
+                <motion.div className="flex flex-col sm:flex-row gap-4" variants={fadeUpVariants}>
                   <Link href="/contact">
                     <motion.button
                       className="group px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 text-lg"
@@ -207,7 +226,7 @@ export default function Cybersecurity() {
                   </motion.button>
                 </motion.div>
               </motion.div>
-              
+
               <motion.div
                 variants={fadeUpVariants}
                 initial={{ opacity: 0, x: 50 }}
@@ -215,9 +234,9 @@ export default function Cybersecurity() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <motion.img 
-                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-                  alt="Cybersecurity monitoring dashboard" 
+                <motion.img
+                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  alt="Cybersecurity monitoring dashboard"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}
                   whileHover="hover"
@@ -237,20 +256,14 @@ export default function Cybersecurity() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center mb-16"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="text-center mb-16" variants={staggerContainerVariants}>
               <motion.h2
                 className="text-4xl lg:text-5xl font-bold text-white mb-6"
                 variants={fadeUpVariants}
               >
                 Comprehensive Security Solutions
               </motion.h2>
-              <motion.p
-                className="text-xl lg:text-2xl text-gray-300"
-                variants={fadeUpVariants}
-              >
+              <motion.p className="text-xl lg:text-2xl text-gray-300" variants={fadeUpVariants}>
                 Multi-layered protection for your digital infrastructure
               </motion.p>
             </motion.div>
@@ -306,10 +319,7 @@ export default function Cybersecurity() {
                 >
                   Current Threat Landscape
                 </motion.h2>
-                <motion.div
-                  className="space-y-6"
-                  variants={staggerContainerVariants}
-                >
+                <motion.div className="space-y-6" variants={staggerContainerVariants}>
                   {threatLandscape.map((threat, index) => (
                     <motion.div
                       key={index}
@@ -319,7 +329,9 @@ export default function Cybersecurity() {
                       transition={{ duration: 0.3 }}
                     >
                       <div className="flex items-center space-x-3 mb-3">
-                        <div className={`w-3 h-3 bg-gradient-to-r ${threat.color} rounded-full`}></div>
+                        <div
+                          className={`w-3 h-3 bg-gradient-to-r ${threat.color} rounded-full`}
+                        ></div>
                         <h3 className="font-bold text-white">{threat.title}</h3>
                       </div>
                       <p className="text-gray-300 text-sm">{threat.description}</p>
@@ -327,7 +339,7 @@ export default function Cybersecurity() {
                   ))}
                 </motion.div>
               </motion.div>
-              
+
               <motion.div variants={staggerContainerVariants}>
                 <motion.h2
                   className="text-3xl lg:text-4xl font-bold text-white mb-8"
@@ -335,10 +347,7 @@ export default function Cybersecurity() {
                 >
                   Our Defense Strategy
                 </motion.h2>
-                <motion.div
-                  className="space-y-6"
-                  variants={staggerContainerVariants}
-                >
+                <motion.div className="space-y-6" variants={staggerContainerVariants}>
                   {defenseStrategies.map((strategy, index) => (
                     <motion.div
                       key={index}
@@ -347,9 +356,7 @@ export default function Cybersecurity() {
                       whileHover={{ x: 10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="text-green-400 mt-1 flex-shrink-0">
-                        {strategy.icon}
-                      </div>
+                      <div className="text-green-400 mt-1 flex-shrink-0">{strategy.icon}</div>
                       <div>
                         <h4 className="font-semibold text-white">{strategy.title}</h4>
                         <p className="text-gray-300 text-sm">{strategy.description}</p>
@@ -372,28 +379,22 @@ export default function Cybersecurity() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div
-              className="text-center mb-16"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="text-center mb-16" variants={staggerContainerVariants}>
               <motion.h2
                 className="text-4xl lg:text-5xl font-bold text-white mb-6"
                 variants={fadeUpVariants}
               >
-                Our Security <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Implementation</span>
+                Our Security{" "}
+                <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                  Implementation
+                </span>
               </motion.h2>
-              <motion.p
-                className="text-xl lg:text-2xl text-gray-300"
-                variants={fadeUpVariants}
-              >
+              <motion.p className="text-xl lg:text-2xl text-gray-300" variants={fadeUpVariants}>
                 A systematic approach to securing your digital infrastructure
               </motion.p>
             </motion.div>
 
-            <motion.div
-              className="grid lg:grid-cols-4 gap-8"
-              variants={staggerContainerVariants}
-            >
+            <motion.div className="grid lg:grid-cols-4 gap-8" variants={staggerContainerVariants}>
               {securityProcess.map((step, index) => (
                 <motion.div
                   key={step.step}
@@ -439,7 +440,8 @@ export default function Cybersecurity() {
               className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
               variants={fadeUpVariants}
             >
-              Don't wait for a breach to happen. Let's assess your current security posture and implement a comprehensive cybersecurity strategy.
+              Don't wait for a breach to happen. Let's assess your current security posture and
+              implement a comprehensive cybersecurity strategy.
             </motion.p>
             <motion.button
               className="group px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"

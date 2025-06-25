@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,18 +20,18 @@ const svgIcon = `
 `;
 
 // Convert SVG to a simple PNG-like file (base64 encoded SVG)
-const pngData = Buffer.from(svgIcon, 'utf8');
+const pngData = Buffer.from(svgIcon, "utf8");
 
 // Write icon files
-const publicDir = path.join(__dirname, '../public');
+const publicDir = path.join(__dirname, "../public");
 
 // Create icon-192x192.png (actually an SVG)
-fs.writeFileSync(path.join(publicDir, 'icon-192x192.png'), pngData);
+fs.writeFileSync(path.join(publicDir, "icon-192x192.png"), pngData);
 
 // Create icon-512x512.png (actually an SVG)
-fs.writeFileSync(path.join(publicDir, 'icon-512x512.png'), pngData);
+fs.writeFileSync(path.join(publicDir, "icon-512x512.png"), pngData);
 
 // Create favicon.ico (actually an SVG)
-fs.writeFileSync(path.join(publicDir, 'favicon.ico'), pngData);
+fs.writeFileSync(path.join(publicDir, "favicon.ico"), pngData);
 
-console.log('Icon files created successfully!'); 
+console.log("Icon files created successfully!");

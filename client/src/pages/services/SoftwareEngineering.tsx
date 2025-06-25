@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { ServiceCard } from "../../components/ServiceCard";
 
 const benefits = [
@@ -32,7 +31,6 @@ export default function SoftwareEngineering() {
           description: 'Custom software engineering solutions: web, mobile, cloud, and DevOps. Scalable, secure, and tailored for your business.'
         })}</script>
       </Helmet>
-      <Breadcrumbs />
       <motion.section initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="py-16 px-4 md:px-16 bg-gradient-to-br from-purple-900 to-purple-700 rounded-3xl shadow-xl">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Software Engineering</h1>
         <p className="text-lg md:text-xl text-purple-100 mb-8 max-w-2xl">Custom software solutions for web, mobile, and cloud. We build scalable, secure, and high-performance applications tailored to your business goals.</p>

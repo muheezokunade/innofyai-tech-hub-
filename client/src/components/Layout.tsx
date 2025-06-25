@@ -74,8 +74,9 @@ function Footer() {
     { icon: Shield, name: "Cybersecurity", href: "/services/cybersecurity" },
     { icon: BarChart3, name: "Data Analytics", href: "/services/data-analytics" },
     { icon: Palette, name: "UI/UX Design", href: "/services/ui-ux-design" },
-    { icon: Code, name: "Software Development", href: "/services#development" },
+    { icon: Code, name: "Software Engineering", href: "/services/software-engineering" },
     { icon: Megaphone, name: "Branding & Merch", href: "/services/branding-merch" },
+    { icon: BarChart3, name: "Social Media", href: "/services/social-media" },
   ];
 
   const companyLinks = [

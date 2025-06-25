@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { ServiceCard } from "../../components/ServiceCard";
 
 const benefits = [
@@ -32,7 +31,6 @@ export default function SocialMedia() {
           description: 'Grow your brand with strategic social media marketing, content creation, analytics, and community management across all major platforms.'
         })}</script>
       </Helmet>
-      <Breadcrumbs />
       <motion.section initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="py-16 px-4 md:px-16 bg-gradient-to-br from-blue-900 to-purple-700 rounded-3xl shadow-xl">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Social Media</h1>
         <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl">Grow your brand and engage your audience with our expert social media marketing, content creation, and analytics services across all major platforms.</p>

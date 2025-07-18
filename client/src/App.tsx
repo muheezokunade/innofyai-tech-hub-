@@ -34,6 +34,9 @@ const UIUXDesign = lazy(() => import("./pages/services/UIUXDesign"));
 const SoftwareEngineering = lazy(() => import("./pages/services/SoftwareEngineering"));
 const SocialMedia = lazy(() => import("./pages/services/SocialMedia"));
 
+// Lazy load project detail pages
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+
 // Loading component for suspense fallback
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-screen">
@@ -59,6 +62,11 @@ function App() {
                   <Route path="/careers" component={Careers} />
                   <Route path="/privacy" component={Privacy} />
                   <Route path="/terms" component={Terms} />
+
+                  {/* Portfolio project pages */}
+                  <Route path="/portfolio/:slug">
+                    {({ slug }) => <ProjectDetail slug={slug} />}
+                  </Route>
 
                   {/* Blog posts */}
                   <Route path="/blog/ai-transform-business" component={AITransformBusiness} />

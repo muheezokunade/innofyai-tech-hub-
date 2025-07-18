@@ -235,7 +235,7 @@ export default function Cybersecurity() {
                 viewport={{ once: true }}
               >
                 <motion.img
-                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  src="/assets/placeholder.svg"
                   alt="Cybersecurity monitoring dashboard"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}

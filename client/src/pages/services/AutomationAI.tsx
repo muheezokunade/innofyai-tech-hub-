@@ -187,7 +187,7 @@ export default function AutomationAI() {
                 viewport={{ once: true }}
               >
                 <motion.img
-                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  src="/assets/placeholder.svg"
                   alt="AI automation workflow visualization"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}

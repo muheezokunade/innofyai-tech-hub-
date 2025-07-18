@@ -37,12 +37,12 @@ export default function PracticalAISMEs() {
     description:
       "Discover how SMEs can leverage affordable AI tools to operate smarter, faster, and more efficiently without massive budgets.",
     author: {
-      name: "Alex Johnson",
+      name: "Ridwan Olalekan",
     },
     datePublished: "2024-12-12",
     dateModified: "2024-12-12",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
+      "/assets/placeholder.svg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -163,7 +163,7 @@ export default function PracticalAISMEs() {
               >
                 <div className="flex items-center space-x-2">
                   <User className="h-5 w-5" />
-                  <span>Alex Johnson</span>
+                  <span>Ridwan Olalekan</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />
@@ -241,7 +241,7 @@ export default function PracticalAISMEs() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600"
+                src="/assets/placeholder.svg"
                 alt="Small business team using AI tools"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

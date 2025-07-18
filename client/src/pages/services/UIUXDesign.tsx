@@ -43,7 +43,7 @@ export default function UIUXDesign() {
 
             <div>
               <img
-                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                src="/assets/placeholder.svg"
                 alt="UI/UX design process and wireframes"
                 className="rounded-xl shadow-lg w-full h-auto"
               />
@@ -286,20 +286,19 @@ export default function UIUXDesign() {
                     Case Study
                   </Badge>
                   <h3 className="text-3xl font-bold text-space text-foreground mb-4">
-                    FoodHub Mobile App
+                    GrowWise Financial App
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Intuitive mobile app design for restaurant chain with seamless ordering
-                    experience, increasing mobile orders by 250%.
+                    Comprehensive financial management app for small business owners, helping them track profits, allocate resources, and achieve growth goals with confidence.
                   </p>
                   <div className="grid grid-cols-2 gap-6 mb-6">
                     <div>
-                      <div className="text-3xl font-bold text-space gradient-text mb-2">+250%</div>
-                      <div className="text-muted-foreground">Mobile Orders</div>
+                      <div className="text-3xl font-bold text-space gradient-text mb-2">+300%</div>
+                      <div className="text-muted-foreground">Profit Growth</div>
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-space gradient-text mb-2">
-                        5 months
+                        6 months
                       </div>
                       <div className="text-muted-foreground">Design Timeline</div>
                     </div>
@@ -310,8 +309,8 @@ export default function UIUXDesign() {
                 </div>
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
-                    alt="FoodHub mobile app interface"
+                    src="/assets/growwise-app.svg"
+                    alt="GrowWise financial app interface"
                     className="rounded-xl shadow-lg w-full h-auto"
                   />
                 </div>

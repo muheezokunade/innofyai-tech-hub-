@@ -43,7 +43,7 @@ export default function BrandingMerch() {
 
             <div>
               <img
-                src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                src="/assets/placeholder.svg"
                 alt="Brand identity design elements and merchandise"
                 className="rounded-xl shadow-lg w-full h-auto"
               />
@@ -205,25 +205,25 @@ export default function BrandingMerch() {
                 category: "Apparel",
                 items: ["T-shirts", "Hoodies", "Polo shirts", "Caps"],
                 image:
-                  "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+                  "/assets/placeholder.svg",
               },
               {
                 category: "Office & Tech",
                 items: ["Notebooks", "Pens", "USB drives", "Mouse pads"],
                 image:
-                  "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+                  "/assets/placeholder.svg",
               },
               {
                 category: "Drinkware",
                 items: ["Mugs", "Water bottles", "Tumblers", "Travel cups"],
                 image:
-                  "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+                  "/assets/placeholder.svg",
               },
               {
                 category: "Custom Items",
                 items: ["Stickers", "Keychains", "Bags", "Awards"],
                 image:
-                  "https://images.unsplash.com/photo-1607734834512-5ab272b6f64d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+                  "/assets/placeholder.svg",
               },
             ].map(category => (
               <Card key={category.category} className="overflow-hidden hover-lift">
@@ -352,10 +352,10 @@ export default function BrandingMerch() {
                     Case Study
                   </Badge>
                   <h3 className="text-3xl font-bold text-space text-foreground mb-4">
-                    EcoTech Brand Transformation
+                    Osinachi Humanity Impact Initiative
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Complete brand identity for sustainable technology startup, including logo,
+                    Complete brand identity for humanitarian impact initiative, including logo,
                     website, and marketing materials leading to 320% funding increase.
                   </p>
                   <div className="grid grid-cols-2 gap-6 mb-6">
@@ -376,8 +376,8 @@ export default function BrandingMerch() {
                 </div>
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
-                    alt="EcoTech brand identity elements"
+                    src="/assets/placeholder.svg"
+                    alt="Osinachi Humanity Impact Initiative brand identity elements"
                     className="rounded-xl shadow-lg w-full h-auto"
                   />
                 </div>

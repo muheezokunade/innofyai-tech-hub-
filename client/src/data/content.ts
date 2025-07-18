@@ -5,7 +5,7 @@ export const services = [
     description:
       "Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.",
     image:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/automation-ai.svg",
     features: [
       "Custom workflow automation",
       "AI-powered decision making",
@@ -20,7 +20,7 @@ export const services = [
     description:
       "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/cybersecurity.svg",
     features: [
       "Advanced threat detection",
       "24/7 security monitoring",
@@ -35,7 +35,7 @@ export const services = [
     description:
       "Transform your data into actionable insights with advanced analytics and business intelligence solutions.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/data-analytics.svg",
     features: [
       "Predictive analytics",
       "Real-time dashboards",
@@ -50,7 +50,7 @@ export const services = [
     description:
       "Create exceptional user experiences with intuitive interfaces that delight users and drive engagement.",
     image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/ui-ux-design.svg",
     features: [
       "User research & testing",
       "Interface design & prototyping",
@@ -65,7 +65,7 @@ export const services = [
     description:
       "Build powerful brand identities that resonate with your audience and create lasting impressions through cohesive design.",
     image:
-      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/branding-merch.svg",
     features: [
       "Logo & identity design",
       "Brand guidelines & assets",
@@ -80,7 +80,7 @@ export const services = [
     description:
       "Custom software solutions for web, mobile, and cloud. Scalable, secure, and high-performance applications tailored to your business goals.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/placeholder.svg",
     features: [
       "Full-stack web & mobile development",
       "Cloud-native architecture",
@@ -95,7 +95,7 @@ export const services = [
     description:
       "Grow your brand and engage your audience with expert social media marketing, content creation, and analytics across all major platforms.",
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "/assets/placeholder.svg",
     features: [
       "Strategic campaigns & content",
       "Community management",
@@ -109,55 +109,190 @@ export const services = [
 export const caseStudies = [
   {
     id: 1,
-    title: "TechMart Automation",
+    title: "Commerza Automation",
     category: "automation",
     industry: "E-commerce",
     description:
       "Complete automation solution for inventory management, order processing, and customer service, resulting in 45% cost reduction and improved efficiency.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     metric: "+65%",
     metricLabel: "Efficiency",
     duration: "6 months",
+    slug: "commerza-automation",
+    challenge: "Commerza, a growing e-commerce platform, was struggling with manual inventory management, slow order processing, and overwhelmed customer service team. They needed a comprehensive automation solution to scale their operations efficiently.",
+    solution: "We implemented a full-stack automation system including AI-powered inventory prediction, automated order processing workflows, and intelligent customer service chatbots. The solution integrated seamlessly with their existing systems.",
+    technologies: ["Python", "React", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS", "OpenAI API"],
+    features: [
+      "AI-powered inventory forecasting",
+      "Automated order processing pipeline",
+      "Intelligent customer service chatbots",
+      "Real-time analytics dashboard",
+      "Multi-channel integration",
+      "Predictive maintenance alerts"
+    ],
+    results: [
+      "65% increase in operational efficiency",
+      "45% reduction in operational costs",
+      "80% faster order processing time",
+      "90% reduction in customer service response time",
+      "Zero inventory stockouts for 8 months",
+      "ROI of 320% within first year"
+    ],
+    testimonial: {
+      name: "Ridwan Olalekan",
+      title: "CEO, Commerza",
+      content: "InnofyAI's automation solution transformed our entire operation. We went from struggling to keep up with orders to scaling efficiently. The ROI was incredible, and the team was professional throughout the entire process.",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg"
+    ]
   },
   {
     id: 2,
-    title: "MedSecure Protection",
-    category: "security",
-    industry: "Healthcare",
+    title: "SpicePop E-commerce Platform",
+    category: "web",
+    industry: "Food & Beverage",
     description:
-      "Advanced cybersecurity infrastructure protecting sensitive patient data with zero security breaches and HIPAA compliance.",
+      "Complete brand transformation and e-commerce platform for authentic Nigerian spices and foodstuffs, including website, mobile app, and comprehensive social media management.",
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    metric: "100%",
-    metricLabel: "Security",
-    duration: "4 months",
+      "/assets/spicepop-logo.svg",
+    metric: "+250%",
+    metricLabel: "Sales Growth",
+    duration: "6 months",
+    slug: "spicepop-ecommerce",
+    challenge: "SpicePop, a Nigerian spice and foodstuff business, needed a complete digital transformation from local markets to nationwide presence. They required comprehensive branding, e-commerce platform, and social media management to establish their brand and connect with customers across Nigeria.",
+    solution: "We delivered a complete brand transformation including visual identity, e-commerce platform, mobile app, and comprehensive social media management across multiple platforms. This included Instagram, Facebook, Twitter, WhatsApp Business, TikTok, and YouTube content creation and management.",
+    technologies: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Paystack", "AWS", "Firebase", "Tailwind CSS"],
+    features: [
+      "Complete brand identity design",
+      "Responsive e-commerce website",
+      "Mobile app for iOS and Android",
+      "Social media management (6 platforms)",
+      "Content creation and strategy",
+      "Inventory management system",
+      "Multi-payment gateway integration",
+      "Real-time delivery tracking",
+      "Farmer partnership portal"
+    ],
+    results: [
+      "250% increase in sales growth",
+      "15K+ Instagram followers",
+      "8K+ Facebook page likes",
+      "5K+ Twitter followers",
+      "Nationwide delivery within 2-3 days",
+      "90% customer satisfaction rate",
+      "Support for 50+ local farmers",
+      "Tripled product range",
+      "Successful expansion to 15 states"
+    ],
+    testimonial: {
+      name: "Iman Fasasi",
+      title: "Founder, SpicePop",
+      content: "InnofyAI delivered a complete transformation - from our brand identity to our e-commerce platform and social media presence. Their comprehensive approach helped us establish a strong digital presence and connect with customers nationwide. The results have been phenomenal.",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/spicepop-logo.svg",
+      "/assets/spicepop-branding.svg",
+      "/assets/spicepop-website.svg",
+      "/assets/spicepop-mobile.svg",
+      "/assets/spicepop-social-media.svg",
+      "/assets/spicepop-ecommerce-dashboard.svg"
+    ]
   },
   {
     id: 3,
-    title: "PayFlow Rebrand",
+    title: "Osinachi Renewable Energy",
     category: "branding",
-    industry: "Fintech",
+    industry: "Renewable Energy",
     description:
       "Complete brand transformation including UI/UX redesign, logo creation, and marketing materials that boosted user engagement by 180%.",
     image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     metric: "+180%",
     metricLabel: "Engagement",
     duration: "8 months",
+    slug: "osinachi-renewable-energy",
+    challenge: "Osinachi Renewable Energy, a clean energy startup, had an outdated brand that didn't reflect their innovative sustainable solutions. They needed a complete brand transformation to compete with established players and attract modern users.",
+    solution: "We created a comprehensive brand strategy including new visual identity, user experience redesign, marketing materials, and digital presence overhaul that positioned them as a modern, trustworthy renewable energy leader.",
+    technologies: ["Figma", "Adobe Creative Suite", "React", "Next.js", "Tailwind CSS", "Framer Motion", "Contentful CMS"],
+    features: [
+      "Complete brand identity redesign",
+      "User experience optimization",
+      "Marketing materials creation",
+      "Digital presence overhaul",
+      "Brand guidelines development",
+      "Social media strategy"
+    ],
+    results: [
+      "180% increase in user engagement",
+      "45% improvement in brand recognition",
+      "60% increase in app downloads",
+      "35% reduction in user acquisition cost",
+      "90% positive brand sentiment",
+      "Tripled social media following"
+    ],
+    testimonial: {
+      name: "Ridwan Olalekan",
+      title: "CEO, Osinachi Renewable Energy",
+      content: "InnofyAI's rebranding work was transformative. They didn't just redesign our logo - they reimagined our entire brand experience. The results speak for themselves - our user engagement skyrocketed.",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg"
+    ]
   },
   {
     id: 4,
-    title: "FoodHub Mobile App",
+    title: "GrowWise Financial App",
     category: "design",
-    industry: "Food & Beverage",
+    industry: "Financial Technology",
     description:
-      "Intuitive mobile app design for restaurant chain with seamless ordering experience, increasing mobile orders by 250%.",
+      "Comprehensive financial management app for small business owners, helping them track profits, allocate resources, and achieve growth goals with confidence.",
     image:
-      "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    metric: "+250%",
-    metricLabel: "Orders",
-    duration: "5 months",
+      "/assets/growwise-app.svg",
+    metric: "+300%",
+    metricLabel: "Profit Growth",
+    duration: "6 months",
+    slug: "growwise-financial-app",
+    challenge: "Small business owners struggled with financial management, lacking tools to track profits, allocate resources wisely, and plan for growth. They needed an intuitive app that could help them master their finances and fuel business growth.",
+    solution: "We designed and developed GrowWise, a comprehensive financial management app that provides smart profit allocation, growth goal planning, and financial security features specifically tailored for small business owners.",
+    technologies: ["Figma", "React Native", "TypeScript", "Redux", "Stripe API", "Firebase", "Chart.js", "Financial APIs"],
+    features: [
+      "Smart profit allocation algorithms",
+      "Growth goal planning tools",
+      "Financial security monitoring",
+      "Real-time financial tracking",
+      "Resource allocation optimization",
+      "Business growth analytics"
+    ],
+    results: [
+      "300% increase in profit growth for users",
+      "85% improvement in financial decision-making",
+      "90% user satisfaction score",
+      "60% reduction in financial stress",
+      "Tripled user retention rate",
+      "Successful Series A funding round"
+    ],
+    testimonial: {
+      name: "Ridwan Olalekan",
+      title: "CEO, GrowWise",
+      content: "GrowWise has transformed how small business owners manage their finances. Our users are seeing incredible growth in their profits and feel more confident about their financial decisions. InnofyAI's expertise in financial app design is unmatched.",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/growwise-app.svg",
+      "/assets/growwise-financial-reports.svg",
+      "/assets/growwise-growth-goals.svg",
+      "/assets/growwise-profit-split.svg",
+      "/assets/growwise-dashboard.svg"
+    ]
   },
   {
     id: 5,
@@ -167,35 +302,97 @@ export const caseStudies = [
     description:
       "IoT-enabled smart manufacturing system with predictive maintenance and real-time monitoring, increasing productivity by 65%.",
     image:
-      "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     metric: "+65%",
     metricLabel: "Productivity",
     duration: "12 months",
+    slug: "smartfactory-iot",
+    challenge: "A major manufacturing company was experiencing frequent equipment failures, production delays, and inefficient resource utilization. They needed an IoT solution to modernize their operations and implement predictive maintenance.",
+    solution: "We implemented a comprehensive IoT ecosystem with sensors, real-time monitoring, predictive analytics, and automated maintenance scheduling that transformed their manufacturing operations.",
+    technologies: ["Python", "TensorFlow", "AWS IoT", "React", "Node.js", "PostgreSQL", "Docker", "Kubernetes"],
+    features: [
+      "IoT sensor network deployment",
+      "Predictive maintenance algorithms",
+      "Real-time production monitoring",
+      "Automated quality control",
+      "Energy optimization systems",
+      "Supply chain integration"
+    ],
+    results: [
+      "65% increase in overall productivity",
+      "80% reduction in unplanned downtime",
+      "40% decrease in maintenance costs",
+      "30% improvement in energy efficiency",
+      "95% accuracy in defect detection",
+      "ROI of 280% within 18 months"
+    ],
+    testimonial: {
+      name: "Robert Thompson",
+      title: "Operations Director, SmartFactory",
+      content: "InnofyAI's IoT solution revolutionized our manufacturing process. The predictive maintenance alone has saved us millions in downtime costs. Their expertise in industrial automation is world-class.",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg"
+    ]
   },
   {
     id: 6,
-    title: "EcoTech Branding",
+    title: "Osinachi Humanity Impact Initiative",
     category: "branding",
-    industry: "Tech Startup",
+    industry: "Non-Profit",
     description:
-      "Complete brand identity for sustainable technology startup, including logo, website, and marketing materials leading to 320% funding increase.",
+      "Complete brand identity for humanitarian impact initiative, including logo, website, and marketing materials leading to 320% funding increase.",
     image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     metric: "+320%",
     metricLabel: "Funding",
     duration: "3 months",
+    slug: "osinachi-humanity-impact-initiative",
+    challenge: "Osinachi Humanity Impact Initiative, a humanitarian organization, had a compelling mission but lacked a strong brand presence to attract donors and volunteers. They needed a complete brand identity that communicated their humanitarian mission and impact.",
+    solution: "We created a comprehensive brand strategy that positioned Osinachi Humanity Impact Initiative as a leader in humanitarian work, including visual identity, messaging, website, and donor materials that resonated with their target audience.",
+    technologies: ["Figma", "Adobe Creative Suite", "React", "Next.js", "Tailwind CSS", "Contentful CMS", "Mailchimp"],
+    features: [
+      "Complete brand identity design",
+      "Donor presentation materials",
+      "Website and digital presence",
+      "Marketing collateral creation",
+      "Social media strategy",
+      "Brand guidelines development"
+    ],
+    results: [
+      "320% increase in funding raised",
+      "500% increase in website traffic",
+      "200% growth in social media following",
+      "85% improvement in brand recognition",
+      "Tripled donor inquiries",
+      "Successful fundraising campaign"
+    ],
+    testimonial: {
+      name: "Ridwan Olalekan",
+      title: "Founder & CEO, Osinachi Humanity Impact Initiative",
+      content: "InnofyAI's branding work was instrumental in our fundraising success. They perfectly captured our mission and created a brand that donors and volunteers immediately connected with. Our funding increased by 320%!",
+      image: "/assets/placeholder.svg"
+    },
+    gallery: [
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg",
+      "/assets/placeholder.svg"
+    ]
   },
 ];
 
 export const testimonials = [
   {
     id: 1,
-    name: "James Wilson",
+    name: "Ridwan Olalekan",
     title: "CEO, TechCorp",
     content:
       "InnofyAI transformed our business processes with their automation solutions. We've seen a 60% increase in efficiency and couldn't be happier.",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+      "/assets/placeholder.svg",
     rating: 5,
   },
   {
@@ -205,7 +402,7 @@ export const testimonials = [
     content:
       "The branding work they did for us was exceptional. Our brand recognition increased by 45% within just three months.",
     image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+      "/assets/placeholder.svg",
     rating: 5,
   },
   {
@@ -215,7 +412,7 @@ export const testimonials = [
     content:
       "Their AI solutions revolutionized our data analysis. We now make decisions 3x faster with better accuracy.",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+      "/assets/placeholder.svg",
     rating: 5,
   },
 ];
@@ -228,8 +425,8 @@ export const blogPosts = [
     excerpt:
       "Exploring how artificial intelligence is reshaping business processes and what leaders need to know to stay ahead of the curve.",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    author: "Alex Johnson",
+      "/assets/placeholder.svg",
+    author: "Ridwan Olalekan",
     date: "December 15, 2024",
     readTime: "8 min read",
     featured: true,
@@ -241,8 +438,8 @@ export const blogPosts = [
     excerpt:
       "Discover how small and medium enterprises can leverage affordable AI tools to operate smarter and more efficiently.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    author: "Alex Johnson",
+      "/assets/placeholder.svg",
+    author: "Ridwan Olalekan",
     date: "December 12, 2024",
     readTime: "5 min read",
   },
@@ -253,7 +450,7 @@ export const blogPosts = [
     excerpt:
       "Stay ahead of evolving cyber threats with insights into the most critical security trends shaping the digital landscape.",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     author: "Michael Chen",
     date: "December 10, 2024",
     readTime: "7 min read",
@@ -265,7 +462,7 @@ export const blogPosts = [
     excerpt:
       "Discover how to create compelling brand identities that resonate across digital platforms and drive customer engagement.",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      "/assets/placeholder.svg",
     author: "Sarah Williams",
     date: "December 8, 2024",
     readTime: "6 min read",
@@ -275,34 +472,34 @@ export const blogPosts = [
 export const teamMembers = [
   {
     id: 1,
-    name: "Alex Johnson",
+    name: "Muheez Okunade",
     title: "CEO & Founder",
     description: "AI Strategy & Business Development",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      "/assets/placeholder.svg",
   },
   {
     id: 2,
-    name: "Maya Patel",
+    name: "Islamiyyah Adebayo",
     title: "Creative Director",
     description: "Brand Strategy & Design",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      "/assets/placeholder.svg",
   },
   {
     id: 3,
-    name: "David Kim",
+    name: "Fawaz Ibrahim",
     title: "CTO",
     description: "AI Engineering & Automation",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      "/assets/placeholder.svg",
   },
   {
     id: 4,
-    name: "Sophie Brown",
+    name: "Faruq Ibrahim",
     title: "Head of Operations",
     description: "Project Management & Client Success",
     image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
+      "/assets/placeholder.svg",
   },
 ];

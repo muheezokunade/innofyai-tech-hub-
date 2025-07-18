@@ -41,7 +41,7 @@ export default function BrandIdentityDigitalAge() {
     datePublished: "2024-12-08",
     dateModified: "2024-12-08",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
+      "/assets/placeholder.svg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -240,7 +240,7 @@ export default function BrandIdentityDigitalAge() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600"
+                src="/assets/placeholder.svg"
                 alt="Brand identity design elements in digital space"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

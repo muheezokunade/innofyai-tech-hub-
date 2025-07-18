@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
   const heroImage = getOptimizedImageSrc(
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    "/assets/tech-hero-bg.svg"
   );
 
   return (

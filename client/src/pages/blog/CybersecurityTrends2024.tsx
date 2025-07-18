@@ -39,7 +39,7 @@ export default function CybersecurityTrends2024() {
     datePublished: "2024-12-10",
     dateModified: "2024-12-10",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
+      "/assets/placeholder.svg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -250,7 +250,7 @@ export default function CybersecurityTrends2024() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600"
+                src="/assets/placeholder.svg"
                 alt="Cybersecurity trends and digital protection"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

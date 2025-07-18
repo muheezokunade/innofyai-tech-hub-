@@ -4,9 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/content";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { ArrowRight, Filter, Award, Star, TrendingUp, Clock, Users, Zap } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
+import { Link, useLocation } from "wouter";
 import {
   scrollRevealVariants,
   staggerContainerVariants,
@@ -17,6 +19,7 @@ import {
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [, setLocation] = useLocation();
 
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
@@ -57,6 +60,10 @@ export default function Portfolio() {
     { number: "2.5x", label: "Average ROI", icon: <TrendingUp className="w-6 h-6" /> },
     { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> },
   ];
+
+  const handleProjectClick = (slug: string) => {
+    setLocation(`/portfolio/${slug}`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -105,17 +112,17 @@ export default function Portfolio() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {filters.map((filter, index) => (
+            {filters.map((filter) => (
               <motion.button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`group px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 ${
                   activeFilter === filter.id
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                    : "bg-white/5 backdrop-blur-sm border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent"
+                    : "bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30"
                 }`}
                 variants={fadeUpVariants}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {filter.icon}
@@ -124,7 +131,7 @@ export default function Portfolio() {
             ))}
           </motion.div>
 
-          {/* Case Studies Grid */}
+          {/* Projects Grid */}
           <motion.div
             className="grid lg:grid-cols-3 gap-8"
             variants={staggerContainerVariants}
@@ -143,16 +150,17 @@ export default function Portfolio() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
+                  onClick={() => handleProjectClick(study.slug)}
                 >
                   <motion.div
                     className="relative h-48 overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
+                    <OptimizedImage
                       src={study.image}
                       alt={study.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute top-4 right-4">
@@ -174,14 +182,14 @@ export default function Portfolio() {
                     <p className="text-gray-300 mb-4 leading-relaxed">{study.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-400">{study.metricLabel}</span>
-                      <motion.button
+                      <motion.div
                         className="group/btn flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
                         whileHover={{ x: 5 }}
                         transition={{ duration: 0.2 }}
                       >
                         View Details
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </motion.button>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>

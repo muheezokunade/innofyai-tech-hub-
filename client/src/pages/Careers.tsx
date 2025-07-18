@@ -266,7 +266,7 @@ export default function Careers() {
                 viewport={{ once: true }}
               >
                 <motion.img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                  src="/assets/placeholder.svg"
                   alt="Team collaboration at InnofyAI"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}

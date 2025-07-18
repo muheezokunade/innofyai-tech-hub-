@@ -30,8 +30,34 @@ export const AnimatedHero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Professional Tech Background Image */}
+      <div className="absolute inset-0">
+        {/* Option 1: Professional tech consulting image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/assets/tech-hero-bg.svg')`,
+          }}
+        />
+        
+        {/* Option 2: Abstract tech pattern (fallback) */}
+        {/* <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%231e293b;stop-opacity:1" /><stop offset="50%" style="stop-color:%234c1d95;stop-opacity:0.9" /><stop offset="100%" style="stop-color:%231e293b;stop-opacity:1" /></linearGradient><pattern id="circuitPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%233b82f6" opacity="0.3"/><circle cx="80" cy="80" r="1" fill="%238b5cf6" opacity="0.3"/><circle cx="50" cy="50" r="0.5" fill="%23ec4899" opacity="0.2"/><path d="M10 10 L90 10 L90 90 L10 90 Z" stroke="%233b82f6" stroke-width="0.5" fill="none" opacity="0.1"/><path d="M30 30 L70 30 L70 70 L30 70 Z" stroke="%238b5cf6" stroke-width="0.3" fill="none" opacity="0.1"/></pattern></defs><rect width="1920" height="1080" fill="url(%23techGradient)"/><rect width="1920" height="1080" fill="url(%23circuitPattern)"/><g opacity="0.1"><circle cx="300" cy="200" r="150" fill="%233b82f6"/><circle cx="1600" cy="800" r="200" fill="%238b5cf6"/><circle cx="1200" cy="300" r="100" fill="%23ec4899"/></g></svg>')`,
+          }}
+        /> */}
+        
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-purple-900/75 to-slate-900/85" />
+        {/* Additional tech-themed overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/15 via-purple-600/15 to-pink-600/15" />
+        {/* Subtle vignette effect */}
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-slate-900/30" />
+      </div>
+
       {/* Animated SVG Background */}
       <motion.div className="absolute inset-0 opacity-20" style={{ y: springY }}>
         <svg className="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">

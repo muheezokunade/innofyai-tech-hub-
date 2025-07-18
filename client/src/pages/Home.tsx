@@ -90,8 +90,8 @@ const services = [
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
+    name: "Ridwan Olalekan",
+    role: "CEO, Osinachi Renewable Energy",
     content:
       "InnofyAI transformed our business with their innovative AI solutions. Our productivity increased by 300%!",
     rating: 5,
@@ -156,7 +156,17 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/50 via-purple-900/70 to-slate-900 relative overflow-hidden">
+      {/* Tech-themed background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><pattern id="techDots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="1920" height="1080" fill="url(%23techDots)"/></svg>')`,
+          }}
+        />
+      </div>
+      
       <SEO
         title="InnofyAI - Tech Excellence & Creative Innovation"
         description="Transform your business with cutting-edge AI solutions, innovative design, and strategic technology consulting. InnofyAI delivers excellence in every project."

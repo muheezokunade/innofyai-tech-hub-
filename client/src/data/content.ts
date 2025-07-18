@@ -5,7 +5,7 @@ export const services = [
     description:
       "Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.",
     image:
-      "/assets/automation-ai.svg",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&crop=center",
     features: [
       "Custom workflow automation",
       "AI-powered decision making",
@@ -20,7 +20,7 @@ export const services = [
     description:
       "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
     image:
-      "/assets/cybersecurity.svg",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop&crop=center",
     features: [
       "Advanced threat detection",
       "24/7 security monitoring",
@@ -35,7 +35,7 @@ export const services = [
     description:
       "Transform your data into actionable insights with advanced analytics and business intelligence solutions.",
     image:
-      "/assets/data-analytics.svg",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center",
     features: [
       "Predictive analytics",
       "Real-time dashboards",
@@ -50,7 +50,7 @@ export const services = [
     description:
       "Create exceptional user experiences with intuitive interfaces that delight users and drive engagement.",
     image:
-      "/assets/ui-ux-design.svg",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop&crop=center",
     features: [
       "User research & testing",
       "Interface design & prototyping",
@@ -65,7 +65,7 @@ export const services = [
     description:
       "Build powerful brand identities that resonate with your audience and create lasting impressions through cohesive design.",
     image:
-      "/assets/branding-merch.svg",
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=center",
     features: [
       "Logo & identity design",
       "Brand guidelines & assets",
@@ -80,7 +80,7 @@ export const services = [
     description:
       "Custom software solutions for web, mobile, and cloud. Scalable, secure, and high-performance applications tailored to your business goals.",
     image:
-      "/assets/placeholder.svg",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
     features: [
       "Full-stack web & mobile development",
       "Cloud-native architecture",
@@ -95,7 +95,7 @@ export const services = [
     description:
       "Grow your brand and engage your audience with expert social media marketing, content creation, and analytics across all major platforms.",
     image:
-      "/assets/placeholder.svg",
+      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=300&fit=crop&crop=center",
     features: [
       "Strategic campaigns & content",
       "Community management",
@@ -115,7 +115,7 @@ export const caseStudies = [
     description:
       "Complete automation solution for inventory management, order processing, and customer service, resulting in 45% cost reduction and improved efficiency.",
     image:
-      "/assets/placeholder.svg",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&crop=center",
     metric: "+65%",
     metricLabel: "Efficiency",
     duration: "6 months",
@@ -159,7 +159,7 @@ export const caseStudies = [
     description:
       "Complete brand transformation and e-commerce platform for authentic Nigerian spices and foodstuffs, including website, mobile app, and comprehensive social media management.",
     image:
-      "/assets/spicepop-logo.svg",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop&crop=center",
     metric: "+250%",
     metricLabel: "Sales Growth",
     duration: "6 months",
@@ -256,7 +256,7 @@ export const caseStudies = [
     description:
       "Comprehensive financial management app for small business owners, helping them track profits, allocate resources, and achieve growth goals with confidence.",
     image:
-      "/assets/growwise-app.svg",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center",
     metric: "+300%",
     metricLabel: "Profit Growth",
     duration: "6 months",

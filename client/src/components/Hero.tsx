@@ -5,7 +5,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
   const heroImage = getOptimizedImageSrc(
-    "/assets/tech-hero-bg.svg"
+    "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"
   );
 
   return (

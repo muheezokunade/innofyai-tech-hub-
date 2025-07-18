@@ -38,7 +38,7 @@ export const AnimatedHero: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/assets/tech-hero-bg.svg')`,
+            backgroundImage: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)`,
           }}
         />
         

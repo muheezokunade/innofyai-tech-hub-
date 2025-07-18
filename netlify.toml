@@ -7,6 +7,8 @@
 [build.environment]
   # Set Node.js version
   NODE_VERSION = "18"
+  # Environment variables for the application
+  NODE_ENV = "production"
 
 # Redirects for SPA routing (React Router)
 [[redirects]]

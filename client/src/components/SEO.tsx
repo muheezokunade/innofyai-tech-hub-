@@ -20,7 +20,7 @@ export function SEO({
   title = "InnofyAI - Tech Excellence & Creative Innovation",
   description = "Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lagos, Nigeria.",
   keywords = "AI automation, cybersecurity, branding, UI/UX design, data analytics, tech consulting, Nigeria, Lagos",
-      image = "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop&crop=center",
+      image = "/assets/tech-hero-bg.svg",
   url = "https://innofyai.com",
   type = "website",
   publishedTime,

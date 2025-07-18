@@ -5,6 +5,7 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Layout } from "./components/Layout";
+import { initializeImagePreloading } from "./utils/imagePreloader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -17,7 +18,7 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/not-found";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Analytics } from "./components/Analytics";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 
 // Blog post pages
 import AITransformBusiness from "./pages/blog/AITransformBusiness";
@@ -45,6 +46,11 @@ const LoadingSpinner = () => (
 );
 
 function App() {
+  // Initialize image preloading on app start
+  useEffect(() => {
+    initializeImagePreloading();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>

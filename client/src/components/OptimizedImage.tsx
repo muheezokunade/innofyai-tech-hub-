@@ -11,8 +11,6 @@ interface OptimizedImageProps {
   fallbackSrc?: string;
 }
 
-
-
 export function OptimizedImage({
   src,
   alt,
@@ -25,18 +23,35 @@ export function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
-  const maxRetries = 2;
+  const [isPreloaded, setIsPreloaded] = useState(false);
+  const maxRetries = 3;
 
   // Determine category based on alt text or src
   const getCategory = () => {
     const lowerAlt = alt.toLowerCase();
     if (lowerAlt.includes('brand') || lowerAlt.includes('logo') || lowerAlt.includes('identity')) return 'branding';
     if (lowerAlt.includes('tech') || lowerAlt.includes('app') || lowerAlt.includes('software')) return 'tech';
+    if (lowerAlt.includes('automation') || lowerAlt.includes('ai')) return 'tech';
+    if (lowerAlt.includes('security') || lowerAlt.includes('cyber')) return 'tech';
+    if (lowerAlt.includes('data') || lowerAlt.includes('analytics')) return 'tech';
+    if (lowerAlt.includes('design') || lowerAlt.includes('ui') || lowerAlt.includes('ux')) return 'creative';
+    if (lowerAlt.includes('social') || lowerAlt.includes('media')) return 'creative';
+    if (lowerAlt.includes('branding') || lowerAlt.includes('merch')) return 'creative';
     return 'default';
   };
 
   const category = getCategory();
   const defaultFallback = getCachedPlaceholder(category);
+
+  // Preload critical images
+  useEffect(() => {
+    if (priority && src && !src.startsWith('data:')) {
+      const img = new Image();
+      img.onload = () => setIsPreloaded(true);
+      img.onerror = () => setIsPreloaded(false);
+      img.src = src;
+    }
+  }, [priority, src]);
 
   const handleImageLoad = () => {
     setIsLoading(false);
@@ -55,20 +70,24 @@ export function OptimizedImage({
     setHasError(true);
     
     if (retryCount < maxRetries) {
-      // Retry with exponential backoff
+      // Retry with exponential backoff and cache busting
+      const retryDelay = Math.pow(2, retryCount) * 1000;
       setTimeout(() => {
         setRetryCount(prev => prev + 1);
-        setImageSrc(`${src}?retry=${retryCount + 1}&t=${Date.now()}`);
+        const cacheBuster = `?retry=${retryCount + 1}&t=${Date.now()}`;
+        setImageSrc(src.includes('?') ? `${src}&${cacheBuster}` : `${src}${cacheBuster}`);
         setIsLoading(true);
-      }, Math.pow(2, retryCount) * 1000);
+      }, retryDelay);
     } else {
       // Try fallback image if provided
       if (fallbackSrc && imageSrc !== fallbackSrc) {
         setImageSrc(fallbackSrc);
         setIsLoading(true);
+        setRetryCount(0);
       } else {
         // Use default gradient fallback
         setImageSrc(defaultFallback);
+        setIsLoading(false);
       }
     }
   };
@@ -100,22 +119,37 @@ export function OptimizedImage({
         return;
       }
 
-      // Check for rate limiting with HEAD request
-      const checkRateLimit = async () => {
-        try {
-          const response = await fetch(src, { method: 'HEAD' });
-          if (response.status === 429) {
-            setRateLimitDetected();
-            setImageSrc(defaultFallback);
-            setIsLoading(false);
-            setHasError(true);
-          }
-        } catch (error) {
-          // Network error, continue with normal loading
-        }
-      };
+      // For local SVG files, assume they'll load successfully
+      if (src.startsWith('/assets/') && src.endsWith('.svg')) {
+        return; // Let normal loading handle it
+      }
 
-      checkRateLimit();
+      // Check for rate limiting with HEAD request (only for external URLs)
+      if (src.startsWith('http')) {
+        const checkRateLimit = async () => {
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 3000); // 3s timeout
+            
+            const response = await fetch(src, { 
+              method: 'HEAD',
+              signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+            
+            if (response.status === 429) {
+              setRateLimitDetected();
+              setImageSrc(defaultFallback);
+              setIsLoading(false);
+              setHasError(true);
+            }
+          } catch (error) {
+            // Network error, continue with normal loading
+          }
+        };
+
+        checkRateLimit();
+      }
     }
   }, [src, defaultFallback]);
 
@@ -142,6 +176,13 @@ export function OptimizedImage({
         loading={priority ? "eager" : "lazy"}
         onLoad={handleImageLoad}
         onError={handleImageError}
+        style={{
+          // Ensure SVG images scale properly
+          ...(imageSrc.endsWith('.svg') && {
+            objectFit: 'contain',
+            backgroundColor: 'transparent'
+          })
+        }}
       />
       
       {hasError && imageSrc === defaultFallback && (

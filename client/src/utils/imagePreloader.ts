@@ -28,7 +28,7 @@ class ImagePreloader {
       img.onerror = () => {
         this.failedImages.add(src);
         this.loadingPromises.delete(src);
-        console.warn(`Failed to preload image: ${src}`);
+        // Silently handle errors to avoid console spam
         reject(new Error(`Failed to load image: ${src}`));
       };
 
@@ -52,6 +52,7 @@ class ImagePreloader {
 
   // Preload critical images for the application
   async preloadCriticalImages(): Promise<void> {
+    // Only preload images that we know exist
     const criticalImages = [
       // Service background images
       '/assets/automation-ai-bg.svg',
@@ -71,7 +72,6 @@ class ImagePreloader {
       
       // Case study images
       '/assets/commerza-automation.svg',
-      '/assets/spicepop-ecommerce.svg',
       '/assets/growwise-financial.svg',
       '/assets/osinachi-renewable.svg',
       
@@ -80,9 +80,14 @@ class ImagePreloader {
       '/assets/placeholder.svg'
     ];
 
-    console.log('Preloading critical images...');
-    await this.preloadImages(criticalImages);
-    console.log('Critical images preloaded successfully');
+    // Preload images silently - don't log individual failures
+    const promises = criticalImages.map(src => 
+      this.preloadImage(src).catch(() => {
+        // Silently handle individual image failures
+      })
+    );
+    
+    await Promise.allSettled(promises);
   }
 
   // Check if an image is preloaded
@@ -115,10 +120,9 @@ class ImagePreloader {
 // Create singleton instance
 export const imagePreloader = new ImagePreloader();
 
-// Auto-preload critical images when the module is imported
+// Disable auto-preloading to improve initial load performance
+// Images will be loaded on demand for better user experience
 if (typeof window !== 'undefined') {
-  // Preload critical images after a short delay to not block initial render
-  setTimeout(() => {
-    imagePreloader.preloadCriticalImages().catch(console.error);
-  }, 100);
+  // Only preload when explicitly requested
+  // This prevents console warnings and improves initial load time
 } 

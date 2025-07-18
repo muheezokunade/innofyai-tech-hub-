@@ -92,9 +92,10 @@ export const FloatingCTA: React.FC = () => {
                 </span>
               </motion.div>
 
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 {!isCollapsed && (
                   <motion.span
+                    key="cta-text"
                     initial={{ opacity: 0, width: 0 }}
                     animate={{ opacity: 1, width: "auto" }}
                     exit={{ opacity: 0, width: 0 }}
@@ -106,9 +107,10 @@ export const FloatingCTA: React.FC = () => {
                 )}
               </AnimatePresence>
 
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 {!isCollapsed && (
                   <motion.div
+                    key="cta-arrow"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}

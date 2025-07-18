@@ -17,6 +17,9 @@ import cors from "cors";
 
 const app = express();
 
+// Trust proxy for rate limiting to work correctly
+app.set('trust proxy', 1);
+
 // Security middleware (order matters!)
 app.use(helmetConfig);
 app.use(cors(corsOptions));

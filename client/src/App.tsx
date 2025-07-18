@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Route, Switch } from "wouter";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -5,6 +6,10 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Layout } from "./components/Layout";
+import { ThemeProvider } from "./components/ThemeProvider";
+import { Analytics } from "./components/Analytics";
+import { LoadingSpinner } from "./components/LoadingSpinner";
+
 // Lazy load main pages for better performance
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -16,10 +21,6 @@ const Careers = lazy(() => import("./pages/Careers"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/not-found"));
-import { ThemeProvider } from "./components/ThemeProvider";
-import { Analytics } from "./components/Analytics";
-import { LoadingSpinner } from "./components/LoadingSpinner";
-import { Suspense, lazy, useEffect } from "react";
 
 // Lazy load blog post pages for better performance
 const AITransformBusiness = lazy(() => import("./pages/blog/AITransformBusiness"));

@@ -7,13 +7,14 @@ import { Request, Response, NextFunction } from "express";
 // Rate limiting configuration
 export const rateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: process.env.NODE_ENV === "production" ? 100 : 1000, // Higher limit in development
   message: {
     error: "Too many requests from this IP, please try again later.",
     statusCode: 429
   },
   standardHeaders: true,
   legacyHeaders: false,
+  skip: (req) => process.env.NODE_ENV === "development" && req.path.startsWith("/api/health"),
 });
 
 // Stricter rate limit for auth endpoints
@@ -32,7 +33,7 @@ export const authRateLimiter = rateLimit({
 export const corsOptions = {
   origin: process.env.NODE_ENV === "production" 
     ? ["https://innofyai.com", "https://www.innofyai.com"]
-    : ["http://localhost:3000", "http://localhost:5000"],
+    : ["http://localhost:3000", "http://localhost:5000", "http://127.0.0.1:3000", "http://127.0.0.1:5000"],
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

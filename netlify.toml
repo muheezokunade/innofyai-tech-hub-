@@ -2,7 +2,7 @@
   # Build command for the frontend
   command = "npm run build:client"
   # Publish directory (where Vite builds the frontend)
-  publish = "dist"
+  publish = "dist/public"
 
 [build.environment]
   # Set Node.js version

@@ -5,25 +5,27 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Layout } from "./components/Layout";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
-import Careers from "./pages/Careers";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import NotFound from "./pages/not-found";
+// Lazy load main pages for better performance
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Careers = lazy(() => import("./pages/Careers"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/not-found"));
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Analytics } from "./components/Analytics";
+import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Suspense, lazy, useEffect } from "react";
 
-// Blog post pages
-import AITransformBusiness from "./pages/blog/AITransformBusiness";
-import BrandIdentityDigitalAge from "./pages/blog/BrandIdentityDigitalAge";
-import CybersecurityTrends2024 from "./pages/blog/CybersecurityTrends2024";
-import PracticalAISMEs from "./pages/blog/PracticalAISMEs";
+// Lazy load blog post pages for better performance
+const AITransformBusiness = lazy(() => import("./pages/blog/AITransformBusiness"));
+const BrandIdentityDigitalAge = lazy(() => import("./pages/blog/BrandIdentityDigitalAge"));
+const CybersecurityTrends2024 = lazy(() => import("./pages/blog/CybersecurityTrends2024"));
+const PracticalAISMEs = lazy(() => import("./pages/blog/PracticalAISMEs"));
 
 // Lazy load service pages for better performance
 const AutomationAI = lazy(() => import("./pages/services/AutomationAI"));
@@ -37,12 +39,7 @@ const SocialMedia = lazy(() => import("./pages/services/SocialMedia"));
 // Lazy load project detail pages
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 
-// Loading component for suspense fallback
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-  </div>
-);
+// Loading component for suspense fallback - using imported component
 
 function App() {
   return (

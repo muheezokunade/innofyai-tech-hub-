@@ -52,7 +52,12 @@ export function SEO({
       contactType: "customer service",
       email: "hello@innofyai.com",
     },
-    sameAs: ["https://twitter.com/innofyai", "https://linkedin.com/company/innofyai"],
+            sameAs: [
+          "https://x.com/innofyai?s=21", 
+          "https://www.linkedin.com/company/innofy-ai/",
+          "https://www.instagram.com/innofyai?igsh=dGI5MTE5a2xra28%3D&utm_source=qr",
+          "https://www.tiktok.com/@innofyai?_t=ZM-8y83dmNvGis&_r=1"
+        ],
   };
 
   return (

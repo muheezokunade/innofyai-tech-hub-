@@ -16,11 +16,11 @@ import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     company: "",
     service: "",
+    budget: "",
     message: "",
   });
 
@@ -32,30 +32,43 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      // Show success toast
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-        duration: 5000,
+      // Call the backend API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        company: "",
-        service: "",
-        message: "",
-      });
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success toast
+        toast({
+          title: "Message sent successfully!",
+          description: result.message || "Thank you for contacting us. We'll get back to you within 24 hours.",
+          duration: 5000,
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          service: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
     } catch (error) {
+      console.error('Contact form error:', error);
       // Show error toast
       toast({
         title: "Failed to send message",
-        description: "Please try again later or contact us directly.",
+        description: error instanceof Error ? error.message : "Please try again later or contact us directly.",
         variant: "destructive",
         duration: 5000,
       });
@@ -73,35 +86,19 @@ export function ContactForm() {
       <CardContent className="p-8">
         <h2 className="text-2xl font-bold text-space text-foreground mb-8">Send us a message</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="firstName" className="text-foreground">
-                First Name
-              </Label>
-              <Input
-                id="firstName"
-                value={formData.firstName}
-                onChange={e => handleChange("firstName", e.target.value)}
-                className="mt-2"
-                placeholder="Your first name"
-                disabled={isSubmitting}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="lastName" className="text-foreground">
-                Last Name
-              </Label>
-              <Input
-                id="lastName"
-                value={formData.lastName}
-                onChange={e => handleChange("lastName", e.target.value)}
-                className="mt-2"
-                placeholder="Your last name"
-                disabled={isSubmitting}
-                required
-              />
-            </div>
+          <div>
+            <Label htmlFor="name" className="text-foreground">
+              Full Name
+            </Label>
+            <Input
+              id="name"
+              value={formData.name}
+              onChange={e => handleChange("name", e.target.value)}
+              className="mt-2"
+              placeholder="Your full name"
+              disabled={isSubmitting}
+              required
+            />
           </div>
 
           <div>
@@ -143,14 +140,34 @@ export function ContactForm() {
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="automation">Automation & AI</SelectItem>
-                <SelectItem value="cybersecurity">Cybersecurity</SelectItem>
-                <SelectItem value="development">Software Development</SelectItem>
-                <SelectItem value="design">UI/UX Design</SelectItem>
-                <SelectItem value="branding">Branding & Merch</SelectItem>
-                <SelectItem value="social">Social Media</SelectItem>
-                <SelectItem value="data">Data Analytics</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
+                <SelectItem value="Automation & AI">Automation & AI</SelectItem>
+                <SelectItem value="Cybersecurity">Cybersecurity</SelectItem>
+                <SelectItem value="Software Development">Software Development</SelectItem>
+                <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+                <SelectItem value="Branding & Merch">Branding & Merch</SelectItem>
+                <SelectItem value="Social Media">Social Media</SelectItem>
+                <SelectItem value="Data Analytics">Data Analytics</SelectItem>
+                <SelectItem value="Other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <Label htmlFor="budget" className="text-foreground">
+              Budget Range
+            </Label>
+            <Select onValueChange={value => handleChange("budget", value)} disabled={isSubmitting}>
+              <SelectTrigger className="mt-2">
+                <SelectValue placeholder="Select budget range" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Under $1,000">Under $1,000</SelectItem>
+                <SelectItem value="$1,000 - $5,000">$1,000 - $5,000</SelectItem>
+                <SelectItem value="$5,000 - $10,000">$5,000 - $10,000</SelectItem>
+                <SelectItem value="$10,000 - $25,000">$10,000 - $25,000</SelectItem>
+                <SelectItem value="$25,000 - $50,000">$25,000 - $50,000</SelectItem>
+                <SelectItem value="Over $50,000">Over $50,000</SelectItem>
+                <SelectItem value="To be discussed">To be discussed</SelectItem>
               </SelectContent>
             </Select>
           </div>

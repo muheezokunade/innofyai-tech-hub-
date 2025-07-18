@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { services } from "@/data/content";
 import { Link } from "wouter";
 import {
@@ -207,10 +208,11 @@ export default function Services() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
+                    <OptimizedImage
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
+                      priority={index < 2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   </motion.div>
@@ -286,10 +288,11 @@ export default function Services() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <img
+                    <OptimizedImage
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
+                      priority={index < 2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   </motion.div>

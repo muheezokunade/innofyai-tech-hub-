@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Navigation } from "./Navigation";
 import { FloatingCTA } from "./FloatingCTA";
+import { ImageDebugger } from "./ImageDebugger";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
@@ -44,6 +45,7 @@ export function Layout({ children }: LayoutProps) {
       <Navigation />
       <main className="pt-16">{children}</main>
       <FloatingCTA />
+      <ImageDebugger />
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { imageCache, getCacheKey, setRateLimitDetected, isRateLimited, getPlaceholderImage as getCachedPlaceholder } from "../utils/imageCache";
+import { imagePreloader } from "../utils/imagePreloader";
 
 interface OptimizedImageProps {
   src: string;
@@ -46,10 +47,10 @@ export function OptimizedImage({
   // Preload critical images
   useEffect(() => {
     if (priority && src && !src.startsWith('data:')) {
-      const img = new Image();
-      img.onload = () => setIsPreloaded(true);
-      img.onerror = () => setIsPreloaded(false);
-      img.src = src;
+      // Use the enhanced preloader
+      imagePreloader.preloadImage(src)
+        .then(() => setIsPreloaded(true))
+        .catch(() => setIsPreloaded(false));
     }
   }, [priority, src]);
 
@@ -169,18 +170,19 @@ export function OptimizedImage({
       <img
         src={imageSrc}
         alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`w-full h-full transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
-        }`}
+        } ${imageSrc.endsWith('.svg') ? 'object-contain' : 'object-cover'}`}
         sizes={sizes}
         loading={priority ? "eager" : "lazy"}
         onLoad={handleImageLoad}
         onError={handleImageError}
         style={{
-          // Ensure SVG images scale properly
+          // Ensure SVG images scale properly and maintain aspect ratio
           ...(imageSrc.endsWith('.svg') && {
-            objectFit: 'contain',
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
+            minHeight: '100%',
+            minWidth: '100%'
           })
         }}
       />

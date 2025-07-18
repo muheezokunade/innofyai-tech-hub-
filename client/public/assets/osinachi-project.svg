@@ -1,0 +1,61 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="renewGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#065f46;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#renewGrad)"/>
+  
+  <!-- Solar panel array -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="60" height="40" fill="#1f2937" rx="4"/>
+    <rect x="70" y="0" width="60" height="40" fill="#1f2937" rx="4"/>
+    <rect x="140" y="0" width="60" height="40" fill="#1f2937" rx="4"/>
+    
+    <!-- Solar panel grid lines -->
+    <g stroke="#374151" stroke-width="1">
+      <line x1="20" y1="5" x2="20" y2="35"/>
+      <line x1="40" y1="5" x2="40" y2="35"/>
+      <line x1="90" y1="5" x2="90" y2="35"/>
+      <line x1="110" y1="5" x2="110" y2="35"/>
+      <line x1="160" y1="5" x2="160" y2="35"/>
+      <line x1="180" y1="5" x2="180" y2="35"/>
+    </g>
+  </g>
+  
+  <!-- Wind turbine -->
+  <g transform="translate(320, 100)">
+    <rect x="0" y="50" width="4" height="80" fill="#f3f4f6"/>
+    <circle cx="2" cy="50" r="8" fill="#f3f4f6"/>
+    <!-- Turbine blades -->
+    <path d="M2 50 L15 35 L20 45 Z" fill="#f3f4f6"/>
+    <path d="M2 50 L-10 60 L-5 70 Z" fill="#f3f4f6"/>
+    <path d="M2 50 L10 65 L5 75 Z" fill="#f3f4f6"/>
+  </g>
+  
+  <!-- Energy monitoring dashboard -->
+  <rect x="50" y="160" width="180" height="100" fill="#f0fdf4" rx="8" opacity="0.9"/>
+  
+  <!-- Energy metrics -->
+  <g fill="#065f46" font-family="Arial" font-size="12">
+    <text x="70" y="180">Energy Output</text>
+    <text x="70" y="200" font-size="18" font-weight="bold">2.4 MW</text>
+    <text x="70" y="220">Efficiency: 94%</text>
+    <text x="70" y="240">CO₂ Saved: 1.8T</text>
+  </g>
+  
+  <!-- Energy flow lines -->
+  <g stroke="#10b981" stroke-width="2" fill="none" opacity="0.7">
+    <path d="M140 100 Q200 120 250 150"/>
+    <path d="M340 150 Q320 170 280 180"/>
+  </g>
+  
+  <!-- Green energy particles -->
+  <g fill="#22c55e" opacity="0.8">
+    <circle cx="120" cy="120" r="2"/>
+    <circle cx="280" cy="140" r="2"/>
+    <circle cx="150" cy="200" r="2"/>
+    <circle cx="320" cy="180" r="2"/>
+  </g>
+</svg>

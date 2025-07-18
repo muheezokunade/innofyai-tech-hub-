@@ -1,0 +1,42 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#finGrad)"/>
+  
+  <!-- Financial dashboard -->
+  <rect x="50" y="60" width="300" height="180" fill="#f0fdf4" rx="12" opacity="0.95"/>
+  
+  <!-- Header -->
+  <rect x="70" y="80" width="120" height="8" fill="#065f46" rx="4"/>
+  <rect x="70" y="95" width="80" height="6" fill="#065f46" opacity="0.6" rx="3"/>
+  
+  <!-- Charts -->
+  <g transform="translate(80, 120)">
+    <!-- Pie chart -->
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#10b981" stroke-width="8" stroke-dasharray="60 40"/>
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#34d399" stroke-width="8" stroke-dasharray="40 60" stroke-dashoffset="-60"/>
+    
+    <!-- Bar chart -->
+    <g transform="translate(120, 20)">
+      <rect x="0" y="50" width="12" height="30" fill="#10b981"/>
+      <rect x="20" y="35" width="12" height="45" fill="#10b981"/>
+      <rect x="40" y="40" width="12" height="40" fill="#10b981"/>
+      <rect x="60" y="25" width="12" height="55" fill="#10b981"/>
+      <rect x="80" y="45" width="12" height="35" fill="#10b981"/>
+    </g>
+  </g>
+  
+  <!-- Growth arrow -->
+  <path d="M280 160 L320 120 L310 125 L320 120 L315 130" stroke="#065f46" stroke-width="3" fill="none"/>
+  
+  <!-- Dollar signs -->
+  <g fill="#065f46" font-family="Arial" font-size="18" font-weight="bold">
+    <text x="320" y="210">$</text>
+    <text x="100" y="250">$</text>
+    <text x="280" y="250">$</text>
+  </g>
+</svg>

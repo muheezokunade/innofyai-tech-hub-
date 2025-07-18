@@ -4,7 +4,7 @@ export const services = [
     title: "Automation & AI",
     description:
       "Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.",
-    image: "/assets/automation-ai-bg.svg",
+    image: "/assets/automation-ai-hero.svg",
     features: [
       "Custom workflow automation",
       "AI-powered decision making",
@@ -18,7 +18,7 @@ export const services = [
     title: "Cybersecurity",
     description:
       "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
-    image: "/assets/cybersecurity-bg.svg",
+    image: "/assets/cybersecurity-hero.svg",
     features: [
       "Advanced threat detection",
       "24/7 security monitoring",
@@ -32,7 +32,7 @@ export const services = [
     title: "Data Analytics",
     description:
       "Transform your data into actionable insights with advanced analytics and business intelligence solutions.",
-    image: "/assets/data-analytics-bg.svg",
+    image: "/assets/data-analytics-hero.svg",
     features: [
       "Predictive analytics",
       "Real-time dashboards",
@@ -46,7 +46,7 @@ export const services = [
     title: "UI/UX Design",
     description:
       "Create exceptional user experiences with intuitive interfaces that delight users and drive engagement.",
-    image: "/assets/ui-ux-design-bg.svg",
+    image: "/assets/ui-ux-design-hero.svg",
     features: [
       "User research & testing",
       "Interface design & prototyping",
@@ -60,7 +60,7 @@ export const services = [
     title: "Branding & Merch",
     description:
       "Build powerful brand identities that resonate with your audience and create lasting impressions through cohesive design.",
-    image: "/assets/branding-merch-bg.svg",
+    image: "/assets/branding-merch-hero.svg",
     features: [
       "Logo & identity design",
       "Brand guidelines & assets",
@@ -74,7 +74,7 @@ export const services = [
     title: "Software Engineering",
     description:
       "Custom software solutions for web, mobile, and cloud. Scalable, secure, and high-performance applications tailored to your business goals.",
-    image: "/assets/software-engineering-bg.svg",
+    image: "/assets/software-engineering-hero.svg",
     features: [
       "Full-stack web & mobile development",
       "Cloud-native architecture",
@@ -88,7 +88,7 @@ export const services = [
     title: "Social Media",
     description:
       "Grow your brand and engage your audience with expert social media marketing, content creation, and analytics across all major platforms.",
-    image: "/assets/social-media-bg.svg",
+    image: "/assets/social-media-hero.svg",
     features: [
       "Strategic campaigns & content",
       "Community management",
@@ -107,7 +107,7 @@ export const caseStudies = [
     industry: "E-commerce",
     description:
       "Complete automation solution for inventory management, order processing, and customer service, resulting in 45% cost reduction and improved efficiency.",
-    image: "/assets/commerza-automation.svg",
+    image: "/assets/automation-ai-hero.svg",
     metric: "+65%",
     metricLabel: "Efficiency",
     duration: "6 months",
@@ -150,7 +150,7 @@ export const caseStudies = [
     industry: "Food & Beverage",
     description:
       "Complete brand transformation and e-commerce platform for authentic Nigerian spices and foodstuffs, including website, mobile app, and comprehensive social media management.",
-    image: "/assets/spicepop-ecommerce.svg",
+    image: "/assets/spicepop-project.svg",
     metric: "+250%",
     metricLabel: "Sales Growth",
     duration: "6 months",
@@ -202,8 +202,7 @@ export const caseStudies = [
     industry: "Renewable Energy",
     description:
       "Complete brand transformation including UI/UX redesign, logo creation, and marketing materials that boosted user engagement by 180%.",
-    image:
-      "/assets/placeholder.svg",
+    image: "/assets/osinachi-project.svg",
     metric: "+180%",
     metricLabel: "Engagement",
     duration: "8 months",

@@ -39,7 +39,7 @@ export function SEO({
     "@type": "Organization",
     name: "InnofyAI",
     url: "https://innofyai.com",
-    logo: "https://innofyai.com/logo.png",
+    logo: "https://innofyai.com/assets/innofy-logo.svg",
     description:
       "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
     address: {

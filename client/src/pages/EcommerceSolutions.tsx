@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   ShoppingCart, 
   CreditCard, 
@@ -216,7 +217,32 @@ const EcommerceSolutions: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <>
+      <SEO
+        title="E-commerce Solutions | AI-Powered Online Stores"
+        description="Transform your online business with AI-powered e-commerce solutions. Custom platforms, payment processing, logistics, analytics, and security. Increase sales by 300% with our proven solutions."
+        keywords="e-commerce solutions, online store development, payment processing, logistics, e-commerce analytics, shopping cart, e-commerce security, Nigeria e-commerce"
+        url="/ecommerce-solutions"
+        type="product"
+        tags={["e-commerce", "online store", "payment processing", "logistics", "analytics", "security"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "E-commerce Solutions",
+          "description": "AI-powered e-commerce platform development and optimization",
+          "provider": {
+            "@type": "Organization",
+            "name": "InnofyAI"
+          },
+          "areaServed": "Nigeria",
+          "serviceType": "E-commerce Development",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          }
+        }}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -483,6 +509,7 @@ const EcommerceSolutions: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

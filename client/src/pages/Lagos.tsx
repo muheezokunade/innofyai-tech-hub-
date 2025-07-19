@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   MapPin, 
   Building2, 
@@ -168,7 +169,42 @@ const Lagos: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <>
+      <SEO
+        title="AI Solutions in Lagos, Nigeria | InnofyAI"
+        description="Leading AI solutions provider in Lagos, Nigeria. Transform your business with cutting-edge AI automation, cybersecurity, and digital transformation services. Local expertise, global standards."
+        keywords="AI solutions Lagos, tech consulting Nigeria, AI automation Lagos, cybersecurity Nigeria, digital transformation Lagos, tech company Nigeria, AI services Lagos"
+        url="/lagos"
+        type="website"
+        tags={["Lagos", "Nigeria", "AI solutions", "tech consulting", "digital transformation", "local business"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "InnofyAI",
+          "description": "Leading AI solutions provider in Lagos, Nigeria",
+          "url": "https://innofyai.com",
+          "telephone": "+234-XXX-XXX-XXXX",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Lagos, Nigeria",
+            "addressLocality": "Lagos",
+            "addressRegion": "Lagos State",
+            "addressCountry": "Nigeria"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "6.5244",
+            "longitude": "3.3792"
+          },
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "priceRange": "$$",
+          "areaServed": {
+            "@type": "City",
+            "name": "Lagos"
+          }
+        }}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -428,6 +464,7 @@ const Lagos: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

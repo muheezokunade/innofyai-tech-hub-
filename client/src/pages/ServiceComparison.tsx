@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   CheckCircle, 
   X, 
@@ -208,6 +209,11 @@ const ServiceComparison: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <SEO
+        title="Service Comparison - Tech Solutions"
+        description="Compare our web development, UI/UX design, e-commerce, analytics, security, and support services across different tiers."
+        keywords="service comparison, web development, UI/UX design, e-commerce, analytics, security, support, pricing"
+      />
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

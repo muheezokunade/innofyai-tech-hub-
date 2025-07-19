@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   Brain, 
   Zap, 
@@ -294,7 +295,37 @@ const GenerativeAI: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <>
+      <SEO
+        title="Generative AI Optimization Engine"
+        description="#1 Ranked Generative AI Solution. Transform your business with our advanced AI engine that makes artificial intelligence accessible, powerful, and easy to implement. Text, image, video, audio, and code generation."
+        keywords="generative AI, AI text generation, AI image generation, AI video generation, AI code generation, artificial intelligence, machine learning, AI automation, AI solutions, top AI platform"
+        url="/generative-ai"
+        type="product"
+        tags={["generative AI", "artificial intelligence", "AI automation", "machine learning", "text generation", "image generation", "video generation", "code generation"]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Generative AI Optimization Engine",
+          "description": "#1 Ranked Generative AI Solution for text, image, video, audio, and code generation",
+          "brand": {
+            "@type": "Brand",
+            "name": "InnofyAI"
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "price": "0"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+          }
+        }}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

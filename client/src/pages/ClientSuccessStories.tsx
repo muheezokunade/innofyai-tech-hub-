@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   Star, 
   Users, 
@@ -188,6 +189,11 @@ const ClientSuccessStories: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <SEO
+        title="Client Success Stories - InnofyAI"
+        description="Discover how InnofyAI has helped businesses across industries achieve remarkable results through innovative technology solutions."
+        keywords="client success stories, InnofyAI, technology solutions, business transformation, success stories"
+      />
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

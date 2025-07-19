@@ -111,6 +111,7 @@ function Footer() {
     { name: "E-commerce Solutions", href: "/ecommerce-solutions" },
     { name: "Service Comparison", href: "/service-comparison" },
     { name: "Client Success Stories", href: "/client-success-stories" },
+    { name: "Industry Solutions", href: "/industry-solutions" },
     { name: "Generative AI", href: "/generative-ai" },
   ];
 

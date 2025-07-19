@@ -32,6 +32,7 @@ const Lagos = lazy(() => import("./pages/Lagos"));
 const EcommerceSolutions = lazy(() => import("./pages/EcommerceSolutions"));
 const ServiceComparison = lazy(() => import("./pages/ServiceComparison"));
 const ClientSuccessStories = lazy(() => import("./pages/ClientSuccessStories"));
+const IndustrySolutions = lazy(() => import("./pages/IndustrySolutions"));
 const GenerativeAI = lazy(() => import("./pages/GenerativeAI"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
@@ -85,6 +86,7 @@ function App() {
                   <Route path="/ecommerce-solutions" component={EcommerceSolutions} />
                   <Route path="/service-comparison" component={ServiceComparison} />
                   <Route path="/client-success-stories" component={ClientSuccessStories} />
+                  <Route path="/industry-solutions" component={IndustrySolutions} />
                   <Route path="/generative-ai" component={GenerativeAI} />
 
                   {/* Portfolio project pages */}

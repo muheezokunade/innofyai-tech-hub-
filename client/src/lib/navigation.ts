@@ -1,13 +1,20 @@
 // Navigation utility for CTA buttons across the website
+import { useLocation } from 'wouter';
 
 export const navigateToContact = () => {
-  // Navigate to contact page
+  // Navigate to contact page using proper routing
   window.location.href = '/contact';
 };
 
 export const navigateToConsultation = () => {
-  // Navigate to contact page with consultation focus
-  window.location.href = '/contact?type=consultation';
+  // Open Google Calendar booking in new tab
+  window.open('https://calendar.app.google/nfuUe1XygjEJxMGd7', '_blank', 'noopener,noreferrer');
+};
+
+export const openAppointmentModal = () => {
+  // This will be handled by the appointment context
+  // The actual implementation will be in the CTA button component
+  console.log('Opening appointment modal...');
 };
 
 export const navigateToServices = () => {
@@ -72,6 +79,9 @@ export const handleCTA = (action: string, target?: string) => {
     case 'consultation':
       navigateToConsultation();
       break;
+    case 'appointment-modal':
+      openAppointmentModal();
+      break;
     case 'services':
       navigateToServices();
       break;
@@ -117,6 +127,11 @@ export const ctaConfigs = {
   'schedule-consultation': {
     action: 'consultation',
     label: 'Schedule a Consultation',
+    className: 'border-2 border-white text-white hover:bg-white hover:text-blue-600'
+  },
+  'appointment-modal': {
+    action: 'appointment-modal',
+    label: 'Book Appointment',
     className: 'border-2 border-white text-white hover:bg-white hover:text-blue-600'
   },
   'get-started': {

@@ -11,6 +11,7 @@ import {
   Star,
   Users,
   Award,
+  Clock,
 } from "lucide-react";
 import { AnimatedHero } from "../components/AnimatedHero";
 import { ServiceCard } from "../components/ServiceCard";
@@ -18,6 +19,7 @@ import { ScrollProgress } from "../components/ScrollProgress";
 import { FloatingCTA } from "../components/FloatingCTA";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StartProjectButton, ScheduleConsultationButton } from '../components/CTAButton';
+import { useAppointment } from '../contexts/AppointmentContext';
 import {
   scrollRevealVariants,
   staggerContainerVariants,
@@ -124,6 +126,8 @@ const stats = [
 ];
 
 const Home: React.FC = () => {
+  const { openAppointmentModal } = useAppointment();
+  
   const structuredData = generateOrganizationStructuredData({
     name: "InnofyAI",
     description: "Tech Innovation Hub - Transforming ideas into digital excellence",
@@ -337,7 +341,7 @@ const Home: React.FC = () => {
               variants={fadeUpVariants}
             >
               <StartProjectButton size="lg" />
-              <ScheduleConsultationButton size="lg" />
+              <ScheduleConsultationButton size="lg" onConsultationClick={openAppointmentModal} />
             </motion.div>
           </motion.div>
         </div>

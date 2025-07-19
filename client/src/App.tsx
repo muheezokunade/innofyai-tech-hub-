@@ -9,6 +9,9 @@ import { Layout } from "./components/Layout";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Analytics } from "./components/Analytics";
 import { LoadingSpinner } from "./components/LoadingSpinner";
+import { AppointmentProvider } from "./contexts/AppointmentContext";
+import { AppointmentBooking } from "./components/AppointmentBooking";
+import { useAppointment } from "./contexts/AppointmentContext";
 
 // Lazy load main pages for better performance
 const Home = lazy(() => import("./pages/Home"));
@@ -56,72 +59,90 @@ const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 
 // Loading component for suspense fallback - using imported component
 
+function AppContent() {
+  const { isAppointmentModalOpen, closeAppointmentModal } = useAppointment();
+
+  return (
+    <>
+      <Layout>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/careers" component={Careers} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/cookie-policy" component={CookiePolicy} />
+            <Route path="/gdpr-compliance" component={GDPRCompliance} />
+            <Route path="/data-protection" component={DataProtection} />
+            <Route path="/technology-stack" component={TechnologyStack} />
+            <Route path="/development-process" component={DevelopmentProcess} />
+            <Route path="/quality-assurance" component={QualityAssurance} />
+            <Route path="/security-standards" component={SecurityStandards} />
+            <Route path="/performance-metrics" component={PerformanceMetrics} />
+            <Route path="/lagos" component={Lagos} />
+            <Route path="/ecommerce-solutions" component={EcommerceSolutions} />
+            <Route path="/service-comparison" component={ServiceComparison} />
+            <Route path="/client-success-stories" component={ClientSuccessStories} />
+            <Route path="/industry-solutions" component={IndustrySolutions} />
+            <Route path="/generative-ai" component={GenerativeAI} />
+
+            {/* Portfolio project pages */}
+            <Route path="/portfolio/:slug">
+              {({ slug }) => <ProjectDetail slug={slug} />}
+            </Route>
+
+            {/* Blog posts */}
+            <Route path="/blog/ai-transform-business" component={AITransformBusiness} />
+            <Route
+              path="/blog/brand-identity-digital-age"
+              component={BrandIdentityDigitalAge}
+            />
+            <Route
+              path="/blog/cybersecurity-trends-2024"
+              component={CybersecurityTrends2024}
+            />
+            <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
+
+            {/* Service pages - now lazy loaded */}
+            <Route path="/services/automation-ai" component={AutomationAI} />
+            <Route path="/services/branding-merch" component={BrandingMerch} />
+            <Route path="/services/cybersecurity" component={Cybersecurity} />
+            <Route path="/services/data-analytics" component={DataAnalytics} />
+            <Route path="/services/ui-ux-design" component={UIUXDesign} />
+            <Route path="/services/software-engineering" component={SoftwareEngineering} />
+            <Route path="/services/social-media" component={SocialMedia} />
+
+            {/* 404 page */}
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
+      </Layout>
+      
+      {/* Appointment Booking Modal */}
+      <AppointmentBooking 
+        isOpen={isAppointmentModalOpen} 
+        onClose={closeAppointmentModal} 
+      />
+    </>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <ThemeProvider>
           <TooltipProvider>
-            <Layout>
-              <Suspense fallback={<LoadingSpinner />}>
-                <Switch>
-                  <Route path="/" component={Home} />
-                  <Route path="/about" component={About} />
-                  <Route path="/services" component={Services} />
-                  <Route path="/portfolio" component={Portfolio} />
-                  <Route path="/blog" component={Blog} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/careers" component={Careers} />
-                  <Route path="/privacy" component={Privacy} />
-                  <Route path="/terms" component={Terms} />
-                  <Route path="/cookie-policy" component={CookiePolicy} />
-                  <Route path="/gdpr-compliance" component={GDPRCompliance} />
-                  <Route path="/data-protection" component={DataProtection} />
-                  <Route path="/technology-stack" component={TechnologyStack} />
-                  <Route path="/development-process" component={DevelopmentProcess} />
-                  <Route path="/quality-assurance" component={QualityAssurance} />
-                  <Route path="/security-standards" component={SecurityStandards} />
-                  <Route path="/performance-metrics" component={PerformanceMetrics} />
-                  <Route path="/lagos" component={Lagos} />
-                  <Route path="/ecommerce-solutions" component={EcommerceSolutions} />
-                  <Route path="/service-comparison" component={ServiceComparison} />
-                  <Route path="/client-success-stories" component={ClientSuccessStories} />
-                  <Route path="/industry-solutions" component={IndustrySolutions} />
-                  <Route path="/generative-ai" component={GenerativeAI} />
-
-                  {/* Portfolio project pages */}
-                  <Route path="/portfolio/:slug">
-                    {({ slug }) => <ProjectDetail slug={slug} />}
-                  </Route>
-
-                  {/* Blog posts */}
-                  <Route path="/blog/ai-transform-business" component={AITransformBusiness} />
-                  <Route
-                    path="/blog/brand-identity-digital-age"
-                    component={BrandIdentityDigitalAge}
-                  />
-                  <Route
-                    path="/blog/cybersecurity-trends-2024"
-                    component={CybersecurityTrends2024}
-                  />
-                  <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
-
-                  {/* Service pages - now lazy loaded */}
-                  <Route path="/services/automation-ai" component={AutomationAI} />
-                  <Route path="/services/branding-merch" component={BrandingMerch} />
-                  <Route path="/services/cybersecurity" component={Cybersecurity} />
-                  <Route path="/services/data-analytics" component={DataAnalytics} />
-                  <Route path="/services/ui-ux-design" component={UIUXDesign} />
-                  <Route path="/services/software-engineering" component={SoftwareEngineering} />
-                  <Route path="/services/social-media" component={SocialMedia} />
-
-                  {/* 404 page */}
-                  <Route component={NotFound} />
-                </Switch>
-              </Suspense>
-            </Layout>
-            <Toaster />
-            <Analytics />
+            <AppointmentProvider>
+              <AppContent />
+              <Toaster />
+              <Analytics />
+            </AppointmentProvider>
           </TooltipProvider>
         </ThemeProvider>
       </HelmetProvider>

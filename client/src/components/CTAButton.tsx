@@ -16,6 +16,7 @@ interface CTAButtonProps {
   fullWidth?: boolean;
   disabled?: boolean;
   onClick?: () => void;
+  onConsultationClick?: () => void; // New prop for consultation modal
 }
 
 const CTAButton: React.FC<CTAButtonProps> = ({
@@ -30,7 +31,8 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   external = false,
   fullWidth = false,
   disabled = false,
-  onClick
+  onClick,
+  onConsultationClick
 }) => {
   // Get configuration from type or use custom props
   const config = type ? ctaConfigs[type] : null;
@@ -68,6 +70,9 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     
     if (onClick) {
       onClick();
+    } else if (buttonAction === 'consultation' && onConsultationClick) {
+      // If it's a consultation button and we have a modal handler, use it
+      onConsultationClick();
     } else {
       handleCTA(buttonAction, target);
     }

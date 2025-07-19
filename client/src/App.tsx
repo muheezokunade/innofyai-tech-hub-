@@ -28,6 +28,11 @@ const DevelopmentProcess = lazy(() => import("./pages/DevelopmentProcess"));
 const QualityAssurance = lazy(() => import("./pages/QualityAssurance"));
 const SecurityStandards = lazy(() => import("./pages/SecurityStandards"));
 const PerformanceMetrics = lazy(() => import("./pages/PerformanceMetrics"));
+const Lagos = lazy(() => import("./pages/Lagos"));
+const EcommerceSolutions = lazy(() => import("./pages/EcommerceSolutions"));
+const ServiceComparison = lazy(() => import("./pages/ServiceComparison"));
+const ClientSuccessStories = lazy(() => import("./pages/ClientSuccessStories"));
+const GenerativeAI = lazy(() => import("./pages/GenerativeAI"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
 // Lazy load blog post pages for better performance
@@ -76,6 +81,11 @@ function App() {
                   <Route path="/quality-assurance" component={QualityAssurance} />
                   <Route path="/security-standards" component={SecurityStandards} />
                   <Route path="/performance-metrics" component={PerformanceMetrics} />
+                  <Route path="/lagos" component={Lagos} />
+                  <Route path="/ecommerce-solutions" component={EcommerceSolutions} />
+                  <Route path="/service-comparison" component={ServiceComparison} />
+                  <Route path="/client-success-stories" component={ClientSuccessStories} />
+                  <Route path="/generative-ai" component={GenerativeAI} />
 
                   {/* Portfolio project pages */}
                   <Route path="/portfolio/:slug">

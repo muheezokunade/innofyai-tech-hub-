@@ -16,7 +16,7 @@ export const AnimatedHero: React.FC = () => {
   const springOpacity = useSpring(opacity, { stiffness: 100, damping: 30 });
 
   const handleBookDiscoveryCall = () => {
-    window.open("https://calendar.app.google/nfuUe1XygjEJxMGd7", "_blank");
+    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ19qb8Cn11n4q2xyTDdxCVANo49-HHsORiEsF4FZWKAEuhHb9MD9wIeVTsFu5bKARU7XVR-ppln", "_blank");
   };
 
   const scrollToServices = () => {

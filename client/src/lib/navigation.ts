@@ -8,7 +8,7 @@ export const navigateToContact = () => {
 
 export const navigateToConsultation = () => {
   // Open Google Calendar booking in new tab
-  window.open('https://calendar.app.google/nfuUe1XygjEJxMGd7', '_blank', 'noopener,noreferrer');
+  window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ19qb8Cn11n4q2xyTDdxCVANo49-HHsORiEsF4FZWKAEuhHb9MD9wIeVTsFu5bKARU7XVR-ppln', '_blank', 'noopener,noreferrer');
 };
 
 export const openAppointmentModal = () => {

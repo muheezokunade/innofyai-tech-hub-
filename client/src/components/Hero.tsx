@@ -34,7 +34,7 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <a href="https://calendar.app.google/nfuUe1XygjEJxMGd7" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ19qb8Cn11n4q2xyTDdxCVANo49-HHsORiEsF4FZWKAEuhHb9MD9wIeVTsFu5bKARU7XVR-ppln" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="px-8 py-4 text-lg">
                   <Play className="mr-2 h-5 w-5" />
                   Book Discovery Call

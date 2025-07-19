@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { StartProjectButton, ScheduleConsultationButton } from '../components/CTAButton';
 import { 
   Star, 
   Users, 
@@ -437,12 +438,8 @@ const ClientSuccessStories: React.FC = () => {
               and achieved remarkable results with InnofyAI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Start Your Project
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                Schedule a Consultation
-              </button>
+              <StartProjectButton />
+              <ScheduleConsultationButton />
             </div>
           </motion.div>
         </div>

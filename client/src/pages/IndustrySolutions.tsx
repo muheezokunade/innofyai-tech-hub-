@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { StartProjectButton, ScheduleConsultationButton } from '../components/CTAButton';
 import { 
   Building2, 
   ShoppingCart, 
@@ -452,10 +453,11 @@ const IndustrySolutions: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="mt-6">
-                  <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2">
-                    <span>Get Industry Solution</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <StartProjectButton 
+                    fullWidth 
+                    label="Get Industry Solution"
+                    action="contact"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -546,12 +548,8 @@ const IndustrySolutions: React.FC = () => {
               and give you a competitive edge in your market.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Schedule Consultation
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                View Case Studies
-              </button>
+              <StartProjectButton />
+              <ScheduleConsultationButton />
             </div>
           </motion.div>
         </div>

@@ -17,6 +17,7 @@ import { ServiceCard } from "../components/ServiceCard";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { FloatingCTA } from "../components/FloatingCTA";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { StartProjectButton, ScheduleConsultationButton } from '../components/CTAButton';
 import {
   scrollRevealVariants,
   staggerContainerVariants,
@@ -331,16 +332,13 @@ const Home: React.FC = () => {
               Let's discuss how our innovative solutions can help you achieve your business goals
               and stay ahead of the competition.
             </motion.p>
-            <motion.button
-              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
-              variants={buttonHoverVariants}
-              whileHover="hover"
-              whileTap="tap"
-              onClick={handleGetStarted}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              variants={fadeUpVariants}
             >
-              <span>Get Started Today</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+              <StartProjectButton size="lg" />
+              <ScheduleConsultationButton size="lg" />
+            </motion.div>
           </motion.div>
         </div>
       </section>

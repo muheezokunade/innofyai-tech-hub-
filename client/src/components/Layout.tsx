@@ -98,6 +98,14 @@ function Footer() {
     { name: "Careers", href: "/careers" },
   ];
 
+  const technicalLinks = [
+    { name: "Technology Stack", href: "/technology-stack" },
+    { name: "Development Process", href: "/development-process" },
+    { name: "Quality Assurance", href: "/quality-assurance" },
+    { name: "Security Standards", href: "/security-standards" },
+    { name: "Performance Metrics", href: "/performance-metrics" },
+  ];
+
   return (
     <motion.footer
       className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden"
@@ -147,7 +155,7 @@ function Footer() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           {/* Company Info */}
           <motion.div className="col-span-2" variants={itemVariants}>
             <motion.div
@@ -277,6 +285,38 @@ function Footer() {
                     <span>{link.name}</span>
                     <motion.div
                       className="w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-4 transition-all duration-300"
+                      whileHover={{ width: "1rem" }}
+                    />
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Technical Credibility */}
+          <motion.div variants={itemVariants}>
+            <motion.h3
+              className="font-semibold text-green-400 mb-6 text-lg"
+              whileHover={{ scale: 1.05 }}
+            >
+              Technical Credibility
+            </motion.h3>
+            <ul className="space-y-3">
+              {technicalLinks.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ x: 10 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-white transition-all duration-300 group flex items-center space-x-2"
+                  >
+                    <span>{link.name}</span>
+                    <motion.div
+                      className="w-0 h-0.5 bg-gradient-to-r from-green-400 to-blue-400 group-hover:w-4 transition-all duration-300"
                       whileHover={{ width: "1rem" }}
                     />
                   </Link>

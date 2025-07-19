@@ -23,6 +23,11 @@ const Terms = lazy(() => import("./pages/Terms"));
 const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 const GDPRCompliance = lazy(() => import("./pages/GDPRCompliance"));
 const DataProtection = lazy(() => import("./pages/DataProtection"));
+const TechnologyStack = lazy(() => import("./pages/TechnologyStack"));
+const DevelopmentProcess = lazy(() => import("./pages/DevelopmentProcess"));
+const QualityAssurance = lazy(() => import("./pages/QualityAssurance"));
+const SecurityStandards = lazy(() => import("./pages/SecurityStandards"));
+const PerformanceMetrics = lazy(() => import("./pages/PerformanceMetrics"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
 // Lazy load blog post pages for better performance
@@ -66,6 +71,11 @@ function App() {
                   <Route path="/cookie-policy" component={CookiePolicy} />
                   <Route path="/gdpr-compliance" component={GDPRCompliance} />
                   <Route path="/data-protection" component={DataProtection} />
+                  <Route path="/technology-stack" component={TechnologyStack} />
+                  <Route path="/development-process" component={DevelopmentProcess} />
+                  <Route path="/quality-assurance" component={QualityAssurance} />
+                  <Route path="/security-standards" component={SecurityStandards} />
+                  <Route path="/performance-metrics" component={PerformanceMetrics} />
 
                   {/* Portfolio project pages */}
                   <Route path="/portfolio/:slug">

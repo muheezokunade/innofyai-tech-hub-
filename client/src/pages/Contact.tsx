@@ -34,7 +34,7 @@ import {
   fadeUpVariants,
   buttonHoverVariants,
   cardHoverVariants,
-} from "../lib/animations";
+} from "@/lib/animations";
 
 export default function Contact() {
   const structuredData = generateOrganizationStructuredData({

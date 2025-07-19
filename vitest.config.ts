@@ -9,6 +9,13 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./client/src/test/setup.ts'],
     css: true,
+    exclude: [
+      'e2e/**',
+      '**/*.e2e.*',
+      '**/*.spec.ts',
+      'node_modules/**',
+      '**/node_modules/**',
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -23,6 +30,7 @@ export default defineConfig({
         '**/*.spec.*',
         'client/src/test/**',
         'server/test/**',
+        'e2e/**',
       ],
     },
   },

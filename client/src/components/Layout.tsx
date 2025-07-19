@@ -295,7 +295,7 @@ function Footer() {
             © 2024 InnofyAI. All rights reserved.
           </motion.p>
 
-          <motion.div className="flex space-x-6 mt-4 md:mt-0" variants={itemVariants}>
+          <motion.div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0" variants={itemVariants}>
             <Link
               href="/privacy"
               className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
@@ -307,6 +307,24 @@ function Footer() {
               className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
             >
               Terms of Service
+            </Link>
+            <Link
+              href="/cookie-policy"
+              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
+            >
+              Cookie Policy
+            </Link>
+            <Link
+              href="/gdpr-compliance"
+              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
+            >
+              GDPR Compliance
+            </Link>
+            <Link
+              href="/data-protection"
+              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
+            >
+              Data Protection
             </Link>
           </motion.div>
         </motion.div>

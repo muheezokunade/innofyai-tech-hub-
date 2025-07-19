@@ -134,6 +134,21 @@ export default function Terms() {
               <motion.p className="text-gray-400" variants={fadeUpVariants}>
                 <strong>Last Updated:</strong> June 23, 2025
               </motion.p>
+
+              <motion.div className="flex flex-wrap justify-center gap-4 mt-8" variants={fadeUpVariants}>
+                <Badge className="bg-green-600 text-white border-0">
+                  <CheckCircle className="h-4 w-4 mr-2" />
+                  Legally Binding
+                </Badge>
+                <Badge className="bg-blue-600 text-white border-0">
+                  <Scale className="h-4 w-4 mr-2" />
+                  Nigerian Law Compliant
+                </Badge>
+                <Badge className="bg-purple-600 text-white border-0">
+                  <FileText className="h-4 w-4 mr-2" />
+                  Comprehensive Coverage
+                </Badge>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

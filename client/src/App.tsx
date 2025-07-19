@@ -20,6 +20,9 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Careers = lazy(() => import("./pages/Careers"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const GDPRCompliance = lazy(() => import("./pages/GDPRCompliance"));
+const DataProtection = lazy(() => import("./pages/DataProtection"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
 // Lazy load blog post pages for better performance
@@ -60,6 +63,9 @@ function App() {
                   <Route path="/careers" component={Careers} />
                   <Route path="/privacy" component={Privacy} />
                   <Route path="/terms" component={Terms} />
+                  <Route path="/cookie-policy" component={CookiePolicy} />
+                  <Route path="/gdpr-compliance" component={GDPRCompliance} />
+                  <Route path="/data-protection" component={DataProtection} />
 
                   {/* Portfolio project pages */}
                   <Route path="/portfolio/:slug">

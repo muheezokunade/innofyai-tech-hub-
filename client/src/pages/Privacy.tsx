@@ -153,6 +153,21 @@ export default function Privacy() {
               <motion.p className="text-gray-400" variants={fadeUpVariants}>
                 <strong>Last Updated:</strong> June 23, 2025
               </motion.p>
+
+              <motion.div className="flex flex-wrap justify-center gap-4 mt-8" variants={fadeUpVariants}>
+                <Badge className="bg-green-600 text-white border-0">
+                  <CheckCircle className="h-4 w-4 mr-2" />
+                  GDPR Compliant
+                </Badge>
+                <Badge className="bg-blue-600 text-white border-0">
+                  <Shield className="h-4 w-4 mr-2" />
+                  NDPA Compliant
+                </Badge>
+                <Badge className="bg-purple-600 text-white border-0">
+                  <Lock className="h-4 w-4 mr-2" />
+                  ISO 27001 Standards
+                </Badge>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

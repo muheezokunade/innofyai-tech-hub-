@@ -18,7 +18,7 @@ import {
   Brain,
   TrendingUp,
 } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateArticleStructuredData } from "@/lib/structuredData";
 import {
   scrollRevealVariants,

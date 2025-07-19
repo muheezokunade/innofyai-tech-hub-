@@ -24,7 +24,7 @@ import {
   fadeUpVariants,
   buttonHoverVariants,
 } from "../lib/animations";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 import { Link } from "wouter";
 

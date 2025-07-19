@@ -5,23 +5,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  // Optimize for production - remove unused styles
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      "./index.html",
-      "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    options: {
-      safelist: [
-        // Keep critical classes that might be dynamically generated
-        'gradient-text',
-        'gradient-bg',
-        'bg-background',
-        'text-foreground',
-      ],
-    },
-  },
   theme: {
     container: {
       center: true,

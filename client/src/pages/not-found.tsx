@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Home, ArrowLeft, Search, MapPin } from "lucide-react";
 import { Link } from "wouter";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 import {
   scrollRevealVariants,

@@ -17,7 +17,7 @@ import {
   Globe,
   Gavel,
 } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 import {
   scrollRevealVariants,

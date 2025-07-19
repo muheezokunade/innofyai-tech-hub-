@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/content";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { ArrowRight, Filter, Award, Star, TrendingUp, Clock, Users, Zap } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
 import { Link, useLocation } from "wouter";
 import {

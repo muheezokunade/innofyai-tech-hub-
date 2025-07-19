@@ -17,7 +17,7 @@ import {
   Target,
   Rocket,
 } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateServiceStructuredData } from "@/lib/structuredData";
 import {
   scrollRevealVariants,

@@ -19,8 +19,9 @@ import {
   Award,
   Star,
 } from "lucide-react";
-import { SEO } from "@/components/SEO";
+import SEO from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
+import { StartProjectButton, ScheduleConsultationButton } from '../components/CTAButton';
 import {
   scrollRevealVariants,
   staggerContainerVariants,
@@ -395,15 +396,13 @@ export default function Services() {
               Let's discuss how our innovative solutions can help you achieve your business goals
               and stay ahead of the competition.
             </motion.p>
-            <motion.button
-              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 mx-auto"
-              variants={buttonHoverVariants}
-              whileHover="hover"
-              whileTap="tap"
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              variants={fadeUpVariants}
             >
-              <span>Get Started Today</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+              <StartProjectButton size="lg" />
+              <ScheduleConsultationButton size="lg" />
+            </motion.div>
           </motion.div>
         </div>
       </section>

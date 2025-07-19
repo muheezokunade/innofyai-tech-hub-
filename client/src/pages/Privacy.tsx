@@ -29,7 +29,7 @@ export default function Privacy() {
     description:
       "We are committed to protecting your privacy and handling your personal data with transparency and care.",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
@@ -475,7 +475,7 @@ export default function Privacy() {
                               <strong>Email:</strong> privacy@innofyai.com
                             </p>
                             <p>
-                              <strong>Address:</strong> Lagos, Nigeria
+                              <strong>Address:</strong> 13, signature estate, Ikota, Lekki, Nigeria
                             </p>
                           </div>
                         </div>

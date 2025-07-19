@@ -18,7 +18,7 @@ export function TestimonialCarousel() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-gradient-to-br from-purple-900/10 via-blue-900/10 to-indigo-900/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-space text-foreground mb-4">
@@ -28,7 +28,7 @@ export function TestimonialCarousel() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Card className="p-8 shadow-lg">
+          <Card className="p-8 shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
             <CardContent className="text-center">
               <div className="flex justify-center mb-6">
                 {[...Array(currentTestimonial.rating)].map((_, i) => (
@@ -56,24 +56,36 @@ export function TestimonialCarousel() {
 
           {/* Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4">
-            <Button variant="ghost" size="icon" onClick={prevTestimonial} className="h-10 w-10">
-              <ChevronLeft className="h-5 w-5" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={prevTestimonial} 
+              className="h-12 w-12 border-white/20 hover:bg-white/10 hover:border-white/40 transition-all"
+            >
+              <ChevronLeft className="h-6 w-6" />
             </Button>
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-3">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? "bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg" 
+                      : "bg-white/30 hover:bg-white/50"
                   }`}
                 />
               ))}
             </div>
 
-            <Button variant="ghost" size="icon" onClick={nextTestimonial} className="h-10 w-10">
-              <ChevronRight className="h-5 w-5" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={nextTestimonial} 
+              className="h-12 w-12 border-white/20 hover:bg-white/10 hover:border-white/40 transition-all"
+            >
+              <ChevronRight className="h-6 w-6" />
             </Button>
           </div>
         </div>

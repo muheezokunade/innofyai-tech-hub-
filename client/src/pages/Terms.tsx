@@ -29,7 +29,7 @@ export default function Terms() {
     description:
       "These terms govern your use of our website and services. Please read them carefully.",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
@@ -414,7 +414,7 @@ export default function Terms() {
                     These Terms shall be governed and construed in accordance with the laws of the
                     Federal Republic of Nigeria, without regard to its conflict of law provisions.
                     You agree to submit to the exclusive jurisdiction of the courts located in
-                    Lagos, Nigeria to resolve any legal matter arising from the Terms.
+                    13, signature estate, Ikota, Lekki, Nigeria to resolve any legal matter arising from the Terms.
                   </p>
                 </motion.div>
 
@@ -446,7 +446,7 @@ export default function Terms() {
                             <p>
                               <strong>InnofyAI</strong>
                             </p>
-                            <p>Lagos, Nigeria</p>
+                            <p>13, signature estate, Ikota, Lekki, Nigeria</p>
                             <p>Email: legal@innofyai.com</p>
                           </div>
                         </div>

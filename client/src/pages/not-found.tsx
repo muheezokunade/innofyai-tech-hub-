@@ -20,7 +20,7 @@ export default function NotFound() {
     logo: "https://innofyai.com/logo.png",
     description: "Page not found - The page you're looking for doesn't exist.",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {

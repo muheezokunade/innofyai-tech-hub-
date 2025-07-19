@@ -107,7 +107,7 @@ export const caseStudies = [
     industry: "E-commerce",
     description:
       "Complete automation solution for inventory management, order processing, and customer service, resulting in 45% cost reduction and improved efficiency.",
-    image: "/assets/automation-ai-hero.svg",
+    image: "/assets/commerza-automation.jpg",
     metric: "+65%",
     metricLabel: "Efficiency",
     duration: "6 months",
@@ -150,7 +150,7 @@ export const caseStudies = [
     industry: "Food & Beverage",
     description:
       "Complete brand transformation and e-commerce platform for authentic Nigerian spices and foodstuffs, including website, mobile app, and comprehensive social media management.",
-    image: "/assets/spicepop-project.svg",
+    image: "/assets/spicepop-project-screenshot.jpg",
     metric: "+250%",
     metricLabel: "Sales Growth",
     duration: "6 months",
@@ -187,12 +187,12 @@ export const caseStudies = [
       image: "/assets/placeholder.svg"
     },
     gallery: [
+      "/assets/spicepop-project-screenshot.jpg",
       "/assets/spicepop-logo.svg",
       "/assets/spicepop-branding.svg",
       "/assets/spicepop-website.svg",
       "/assets/spicepop-mobile.svg",
-      "/assets/spicepop-social-media.svg",
-      "/assets/spicepop-ecommerce-dashboard.svg"
+      "/assets/spicepop-social-media.svg"
     ]
   },
   {
@@ -202,7 +202,7 @@ export const caseStudies = [
     industry: "Renewable Energy",
     description:
       "Complete brand transformation including UI/UX redesign, logo creation, and marketing materials that boosted user engagement by 180%.",
-    image: "/assets/osinachi-project.svg",
+    image: "/assets/osinachi-renewable-screenshot.jpg",
     metric: "+180%",
     metricLabel: "Engagement",
     duration: "8 months",
@@ -227,15 +227,17 @@ export const caseStudies = [
       "Tripled social media following"
     ],
     testimonial: {
-      name: "Ridwan Olalekan",
+      name: "Alex Osinachi",
       title: "CEO, Osinachi Renewable Energy",
       content: "InnofyAI's rebranding work was transformative. They didn't just redesign our logo - they reimagined our entire brand experience. The results speak for themselves - our user engagement skyrocketed.",
       image: "/assets/placeholder.svg"
     },
     gallery: [
-      "/assets/placeholder.svg",
-      "/assets/placeholder.svg",
-      "/assets/placeholder.svg"
+      "/assets/osinachi-renewable-screenshot.jpg",
+      "/assets/osinachi-renewable-gallery1.jpg",
+      "/assets/osinachi-renewable-gallery2.jpg",
+      "/assets/osinachi-renewable-gallery3.jpg",
+      "/assets/osinachi-renewable-gallery4.jpg"
     ]
   },
   {
@@ -245,7 +247,7 @@ export const caseStudies = [
     industry: "Financial Technology",
     description:
       "Comprehensive financial management app for small business owners, helping them track profits, allocate resources, and achieve growth goals with confidence.",
-    image: "/assets/growwise-financial.svg",
+    image: "/assets/growwise-project-screenshot.jpg",
     metric: "+300%",
     metricLabel: "Profit Growth",
     duration: "6 months",
@@ -276,11 +278,10 @@ export const caseStudies = [
       image: "/assets/placeholder.svg"
     },
     gallery: [
-      "/assets/growwise-app.svg",
-      "/assets/growwise-financial-reports.svg",
-      "/assets/growwise-growth-goals.svg",
-      "/assets/growwise-profit-split.svg",
-      "/assets/growwise-dashboard.svg"
+      "/assets/growwise-project-screenshot.jpg",
+      "/assets/growwise-gallery1.jpg",
+      "/assets/growwise-gallery2.jpg",
+      "/assets/growwise-gallery3.jpg"
     ]
   },
   {
@@ -291,7 +292,7 @@ export const caseStudies = [
     description:
       "IoT-enabled smart manufacturing system with predictive maintenance and real-time monitoring, increasing productivity by 65%.",
     image:
-      "/assets/placeholder.svg",
+      "/assets/smartfactory-project.jpg",
     metric: "+65%",
     metricLabel: "Productivity",
     duration: "12 months",
@@ -316,13 +317,13 @@ export const caseStudies = [
       "ROI of 280% within 18 months"
     ],
     testimonial: {
-      name: "Robert Thompson",
-      title: "Operations Director, SmartFactory",
+      name: "Muheez Okunade",
+      title: "CEO, Commerza",
       content: "InnofyAI's IoT solution revolutionized our manufacturing process. The predictive maintenance alone has saved us millions in downtime costs. Their expertise in industrial automation is world-class.",
       image: "/assets/placeholder.svg"
     },
     gallery: [
-      "/assets/placeholder.svg",
+      "/assets/smartfactory-project.jpg",
       "/assets/placeholder.svg",
       "/assets/placeholder.svg"
     ]
@@ -335,7 +336,7 @@ export const caseStudies = [
     description:
       "Complete brand identity for humanitarian impact initiative, including logo, website, and marketing materials leading to 320% funding increase.",
     image:
-      "/assets/placeholder.svg",
+      "/assets/osinachi-initiative-screenshot.jpg",
     metric: "+320%",
     metricLabel: "Funding",
     duration: "3 months",
@@ -360,15 +361,17 @@ export const caseStudies = [
       "Successful fundraising campaign"
     ],
     testimonial: {
-      name: "Ridwan Olalekan",
+      name: "Alex Monueke",
       title: "Founder & CEO, Osinachi Humanity Impact Initiative",
       content: "InnofyAI's branding work was instrumental in our fundraising success. They perfectly captured our mission and created a brand that donors and volunteers immediately connected with. Our funding increased by 320%!",
       image: "/assets/placeholder.svg"
     },
     gallery: [
-      "/assets/placeholder.svg",
-      "/assets/placeholder.svg",
-      "/assets/placeholder.svg"
+      "/assets/osinachi-initiative-screenshot.jpg",
+      "/assets/osinachi-initiative-gallery1.jpg",
+      "/assets/osinachi-initiative-gallery2.jpg",
+      "/assets/osinachi-initiative-gallery3.jpg",
+      "/assets/osinachi-initiative-gallery4.jpg"
     ]
   },
 ];
@@ -376,30 +379,30 @@ export const caseStudies = [
 export const testimonials = [
   {
     id: 1,
-    name: "Ridwan Olalekan",
-    title: "CEO, TechCorp",
+    name: "Alex Monueke",
+    title: "Founder & CEO, Osinachi Humanity Impact Initiative",
     content:
-      "InnofyAI transformed our business processes with their automation solutions. We've seen a 60% increase in efficiency and couldn't be happier.",
+      "InnofyAI's branding work was instrumental in our fundraising success. They perfectly captured our mission and created a brand that donors and volunteers immediately connected with. Our funding increased by 320%!",
     image:
       "/assets/placeholder.svg",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    title: "Marketing Director, InnovateCo",
+    name: "Muheez Okunade",
+    title: "CEO, Commerza",
     content:
-      "The branding work they did for us was exceptional. Our brand recognition increased by 45% within just three months.",
+      "InnofyAI's IoT solution revolutionized our manufacturing process. The predictive maintenance alone has saved us millions in downtime costs. Their expertise in industrial automation is world-class.",
     image:
       "/assets/placeholder.svg",
     rating: 5,
   },
   {
     id: 3,
-    name: "Michael Rodriguez",
-    title: "CTO, DataFlow Systems",
+    name: "Alex Osinachi",
+    title: "CEO, Osinachi Renewable Energy",
     content:
-      "Their AI solutions revolutionized our data analysis. We now make decisions 3x faster with better accuracy.",
+      "InnofyAI's rebranding work was transformative. They didn't just redesign our logo - they reimagined our entire brand experience. The results speak for themselves - our user engagement skyrocketed.",
     image:
       "/assets/placeholder.svg",
     rating: 5,
@@ -414,8 +417,8 @@ export const blogPosts = [
     excerpt:
       "Exploring how artificial intelligence is reshaping business processes and what leaders need to know to stay ahead of the curve.",
     image:
-      "/assets/placeholder.svg",
-    author: "Ridwan Olalekan",
+      "/assets/blog-ai-transform-business.jpg",
+    author: "Fawaz Ibrahim",
     date: "December 15, 2024",
     readTime: "8 min read",
     featured: true,
@@ -427,8 +430,8 @@ export const blogPosts = [
     excerpt:
       "Discover how small and medium enterprises can leverage affordable AI tools to operate smarter and more efficiently.",
     image:
-      "/assets/placeholder.svg",
-    author: "Ridwan Olalekan",
+      "/assets/blog-practical-ai-smes.jpg",
+    author: "Fawaz Ibrahim",
     date: "December 12, 2024",
     readTime: "5 min read",
   },
@@ -439,8 +442,8 @@ export const blogPosts = [
     excerpt:
       "Stay ahead of evolving cyber threats with insights into the most critical security trends shaping the digital landscape.",
     image:
-      "/assets/placeholder.svg",
-    author: "Michael Chen",
+      "/assets/blog-cybersecurity-trends.jpg",
+    author: "Fawaz Ibrahim",
     date: "December 10, 2024",
     readTime: "7 min read",
   },
@@ -451,8 +454,8 @@ export const blogPosts = [
     excerpt:
       "Discover how to create compelling brand identities that resonate across digital platforms and drive customer engagement.",
     image:
-      "/assets/placeholder.svg",
-    author: "Sarah Williams",
+      "/assets/blog-brand-identity.jpg",
+    author: "Islamiyyah Adebayo",
     date: "December 8, 2024",
     readTime: "6 min read",
   },

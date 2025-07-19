@@ -36,12 +36,12 @@ export default function BrandIdentityDigitalAge() {
     description:
       "Discover how to create compelling brand identities that resonate across digital platforms and drive customer engagement.",
     author: {
-      name: "Sarah Williams",
+      name: "Islamiyyah Adebayo",
     },
     datePublished: "2024-12-08",
     dateModified: "2024-12-08",
     image:
-      "/assets/placeholder.svg",
+      "/assets/blog-brand-identity.jpg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -162,7 +162,7 @@ export default function BrandIdentityDigitalAge() {
               >
                 <div className="flex items-center space-x-2">
                   <User className="h-5 w-5" />
-                  <span>Sarah Williams</span>
+                  <span>Islamiyyah Adebayo</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />
@@ -240,7 +240,7 @@ export default function BrandIdentityDigitalAge() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="/assets/placeholder.svg"
+                src="/assets/blog-brand-identity.jpg"
                 alt="Brand identity design elements in digital space"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

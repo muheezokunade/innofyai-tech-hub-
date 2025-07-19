@@ -15,9 +15,8 @@ export const AnimatedHero: React.FC = () => {
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
   const springOpacity = useSpring(opacity, { stiffness: 100, damping: 30 });
 
-  const handleWatchDemo = () => {
-    // You can replace this with actual demo video URL
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+  const handleBookDiscoveryCall = () => {
+    window.open("https://calendar.app.google/nfuUe1XygjEJxMGd7", "_blank");
   };
 
   const scrollToServices = () => {
@@ -38,7 +37,7 @@ export const AnimatedHero: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)`,
+            backgroundImage: `url('/assets/hero-background.jpg')`,
           }}
         />
         
@@ -232,10 +231,10 @@ export const AnimatedHero: React.FC = () => {
             className="group px-8 py-4 border-2 border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={handleWatchDemo}
+            onClick={handleBookDiscoveryCall}
           >
             <Play className="w-5 h-5" />
-            Watch Demo
+            Book Discovery Call
           </motion.button>
         </motion.div>
 
@@ -247,18 +246,18 @@ export const AnimatedHero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           {[
-            { number: "500+", label: "Projects Delivered" },
+            { number: "20+", label: "Projects Delivered" },
             { number: "98%", label: "Client Satisfaction" },
             { number: "24/7", label: "Support Available" },
           ].map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
+              className="text-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
               transition={{ duration: 0.2 }}
             >
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-gray-400 text-sm md:text-base">{stat.label}</div>
+              <div className="text-white/80 text-sm md:text-base font-medium">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

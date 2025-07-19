@@ -309,7 +309,7 @@ export default function UIUXDesign() {
                 </div>
                 <div>
                   <img
-                    src="/assets/growwise-app.svg"
+                    src="/assets/growwise-project-screenshot.jpg"
                     alt="GrowWise financial app interface"
                     className="rounded-xl shadow-lg w-full h-auto"
                   />

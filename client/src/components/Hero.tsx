@@ -10,7 +10,13 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"></div>
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/assets/hero-background.jpg')`
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/70 to-indigo-900/80"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
@@ -28,12 +34,12 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/portfolio">
+              <a href="https://calendar.app.google/nfuUe1XygjEJxMGd7" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="px-8 py-4 text-lg">
                   <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
+                  Book Discovery Call
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -45,9 +51,9 @@ export function Hero() {
               priority={true}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="absolute -top-4 -right-4 bg-card p-4 rounded-xl shadow-lg border">
-              <div className="text-sm text-muted-foreground">Success Rate</div>
-              <div className="text-2xl font-bold text-space text-primary">98%</div>
+            <div className="absolute -top-4 -right-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl shadow-2xl border border-white/20">
+              <div className="text-sm text-white/80 font-medium">Success Rate</div>
+              <div className="text-2xl font-bold text-white">98%</div>
             </div>
           </div>
         </div>

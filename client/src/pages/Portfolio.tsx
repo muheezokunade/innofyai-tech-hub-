@@ -27,12 +27,12 @@ export default function Portfolio() {
     url: "https://innofyai.com/portfolio",
     logo: "https://innofyai.com/logo.png",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
           sameAs: [
         "https://x.com/innofyai?s=21",

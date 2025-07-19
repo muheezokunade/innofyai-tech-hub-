@@ -43,12 +43,12 @@ export default function Contact() {
     url: "https://innofyai.com/contact",
     logo: "https://innofyai.com/logo.png",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
     sameAs: [
       "https://x.com/innofyai?s=21",
@@ -62,21 +62,21 @@ export default function Contact() {
     {
       icon: <MapPin className="h-6 w-6 text-white" />,
       title: "Office",
-      primary: "Lagos, Nigeria",
+      primary: "13, signature estate, Ikota, Lekki",
       secondary: "Available for global projects",
       color: "from-blue-600 to-blue-700",
     },
     {
       icon: <Mail className="h-6 w-6 text-white" />,
       title: "Email",
-      primary: "hello@innofyai.com",
+      primary: "info@innofyai.com",
       secondary: "We respond within 24 hours",
       color: "from-purple-600 to-purple-700",
     },
     {
       icon: <Phone className="h-6 w-6 text-white" />,
       title: "Phone",
-      primary: "+234 (0) 123 456 789",
+      primary: "+234 810 811 4407",
       secondary: "Mon-Fri: 9AM-6PM WAT",
       color: "from-green-600 to-green-700",
     },
@@ -100,7 +100,7 @@ export default function Contact() {
     { number: "24h", label: "Response Time", icon: <Clock className="w-6 h-6" /> },
     { number: "98%", label: "Client Satisfaction", icon: <Users className="w-6 h-6" /> },
     { number: "15+", label: "Countries Served", icon: <Globe className="w-6 h-6" /> },
-    { number: "500+", label: "Projects Completed", icon: <MessageCircle className="w-6 h-6" /> },
+    { number: "20+", label: "Projects Completed", icon: <MessageCircle className="w-6 h-6" /> },
   ];
 
   return (
@@ -108,7 +108,7 @@ export default function Contact() {
       <SEO
         title="Contact Us - Get in Touch with InnofyAI"
         description="Ready to transform your business? Contact InnofyAI for AI automation, cybersecurity, design, and branding solutions. Get in touch today!"
-        keywords="contact InnofyAI, tech consulting, AI services, cybersecurity, design services, branding, Lagos Nigeria"
+        keywords="contact InnofyAI, tech consulting, AI services, cybersecurity, design services, branding, Lekki Nigeria"
         structuredData={structuredData}
       />
 

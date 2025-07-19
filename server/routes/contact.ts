@@ -45,7 +45,7 @@ export async function handleContactForm(req: Request, res: Response) {
     // Create email content
     const mailOptions = {
       from: `"InnofyAI Contact Form" <${process.env.SMTP_USER || "muheezadedejiokunade@gmail.com"}>`,
-      to: "hello@innofyai.com", // Company email
+      to: "info@innofyai.com", // Company email
       replyTo: email,
       subject: `New Contact Form Submission - ${service}`,
       html: `

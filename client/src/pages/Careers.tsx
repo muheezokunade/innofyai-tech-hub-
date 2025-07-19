@@ -35,7 +35,7 @@ export default function Careers() {
     description:
       "Join a team of innovators, creators, and problem-solvers who are transforming businesses across Nigeria and beyond through technology and creativity.",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
@@ -54,7 +54,7 @@ export default function Careers() {
     {
       title: "Senior Full-Stack Developer",
       department: "Technology",
-      location: "Lagos, Nigeria",
+      location: "13, signature estate, Ikota, Lekki",
       type: "Full-time",
       description:
         "Lead development of cutting-edge web applications and automation solutions for our clients.",
@@ -69,7 +69,7 @@ export default function Careers() {
     {
       title: "UI/UX Designer",
       department: "Creative",
-      location: "Lagos, Nigeria / Remote",
+      location: "13, signature estate, Ikota, Lekki / Remote",
       type: "Full-time",
       description:
         "Create beautiful, user-centered designs that solve real business problems for our clients.",
@@ -84,7 +84,7 @@ export default function Careers() {
     {
       title: "Cybersecurity Specialist",
       department: "Technology",
-      location: "Lagos, Nigeria",
+      location: "13, signature estate, Ikota, Lekki",
       type: "Full-time",
       description:
         "Protect our clients' digital assets with advanced security solutions and threat monitoring.",
@@ -99,7 +99,7 @@ export default function Careers() {
     {
       title: "Data Analytics Consultant",
       department: "Technology",
-      location: "Lagos, Nigeria / Hybrid",
+      location: "13, signature estate, Ikota, Lekki / Hybrid",
       type: "Contract",
       description:
         "Help clients unlock insights from their data with advanced analytics and visualization.",

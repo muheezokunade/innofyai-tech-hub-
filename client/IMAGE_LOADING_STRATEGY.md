@@ -41,7 +41,7 @@ This document outlines the comprehensive image loading strategy implemented to e
 - `/assets/social-media-bg.svg` - Social Media services
 
 ### Project Images
-- `/assets/commerza-automation.svg` - Commerza automation project
+- `/assets/commerza-automation.jpg` - Commerza automation project
 - `/assets/spicepop-ecommerce.svg` - SpicePop e-commerce project
 - `/assets/growwise-financial.svg` - GrowWise financial app
 - `/assets/osinachi-renewable.svg` - Osinachi renewable energy

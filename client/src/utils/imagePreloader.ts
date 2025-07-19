@@ -71,9 +71,24 @@ class ImagePreloader {
       '/assets/branding-merch.svg',
       
       // Case study images
-      '/assets/commerza-automation.svg',
-      '/assets/growwise-financial.svg',
-      '/assets/osinachi-renewable.svg',
+      '/assets/commerza-automation.jpg',
+      '/assets/spicepop-project-screenshot.jpg',
+      '/assets/growwise-project-screenshot.jpg',
+      '/assets/growwise-gallery1.jpg',
+      '/assets/growwise-gallery2.jpg',
+      '/assets/growwise-gallery3.jpg',
+      '/assets/osinachi-renewable-screenshot.jpg',
+      '/assets/osinachi-renewable-gallery1.jpg',
+      '/assets/osinachi-renewable-gallery2.jpg',
+      '/assets/osinachi-renewable-gallery3.jpg',
+      '/assets/osinachi-renewable-gallery4.jpg',
+      '/assets/osinachi-initiative-screenshot.jpg',
+      '/assets/osinachi-initiative-gallery1.jpg',
+      '/assets/osinachi-initiative-gallery2.jpg',
+      '/assets/osinachi-initiative-gallery3.jpg',
+      '/assets/osinachi-initiative-gallery4.jpg',
+      '/assets/smartfactory-project.jpg',
+      '/assets/hero-background.jpg',
       
       // Hero and general assets
       '/assets/tech-hero-bg.svg',

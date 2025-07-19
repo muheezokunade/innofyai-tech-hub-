@@ -18,8 +18,8 @@ interface SEOProps {
 
 export function SEO({
   title = "InnofyAI - Tech Excellence & Creative Innovation",
-  description = "Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lagos, Nigeria.",
-  keywords = "AI automation, cybersecurity, branding, UI/UX design, data analytics, tech consulting, Nigeria, Lagos",
+  description = "Transform your business with cutting-edge AI automation, cybersecurity, branding, and creative solutions. Expert tech consulting from Lekki, Nigeria.",
+  keywords = "AI automation, cybersecurity, branding, UI/UX design, data analytics, tech consulting, Nigeria, Lekki",
       image = "/assets/tech-hero-bg.svg",
   url = "https://innofyai.com",
   type = "website",
@@ -44,13 +44,13 @@ export function SEO({
       "Leading tech consulting platform offering automation, AI, cybersecurity, and creative branding solutions.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
             sameAs: [
           "https://x.com/innofyai?s=21", 

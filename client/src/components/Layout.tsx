@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Navigation } from "./Navigation";
 import { FloatingCTA } from "./FloatingCTA";
-import { ImageDebugger } from "./ImageDebugger";
+
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
@@ -45,7 +45,6 @@ export function Layout({ children }: LayoutProps) {
       <Navigation />
       <main className="pt-16">{children}</main>
       <FloatingCTA />
-      <ImageDebugger />
       <Footer />
     </div>
   );
@@ -78,7 +77,7 @@ function Footer() {
     { icon: Linkedin, href: "https://www.linkedin.com/company/innofy-ai/", label: "LinkedIn", color: "hover:text-blue-600" },
     { icon: Instagram, href: "https://www.instagram.com/innofyai?igsh=dGI5MTE5a2xra28%3D&utm_source=qr", label: "Instagram", color: "hover:text-pink-400" },
     { icon: TikTok, href: "https://www.tiktok.com/@innofyai?_t=ZM-8y83dmNvGis&_r=1", label: "TikTok", color: "hover:text-purple-400" },
-    { icon: Mail, href: "mailto:hello@innofyai.com", label: "Email", color: "hover:text-red-400" },
+    { icon: Mail, href: "mailto:info@innofyai.com", label: "Email", color: "hover:text-red-400" },
   ];
 
   const services = [
@@ -200,21 +199,21 @@ function Footer() {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="h-4 w-4 text-blue-400" />
-                <span>hello@innofyai.com</span>
+                <span>info@innofyai.com</span>
               </motion.div>
               <motion.div
                 className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <Phone className="h-4 w-4 text-green-400" />
-                <span>+234 123 456 7890</span>
+                <span>+234 810 811 4407</span>
               </motion.div>
               <motion.div
                 className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="h-4 w-4 text-red-400" />
-                <span>Lagos, Nigeria</span>
+                <span>13, signature estate, Ikota, Lekki</span>
               </motion.div>
             </motion.div>
           </motion.div>

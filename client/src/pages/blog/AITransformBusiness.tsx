@@ -31,12 +31,12 @@ export default function AITransformBusiness() {
     description:
       "Exploring how artificial intelligence is reshaping business processes and what leaders need to know to stay ahead of the curve.",
     author: {
-      name: "Ridwan Olalekan",
+      name: "Fawaz Ibrahim",
     },
     datePublished: "2024-12-12",
     dateModified: "2024-12-12",
     image:
-      "/assets/placeholder.svg",
+      "/assets/blog-ai-transform-business.jpg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -137,7 +137,7 @@ export default function AITransformBusiness() {
               >
                 <div className="flex items-center space-x-2">
                   <User className="h-5 w-5" />
-                  <span>Ridwan Olalekan</span>
+                  <span>Fawaz Ibrahim</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />
@@ -207,7 +207,7 @@ export default function AITransformBusiness() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="/assets/placeholder.svg"
+                src="/assets/blog-ai-transform-business.jpg"
                 alt="AI transforming business operations"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

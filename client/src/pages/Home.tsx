@@ -90,35 +90,35 @@ const services = [
 
 const testimonials = [
   {
-    name: "Ridwan Olalekan",
+    name: "Alex Osinachi",
     role: "CEO, Osinachi Renewable Energy",
     content:
-      "InnofyAI transformed our business with their innovative AI solutions. Our productivity increased by 300%!",
+      "InnofyAI's rebranding work was transformative. They didn't just redesign our logo - they reimagined our entire brand experience. The results speak for themselves - our user engagement skyrocketed.",
     rating: 5,
-    avatar: "👩‍💼",
+    avatar: "👨‍💼",
   },
   {
-    name: "Michael Chen",
-    role: "CTO, DigitalFlow",
+    name: "Iman Fasasi",
+    role: "Founder, SpicePop",
     content:
-      "The team's expertise in cybersecurity gave us peace of mind. Highly recommended for any business.",
+      "InnofyAI delivered a complete transformation - from our brand identity to our e-commerce platform and social media presence. Their comprehensive approach helped us establish a strong digital presence and connect with customers nationwide. The results have been phenomenal.",
     rating: 5,
-    avatar: "👨‍💻",
+    avatar: "👨‍💼",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Marketing Director, GrowthCo",
+    name: "Alex Monueke",
+    role: "Founder & CEO, Osinachi Humanity Impact Initiative",
     content:
-      "Their data analytics insights helped us make better decisions and increase our ROI significantly.",
+      "InnofyAI's branding work was instrumental in our fundraising success. They perfectly captured our mission and created a brand that donors and volunteers immediately connected with. Our funding increased by 320%!",
     rating: 5,
-    avatar: "👩‍🎨",
+    avatar: "👨‍💼",
   },
 ];
 
 const stats = [
-  { number: "500+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+      { number: "20+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
   { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
-  { number: "50+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
+      { number: "10+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
   { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> },
 ];
 
@@ -129,12 +129,12 @@ const Home: React.FC = () => {
     url: "https://innofyai.com",
     logo: "https://innofyai.com/logo.png",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
           sameAs: [
         "https://x.com/innofyai?s=21",

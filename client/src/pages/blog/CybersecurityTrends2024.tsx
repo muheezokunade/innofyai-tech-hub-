@@ -34,12 +34,12 @@ export default function CybersecurityTrends2024() {
     description:
       "Stay ahead of evolving cyber threats with insights into the most critical security trends shaping the digital landscape.",
     author: {
-      name: "Michael Chen",
+      name: "Fawaz Ibrahim",
     },
     datePublished: "2024-12-10",
     dateModified: "2024-12-10",
     image:
-      "/assets/placeholder.svg",
+      "/assets/blog-cybersecurity-trends.jpg",
     publisher: {
       name: "InnofyAI",
       logo: {
@@ -173,7 +173,7 @@ export default function CybersecurityTrends2024() {
               >
                 <div className="flex items-center space-x-2">
                   <User className="h-5 w-5" />
-                  <span>Michael Chen</span>
+                  <span>Fawaz Ibrahim</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5" />
@@ -250,7 +250,7 @@ export default function CybersecurityTrends2024() {
           >
             <motion.div variants={fadeUpVariants}>
               <motion.img
-                src="/assets/placeholder.svg"
+                src="/assets/blog-cybersecurity-trends.jpg"
                 alt="Cybersecurity trends and digital protection"
                 className="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-2xl"
                 variants={cardHoverVariants}

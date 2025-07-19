@@ -39,12 +39,12 @@ export default function Services() {
     url: "https://innofyai.com/services",
     logo: "https://innofyai.com/logo.png",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
           sameAs: [
         "https://x.com/innofyai?s=21",
@@ -87,9 +87,9 @@ export default function Services() {
 
   const stats = [
     { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
-    { number: "500+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+    { number: "20+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
     { number: "24/7", label: "Support Available", icon: <Clock className="w-6 h-6" /> },
-    { number: "50+", label: "Team Experts", icon: <Users className="w-6 h-6" /> },
+    { number: "10+", label: "Team Experts", icon: <Users className="w-6 h-6" /> },
   ];
 
   return (

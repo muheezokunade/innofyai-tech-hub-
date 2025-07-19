@@ -10,6 +10,8 @@ import {
   Clock,
   MapPin,
   ArrowRight,
+  Star,
+  Shield,
 } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { generateOrganizationStructuredData } from "@/lib/structuredData";
@@ -28,12 +30,12 @@ export default function About() {
     url: "https://innofyai.com/about",
     logo: "https://innofyai.com/logo.png",
     address: {
-      addressLocality: "Lagos",
+      addressLocality: "13, signature estate, Ikota, Lekki",
       addressCountry: "Nigeria",
     },
     contactPoint: {
       contactType: "customer service",
-      email: "hello@innofyai.com",
+      email: "info@innofyai.com",
     },
           sameAs: [
         "https://x.com/innofyai?s=21",
@@ -44,10 +46,10 @@ export default function About() {
   });
 
   const stats = [
-    { number: "150+", label: "Projects Completed", icon: <Award className="w-6 h-6" /> },
-    { number: "25+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
-    { number: "5+", label: "Years Experience", icon: <Clock className="w-6 h-6" /> },
-    { number: "15+", label: "Countries Served", icon: <MapPin className="w-6 h-6" /> },
+    { number: "20+", label: "Projects Delivered", icon: <Award className="w-6 h-6" /> },
+    { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
+    { number: "10+", label: "Team Members", icon: <Users className="w-6 h-6" /> },
+    { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> },
   ];
 
   const values = [
@@ -78,14 +80,23 @@ export default function About() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <SEO
         title="About InnofyAI - Our Story, Team & Mission"
-        description="Learn about InnofyAI's journey from a small team in Lagos to a global tech innovation hub. Meet our passionate team and discover our mission to transform businesses."
-        keywords="about InnofyAI, team, mission, vision, Lagos Nigeria, tech innovation, company story"
+        description="Learn about InnofyAI's journey from a small team in Lekki to a global tech innovation hub. Meet our passionate team and discover our mission to transform businesses."
+keywords="about InnofyAI, team, mission, vision, Lekki Nigeria, tech innovation, company story"
         structuredData={structuredData}
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('/assets/about-hero-bg.jpg')` }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-purple-900/80 to-slate-900/90"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             className="text-center"
             variants={scrollRevealVariants}
@@ -164,7 +175,7 @@ export default function About() {
                 variants={staggerContainerVariants}
               >
                 <motion.p variants={fadeUpVariants}>
-                  Founded in Lagos, Nigeria, InnofyAI emerged from a simple yet powerful vision: to
+                  Founded in Lekki, Nigeria, InnofyAI emerged from a simple yet powerful vision: to
                   democratize access to advanced technology solutions while maintaining the human
                   touch that makes brands memorable.
                 </motion.p>
@@ -189,16 +200,16 @@ export default function About() {
                   variants={fadeUpVariants}
                   whileHover={{ y: -5, scale: 1.02 }}
                 >
-                  <div className="text-4xl font-bold text-blue-400 mb-2">2019</div>
-                  <div className="text-gray-300">Founded in Lagos</div>
+                  <div className="text-4xl font-bold text-blue-400 mb-2">2024</div>
+                  <div className="text-gray-300">Founded in Lekki</div>
                 </motion.div>
                 <motion.div
                   className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
                   variants={fadeUpVariants}
                   whileHover={{ y: -5, scale: 1.02 }}
                 >
-                  <div className="text-4xl font-bold text-purple-400 mb-2">150+</div>
-                  <div className="text-gray-300">Projects Completed</div>
+                  <div className="text-4xl font-bold text-purple-400 mb-2">20+</div>
+                  <div className="text-gray-300">Projects Delivered</div>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -210,9 +221,9 @@ export default function About() {
               viewport={{ once: true }}
             >
               <motion.img
-                src="/assets/placeholder.svg"
+                src="/assets/team-collaboration.jpg"
                 alt="InnofyAI team collaboration in modern office environment"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover"
                 variants={cardHoverVariants}
                 whileHover="hover"
               />

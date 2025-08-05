@@ -11,11 +11,13 @@ export function ServiceTabs() {
   const activeService = services.find(service => service.id === activeTab);
 
   const tabButtons = [
-    { id: "automation", label: "Automation" },
-    { id: "cybersecurity", label: "AI Solutions" },
-    { id: "branding", label: "Branding" },
+    { id: "automation", label: "Automation & AI" },
+    { id: "cybersecurity", label: "Cybersecurity" },
     { id: "data", label: "Data Analytics" },
-    { id: "design", label: "Design" },
+    { id: "software-engineering", label: "Web & Mobile" },
+    { id: "design", label: "UI/UX Design" },
+    { id: "branding-social", label: "Branding & Social" },
+    { id: "research-data", label: "Research & Data" },
   ];
 
   return (
@@ -66,7 +68,7 @@ export function ServiceTabs() {
                   ))}
                 </ul>
                 <Link
-                  href={`/services/${activeService.id === "automation" ? "automation-ai" : activeService.id === "data" ? "data-analytics" : activeService.id === "design" ? "ui-ux-design" : activeService.id === "branding" ? "branding-merch" : activeService.id}`}
+                  href={`/services/${activeService.id === "automation" ? "automation-ai" : activeService.id === "data" ? "data-analytics" : activeService.id === "design" ? "ui-ux-design" : activeService.id === "branding-social" ? "branding-merch" : activeService.id === "software-engineering" ? "software-engineering" : activeService.id === "research-data" ? "research-data" : activeService.id}`}
                 >
                   <Button className="gradient-bg border-0 text-white mt-6">Learn More</Button>
                 </Link>

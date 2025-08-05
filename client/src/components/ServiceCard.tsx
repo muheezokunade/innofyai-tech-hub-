@@ -10,6 +10,7 @@ interface ServiceCardProps {
   icon: React.ReactNode;
   benefits: string[];
   color: string;
+  path?: string; // optional route to navigate to
   delay?: number;
 }
 
@@ -19,14 +20,17 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   benefits,
   color,
+  path,
   delay = 0,
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleGetStarted = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card flip
-    window.location.href = "/contact";
+  const handleNavigate = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (path) {
+      window.location.href = path;
+    }
   };
 
   return (
@@ -107,13 +111,18 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
             >
-              <span className="text-sm text-gray-400">Click to learn more</span>
+              <span
+                className="text-sm text-gray-400 cursor-pointer"
+                onClick={handleNavigate}
+              >
+                Click to learn more
+              </span>
               <motion.div
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${color}20 border ${color}30`}
                 whileHover={{ scale: 1.2 }}
                 transition={{ duration: 0.2 }}
               >
-                <ArrowRight className="w-4 h-4 text-white" />
+                <ArrowRight className="w-4 h-4 text-white cursor-pointer" onClick={handleNavigate} />
               </motion.div>
             </motion.div>
           </div>
@@ -190,7 +199,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               style={{ background: color }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={handleGetStarted}
+              onClick={handleNavigate}
             >
               <span>Get Started</span>
               <ExternalLink className="w-4 h-4" />

@@ -4,7 +4,7 @@ export const services = [
     title: "Automation & AI",
     description:
       "Streamline operations with intelligent automation solutions that reduce manual tasks by up to 80% and eliminate human error.",
-    image: "/assets/automation-ai-hero.svg",
+    image: "https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg",
     features: [
       "Custom workflow automation",
       "AI-powered decision making",
@@ -18,7 +18,7 @@ export const services = [
     title: "Cybersecurity",
     description:
       "Protect your digital assets with comprehensive security solutions designed to prevent, detect, and respond to cyber threats.",
-    image: "/assets/cybersecurity-hero.svg",
+    image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
     features: [
       "Advanced threat detection",
       "24/7 security monitoring",
@@ -32,7 +32,7 @@ export const services = [
     title: "Data Analytics",
     description:
       "Transform your data into actionable insights with advanced analytics and business intelligence solutions.",
-    image: "/assets/data-analytics-hero.svg",
+    image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
     features: [
       "Predictive analytics",
       "Real-time dashboards",
@@ -46,7 +46,7 @@ export const services = [
     title: "UI/UX Design",
     description:
       "Create exceptional user experiences with intuitive interfaces that delight users and drive engagement.",
-    image: "/assets/ui-ux-design-hero.svg",
+    image: "https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg",
     features: [
       "User research & testing",
       "Interface design & prototyping",
@@ -56,25 +56,11 @@ export const services = [
     category: "creative",
   },
   {
-    id: "branding",
-    title: "Branding & Merch",
-    description:
-      "Build powerful brand identities that resonate with your audience and create lasting impressions through cohesive design.",
-    image: "/assets/branding-merch-hero.svg",
-    features: [
-      "Logo & identity design",
-      "Brand guidelines & assets",
-      "Custom merchandise",
-      "Brand strategy consulting",
-    ],
-    category: "creative",
-  },
-  {
     id: "software-engineering",
-    title: "Software Engineering",
+    title: "Web & Mobile Development",
     description:
       "Custom software solutions for web, mobile, and cloud. Scalable, secure, and high-performance applications tailored to your business goals.",
-    image: "/assets/software-engineering-hero.svg",
+    image: "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg",
     features: [
       "Full-stack web & mobile development",
       "Cloud-native architecture",
@@ -84,16 +70,30 @@ export const services = [
     category: "tech",
   },
   {
-    id: "social-media",
-    title: "Social Media",
+    id: "branding-social",
+    title: "Branding & Social Media",
     description:
-      "Grow your brand and engage your audience with expert social media marketing, content creation, and analytics across all major platforms.",
-    image: "/assets/social-media-hero.svg",
+      "Build powerful brand identities and grow your online presence with comprehensive branding and social media management solutions.",
+    image: "https://asoapparel.com/cdn/shop/articles/Untitled_2048_x_1536_px.png?v=1724877221&width=1320",
     features: [
-      "Strategic campaigns & content",
-      "Community management",
-      "Analytics & reporting",
-      "Influencer partnerships",
+      "Logo & identity design",
+      "Brand strategy & guidelines",
+      "Social media management",
+      "Content creation & campaigns",
+    ],
+    category: "creative",
+  },
+  {
+    id: "research-data",
+    title: "Research & Data Collection",
+    description:
+      "Comprehensive research and data collection services to gather insights, validate strategies, and drive informed decision-making for your business growth.",
+    image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
+    features: [
+      "Market research & analysis",
+      "Customer behavior studies",
+      "Competitive intelligence",
+      "Data collection & validation",
     ],
     category: "creative",
   },
@@ -468,7 +468,7 @@ export const teamMembers = [
     title: "CEO & Founder",
     description: "AI Strategy & Business Development",
     image:
-      "/assets/placeholder.svg",
+      "https://i.postimg.cc/s1dLsdvv/muheez-okunade2.png",
   },
   {
     id: 2,
@@ -484,7 +484,7 @@ export const teamMembers = [
     title: "CTO",
     description: "AI Engineering & Automation",
     image:
-      "/assets/placeholder.svg",
+      "https://i.postimg.cc/qvPvSQcq/PHOTO-2025-05-31-12-05-44.jpg",
   },
   {
     id: 4,
@@ -492,6 +492,14 @@ export const teamMembers = [
     title: "Head of Operations",
     description: "Project Management & Client Success",
     image:
-      "/assets/placeholder.svg",
+      "https://i.postimg.cc/bvr9VyTp/PHOTO-2025-05-31-11-46-08.jpg",
+  },
+  {
+    id: 5,
+    name: "Affez Azeez",
+    title: "Design Lead",
+    description: "UI/UX Design & Creative Direction",
+    image:
+      "https://i.postimg.cc/T14DDfr3/IMG-1099.jpg",
   },
 ];

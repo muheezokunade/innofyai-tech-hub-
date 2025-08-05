@@ -174,8 +174,8 @@ const Lagos: React.FC = () => {
         title="AI Solutions in Lagos, Nigeria | InnofyAI"
         description="Leading AI solutions provider in Lagos, Nigeria. Transform your business with cutting-edge AI automation, cybersecurity, and digital transformation services. Local expertise, global standards."
         keywords="AI solutions Lagos, tech consulting Nigeria, AI automation Lagos, cybersecurity Nigeria, digital transformation Lagos, tech company Nigeria, AI services Lagos"
-        url="/lagos"
-        type="website"
+        canonical="/lagos"
+        ogType="website"
         tags={["Lagos", "Nigeria", "AI solutions", "tech consulting", "digital transformation", "local business"]}
         structuredData={{
           "@context": "https://schema.org",

@@ -85,164 +85,90 @@ function Footer() {
     { icon: Shield, name: "Cybersecurity", href: "/services/cybersecurity" },
     { icon: BarChart3, name: "Data Analytics", href: "/services/data-analytics" },
     { icon: Palette, name: "UI/UX Design", href: "/services/ui-ux-design" },
-    { icon: Code, name: "Software Engineering", href: "/services/software-engineering" },
-    { icon: Megaphone, name: "Branding & Merch", href: "/services/branding-merch" },
-    { icon: BarChart3, name: "Social Media", href: "/services/social-media" },
+    { icon: Code, name: "Web & Mobile Development", href: "/services/software-engineering" },
+    { icon: Megaphone, name: "Branding & Social Media", href: "/services/branding-merch" },
   ];
 
   const companyLinks = [
     { name: "About Us", href: "/about" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Careers", href: "/careers" },
-  ];
-
-  const technicalLinks = [
-    { name: "Technology Stack", href: "/technology-stack" },
-    { name: "Development Process", href: "/development-process" },
-    { name: "Quality Assurance", href: "/quality-assurance" },
-    { name: "Security Standards", href: "/security-standards" },
-    { name: "Performance Metrics", href: "/performance-metrics" },
-  ];
-
-  const seoLinks = [
-    { name: "Lagos, Nigeria", href: "/lagos" },
-    { name: "E-commerce Solutions", href: "/ecommerce-solutions" },
-    { name: "Service Comparison", href: "/service-comparison" },
-    { name: "Client Success Stories", href: "/client-success-stories" },
-    { name: "Industry Solutions", href: "/industry-solutions" },
-    { name: "Generative AI", href: "/generative-ai" },
   ];
 
   return (
     <motion.footer
-      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
       variants={footerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-10 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-16 h-16 bg-green-500/10 rounded-full blur-xl"
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-6 gap-8">
+      <div className="relative max-w-7xl mx-auto px-6 py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
-          <motion.div className="col-span-2" variants={itemVariants}>
-            <motion.div
-              className="flex items-center space-x-2 mb-4"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div
-                className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
+          <motion.div className="lg:col-span-2" variants={itemVariants}>
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <Brain className="h-6 w-6 text-white" />
-              </motion.div>
-              <span className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 InnofyAI
               </span>
-            </motion.div>
+            </div>
+            
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-md">
+              Transforming businesses through intelligent automation and creative excellence. 
+              Where technology meets artistry to create digital experiences that inspire and innovate.
+            </p>
 
-            <motion.p
-              className="text-gray-300 mb-6 max-w-md leading-relaxed"
-              variants={itemVariants}
-            >
-              Transforming businesses through intelligent automation and creative excellence. Where
-              technology meets artistry to create digital experiences that inspire and innovate.
-            </motion.p>
+            {/* Contact Info */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center space-x-3 text-gray-300">
+                <Mail className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                <span className="text-sm">info@innofyai.com</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <Phone className="h-4 w-4 text-green-400 flex-shrink-0" />
+                <span className="text-sm">+234 810 811 4407</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-300">
+                <MapPin className="h-4 w-4 text-red-400 flex-shrink-0" />
+                <span className="text-sm">13, signature estate, Ikota, Lekki</span>
+              </div>
+            </div>
 
-            <motion.div className="flex space-x-4" variants={itemVariants}>
+            {/* Social Links */}
+            <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  className={`p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:border-white/20`}
-                  whileHover={{ y: -5, rotate: 5 }}
+                  className={`p-2.5 bg-white/5 rounded-lg border border-white/10 text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:border-white/20`}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-4 w-4" />
                 </motion.a>
               ))}
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div className="mt-8 space-y-3" variants={itemVariants}>
-              <motion.div
-                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
-                whileHover={{ x: 5 }}
-              >
-                <Mail className="h-4 w-4 text-blue-400" />
-                <span>info@innofyai.com</span>
-              </motion.div>
-              <motion.div
-                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
-                whileHover={{ x: 5 }}
-              >
-                <Phone className="h-4 w-4 text-green-400" />
-                <span>+234 810 811 4407</span>
-              </motion.div>
-              <motion.div
-                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
-                whileHover={{ x: 5 }}
-              >
-                <MapPin className="h-4 w-4 text-red-400" />
-                <span>13, signature estate, Ikota, Lekki</span>
-              </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <motion.h3
-              className="font-semibold text-blue-400 mb-6 text-lg"
-              whileHover={{ scale: 1.05 }}
-            >
+            <h3 className="font-semibold text-white mb-6 text-lg">
               Services
-            </motion.h3>
+            </h3>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <motion.li
@@ -250,20 +176,15 @@ function Footer() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ x: 10 }}
                 >
                   <Link
                     href={service.href}
-                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 group"
+                    className="flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300 group"
                   >
-                    <motion.div
-                      className="p-1 bg-white/5 rounded group-hover:bg-white/10 transition-colors"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
+                    <div className="p-1.5 bg-white/5 rounded group-hover:bg-white/10 transition-colors">
                       <service.icon className="h-3 w-3 text-blue-400" />
-                    </motion.div>
-                    <span>{service.name}</span>
-                    <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <span className="text-sm">{service.name}</span>
                   </Link>
                 </motion.li>
               ))}
@@ -272,12 +193,9 @@ function Footer() {
 
           {/* Company */}
           <motion.div variants={itemVariants}>
-            <motion.h3
-              className="font-semibold text-purple-400 mb-6 text-lg"
-              whileHover={{ scale: 1.05 }}
-            >
+            <h3 className="font-semibold text-white mb-6 text-lg">
               Company
-            </motion.h3>
+            </h3>
             <ul className="space-y-3">
               {companyLinks.map((link, index) => (
                 <motion.li
@@ -285,144 +203,57 @@ function Footer() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ x: 10 }}
                 >
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-all duration-300 group flex items-center space-x-2"
+                    className="text-gray-300 hover:text-white transition-all duration-300 text-sm"
                   >
-                    <span>{link.name}</span>
-                    <motion.div
-                      className="w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-4 transition-all duration-300"
-                      whileHover={{ width: "1rem" }}
-                    />
+                    {link.name}
                   </Link>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
-
-          {/* Technical Credibility */}
-          <motion.div variants={itemVariants}>
-            <motion.h3
-              className="font-semibold text-green-400 mb-6 text-lg"
-              whileHover={{ scale: 1.05 }}
-            >
-              Technical Credibility
-            </motion.h3>
-            <ul className="space-y-3">
-              {technicalLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ x: 10 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 hover:text-white transition-all duration-300 group flex items-center space-x-2"
-                  >
-                    <span>{link.name}</span>
-                    <motion.div
-                      className="w-0 h-0.5 bg-gradient-to-r from-green-400 to-blue-400 group-hover:w-4 transition-all duration-300"
-                      whileHover={{ width: "1rem" }}
-                    />
-                  </Link>
-                </motion.li>
-              ))}
-                          </ul>
-            </motion.div>
-
-            {/* SEO & Performance */}
-            <motion.div variants={itemVariants}>
-              <motion.h3
-                className="font-semibold text-orange-400 mb-6 text-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                SEO & Performance
-              </motion.h3>
-              <ul className="space-y-3">
-                {seoLinks.map((link, index) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ x: 10 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-all duration-300 group flex items-center space-x-2"
-                    >
-                      <span>{link.name}</span>
-                      <motion.div
-                        className="w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-400 group-hover:w-4 transition-all duration-300"
-                        whileHover={{ width: "1rem" }}
-                      />
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
+        </div>
 
         {/* Bottom Section */}
         <motion.div
-          className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
           variants={itemVariants}
         >
-          <motion.p className="text-gray-400 text-sm" whileHover={{ scale: 1.02 }}>
+          <p className="text-gray-400 text-sm">
             © 2024 InnofyAI. All rights reserved.
-          </motion.p>
+          </p>
 
-          <motion.div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0" variants={itemVariants}>
+          <div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0">
             <Link
               href="/privacy"
-              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
+              className="text-gray-400 hover:text-white text-sm transition-all duration-300"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
+              className="text-gray-400 hover:text-white text-sm transition-all duration-300"
             >
               Terms of Service
             </Link>
-            <Link
-              href="/cookie-policy"
-              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
-            >
-              Cookie Policy
-            </Link>
-            <Link
-              href="/gdpr-compliance"
-              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
-            >
-              GDPR Compliance
-            </Link>
-            <Link
-              href="/data-protection"
-              className="text-gray-400 hover:text-white text-sm transition-all duration-300 hover:scale-105"
-            >
-              Data Protection
-            </Link>
-          </motion.div>
+          </div>
         </motion.div>
-
-        {/* Scroll to Top Button */}
-        <motion.button
-          onClick={scrollToTop}
-          className="fixed bottom-4 left-4 md:bottom-8 md:right-8 md:left-auto p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-          whileHover={{ scale: 1.1, y: -5 }}
-          whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <ArrowUp className="h-5 w-5" />
-        </motion.button>
       </div>
+
+      {/* Scroll to Top Button */}
+      <motion.button
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+        whileHover={{ scale: 1.1, y: -2 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1 }}
+      >
+        <ArrowUp className="h-5 w-5" />
+      </motion.button>
     </motion.footer>
   );
 }

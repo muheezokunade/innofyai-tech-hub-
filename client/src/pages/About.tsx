@@ -233,7 +233,7 @@ keywords="about InnofyAI, team, mission, vision, Lekki Nigeria, tech innovation,
               viewport={{ once: true }}
             >
               <motion.img
-                src="/assets/team-collaboration.jpg"
+                src="https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg"
                 alt="InnofyAI team collaboration in modern office environment"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover"
                 variants={cardHoverVariants}
@@ -317,33 +317,67 @@ keywords="about InnofyAI, team, mission, vision, Lekki Nigeria, tech innovation,
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="space-y-12"
             variants={staggerContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.id}
-                className="text-center group"
-                variants={fadeUpVariants}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div className="relative mb-6" whileHover={{ scale: 1.05 }}>
-                  <img
-                    src={member.image}
-                    alt={`Professional headshot of ${member.name}`}
-                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/10 group-hover:border-blue-500/50 transition-all duration-300"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Top Row - 3 Team Members */}
+            <motion.div
+              className="grid md:grid-cols-3 gap-8"
+              variants={fadeUpVariants}
+            >
+              {teamMembers.slice(0, 3).map((member) => (
+                <motion.div
+                  key={member.id}
+                  className="text-center group"
+                  variants={fadeUpVariants}
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.div className="relative mb-6" whileHover={{ scale: 1.05 }}>
+                    <img
+                      src={member.image}
+                      alt={`Professional headshot of ${member.name}`}
+                      className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/10 group-hover:border-blue-500/50 transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                  <h3 className="font-bold text-xl text-white mb-2">{member.name}</h3>
+                  <p className="text-blue-400 mb-3 font-medium">{member.title}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
                 </motion.div>
-                <h3 className="font-bold text-xl text-white mb-2">{member.name}</h3>
-                <p className="text-blue-400 mb-3 font-medium">{member.title}</p>
-                <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
+
+            {/* Bottom Row - 2 Team Members */}
+            <motion.div
+              className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+              variants={fadeUpVariants}
+            >
+              {teamMembers.slice(3, 5).map((member) => (
+                <motion.div
+                  key={member.id}
+                  className="text-center group"
+                  variants={fadeUpVariants}
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.div className="relative mb-6" whileHover={{ scale: 1.05 }}>
+                    <img
+                      src={member.image}
+                      alt={`Professional headshot of ${member.name}`}
+                      className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/10 group-hover:border-blue-500/50 transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                  <h3 className="font-bold text-xl text-white mb-2">{member.name}</h3>
+                  <p className="text-blue-400 mb-3 font-medium">{member.title}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>

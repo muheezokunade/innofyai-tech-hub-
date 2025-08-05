@@ -229,7 +229,7 @@ export default function DataAnalytics() {
                 viewport={{ once: true }}
               >
                 <motion.img
-                  src="/assets/placeholder.svg"
+                  src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg"
                   alt="Data analytics dashboard visualization"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}

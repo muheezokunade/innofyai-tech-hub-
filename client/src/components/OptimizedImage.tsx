@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { imageCache, getCacheKey, setRateLimitDetected, isRateLimited, getPlaceholderImage as getCachedPlaceholder } from "../utils/imageCache";
 import { imagePreloader } from "../utils/imagePreloader";
@@ -10,6 +10,10 @@ interface OptimizedImageProps {
   priority?: boolean;
   sizes?: string;
   fallbackSrc?: string;
+  width?: number;
+  height?: number;
+  quality?: number;
+  format?: 'webp' | 'avif' | 'jpeg' | 'png';
 }
 
 export function OptimizedImage({
@@ -18,13 +22,21 @@ export function OptimizedImage({
   className = "",
   priority = false,
   sizes = "100vw",
-  fallbackSrc
+  fallbackSrc,
+  width,
+  height,
+  quality = 85,
+  format = 'webp'
 }: OptimizedImageProps) {
   const [imageSrc, setImageSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
   const [isPreloaded, setIsPreloaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const maxRetries = 3;
 
   // Determine category based on alt text or src
@@ -44,29 +56,100 @@ export function OptimizedImage({
   const category = getCategory();
   const defaultFallback = getCachedPlaceholder(category);
 
+  // Optimize image URL with parameters
+  const getOptimizedUrl = useCallback((url: string) => {
+    if (!url || url.startsWith('data:') || url.startsWith('/assets/')) {
+      return url;
+    }
+
+    // For external images, add optimization parameters
+    if (url.startsWith('http')) {
+      const urlObj = new URL(url);
+      
+      // Add format parameter
+      if (format && !urlObj.searchParams.has('format')) {
+        urlObj.searchParams.set('format', format);
+      }
+      
+      // Add quality parameter
+      if (quality && !urlObj.searchParams.has('q')) {
+        urlObj.searchParams.set('q', quality.toString());
+      }
+      
+      // Add width parameter if provided
+      if (width && !urlObj.searchParams.has('w')) {
+        urlObj.searchParams.set('w', width.toString());
+      }
+      
+      // Add height parameter if provided
+      if (height && !urlObj.searchParams.has('h')) {
+        urlObj.searchParams.set('h', height.toString());
+      }
+      
+      return urlObj.toString();
+    }
+    
+    return url;
+  }, [format, quality, width, height]);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    if (priority) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        rootMargin: '50px 0px', // Start loading 50px before the image comes into view
+        threshold: 0.1
+      }
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+      observerRef.current = observer;
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [priority]);
+
   // Preload critical images
   useEffect(() => {
     if (priority && src && !src.startsWith('data:')) {
-      // Use the enhanced preloader
-      imagePreloader.preloadImage(src)
+      const optimizedSrc = getOptimizedUrl(src);
+      imagePreloader.preloadImage(optimizedSrc)
         .then(() => setIsPreloaded(true))
         .catch(() => setIsPreloaded(false));
     }
-  }, [priority, src]);
+  }, [priority, src, getOptimizedUrl]);
 
-  const handleImageLoad = () => {
+  const handleImageLoad = useCallback(() => {
     setIsLoading(false);
     setHasError(false);
     setRetryCount(0);
+    setIsLoaded(true);
     
     // Cache the successful image
     if (src && !src.startsWith('data:')) {
       const cacheKey = getCacheKey(src);
       imageCache.set(cacheKey, imageSrc);
     }
-  };
+  }, [src, imageSrc]);
 
-  const handleImageError = () => {
+  const handleImageError = useCallback(() => {
     setIsLoading(false);
     setHasError(true);
     
@@ -76,13 +159,14 @@ export function OptimizedImage({
       setTimeout(() => {
         setRetryCount(prev => prev + 1);
         const cacheBuster = `?retry=${retryCount + 1}&t=${Date.now()}`;
-        setImageSrc(src.includes('?') ? `${src}&${cacheBuster}` : `${src}${cacheBuster}`);
+        const newSrc = src.includes('?') ? `${src}&${cacheBuster}` : `${src}${cacheBuster}`;
+        setImageSrc(getOptimizedUrl(newSrc));
         setIsLoading(true);
       }, retryDelay);
     } else {
       // Try fallback image if provided
       if (fallbackSrc && imageSrc !== fallbackSrc) {
-        setImageSrc(fallbackSrc);
+        setImageSrc(getOptimizedUrl(fallbackSrc));
         setIsLoading(true);
         setRetryCount(0);
       } else {
@@ -91,14 +175,16 @@ export function OptimizedImage({
         setIsLoading(false);
       }
     }
-  };
+  }, [src, imageSrc, retryCount, fallbackSrc, defaultFallback, getOptimizedUrl]);
 
   useEffect(() => {
-    setImageSrc(src);
+    const optimizedSrc = getOptimizedUrl(src);
+    setImageSrc(optimizedSrc);
     setIsLoading(true);
     setHasError(false);
     setRetryCount(0);
-  }, [src]);
+    setIsLoaded(false);
+  }, [src, getOptimizedUrl]);
 
   // Check cache and rate limiting
   useEffect(() => {
@@ -117,6 +203,7 @@ export function OptimizedImage({
       if (cachedImage) {
         setImageSrc(cachedImage);
         setIsLoading(false);
+        setIsLoaded(true);
         return;
       }
 
@@ -154,6 +241,17 @@ export function OptimizedImage({
     }
   }, [src, defaultFallback]);
 
+  // Only render the image when it's in view or priority
+  if (!isInView) {
+    return (
+      <div 
+        ref={imageRef}
+        className={`${className} bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-pulse`}
+        style={{ minHeight: height || '200px' }}
+      />
+    );
+  }
+
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {isLoading && (
@@ -168,6 +266,7 @@ export function OptimizedImage({
       )}
       
       <img
+        ref={imageRef}
         src={imageSrc}
         alt={alt}
         className={`w-full h-full transition-opacity duration-300 ${
@@ -175,6 +274,8 @@ export function OptimizedImage({
         } ${imageSrc.endsWith('.svg') ? 'object-contain' : 'object-cover'}`}
         sizes={sizes}
         loading={priority ? "eager" : "lazy"}
+        width={width}
+        height={height}
         onLoad={handleImageLoad}
         onError={handleImageError}
         style={{
@@ -199,8 +300,37 @@ export function OptimizedImage({
   );
 }
 
-export function getOptimizedImageSrc(originalSrc: string): string {
-  // For now, return the original src
-  // In production, you could implement image optimization here
+export function getOptimizedImageSrc(originalSrc: string, options?: {
+  width?: number;
+  height?: number;
+  quality?: number;
+  format?: 'webp' | 'avif' | 'jpeg' | 'png';
+}): string {
+  if (!originalSrc || originalSrc.startsWith('data:') || originalSrc.startsWith('/assets/')) {
+    return originalSrc;
+  }
+
+  if (originalSrc.startsWith('http')) {
+    const urlObj = new URL(originalSrc);
+    
+    if (options?.format && !urlObj.searchParams.has('format')) {
+      urlObj.searchParams.set('format', options.format);
+    }
+    
+    if (options?.quality && !urlObj.searchParams.has('q')) {
+      urlObj.searchParams.set('q', options.quality.toString());
+    }
+    
+    if (options?.width && !urlObj.searchParams.has('w')) {
+      urlObj.searchParams.set('w', options.width.toString());
+    }
+    
+    if (options?.height && !urlObj.searchParams.has('h')) {
+      urlObj.searchParams.set('h', options.height.toString());
+    }
+    
+    return urlObj.toString();
+  }
+  
   return originalSrc;
 }

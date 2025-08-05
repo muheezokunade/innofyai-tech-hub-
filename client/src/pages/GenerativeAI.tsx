@@ -301,8 +301,8 @@ const GenerativeAI: React.FC = () => {
         title="Generative AI Optimization Engine"
         description="#1 Ranked Generative AI Solution. Transform your business with our advanced AI engine that makes artificial intelligence accessible, powerful, and easy to implement. Text, image, video, audio, and code generation."
         keywords="generative AI, AI text generation, AI image generation, AI video generation, AI code generation, artificial intelligence, machine learning, AI automation, AI solutions, top AI platform"
-        url="/generative-ai"
-        type="product"
+        canonical="/generative-ai"
+        ogType="product"
         tags={["generative AI", "artificial intelligence", "AI automation", "machine learning", "text generation", "image generation", "video generation", "code generation"]}
         structuredData={{
           "@context": "https://schema.org",

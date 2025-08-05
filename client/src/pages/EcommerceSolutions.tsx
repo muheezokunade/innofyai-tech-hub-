@@ -222,8 +222,8 @@ const EcommerceSolutions: React.FC = () => {
         title="E-commerce Solutions | AI-Powered Online Stores"
         description="Transform your online business with AI-powered e-commerce solutions. Custom platforms, payment processing, logistics, analytics, and security. Increase sales by 300% with our proven solutions."
         keywords="e-commerce solutions, online store development, payment processing, logistics, e-commerce analytics, shopping cart, e-commerce security, Nigeria e-commerce"
-        url="/ecommerce-solutions"
-        type="product"
+        canonical="/ecommerce-solutions"
+        ogType="product"
         tags={["e-commerce", "online store", "payment processing", "logistics", "analytics", "security"]}
         structuredData={{
           "@context": "https://schema.org",

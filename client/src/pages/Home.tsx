@@ -38,6 +38,7 @@ const services = [
     icon: <Zap className="w-8 h-8 text-blue-400" />,
     benefits: ["Process automation", "AI-powered insights", "Cost reduction", "24/7 operation"],
     color: "#3b82f6",
+    path: "/services/automation-ai",
   },
   {
     title: "UI/UX Design",
@@ -45,6 +46,7 @@ const services = [
     icon: <Palette className="w-8 h-8 text-purple-400" />,
     benefits: ["User research", "Wireframing & prototyping", "Visual design", "Usability testing"],
     color: "#8b5cf6",
+    path: "/services/ui-ux-design",
   },
   {
     title: "Cybersecurity",
@@ -52,6 +54,7 @@ const services = [
     icon: <Shield className="w-8 h-8 text-green-400" />,
     benefits: ["Threat detection", "Data encryption", "Security audits", "Compliance support"],
     color: "#10b981",
+    path: "/services/cybersecurity",
   },
   {
     title: "Data Analytics",
@@ -64,30 +67,46 @@ const services = [
       "Custom dashboards",
     ],
     color: "#f59e0b",
+    path: "/services/data-analytics",
   },
   {
-    title: "Mobile Development",
-    description: "Native and cross-platform mobile apps that deliver exceptional user experiences.",
-    icon: <Smartphone className="w-8 h-8 text-pink-400" />,
-    benefits: [
-      "iOS & Android apps",
-      "Cross-platform solutions",
-      "App store optimization",
-      "Performance optimization",
-    ],
-    color: "#ec4899",
-  },
-  {
-    title: "Web Development",
-    description: "Modern web applications built with cutting-edge technologies and best practices.",
+    title: "Web & Mobile Development",
+    description: "Modern web and cross-platform mobile applications built with cutting-edge technologies and best practices.",
     icon: <Code className="w-8 h-8 text-indigo-400" />,
     benefits: [
-      "Responsive design",
-      "SEO optimization",
-      "Performance focused",
-      "Scalable architecture",
+      "Responsive web apps",
+      "iOS & Android apps",
+      "Cross-platform solutions",
+      "Performance & SEO optimization",
     ],
     color: "#6366f1",
+    path: "/services/software-engineering",
+  },
+  {
+    title: "Branding & Social Media",
+    description: "Build powerful brand identities and grow your online presence with comprehensive branding and social media strategies.",
+    icon: <Palette className="w-8 h-8 text-pink-400" />,
+    benefits: [
+      "Logo & identity design",
+      "Brand guidelines & strategy",
+      "Social media management",
+      "Content creation & campaigns",
+    ],
+    color: "#ec4899",
+    path: "/services/branding-merch",
+  },
+  {
+    title: "Research & Data Collection",
+    description: "Comprehensive research and data collection services to gather insights, validate strategies, and drive informed decision-making.",
+    icon: <BarChart3 className="w-8 h-8 text-teal-400" />,
+    benefits: [
+      "Market research & analysis",
+      "Customer behavior studies",
+      "Competitive intelligence",
+      "Data collection & validation",
+    ],
+    color: "#14b8a6",
+    path: "/services/research-data",
   },
 ];
 

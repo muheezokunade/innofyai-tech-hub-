@@ -114,7 +114,7 @@ export default function SEO({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#3b82f6" />
       <meta name="msapplication-TileColor" content="#3b82f6" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content="InnofyAI" />
 
@@ -143,9 +143,9 @@ export default function SEO({
       
       {/* Favicons */}
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/icon-192x192.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/icon-512x512.png" />
-      <link rel="apple-touch-icon" href="/icon-192x192.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/favicon.ico" />
       
       {/* Preconnect to external domains for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />

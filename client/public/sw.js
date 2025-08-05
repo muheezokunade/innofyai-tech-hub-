@@ -5,17 +5,10 @@ const DYNAMIC_CACHE = 'innofyai-dynamic-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/assets/innofy-logo.svg',
-  '/assets/hero-background.jpg',
-  '/assets/team-collaboration.jpg',
-  '/assets/growwise-project-screenshot.jpg',
-  '/assets/spicepop-project-screenshot.jpg',
-  '/assets/osinachi-project-screenshot.jpg',
-  '/assets/commerza-automation.jpg',
   '/manifest.json',
   '/favicon.ico',
-  '/icon-192x192.png',
-  '/icon-512x512.png'
+  '/robots.txt',
+  '/sitemap.xml'
 ];
 
 const API_CACHE = 'innofyai-api-v1';
@@ -26,7 +19,15 @@ self.addEventListener('install', (event) => {
     caches.open(STATIC_CACHE)
       .then((cache) => {
         console.log('Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
+        // Cache assets one by one to handle failures gracefully
+        return Promise.allSettled(
+          STATIC_ASSETS.map(url => 
+            cache.add(url).catch(error => {
+              console.log(`Failed to cache ${url}:`, error);
+              return null;
+            })
+          )
+        );
       })
       .catch((error) => {
         console.log('Cache install failed:', error);
@@ -59,6 +60,12 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
+
+  // Skip caching for problematic assets
+  if (url.pathname.includes('icon-') || url.pathname.includes('favicon')) {
+    event.respondWith(fetch(request));
+    return;
+  }
 
   // Handle API requests
   if (url.pathname.startsWith('/api/')) {
@@ -167,8 +174,8 @@ async function doBackgroundSync() {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New update available!',
-    icon: '/icon-192x192.png',
-    badge: '/icon-192x192.png',
+    icon: '/favicon.ico',
+    badge: '/favicon.ico',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
@@ -178,12 +185,12 @@ self.addEventListener('push', (event) => {
       {
         action: 'explore',
         title: 'View',
-        icon: '/icon-192x192.png'
+        icon: '/favicon.ico'
       },
       {
         action: 'close',
         title: 'Close',
-        icon: '/icon-192x192.png'
+        icon: '/favicon.ico'
       }
     ]
   };

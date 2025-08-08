@@ -1,0 +1,273 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "InnofyAI Logo InnofyAI":
+    - /url: /
+    - img "InnofyAI Logo"
+    - text: InnofyAI
+  - navigation "Main":
+    - list:
+      - listitem:
+        - link "Home":
+          - /url: /
+      - listitem:
+        - button "Services"
+      - listitem:
+        - link "Portfolio":
+          - /url: /portfolio
+      - listitem:
+        - link "About":
+          - /url: /about
+      - listitem:
+        - link "Blog":
+          - /url: /blog
+      - listitem:
+        - link "Contact":
+          - /url: /contact
+  - button "Toggle theme":
+    - img
+    - img
+    - text: Toggle theme
+  - link "Get Started":
+    - /url: /contact
+    - button "Get Started"
+- main:
+  - img
+  - img
+  - text: Transforming Ideas into Digital Excellence
+  - heading "InnofyAI Tech Innovation Hub" [level=1]
+  - paragraph: We craft cutting-edge digital solutions that drive innovation, enhance user experiences, and accelerate business growth through AI-powered technology and creative excellence.
+  - link "Start Your Project":
+    - /url: /contact
+    - button "Start Your Project":
+      - text: Start Your Project
+      - img
+  - button "Book Discovery Call":
+    - img
+    - text: Book Discovery Call
+  - text: 20+ Projects Delivered 98% Client Satisfaction 24/7 Support Available
+  - heading "Our Services" [level=2]
+  - paragraph: We offer comprehensive technology solutions designed to drive innovation and accelerate your business growth.
+  - img
+  - heading "AI & Automation" [level=3]
+  - paragraph: Intelligent automation solutions that streamline operations and boost productivity.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Process automation
+    - listitem: AI-powered insights
+    - listitem: Cost reduction
+    - listitem: 24/7 operation
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "UI/UX Design" [level=3]
+  - paragraph: User-centered design that creates intuitive and engaging digital experiences.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: User research
+    - listitem: Wireframing & prototyping
+    - listitem: Visual design
+    - listitem: Usability testing
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "Cybersecurity" [level=3]
+  - paragraph: Comprehensive security solutions to protect your digital assets and data.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Threat detection
+    - listitem: Data encryption
+    - listitem: Security audits
+    - listitem: Compliance support
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "Data Analytics" [level=3]
+  - paragraph: Transform raw data into actionable insights for informed decision-making.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Data visualization
+    - listitem: Predictive analytics
+    - listitem: Performance tracking
+    - listitem: Custom dashboards
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "Web & Mobile Development" [level=3]
+  - paragraph: Modern web and cross-platform mobile applications built with cutting-edge technologies and best practices.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Responsive web apps
+    - listitem: iOS & Android apps
+    - listitem: Cross-platform solutions
+    - listitem: Performance & SEO optimization
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "Branding & Social Media" [level=3]
+  - paragraph: Build powerful brand identities and grow your online presence with comprehensive branding and social media strategies.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Logo & identity design
+    - listitem: Brand guidelines & strategy
+    - listitem: Social media management
+    - listitem: Content creation & campaigns
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - heading "Research & Data Collection" [level=3]
+  - paragraph: Comprehensive research and data collection services to gather insights, validate strategies, and drive informed decision-making.
+  - text: Click to learn more
+  - img
+  - img
+  - heading "Key Benefits" [level=4]
+  - list:
+    - listitem: Market research & analysis
+    - listitem: Customer behavior studies
+    - listitem: Competitive intelligence
+    - listitem: Data collection & validation
+  - button "Get Started":
+    - text: Get Started
+    - img
+  - img
+  - text: 20+ Projects Delivered
+  - img
+  - text: 98% Client Satisfaction
+  - img
+  - text: 10+ Team Members
+  - img
+  - text: 24/7 Support Available
+  - heading "What Our Clients Say" [level=2]
+  - paragraph: Don't just take our word for it. Here's what our clients have to say about working with InnofyAI.
+  - img
+  - img
+  - img
+  - img
+  - img
+  - paragraph: "\"InnofyAI's rebranding work was transformative. They didn't just redesign our logo - they reimagined our entire brand experience. The results speak for themselves - our user engagement skyrocketed.\""
+  - text: 👨‍💼 Alex Osinachi CEO, Osinachi Renewable Energy
+  - img
+  - img
+  - img
+  - img
+  - img
+  - paragraph: "\"InnofyAI delivered a complete transformation - from our brand identity to our e-commerce platform and social media presence. Their comprehensive approach helped us establish a strong digital presence and connect with customers nationwide. The results have been phenomenal.\""
+  - text: 👨‍💼 Iman Fasasi Founder, SpicePop
+  - img
+  - img
+  - img
+  - img
+  - img
+  - paragraph: "\"InnofyAI's branding work was instrumental in our fundraising success. They perfectly captured our mission and created a brand that donors and volunteers immediately connected with. Our funding increased by 320%!\""
+  - text: 👨‍💼 Alex Monueke Founder & CEO, Osinachi Humanity Impact Initiative
+  - heading "Ready to Transform Your Business?" [level=2]
+  - paragraph: Let's discuss how our innovative solutions can help you achieve your business goals and stay ahead of the competition.
+  - button "Start Your Project":
+    - text: Start Your Project
+    - img
+  - button "Schedule a Consultation":
+    - text: Schedule a Consultation
+    - img
+  - button:
+    - img
+- contentinfo:
+  - img
+  - text: InnofyAI
+  - paragraph: Transforming businesses through intelligent automation and creative excellence. Where technology meets artistry to create digital experiences that inspire and innovate.
+  - img
+  - text: info@innofyai.com
+  - img
+  - text: +234 810 811 4407
+  - img
+  - text: 13, signature estate, Ikota, Lekki
+  - link:
+    - /url: https://x.com/innofyai?s=21
+    - img
+  - link:
+    - /url: https://www.linkedin.com/company/innofy-ai/
+    - img
+  - link:
+    - /url: https://www.instagram.com/innofyai?igsh=dGI5MTE5a2xra28%3D&utm_source=qr
+    - img
+  - link:
+    - /url: https://www.tiktok.com/@innofyai?_t=ZM-8y83dmNvGis&_r=1
+    - img
+  - link:
+    - /url: mailto:info@innofyai.com
+    - img
+  - heading "Services" [level=3]
+  - list:
+    - listitem:
+      - link "Automation & AI":
+        - /url: /services/automation-ai
+        - img
+        - text: Automation & AI
+    - listitem:
+      - link "Cybersecurity":
+        - /url: /services/cybersecurity
+        - img
+        - text: Cybersecurity
+    - listitem:
+      - link "Data Analytics":
+        - /url: /services/data-analytics
+        - img
+        - text: Data Analytics
+    - listitem:
+      - link "UI/UX Design":
+        - /url: /services/ui-ux-design
+        - img
+        - text: UI/UX Design
+    - listitem:
+      - link "Web & Mobile Development":
+        - /url: /services/software-engineering
+        - img
+        - text: Web & Mobile Development
+    - listitem:
+      - link "Branding & Social Media":
+        - /url: /services/branding-merch
+        - img
+        - text: Branding & Social Media
+  - heading "Company" [level=3]
+  - list:
+    - listitem:
+      - link "About Us":
+        - /url: /about
+    - listitem:
+      - link "Portfolio":
+        - /url: /portfolio
+    - listitem:
+      - link "Contact":
+        - /url: /contact
+  - paragraph: © 2024 InnofyAI. All rights reserved.
+  - link "Privacy Policy":
+    - /url: /privacy
+  - link "Terms of Service":
+    - /url: /terms
+  - button:
+    - img
+```

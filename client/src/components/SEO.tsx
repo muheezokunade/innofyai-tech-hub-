@@ -4,7 +4,7 @@ interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
-  canonical?: string;
+  canonical?: string; // expected to be a path like '/about'
   ogImage?: string;
   ogType?: string;
   twitterCard?: string;
@@ -16,6 +16,7 @@ interface SEOProps {
   modifiedTime?: string;
   section?: string;
   tags?: string[];
+  includeDefaultOrgSchema?: boolean; // new: opt-in default org schema
 }
 
 export default function SEO({
@@ -33,13 +34,19 @@ export default function SEO({
   publishedTime,
   modifiedTime,
   section,
-  tags = []
+  tags = [],
+  includeDefaultOrgSchema = false,
 }: SEOProps) {
   const siteUrl = "https://innofyai.com";
-  const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${window.location.pathname}`;
+  const fullCanonical = canonical ? `${siteUrl}${canonical}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
-  // Default structured data for organization
+  // Robots: combine into a single meta
+  const robotsContent = noindex || nofollow
+    ? `${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`
+    : 'index, follow';
+
+  // Default structured data for organization (opt-in)
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -84,18 +91,16 @@ export default function SEO({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      <link rel="canonical" href={fullCanonical} />
+      {fullCanonical && <link rel="canonical" href={fullCanonical} />}
       
       {/* Robots Meta */}
-      {noindex && <meta name="robots" content="noindex" />}
-      {nofollow && <meta name="robots" content="nofollow" />}
-      {!noindex && !nofollow && <meta name="robots" content="index, follow" />}
-
+      <meta name="robots" content={robotsContent} />
+      
       {/* Open Graph Meta Tags */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={fullCanonical} />
+      {fullCanonical && <meta property="og:url" content={fullCanonical} />}
       <meta property="og:image" content={fullOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -109,7 +114,7 @@ export default function SEO({
       <meta name="twitter:image" content={fullOgImage} />
       <meta name="twitter:site" content="@innofyai" />
       <meta name="twitter:creator" content="@innofyai" />
-
+      
       {/* Additional Meta Tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#3b82f6" />
@@ -125,18 +130,20 @@ export default function SEO({
       {tags.map((tag, index) => (
         <meta key={index} property="article:tag" content={tag} />
       ))}
-
+      
       {/* Structured Data */}
       {structuredData && (
-        <script type="application/ld+json">
+      <script type="application/ld+json">
           {JSON.stringify(structuredData)}
-        </script>
+      </script>
       )}
       
-      {/* Default Organization Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(defaultStructuredData)}
-      </script>
+      {/* Optional Organization Structured Data */}
+      {includeDefaultOrgSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(defaultStructuredData)}
+        </script>
+      )}
 
       {/* Web App Manifest */}
       <link rel="manifest" href="/manifest.json" />

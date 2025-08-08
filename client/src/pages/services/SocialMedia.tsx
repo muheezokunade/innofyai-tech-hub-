@@ -214,7 +214,7 @@ export default function SocialMedia() {
                   variants={fadeUpVariants}
                 >
                   Grow your brand and engage your audience with expert social media marketing, content
-                  creation, and analytics services across all major platforms.
+          creation, and analytics services across all major platforms.
                 </motion.p>
 
                 <motion.div className="flex flex-col sm:flex-row gap-4" variants={fadeUpVariants}>
@@ -312,7 +312,7 @@ export default function SocialMedia() {
       {/* Social Media Platforms */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+        <motion.div
             className="text-center mb-16"
             variants={scrollRevealVariants}
             initial="hidden"
@@ -328,14 +328,14 @@ export default function SocialMedia() {
             <motion.p className="text-xl text-gray-300" variants={fadeUpVariants}>
               We manage your presence across all major social media platforms
             </motion.p>
-          </motion.div>
+        </motion.div>
 
-          <motion.div
+        <motion.div
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           >
             {socialPlatforms.map((platform, index) => (
               <motion.div
@@ -354,9 +354,9 @@ export default function SocialMedia() {
                 <h3 className="text-lg font-bold text-white mb-2">{platform.name}</h3>
                 <p className="text-gray-300 text-sm">{platform.description}</p>
               </motion.div>
-            ))}
+              ))}
           </motion.div>
-        </div>
+          </div>
       </section>
 
       {/* Social Media Process */}
@@ -472,9 +472,9 @@ export default function SocialMedia() {
                   <p className="text-gray-300 text-sm">
                     Companies using social media for lead generation see 24% higher revenue growth than those who don't.
                   </p>
-                </div>
-              </div>
-            </motion.div>
+            </div>
+          </div>
+        </motion.div>
 
             <motion.div variants={fadeUpVariants}>
               <h3 className="text-3xl font-bold text-white mb-8">Our Approach</h3>
@@ -506,7 +506,7 @@ export default function SocialMedia() {
       {/* Case Study */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+        <motion.div
             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden"
             variants={cardHoverVariants}
             initial="hidden"
@@ -549,15 +549,15 @@ export default function SocialMedia() {
                   />
                 </motion.div>
               </div>
-            </div>
-          </motion.div>
+          </div>
+        </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+        <motion.div
             variants={scrollRevealVariants}
             initial="hidden"
             whileInView="visible"
@@ -576,13 +576,13 @@ export default function SocialMedia() {
               Let's create engaging content and build meaningful connections with your audience across all platforms.
             </motion.p>
             <motion.div variants={fadeUpVariants}>
-              <Link href="/contact">
+          <Link href="/contact">
                 <Button className="bg-white text-blue-600 px-8 py-4 text-lg hover:bg-gray-100 transition-colors font-semibold">
                   Start Social Media Project
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-              </Link>
-            </motion.div>
+          </Link>
+        </motion.div>
           </motion.div>
         </div>
       </section>

@@ -48,27 +48,27 @@ function App() {
       <HelmetProvider>
         <ThemeProvider>
           <AppointmentProvider>
-            <Layout>
-              <Suspense fallback={<LoadingSpinner />}>
-                <Switch>
+      <Layout>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Switch>
                   {/* Main pages */}
-                  <Route path="/" component={Home} />
-                  <Route path="/about" component={About} />
-                  <Route path="/services" component={Services} />
-                  <Route path="/portfolio" component={Portfolio} />
+            <Route path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/portfolio" component={Portfolio} />
                   <Route path="/contact" component={Contact} />
-                  <Route path="/blog" component={Blog} />
-                  <Route path="/privacy" component={Privacy} />
-                  <Route path="/terms" component={Terms} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/terms" component={Terms} />
 
                   {/* Service pages */}
-                  <Route path="/services/automation-ai" component={AutomationAI} />
-                  <Route path="/services/cybersecurity" component={Cybersecurity} />
-                  <Route path="/services/data-analytics" component={DataAnalytics} />
+            <Route path="/services/automation-ai" component={AutomationAI} />
+            <Route path="/services/cybersecurity" component={Cybersecurity} />
+            <Route path="/services/data-analytics" component={DataAnalytics} />
                   <Route path="/services/software-engineering" component={SoftwareEngineering} />
-                  <Route path="/services/ui-ux-design" component={UIUXDesign} />
+            <Route path="/services/ui-ux-design" component={UIUXDesign} />
                   <Route path="/services/branding-merch" component={BrandingMerch} />
-                  <Route path="/services/social-media" component={SocialMedia} />
+            <Route path="/services/social-media" component={SocialMedia} />
                   <Route path="/services/research-data" component={ResearchData} />
 
                   {/* Project detail pages */}
@@ -82,10 +82,10 @@ function App() {
                   <Route path="/blog/cybersecurity-trends-2024" component={CybersecurityTrends2024} />
                   <Route path="/blog/practical-ai-smes" component={PracticalAISMEs} />
 
-                  {/* 404 page */}
-                  <Route component={NotFound} />
-                </Switch>
-              </Suspense>
+            {/* 404 page */}
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
 
               {/* Testing Panel - Only show in development */}
               {process.env.NODE_ENV === 'development' && (
@@ -95,7 +95,7 @@ function App() {
                 />
               )}
             </Layout>
-          </AppointmentProvider>
+            </AppointmentProvider>
         </ThemeProvider>
       </HelmetProvider>
     </QueryClientProvider>

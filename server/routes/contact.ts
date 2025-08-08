@@ -1,16 +1,36 @@
 import type { Request, Response } from "express";
 import nodemailer from "nodemailer";
 
-// Create transporter with Gmail SMTP
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || "smtp.gmail.com",
-  port: parseInt(process.env.SMTP_PORT || "587"),
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.SMTP_USER || "muheezadedejiokunade@gmail.com",
-    pass: process.env.SMTP_PASS || "lcla prtm bpxb loqk",
-  },
-});
+// SMTP configuration strictly from environment variables
+let cachedTransporter: nodemailer.Transporter | null = null;
+
+function getMailer(): nodemailer.Transporter {
+  if (cachedTransporter) return cachedTransporter;
+
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : undefined;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpSecure = process.env.SMTP_SECURE
+    ? process.env.SMTP_SECURE.toLowerCase() === "true"
+    : smtpPort === 465; // default to secure only for port 465
+
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
+    throw new Error("SMTP configuration is missing. Please set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS.");
+  }
+
+  cachedTransporter = nodemailer.createTransport({
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpSecure,
+    auth: {
+      user: smtpUser,
+      pass: smtpPass,
+    },
+  });
+
+  return cachedTransporter;
+}
 
 interface ContactFormData {
   name: string;
@@ -42,10 +62,20 @@ export async function handleContactForm(req: Request, res: Response) {
       });
     }
 
+    // Resolve sender identities from env
+    const fromEmail = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER;
+    const fromName = process.env.SMTP_FROM_NAME || "InnofyAI";
+
+    if (!fromEmail) {
+      throw new Error("SMTP_FROM_EMAIL or SMTP_USER must be configured.");
+    }
+
+    const transporter = getMailer();
+
     // Create email content
     const mailOptions = {
-      from: `"InnofyAI Contact Form" <${process.env.SMTP_USER || "muheezadedejiokunade@gmail.com"}>`,
-      to: "info@innofyai.com", // Company email
+      from: `${fromName} <${fromEmail}>`,
+      to: process.env.CONTACT_TO_EMAIL || "info@innofyai.com",
       replyTo: email,
       subject: `New Contact Form Submission - ${service}`,
       html: `
@@ -72,14 +102,14 @@ export async function handleContactForm(req: Request, res: Response) {
             <p style="margin: 0; color: #1e40af; font-size: 14px;">
               <strong>Submission Details:</strong><br>
               Date: ${new Date().toLocaleString('en-US', { timeZone: 'Africa/Lagos' })}<br>
-              IP: ${req.ip || req.connection.remoteAddress}<br>
+              IP: ${req.ip || (req as any).connection?.remoteAddress || ''}<br>
               User Agent: ${req.get('User-Agent')}
             </p>
           </div>
           
           <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
             <p style="color: #64748b; font-size: 12px;">
-              This email was sent from the InnofyAI contact form at ${req.get('origin') || 'innofyai.com'}
+              This email was sent from the InnofyAI contact form
             </p>
           </div>
         </div>
@@ -99,7 +129,7 @@ ${message}
 
 Submission Details:
 - Date: ${new Date().toLocaleString('en-US', { timeZone: 'Africa/Lagos' })}
-- IP: ${req.ip || req.connection.remoteAddress}
+- IP: ${req.ip || (req as any).connection?.remoteAddress || ''}
 - User Agent: ${req.get('User-Agent')}
 
 This email was sent from the InnofyAI contact form.
@@ -111,7 +141,7 @@ This email was sent from the InnofyAI contact form.
 
     // Send confirmation email to the user
     const confirmationMailOptions = {
-      from: `"InnofyAI" <${process.env.SMTP_USER || "muheezadedejiokunade@gmail.com"}>`,
+      from: `${fromName} <${fromEmail}>`,
       to: email,
       subject: "Thank you for contacting InnofyAI!",
       html: `
@@ -139,9 +169,9 @@ This email was sent from the InnofyAI contact form.
             
             <p>In the meantime, feel free to explore our services and portfolio:</p>
             <ul>
-              <li><a href="https://innofyai.netlify.app/services" style="color: #2563eb;">Our Services</a></li>
-              <li><a href="https://innofyai.netlify.app/portfolio" style="color: #2563eb;">Portfolio</a></li>
-              <li><a href="https://innofyai.netlify.app/about" style="color: #2563eb;">About Us</a></li>
+              <li><a href="https://innofyai.com/services" style="color: #2563eb;">Our Services</a></li>
+              <li><a href="https://innofyai.com/portfolio" style="color: #2563eb;">Portfolio</a></li>
+              <li><a href="https://innofyai.com/about" style="color: #2563eb;">About Us</a></li>
             </ul>
           </div>
           
@@ -149,15 +179,8 @@ This email was sent from the InnofyAI contact form.
             <p style="color: #64748b; font-size: 14px;">
               <strong>InnofyAI</strong><br>
               Transforming businesses through intelligent automation and creative excellence<br>
-              <a href="https://innofyai.netlify.app" style="color: #2563eb;">innofyai.netlify.app</a>
+              <a href="https://innofyai.com" style="color: #2563eb;">innofyai.com</a>
             </p>
-            
-            <div style="margin-top: 20px;">
-              <a href="https://www.linkedin.com/company/innofy-ai/" style="color: #0077b5; margin: 0 10px;">LinkedIn</a>
-              <a href="https://x.com/innofyai?s=21" style="color: #1da1f2; margin: 0 10px;">X (Twitter)</a>
-              <a href="https://www.instagram.com/innofyai?igsh=dGI5MTE5a2xra28%3D&utm_source=qr" style="color: #e4405f; margin: 0 10px;">Instagram</a>
-              <a href="https://www.tiktok.com/@innofyai?_t=ZM-8y83dmNvGis&_r=1" style="color: #000000; margin: 0 10px;">TikTok</a>
-            </div>
           </div>
         </div>
       `,
@@ -177,22 +200,16 @@ What happens next?
 - Begin your project journey
 
 In the meantime, feel free to explore our services and portfolio:
-- Our Services: https://innofyai.netlify.app/services
-- Portfolio: https://innofyai.netlify.app/portfolio
-- About Us: https://innofyai.netlify.app/about
+- Our Services: https://innofyai.com/services
+- Portfolio: https://innofyai.com/portfolio
+- About Us: https://innofyai.com/about
 
 Best regards,
 The InnofyAI Team
 
 InnofyAI
 Transforming businesses through intelligent automation and creative excellence
-https://innofyai.netlify.app
-
-Follow us:
-- LinkedIn: https://www.linkedin.com/company/innofy-ai/
-- X (Twitter): https://x.com/innofyai?s=21
-- Instagram: https://www.instagram.com/innofyai?igsh=dGI5MTE5a2xra28%3D&utm_source=qr
-- TikTok: https://www.tiktok.com/@innofyai?_t=ZM-8y83dmNvGis&_r=1
+https://innofyai.com
       `
     };
 
@@ -205,6 +222,7 @@ Follow us:
 
   } catch (error) {
     console.error("Contact form error:", error);
+    // Avoid leaking internal errors
     res.status(500).json({
       success: false,
       message: "Sorry, there was an error sending your message. Please try again or contact us directly."

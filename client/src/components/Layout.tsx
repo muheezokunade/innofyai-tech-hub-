@@ -123,7 +123,7 @@ function Footer() {
                 InnofyAI
               </span>
             </div>
-            
+
             <p className="text-gray-300 mb-8 leading-relaxed max-w-md">
               Transforming businesses through intelligent automation and creative excellence. 
               Where technology meets artistry to create digital experiences that inspire and innovate.
@@ -209,12 +209,12 @@ function Footer() {
                     className="text-gray-300 hover:text-white transition-all duration-300 text-sm"
                   >
                     {link.name}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
 
         {/* Bottom Section */}
         <motion.div
@@ -242,18 +242,18 @@ function Footer() {
         </motion.div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
+        {/* Scroll to Top Button */}
+        <motion.button
+          onClick={scrollToTop}
         className="fixed bottom-6 right-6 p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
         whileHover={{ scale: 1.1, y: -2 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <ArrowUp className="h-5 w-5" />
-      </motion.button>
+          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <ArrowUp className="h-5 w-5" />
+        </motion.button>
     </motion.footer>
   );
 }

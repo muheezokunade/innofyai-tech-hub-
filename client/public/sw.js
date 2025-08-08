@@ -69,6 +69,12 @@ self.addEventListener('fetch', (event) => {
 
   // Handle API requests
   if (url.pathname.startsWith('/api/')) {
+    // Never intercept non-GET API requests (avoid caching PII / mutations)
+    if (request.method !== 'GET') {
+      event.respondWith(fetch(request));
+      return;
+    }
+
     event.respondWith(handleApiRequest(request));
     return;
   }
@@ -84,25 +90,33 @@ self.addEventListener('fetch', (event) => {
 });
 
 async function handleApiRequest(request) {
+  const url = new URL(request.url);
+
   try {
-    // Try network first for API requests
+    // Network first for API requests
     const networkResponse = await fetch(request);
-    
-    if (networkResponse.ok) {
-      // Cache successful API responses
+
+    // Only cache safe, cacheable GET responses and exclude sensitive endpoints
+    if (
+      request.method === 'GET' &&
+      !isSensitiveApiPath(url.pathname) &&
+      isCacheableApiResponse(networkResponse)
+    ) {
       const cache = await caches.open(API_CACHE);
       cache.put(request, networkResponse.clone());
     }
-    
+
     return networkResponse;
   } catch (error) {
-    // Fallback to cached API response
-    const cachedResponse = await caches.match(request);
-    if (cachedResponse) {
-      return cachedResponse;
+    // Fallback to cached API response for GET only
+    if (request.method === 'GET') {
+      const cachedResponse = await caches.match(request);
+      if (cachedResponse) {
+        return cachedResponse;
+      }
     }
-    
-    // Return offline response for API requests
+
+    // Return offline response for API GET requests
     return new Response(
       JSON.stringify({ error: 'Offline - API unavailable' }),
       {
@@ -216,4 +230,18 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
-}); 
+});
+
+// Helper: identify sensitive API paths that should never be cached
+function isSensitiveApiPath(pathname) {
+  return /^\/api\/(contact|auth|login|logout|register|password|user|users|account|profile|admin|payment|checkout)/i.test(pathname);
+}
+
+// Helper: only cache responses that are explicitly cacheable
+function isCacheableApiResponse(response) {
+  if (!response || !response.ok) return false;
+  const cacheControl = response.headers.get('Cache-Control') || '';
+  // Do not cache if server marks as private/no-store/no-cache
+  if (/no-store|no-cache|private/i.test(cacheControl)) return false;
+  return true;
+} 

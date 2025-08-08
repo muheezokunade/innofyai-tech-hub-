@@ -357,26 +357,26 @@ keywords="about InnofyAI, team, mission, vision, Lekki Nigeria, tech innovation,
               variants={fadeUpVariants}
             >
               {teamMembers.slice(3, 5).map((member) => (
-                <motion.div
-                  key={member.id}
-                  className="text-center group"
-                  variants={fadeUpVariants}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div className="relative mb-6" whileHover={{ scale: 1.05 }}>
-                    <img
-                      src={member.image}
-                      alt={`Professional headshot of ${member.name}`}
-                      className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/10 group-hover:border-blue-500/50 transition-all duration-300"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
-                  <h3 className="font-bold text-xl text-white mb-2">{member.name}</h3>
-                  <p className="text-blue-400 mb-3 font-medium">{member.title}</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
+              <motion.div
+                key={member.id}
+                className="text-center group"
+                variants={fadeUpVariants}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div className="relative mb-6" whileHover={{ scale: 1.05 }}>
+                  <img
+                    src={member.image}
+                    alt={`Professional headshot of ${member.name}`}
+                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/10 group-hover:border-blue-500/50 transition-all duration-300"
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
-              ))}
+                <h3 className="font-bold text-xl text-white mb-2">{member.name}</h3>
+                <p className="text-blue-400 mb-3 font-medium">{member.title}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">{member.description}</p>
+              </motion.div>
+            ))}
             </motion.div>
           </motion.div>
         </div>

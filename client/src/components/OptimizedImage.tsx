@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { imageCache, getCacheKey, setRateLimitDetected, isRateLimited, getPlaceholderImage as getCachedPlaceholder } from "../utils/imageCache";
 import { imagePreloader } from "../utils/imagePreloader";
 
+const KNOWN_OPTIMIZATION_HOSTS = new Set<string>([
+  'images.pexels.com',
+  'i.postimg.cc',
+  'asoapparel.com',
+]);
+
 interface OptimizedImageProps {
   src: string;
   alt: string;
@@ -14,6 +20,7 @@ interface OptimizedImageProps {
   height?: number;
   quality?: number;
   format?: 'webp' | 'avif' | 'jpeg' | 'png';
+  optimizeExternal?: boolean; // new: only append params for external hosts when true
 }
 
 export function OptimizedImage({
@@ -26,7 +33,8 @@ export function OptimizedImage({
   width,
   height,
   quality = 85,
-  format = 'webp'
+  format = 'webp',
+  optimizeExternal = false,
 }: OptimizedImageProps) {
   const [imageSrc, setImageSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
@@ -62,35 +70,36 @@ export function OptimizedImage({
       return url;
     }
 
-    // For external images, add optimization parameters
+    // External images: only add params if opted-in AND host is known to support them
     if (url.startsWith('http')) {
-      const urlObj = new URL(url);
-      
-      // Add format parameter
-      if (format && !urlObj.searchParams.has('format')) {
-        urlObj.searchParams.set('format', format);
+      try {
+        const urlObj = new URL(url);
+        const host = urlObj.hostname.toLowerCase();
+
+        if (!optimizeExternal || !KNOWN_OPTIMIZATION_HOSTS.has(host)) {
+          return url; // do not append params for unknown hosts
+        }
+
+        if (format && !urlObj.searchParams.has('format')) {
+          urlObj.searchParams.set('format', format);
+        }
+        if (quality && !urlObj.searchParams.has('q')) {
+          urlObj.searchParams.set('q', quality.toString());
+        }
+        if (width && !urlObj.searchParams.has('w')) {
+          urlObj.searchParams.set('w', width.toString());
+        }
+        if (height && !urlObj.searchParams.has('h')) {
+          urlObj.searchParams.set('h', height.toString());
+        }
+        return urlObj.toString();
+      } catch {
+        return url;
       }
-      
-      // Add quality parameter
-      if (quality && !urlObj.searchParams.has('q')) {
-        urlObj.searchParams.set('q', quality.toString());
-      }
-      
-      // Add width parameter if provided
-      if (width && !urlObj.searchParams.has('w')) {
-        urlObj.searchParams.set('w', width.toString());
-      }
-      
-      // Add height parameter if provided
-      if (height && !urlObj.searchParams.has('h')) {
-        urlObj.searchParams.set('h', height.toString());
-      }
-      
-      return urlObj.toString();
     }
     
     return url;
-  }, [format, quality, width, height]);
+  }, [format, quality, width, height, optimizeExternal]);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -158,8 +167,9 @@ export function OptimizedImage({
       const retryDelay = Math.pow(2, retryCount) * 1000;
       setTimeout(() => {
         setRetryCount(prev => prev + 1);
-        const cacheBuster = `?retry=${retryCount + 1}&t=${Date.now()}`;
-        const newSrc = src.includes('?') ? `${src}&${cacheBuster}` : `${src}${cacheBuster}`;
+        const cacheBuster = `retry=${retryCount + 1}&t=${Date.now()}`;
+        const separator = src.includes('?') ? '&' : '?';
+        const newSrc = `${src}${separator}${cacheBuster}`;
         setImageSrc(getOptimizedUrl(newSrc));
         setIsLoading(true);
       }, retryDelay);
@@ -305,31 +315,37 @@ export function getOptimizedImageSrc(originalSrc: string, options?: {
   height?: number;
   quality?: number;
   format?: 'webp' | 'avif' | 'jpeg' | 'png';
+  optimizeExternal?: boolean;
 }): string {
   if (!originalSrc || originalSrc.startsWith('data:') || originalSrc.startsWith('/assets/')) {
     return originalSrc;
   }
 
   if (originalSrc.startsWith('http')) {
-    const urlObj = new URL(originalSrc);
-    
-    if (options?.format && !urlObj.searchParams.has('format')) {
-      urlObj.searchParams.set('format', options.format);
+    try {
+      const urlObj = new URL(originalSrc);
+      const host = urlObj.hostname.toLowerCase();
+
+      if (!options?.optimizeExternal || !KNOWN_OPTIMIZATION_HOSTS.has(host)) {
+        return originalSrc;
+      }
+
+      if (options?.format && !urlObj.searchParams.has('format')) {
+        urlObj.searchParams.set('format', options.format);
+      }
+      if (options?.quality && !urlObj.searchParams.has('q')) {
+        urlObj.searchParams.set('q', options.quality.toString());
+      }
+      if (options?.width && !urlObj.searchParams.has('w')) {
+        urlObj.searchParams.set('w', options.width.toString());
+      }
+      if (options?.height && !urlObj.searchParams.has('h')) {
+        urlObj.searchParams.set('h', options.height.toString());
+      }
+      return urlObj.toString();
+    } catch {
+      return originalSrc;
     }
-    
-    if (options?.quality && !urlObj.searchParams.has('q')) {
-      urlObj.searchParams.set('q', options.quality.toString());
-    }
-    
-    if (options?.width && !urlObj.searchParams.has('w')) {
-      urlObj.searchParams.set('w', options.width.toString());
-    }
-    
-    if (options?.height && !urlObj.searchParams.has('h')) {
-      urlObj.searchParams.set('h', options.height.toString());
-    }
-    
-    return urlObj.toString();
   }
   
   return originalSrc;

@@ -19,7 +19,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
-    <meta name="theme-color" content="#54B435" />
+    <meta name="theme-color" content="#3b82f6" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -53,7 +53,7 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png" />
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,7 +78,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <!-- Dev-only: load Replit dev banner script only in development -->
+    <script type="module">
+      if (import.meta.env && import.meta.env.DEV) {
+        const s = document.createElement('script');
+        s.src = 'https://replit.com/public/js/replit-dev-banner.js';
+        s.async = true;
+        document.head.appendChild(s);
+      }
+    </script>
   </body>
 </html>

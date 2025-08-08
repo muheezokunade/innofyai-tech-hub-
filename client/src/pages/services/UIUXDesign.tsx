@@ -139,19 +139,19 @@ export default function UIUXDesign() {
             viewport={{ once: true }}
           >
             <motion.div variants={fadeUpVariants}>
-              <Link href="/services">
+          <Link href="/services">
                 <motion.button
                   className="group mb-8 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2"
                   whileHover={{ x: -5 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                  Back to Services
+              Back to Services
                 </motion.button>
-              </Link>
+          </Link>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div className="space-y-8" variants={staggerContainerVariants}>
                 <motion.div variants={fadeUpVariants}>
                   <Badge className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-0 mb-6">
@@ -173,12 +173,12 @@ export default function UIUXDesign() {
                   className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
                   variants={fadeUpVariants}
                 >
-                  Create exceptional user experiences with intuitive interfaces that delight users and
+                Create exceptional user experiences with intuitive interfaces that delight users and
                   drive engagement through thoughtful design.
                 </motion.p>
 
                 <motion.div className="flex flex-col sm:flex-row gap-4" variants={fadeUpVariants}>
-                  <Link href="/contact">
+                <Link href="/contact">
                     <motion.button
                       className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 text-lg"
                       variants={buttonHoverVariants}
@@ -188,13 +188,13 @@ export default function UIUXDesign() {
                       <span>Start Design Project</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                  </Link>
+                </Link>
                   <motion.button
                     className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    View Design Portfolio
+                  View Design Portfolio
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -208,11 +208,11 @@ export default function UIUXDesign() {
               >
                 <motion.img
                   src="https://images.pexels.com/photos/326502/pexels-photo-326502.jpeg"
-                  alt="UI/UX design process and wireframes"
+                alt="UI/UX design process and wireframes"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}
                   whileHover="hover"
-                />
+              />
               </motion.div>
             </div>
           </motion.div>
@@ -366,7 +366,7 @@ export default function UIUXDesign() {
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
                       {principle.icon}
                     </div>
-                    <div>
+            <div>
                       <h4 className="text-lg font-semibold text-white mb-2">{principle.title}</h4>
                       <p className="text-gray-300">{principle.description}</p>
                     </div>
@@ -477,7 +477,7 @@ export default function UIUXDesign() {
               className="text-4xl lg:text-5xl font-bold text-white mb-6"
               variants={fadeUpVariants}
             >
-              Ready to Enhance User Experience?
+            Ready to Enhance User Experience?
             </motion.h2>
             <motion.p
               className="text-xl text-white/90 mb-8"
@@ -486,12 +486,12 @@ export default function UIUXDesign() {
               Let's create intuitive, beautiful designs that your users will love and drive real business results.
             </motion.p>
             <motion.div variants={fadeUpVariants}>
-              <Link href="/contact">
+          <Link href="/contact">
                 <Button className="bg-white text-purple-600 px-8 py-4 text-lg hover:bg-gray-100 transition-colors font-semibold">
-                  Start Design Project
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              Start Design Project
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
             </motion.div>
           </motion.div>
         </div>

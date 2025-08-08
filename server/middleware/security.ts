@@ -17,18 +17,6 @@ export const rateLimiter = rateLimit({
   skip: (req) => process.env.NODE_ENV === "development" && req.path.startsWith("/api/health"),
 });
 
-// Stricter rate limit for auth endpoints
-export const authRateLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // limit each IP to 5 requests per windowMs
-  message: {
-    error: "Too many authentication attempts, please try again later.",
-    statusCode: 429
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
 // CORS configuration
 export const corsOptions = {
   origin: process.env.NODE_ENV === "production" 
@@ -40,16 +28,43 @@ export const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
 };
 
-// Helmet configuration
+// Helmet configuration (environment-aware CSP)
+const isDev = process.env.NODE_ENV !== "production";
+const scriptSrc: string[] = [
+  "'self'",
+  "https://www.googletagmanager.com",
+  "'unsafe-inline'", // required for JSON-LD structured data injected by Helmet
+];
+if (isDev) {
+  scriptSrc.push("'unsafe-eval'"); // Vite HMR in dev
+}
+
+const connectSrc: string[] = [
+  "'self'",
+  "https://www.googletagmanager.com",
+  "https://www.google-analytics.com",
+];
+if (isDev) {
+  connectSrc.push(
+    "http://localhost:5000",
+    "http://localhost:5173",
+    "ws://localhost:5000",
+    "ws://localhost:5173",
+  );
+}
+
 export const helmetConfig = helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:", "blob:"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-      connectSrc: ["'self'", "https://www.googletagmanager.com"],
+      baseUri: ["'self'"],
+      frameAncestors: ["'none'"],
+      styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+      imgSrc: ["'self'", "data:", "blob:", "https:"],
+      scriptSrc,
+      connectSrc,
+      workerSrc: ["'self'"],
       frameSrc: ["'none'"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
@@ -59,46 +74,41 @@ export const helmetConfig = helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" },
 });
 
-// Input sanitization middleware
+// Conservative input validation middleware (non-destructive)
 export const sanitizeInput = (req: Request, res: Response, next: NextFunction) => {
-  // Sanitize query parameters
-  if (req.query) {
-    Object.keys(req.query).forEach(key => {
-      if (typeof req.query[key] === "string") {
-        req.query[key] = sanitizeString(req.query[key] as string);
-      }
-    });
-  }
+  const violations: Array<{ location: 'query' | 'body' | 'params'; key: string }> = [];
 
-  // Sanitize body parameters
-  if (req.body) {
-    Object.keys(req.body).forEach(key => {
-      if (typeof req.body[key] === "string") {
-        req.body[key] = sanitizeString(req.body[key]);
-      }
-    });
-  }
+  const containsProhibitedPayload = (value: string): boolean => {
+    const lower = value.toLowerCase();
+    // Only check for obviously dangerous patterns; do not strip or mutate
+    return lower.includes('<script') || lower.includes('</script') || lower.includes('javascript:');
+  };
 
-  // Sanitize URL parameters
-  if (req.params) {
-    Object.keys(req.params).forEach(key => {
-      if (typeof req.params[key] === "string") {
-        req.params[key] = sanitizeString(req.params[key]);
+  const checkContainer = (container: Record<string, unknown> | undefined, location: 'query' | 'body' | 'params') => {
+    if (!container) return;
+    for (const key of Object.keys(container)) {
+      const val = (container as Record<string, unknown>)[key];
+      if (typeof val === 'string' && containsProhibitedPayload(val)) {
+        violations.push({ location, key });
       }
+    }
+  };
+
+  checkContainer(req.query as Record<string, unknown>, 'query');
+  checkContainer(req.body as Record<string, unknown>, 'body');
+  checkContainer(req.params as Record<string, unknown>, 'params');
+
+  if (violations.length > 0) {
+    return res.status(400).json({
+      success: false,
+      error: 'Invalid characters detected in input',
+      statusCode: 400,
+      details: process.env.NODE_ENV === 'production' ? undefined : violations,
     });
   }
 
   next();
 };
-
-// String sanitization function
-function sanitizeString(str: string): string {
-  return str
-    .replace(/[<>]/g, "") // Remove < and >
-    .replace(/javascript:/gi, "") // Remove javascript: protocol
-    .replace(/on\w+=/gi, "") // Remove event handlers
-    .trim();
-}
 
 // Validation middleware for contact form
 export const validateContactForm = [
@@ -142,14 +152,8 @@ export const handleValidationErrors = (req: Request, res: Response, next: NextFu
 
 // Security headers middleware
 export const securityHeaders = (req: Request, res: Response, next: NextFunction) => {
-  // Prevent clickjacking
-  res.setHeader("X-Frame-Options", "DENY");
-  
   // Prevent MIME type sniffing
   res.setHeader("X-Content-Type-Options", "nosniff");
-  
-  // Enable XSS protection
-  res.setHeader("X-XSS-Protection", "1; mode=block");
   
   // Referrer policy
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
@@ -157,7 +161,7 @@ export const securityHeaders = (req: Request, res: Response, next: NextFunction)
   // Permissions policy
   res.setHeader(
     "Permissions-Policy",
-    "camera=(), microphone=(), geolocation=(), payment=()"
+    "camera=(), microphone=(), geolocation=(), payment()"
   );
   
   next();

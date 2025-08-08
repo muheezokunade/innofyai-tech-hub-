@@ -171,19 +171,19 @@ export default function BrandingMerch() {
             viewport={{ once: true }}
           >
             <motion.div variants={fadeUpVariants}>
-              <Link href="/services">
+          <Link href="/services">
                 <motion.button
                   className="group mb-8 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2"
                   whileHover={{ x: -5 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                  Back to Services
+              Back to Services
                 </motion.button>
-              </Link>
+          </Link>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div className="space-y-8" variants={staggerContainerVariants}>
                 <motion.div variants={fadeUpVariants}>
                   <Badge className="bg-gradient-to-r from-orange-600 to-red-600 text-white border-0 mb-6">
@@ -205,12 +205,12 @@ export default function BrandingMerch() {
                   className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
                   variants={fadeUpVariants}
                 >
-                  Build powerful brand identities that resonate with your audience and create lasting
+                Build powerful brand identities that resonate with your audience and create lasting
                   impressions through cohesive design and premium merchandise.
                 </motion.p>
 
                 <motion.div className="flex flex-col sm:flex-row gap-4" variants={fadeUpVariants}>
-                  <Link href="/contact">
+                <Link href="/contact">
                     <motion.button
                       className="group px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold rounded-full shadow-lg flex items-center gap-2 text-lg"
                       variants={buttonHoverVariants}
@@ -220,13 +220,13 @@ export default function BrandingMerch() {
                       <span>Start Brand Project</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                  </Link>
+                </Link>
                   <motion.button
                     className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    View Brand Portfolio
+                  View Brand Portfolio
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -240,11 +240,11 @@ export default function BrandingMerch() {
               >
                 <motion.img
                   src="https://asoapparel.com/cdn/shop/articles/Untitled_2048_x_1536_px.png?v=1724877221&width=1320"
-                  alt="Brand identity design elements and merchandise"
+                alt="Brand identity design elements and merchandise"
                   className="rounded-2xl shadow-2xl w-full h-auto"
                   variants={cardHoverVariants}
                   whileHover="hover"
-                />
+              />
               </motion.div>
             </div>
           </motion.div>
@@ -469,9 +469,9 @@ export default function BrandingMerch() {
                   </div>
                   <p className="text-gray-300 text-sm">
                     Strong brands create 5x more customer loyalty than competitors and drive repeat business.
-                  </p>
+                    </p>
                 </div>
-              </div>
+                  </div>
             </motion.div>
 
             <motion.div variants={fadeUpVariants}>
@@ -488,11 +488,11 @@ export default function BrandingMerch() {
                   >
                     <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
                       {principle.icon}
-                    </div>
-                    <div>
+                </div>
+                  <div>
                       <h4 className="text-lg font-semibold text-white mb-2">{principle.title}</h4>
                       <p className="text-gray-300">{principle.description}</p>
-                    </div>
+                  </div>
                   </motion.div>
                 ))}
               </div>
@@ -565,7 +565,7 @@ export default function BrandingMerch() {
               className="text-4xl lg:text-5xl font-bold text-white mb-6"
               variants={fadeUpVariants}
             >
-              Ready to Build Your Brand?
+            Ready to Build Your Brand?
             </motion.h2>
             <motion.p
               className="text-xl text-white/90 mb-8"
@@ -574,12 +574,12 @@ export default function BrandingMerch() {
               Let's create a brand identity that makes a lasting impression on your audience and drives real business results.
             </motion.p>
             <motion.div variants={fadeUpVariants}>
-              <Link href="/contact">
+          <Link href="/contact">
                 <Button className="bg-white text-orange-600 px-8 py-4 text-lg hover:bg-gray-100 transition-colors font-semibold">
-                  Start Brand Project
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              Start Brand Project
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
             </motion.div>
           </motion.div>
         </div>
